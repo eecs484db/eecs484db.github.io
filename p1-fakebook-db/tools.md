@@ -6,36 +6,38 @@ permalink: /tools.html
 
 # Tools
 
-This document houses the tools necessary to succeed in EECS 484. You will explore most of these in Project 1, and you can refer back to this document as a refresher for Projects 2 and 3.
+This document houses the tools necessary to succeed in EECS 484. You will explore most of these in Project 1 (before starting [Part 2](p1-fakebook-db/#part-2-creating-the-data-tables)), and you can refer back to this document as a refresher for Projects 2 and 3.
 
 # CAEN
 
 To connect to CAEN remotely and to use SQL\*Plus, you will need to
 
--   sync your files between your local machine (to submit to the Autograder) and a CAEN machine (for SQL\*PLUS testing), and
--   ssh into a CAEN Linux machine to run your files
+- sync your files between your local machine (to submit to the Autograder) and a CAEN machine (for SQL\*PLUS testing), and
+- ssh into a CAEN Linux machine to run your files
 
-Many of you have visited the tutorial at [EECS 280 Setup Tutorial][eecs-280-setup]. You are free to use any setup that has worked in the past for you, but **remember that running your scripts on CAEN will produce more helpful error descriptions than the ones provided by the Autograder.** We’ve summarized the most common options below.
+Many of you have visited the tutorial at [EECS 280 Setup Tutorial][eecs-280-setup]. You are free to use any setup that has worked in the past for you, but **remember that running your scripts on CAEN will produce more helpful error descriptions than the ones provided by the Autograder.**
+
+We’ve summarized the most common options below. **It is your responsibility to ensure you have access well before any deadlines.** It may take staff several hours or days to help debug machine-specific workflows. For this reason, we recommend starting with the most familiar approach (command line `ssh` and `git`) before trying out `rsync`, Visual Studio Code, or other options.
 
 ## Option 1 (Terminal)
 
 The first option is to do all your development on your local machine, but periodically copy your files to CAEN for testing through the terminal.
 
-You can use Git's version control, which has the benefit of keeping track of your files over time.
+- You can use Git's version control, which has the benefit of keeping track of your files over time.
 
-For a simpler approach, you can copy your local files to CAEN with the `rsync` command (omit angle brackets).
+- For a faster approach, you can copy your local files to CAEN with the `rsync` command (omit angle brackets).
 
-```
-rsync -rtv <local_folder> <uniqname>@login.engin.umich.edu:<remote_folder>
+```console
+$ rsync -rtv <local_folder> <uniqname>@login.engin.umich.edu:<remote_folder>
 ```
 
 Now that your files are on CAEN, to ssh into it, run
 
-```
-ssh <uniqname>@login.engin.umich.edu
+```console
+$ ssh <uniqname>@login.engin.umich.edu
 ```
 
-**Tip:** If you wish to copy your files from CAEN to your local machine, you can switch the source and destination paths.
+**Pro Tip:** If you wish to copy your files from CAEN to your local machine, you can switch the source and destination paths.
 
 ## Option 2 (Visual Studio Code)
 
@@ -53,7 +55,7 @@ Host caen
 
 Next, in Visual Studio Code, download the _Remote - SSH_ extension. Under the extension settings, check the option to _Lockfiles in Tmp_. Open Command Palette and select the option _Connect Current Window to Host..._ and choose `caen`. After entering your CAEN password and Duo authorization, you should now be able to edit your files directly on CAEN with Visual Studio Code as a text editor.
 
-**Tip:** If you were able to successfully connect to CAEN once, but it fails the next time you try to connect, try killing the connection first and wait for the log notification to confirm that it was killed. To do so, open Command Palette and select the option _Remote - SSH: Kill VS Code Server on Host_. Alternatively, ssh into CAEN and remove the `.vscode` directory with `rm -rf .vscode`.
+**Pro Tip:** If you were able to successfully connect to CAEN once, but it fails the next time you try to connect, try killing the connection first and wait for the log notification to confirm that it was killed. To do so, open Command Palette and select the option _Remote - SSH: Kill VS Code Server on Host_. Alternatively, ssh into CAEN and remove the `.vscode` directory with `rm -rf .vscode`.
 
 ## Windows Users
 
@@ -65,24 +67,24 @@ On CAEN, in order to use SQL\*PLUS (Projects 1-3), you will need to load the cla
 
 On CAEN, in order to use the `mongo` shell (Project 3), you will need to load the mongoDB module by running `module load mongodb` every time you open a new terminal session.
 
-**Pro Tip:** To tell CAEN to automatically load all modules every time your login, run the following. You only need to do this once at the beginning of the semester.
+**Pro Tip:** To automatically load all modules every time you login, run the following on CAEN. You only need to do this once at the beginning of the semester.
 
-```
-echo "module load eecs484" >> ~/.bash_profile
-echo "module load mongodb" >> ~/.bash_profile
+```console 
+$ echo "module load eecs484" >> ~/.bash_profile
+$ echo "module load mongodb" >> ~/.bash_profile
 ```
 
 # SQL\*PLUS Login
 
-For Project 1 (accessing public data set and testing scripts) and Project 2-3 (viewing database tables), you will be using a command line interface (CLI) from Oracle called SQL\*PLUS. 
+For Project 1 (accessing the public data set and testing scripts) and Project 2-3 (viewing database tables), you will be using a command line interface (CLI) from Oracle called SQL\*PLUS.
 
 A SQL\*PLUS account has already been set up for you by the staff. To access your SQL\*PLUS account, you must be on a CAEN Linux machine (see [CAEN](#caen)). To start SQL\*PLUS, run
 
-```
-rlwrap sqlplus
+```console
+$ rlwrap sqlplus
 ```
 
-Your username is your University of Michigan uniqname, and your password is `eecsclass` (this is case-sensitive). The first time you log in, the system will prompt you to change your password, which we recommend you do.
+Your username is your University of Michigan uniqname, and your password is `eecsclass` (case-sensitive). The first time you log in, the system will prompt you to change your password, which we recommend you do.
 
 Only use alphabetic characters, numerals, the underscore, and the pound sign in your SQL\*PLUS password. **Never use quotation marks, the '@' symbol, or the '$' symbol in your SQL\*PLUS password**. If you do, it is likely that you will not be able to log into your account, and you will need to reset it (see [Resetting Password and Sessions](#resetting-password-and-sessions)).
 
@@ -102,119 +104,119 @@ If you still have issues accessing your SQL\*PLUS account after trying the solut
 
 Once in SQL\*PLUS, you can execute arbitrary SQL commands. You will notice that the formatting of output from SQL\*PLUS can be less than ideal. Here are some tricks to make output more readable and some SQL commands to access information that might be important. SQL\*PLUS is case-insensitive, and as always, omit angle brackets:
 
--   To view all of your tables, run:
-    ```
-    SELECT table_name FROM user_tables;
-    ```
--   To view all of your views, run:
-    ```
-    SELECT view_name FROM user_views;
-    ```
--   To view all of your sequences, run:
-    ```
-    SELECT sequence_name FROM user_sequences;
-    ```
--   To view all of your triggers, run:
-    ```
-    SELECT trigger_name FROM user_triggers;
-    ```
--   To view the full schema of any table, including the tables of the public dataset, run:
-    ```
-    DESC <table name>;
-    ```
--   To truncate the text in a particular column to only show a certain number of characters, run:
-    ```
-    COLUMN <column name> FORMAT a<num chars>;
-    ```
--   To remove the formatting from a particular column, run:
-    ```
-    cl <column name>;
-    ```
-    and to remove the formatting from all columns, run:
-    ```
-    CLEAR COLUMNS;
-    ```
--   To change the number of characters displayed on a single line from the default of 100, run:
-    ```
-    SET LINE <num chars>;
-    ```
--   Another command that helps with formatting is:
-    ```
-    set markup csv on;
-    ```
--   To select on the first several rows from a table you can use the ROWNUM pseudovariable, such as:
-    ```
-    SELECT * FROM <table name> WHERE ROWNUM < <num>;
-    ```
--   To load commands in SQL\*PLUS from a file, say `createTables.sql` , run (the name of the file is relative to the current directory from which `sqlplus` was launched):
-    ```
-    @createTables.sql
-    ```
-    or
-    ```
-    @createTables
-    ```
--   To quit SQL\*PLUS, press ctrl+D or run:
-    ```
-    QUIT
-    ```
+- To view all of your tables, run:
+  ```
+  SELECT table_name FROM user_tables;
+  ```
+- To view all of your views, run:
+  ```
+  SELECT view_name FROM user_views;
+  ```
+- To view all of your sequences, run:
+  ```
+  SELECT sequence_name FROM user_sequences;
+  ```
+- To view all of your triggers, run:
+  ```
+  SELECT trigger_name FROM user_triggers;
+  ```
+- To view the full schema of any table, including the tables of the public dataset, run:
+  ```
+  DESC <table name>;
+  ```
+- To truncate the text in a particular column to only show a certain number of characters, run:
+  ```
+  COLUMN <column name> FORMAT a<num chars>;
+  ```
+- To remove the formatting from a particular column, run:
+  ```
+  cl <column name>;
+  ```
+  and to remove the formatting from all columns, run:
+  ```
+  CLEAR COLUMNS;
+  ```
+- To change the number of characters displayed on a single line from the default of 100, run:
+  ```
+  SET LINE <num chars>;
+  ```
+- Another command that helps with formatting is:
+  ```
+  set markup csv on;
+  ```
+- To select on the first several rows from a table you can use the ROWNUM pseudovariable, such as:
+  ```
+  SELECT * FROM <table name> WHERE ROWNUM < <num>;
+  ```
+- To load commands in SQL\*PLUS from a file, say `createTables.sql` , run the following. The name of the file is relative to the current directory from which `sqlplus` was launched:
+  ```
+  @createTables.sql
+  ```
+  or
+  ```
+  @createTables
+  ```
+- To quit SQL\*PLUS, press ctrl+D or run:
+  ```
+  QUIT
+  ```
 
 # SQL\*PLUS Potholes
 
 SQL\*PLUS is a raw command line tool that can be picky about the formatting of your scripts. Some common errors include:
 
--   Blank lines inside of a command will cancel the command.
+- Blank lines inside of a command will cancel the command.
 
-    Succeeds:
+  Succeeds:
 
-    ```sql
-    SELECT *
-    FROM table_name;
-    ```
+  ```sql
+  SELECT *
+  FROM table_name;
+  ```
 
-    Fails:
+  Fails:
 
-    ```sql
-    SELECT *
+  ```sql
+  SELECT *
 
-    FROM table_name;
-    ```
+  FROM table_name;
+  ```
 
--   Begin multiline comment symbol `/*` must have a space right afterwards.
+- Begin multiline comment symbol `/*` must have a space right afterwards.
 
-    Succeeds:
+  Succeeds:
 
-    ```sql
-    SELECT * FROM table_name;
-    /* this is a good multiline
-    comment block*/
-    ```
+  ```sql
+  SELECT * FROM table_name;
+  /* this is a good multiline
+  comment block*/
+  ```
 
-    Fails:
+  Fails:
 
-    ```sql
-    SELECT * FROM table_name;
-    /*this is a bad multiline
-    comment block*/
-    ```
+  ```sql
+  SELECT * FROM table_name;
+  /*this is a bad multiline
+  comment block*/
+  ```
 
--   Comments should not come right after the semicolon.
+- Comments should not come right after the semicolon.
 
-    Succeeds:
+  Succeeds:
 
-    ```sql
-    SELECT * FROM table_name;
-    -- this is a good single line comment
-    SELECT * FROM table_name;
-    /* this is a good single line comment*/
-    ```
+  ```sql
+  SELECT * FROM table_name;
+  -- this is a good single line comment
+  SELECT * FROM table_name;
+  /* this is a good single line comment*/
+  ```
 
-    Fails:
+  Fails:
 
-    ```sql
-    SELECT * FROM table_name; -- this is a bad single line comment
-    SELECT * FROM table_name; /* this is a bad single line comment*/
-    ```
+  ```sql
+  SELECT * FROM table_name; -- this is a bad single line comment
+  SELECT * FROM table_name; /* this is a bad single line comment*/
+  ```
 
 # Acknowledgements
 

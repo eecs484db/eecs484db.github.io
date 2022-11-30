@@ -326,7 +326,7 @@ Your query should return a JSON object: the keys should be `user_id`s and the va
 
 ```javascript
 {​user_id1​:​​ user_idx,
- user_id2​:​​ user_idy, 
+ user_id2​:​​ user_idy,
  ...}
 ```
 
