@@ -32,11 +32,11 @@ By submitting this project, you are agreeing to abide by the Honor Code: "I have
 
 There are two main phases in GHJ, partition and probe. **Your job is to implement the partition and probe functions in Join.cpp.** You are given other starter files, which along with your code, will simulate the data flow of records in disk and memory and perform a join operation between two relations.
 
-Download the starter files on the command line with
+Download and unpack the starter files on the command line with
 
-```
-wget https://eecs484db.github.io/p4-ghj/p4-starter_files.tar.gz
-tar -xzvf p4-starter_files.tar.gz && rm p4-starter_files.tar.gz
+```console
+$ wget https://eecs484db.github.io/p4-ghj/p4-starter_files.tar.gz
+$ tar -xzvf p4-starter_files.tar.gz && rm p4-starter_files.tar.gz
 ```
 
 There are 6 main components: Record, Page, Disk, Mem, Bucket, and Join. The files `constants.hpp`, `main.cpp`, `Makefile`, `left_rel.txt` and `right_rel.txt`, and `.clang-format` will also be used for testing and formatting. Code overview and key points for each component are discussed below.

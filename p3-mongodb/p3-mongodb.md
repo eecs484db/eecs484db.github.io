@@ -99,11 +99,11 @@ Below is an example of one element of this `JSONArray`. It is possible that a us
 
 ## Starter Files
 
-Download the starter files on the command line with
+Download and unpack the starter files on the command line with
 
-```
-wget https://eecs484db.github.io/p3-fakebook-jdbc/p3-starter_files.tar.gz
-tar -xzvf p3-starter_files.tar.gz && rm p3-starter_files.tar.gz
+```console
+$ wget https://eecs484db.github.io/p3-mongodb/p3-starter_files.tar.gz
+$ tar -xzvf p3-starter_files.tar.gz && rm p3-starter_files.tar.gz
 ```
 
 For Part A, you only need to be concerned about the following files
