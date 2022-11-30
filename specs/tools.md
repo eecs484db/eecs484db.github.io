@@ -1,0 +1,229 @@
+---
+layout: spec
+title: tools
+permalink: /tools.html
+---
+
+# Tools
+
+This document houses the tools necessary to succeed in EECS 484. You will explore most of these in Project 1, and you can refer back to this document as a refresher for Projects 2 and 3.
+
+# CAEN
+
+To connect to CAEN remotely and to use SQL\*Plus, you will need to
+
+-   sync your files between your local machine (to submit to the Autograder) and a CAEN machine (for SQL\*PLUS testing), and
+-   ssh into a CAEN Linux machine to run your files
+
+Many of you have visited the tutorial at [EECS 280 Setup Tutorial][eecs-280-setup]. You are free to use any setup that has worked in the past for you, but **remember that running your scripts on CAEN will produce more helpful error descriptions than the ones provided by the Autograder.** We’ve summarized the most common options below.
+
+## Option 1 (Terminal)
+
+The first option is to do all your development on your local machine, but periodically copy your files to CAEN for testing through the terminal.
+
+You can use Git's version control, which has the benefit of keeping track of your files over time.
+
+For a simpler approach, you can copy your local files to CAEN with the `rsync` command (omit angle brackets).
+
+```
+rsync -rtv <local_folder> <uniqname>@login.engin.umich.edu:<remote_folder>
+```
+
+Now that your files are on CAEN, to ssh into it, run
+
+```
+ssh <uniqname>@login.engin.umich.edu
+```
+
+**Tip:** If you wish to copy your files from CAEN to your local machine, you can switch the source and destination paths.
+
+## Option 2 (Visual Studio Code)
+
+The second option is to utilize Visual Studio Code’s ssh extension to do your development on a CAEN machine and periodically sync your files back to your local machine with Git/`rsync`. This might be a better option if you want to test your scripts frequently without having to sync often. It can, however, take longer to debug machine-specific issues.
+
+First, set up your ssh config file on your local machine. An example `~/.ssh/config` file might look like this (omit angle brackets):
+
+```
+# CAEN
+Host caen
+    Hostname login.engin.umich.edu
+    User <uniqname>
+    ControlPersist 1h
+```
+
+Next, in Visual Studio Code, download the _Remote - SSH_ extension. Under the extension settings, check the option to _Lockfiles in Tmp_. Open Command Palette and select the option _Connect Current Window to Host..._ and choose `caen`. After entering your CAEN password and Duo authorization, you should now be able to edit your files directly on CAEN with Visual Studio Code as a text editor.
+
+**Tip:** If you were able to successfully connect to CAEN once, but it fails the next time you try to connect, try killing the connection first and wait for the log notification to confirm that it was killed. To do so, open Command Palette and select the option _Remote - SSH: Kill VS Code Server on Host_. Alternatively, ssh into CAEN and remove the `.vscode` directory with `rm -rf .vscode`.
+
+## Windows Users
+
+For Windows users, we recommend using WSL as shown on the [EECS 280 website][eecs-280-windows] and following the same steps as Linux/MacOS users. You can, however, use tools like PuTTY, WinSCP, or Cyberduck to ssh into CAEN and sync your files.
+
+# Class Modules
+
+On CAEN, in order to use SQL\*PLUS (Projects 1-3), you will need to load the class module by running `module load eecs484` every time you open a new terminal session. If you forget to load the module, you will encounter the error `ORA-12162: TNS:net service name is incorrectly specified` when you login to SQL\*PLUS.
+
+On CAEN, in order to use the `mongo` shell (Project 3), you will need to load the mongoDB module by running `module load mongodb` every time you open a new terminal session.
+
+**Pro Tip:** To tell CAEN to automatically load all modules every time your login, run the following. You only need to do this once at the beginning of the semester.
+
+```
+echo "module load eecs484" >> ~/.bash_profile
+echo "module load mongodb" >> ~/.bash_profile
+```
+
+# SQL\*PLUS Login
+
+For Project 1 (accessing public data set and testing scripts) and Project 2-3 (viewing database tables), you will be using a command line interface (CLI) from Oracle called SQL\*PLUS. 
+
+A SQL\*PLUS account has already been set up for you by the staff. To access your SQL\*PLUS account, you must be on a CAEN Linux machine (see [CAEN](#caen)). To start SQL\*PLUS, run
+
+```
+rlwrap sqlplus
+```
+
+Your username is your University of Michigan uniqname, and your password is `eecsclass` (this is case-sensitive). The first time you log in, the system will prompt you to change your password, which we recommend you do.
+
+Only use alphabetic characters, numerals, the underscore, and the pound sign in your SQL\*PLUS password. **Never use quotation marks, the '@' symbol, or the '$' symbol in your SQL\*PLUS password**. If you do, it is likely that you will not be able to log into your account, and you will need to reset it (see [Resetting Password and Sessions](#resetting-password-and-sessions)).
+
+If you encounter the error `ORA-01017: invalid username/password; logon denied`, then you may not have an account. Please privately post on Piazza with your uniqname to request access.
+
+## Resetting Password and Sessions
+
+We have made an [Autograder][autograder] project named SQL\*Plus Reset that would allow you to reset your SQL\*Plus password or kill your SQL\*Plus sessions.
+
+To reset your password to `eecsclass`, submit any text file named `password.txt` to this project.
+
+To kill all your SQL\*PLUS sessions and fix the `ORA-00054: resource busy and acquire with NOWAIT specified or timeout expired` error, submit any text file named `sessions.txt` to this project.
+
+If you still have issues accessing your SQL\*PLUS account after trying the solutions above, please privately post on Piazza with your uniqname and we can take a look. Keep in mind that this may take several hours, during which you will be unable to use SQL\*PLUS to work on the project.
+
+# Helpful SQL\*PLUS Commands
+
+Once in SQL\*PLUS, you can execute arbitrary SQL commands. You will notice that the formatting of output from SQL\*PLUS can be less than ideal. Here are some tricks to make output more readable and some SQL commands to access information that might be important. SQL\*PLUS is case-insensitive, and as always, omit angle brackets:
+
+-   To view all of your tables, run:
+    ```
+    SELECT table_name FROM user_tables;
+    ```
+-   To view all of your views, run:
+    ```
+    SELECT view_name FROM user_views;
+    ```
+-   To view all of your sequences, run:
+    ```
+    SELECT sequence_name FROM user_sequences;
+    ```
+-   To view all of your triggers, run:
+    ```
+    SELECT trigger_name FROM user_triggers;
+    ```
+-   To view the full schema of any table, including the tables of the public dataset, run:
+    ```
+    DESC <table name>;
+    ```
+-   To truncate the text in a particular column to only show a certain number of characters, run:
+    ```
+    COLUMN <column name> FORMAT a<num chars>;
+    ```
+-   To remove the formatting from a particular column, run:
+    ```
+    cl <column name>;
+    ```
+    and to remove the formatting from all columns, run:
+    ```
+    CLEAR COLUMNS;
+    ```
+-   To change the number of characters displayed on a single line from the default of 100, run:
+    ```
+    SET LINE <num chars>;
+    ```
+-   Another command that helps with formatting is:
+    ```
+    set markup csv on;
+    ```
+-   To select on the first several rows from a table you can use the ROWNUM pseudovariable, such as:
+    ```
+    SELECT * FROM <table name> WHERE ROWNUM < <num>;
+    ```
+-   To load commands in SQL\*PLUS from a file, say `createTables.sql` , run (the name of the file is relative to the current directory from which `sqlplus` was launched):
+    ```
+    @createTables.sql
+    ```
+    or
+    ```
+    @createTables
+    ```
+-   To quit SQL\*PLUS, press ctrl+D or run:
+    ```
+    QUIT
+    ```
+
+# SQL\*PLUS Potholes
+
+SQL\*PLUS is a raw command line tool that can be picky about the formatting of your scripts. Some common errors include:
+
+-   Blank lines inside of a command will cancel the command.
+
+    Succeeds:
+
+    ```sql
+    SELECT *
+    FROM table_name;
+    ```
+
+    Fails:
+
+    ```sql
+    SELECT *
+
+    FROM table_name;
+    ```
+
+-   Begin multiline comment symbol `/*` must have a space right afterwards.
+
+    Succeeds:
+
+    ```sql
+    SELECT * FROM table_name;
+    /* this is a good multiline
+    comment block*/
+    ```
+
+    Fails:
+
+    ```sql
+    SELECT * FROM table_name;
+    /*this is a bad multiline
+    comment block*/
+    ```
+
+-   Comments should not come right after the semicolon.
+
+    Succeeds:
+
+    ```sql
+    SELECT * FROM table_name;
+    -- this is a good single line comment
+    SELECT * FROM table_name;
+    /* this is a good single line comment*/
+    ```
+
+    Fails:
+
+    ```sql
+    SELECT * FROM table_name; -- this is a bad single line comment
+    SELECT * FROM table_name; /* this is a bad single line comment*/
+    ```
+
+# Acknowledgements
+
+This document was written and revised over the years by EECS 484 staff at the University of Michigan. The most recent version was updated and moved to [Primer Spec][primer-spec] by Owen Pang.
+
+This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License][cc-license]. You may share and adapt this document, but not for commercial purposes. You may not share source code included in this document.
+
+[eecs-280-setup]: https://eecs280staff.github.io/p1-stats/setup.html
+[eecs-280-windows]: https://eecs280staff.github.io/p1-stats/setup_wsl.html
+[autograder]: https://autograder.io/
+[primer-spec]: https://github.com/eecs485staff/primer-spec
+[cc-license]: https://creativecommons.org/licenses/by-nc/4.0/
