@@ -33,10 +33,6 @@ THE SOFTWARE. -->
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 {% seo %}
-
-        <!-- Custom CSS styling -->
-        <link rel="stylesheet" href="/css/spec.css">
-
         {%- comment -%}
             The FontAwesome stylesheet is injected by Primer Spec to defer
             loading. However, we can mitigate the icon-flashing by requesting
@@ -200,16 +196,6 @@ THE SOFTWARE. -->
             {{ content }}
 
             <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
-                {%- if site.github_username %}
-                <div id="footer-github">
-                    <span>
-                        <a id="footer-anchor" href="https://github.com/{{ site.github_username }}">
-                            <img id="github-logo" src="/assets/github_logo.png" alt="Github Logo">
-                            &nbsp;{{ site.github_username }}
-                        </a>
-                    </span>
-                </div>
-                {%- endif %}
                 {%- if site.github_issue_link %}
                 <div>
                     See an issue? <a href="{{ site.github_issue_link }}">Improve this page.</a>

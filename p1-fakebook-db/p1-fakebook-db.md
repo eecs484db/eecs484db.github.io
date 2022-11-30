@@ -22,8 +22,8 @@ This project is to be done in teams of 2 students (recommended) or individually.
 
 **Before making your first submission**, follow these steps to create a team on the [Autograder][autograder]:
 
--   One team member clicks the "Send group invitation" button on the Project 1 page.
--   The other team member confirms the invitation on their Autograder assignment page.
+- One team member clicks the "Send group invitation" button on the Project 1 page.
+- The other team member confirms the invitation on their Autograder assignment page.
 
 **Do not make any submissions before joining your team! Once you click on "I'm working alone", the Autograder will not let you change team members.** If you do need to make a correction, the teaching staff has the ability to modify teams.
 
@@ -386,11 +386,11 @@ Again, when referring to any of these tables in your SQL scripts, you will need 
 
 The final part of Project 1 is to create a set of external views for displaying the data you have loaded into your data tables. The views you create must have the exact same schema as the public dataset. This means that the column names and data types must match exactly. You will need to write 2 SQL scripts for this part: `createViews.sql` (to create the views and load data into them) and `dropViews.sql` (to drop/destroy the views). You should have a total of 5 views named as follows:
 
--   View_User_Information
--   View_Are_Friends
--   View_Photo_Information
--   View_Event_Information
--   View_Tag_Information
+- View_User_Information
+- View_Are_Friends
+- View_Photo_Information
+- View_Event_Information
+- View_Tag_Information
 
 Any use of the keyword `project1` in code or comment in your `createViews.sql` will cause your submission to automatically fail on the Autograder. This is to prevent any potential cheating. Please be cautious of this as you develop your solutions.
 

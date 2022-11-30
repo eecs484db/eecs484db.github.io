@@ -21,10 +21,9 @@
 title: EECS 484 Projects
 email:
 description: >- # this means to ignore newlines until "baseurl:"
-url: "https://opangz.github.io" # the base hostname & protocol
+url: "https://eecs484db.github.io" # the base hostname & protocol
 baseurl: "" # the subpath of your site, e.g. /blog
-github_username: opangz
-github_issue_link: "https://github.com/opangz/opangz.github.io/issues"
+github_issue_link: "https://github.com/eecs484db/eecs484db.github.io/issues"
 
 # Build settings
 github: [metadata]

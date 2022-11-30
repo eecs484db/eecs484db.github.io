@@ -44,16 +44,16 @@ Every row of two users _(user1_id, user2_id)_ in _Public_Friends_ will meet the 
 
 The tables are stored under the schema of `project2.` To access the tables in SQL\*PLUS, you should use `project2.<tableName>`. **You should use this access approach only when running your queries through SQL\*PLUS interactive mode, NOT in your Java implementation**. There is a separate access mechanism when implementing your queries in Java (see [StudentFakebookOracle.java](#studentfakebookoraclejava)).
 
-# Starter Code
+# Starter Files
 
-The starter code is given in `p2_starter_code.zip` downloadable from the Files tab on Canvas. Alternatively, download the starter files on the command line with
+Download the starter files on the command line with
 
 ```
-wget https://opangz.github.io/starter_code/p2_starter_code.zip
-unzip p2_starter_code.zip && rm p2_starter_code.zip
+wget https://eecs484db.github.io/p2-fakebook-db/p2-starter_files.tar.gz
+tar -xzvf p2-starter_files.tar.gz && rm p2-starter_files.tar.gz
 ```
 
-**The compression (`p2_starter_code`) contains a directory named `project2` and you should not change its organization.**
+**The compression (`p2-starter_files`) contains a directory named `project2` and you should not change its organization.**
 
 ### PublicFakebookOracleConstants.java
 

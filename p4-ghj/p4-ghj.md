@@ -28,15 +28,15 @@ This project is to be done in teams of 2 students (recommended) or individually.
 
 By submitting this project, you are agreeing to abide by the Honor Code: "I have neither given nor received unauthorized aid on this assignment, nor have I concealed any violations of the Honor Code." You may not share answers with other students actively enrolled in the course outside of your teammate, nor may you consult with students who took the course in previous semesters. You are, however, allowed to discuss general approaches and class concepts with other students, and you are also permitted (and encouraged!) to post questions on Piazza.
 
-# Starter Code
+# Starter Files
 
-There are two main phases in GHJ, partition and probe. **Your job is to implement the partition and probe functions in Join.cpp.** You are given other starter code, which along with your code, will simulate the data flow of records in disk and memory and perform a join operation between two relations.
+There are two main phases in GHJ, partition and probe. **Your job is to implement the partition and probe functions in Join.cpp.** You are given other starter files, which along with your code, will simulate the data flow of records in disk and memory and perform a join operation between two relations.
 
-The starter code is given in `p4_starter_code.zip` found on Canvas. Alternatively, download the starter files on the command line with
+Download the starter files on the command line with
 
 ```
-wget https://opangz.github.io/starter_code/p4_starter_code.zip
-unzip p4_starter_code.zip && rm p4_starter_code.zip
+wget https://eecs484db.github.io/p4-ghj/p4-starter_files.tar.gz
+tar -xzvf p4-starter_files.tar.gz && rm p4-starter_files.tar.gz
 ```
 
 There are 6 main components: Record, Page, Disk, Mem, Bucket, and Join. The files `constants.hpp`, `main.cpp`, `Makefile`, `left_rel.txt` and `right_rel.txt`, and `.clang-format` will also be used for testing and formatting. Code overview and key points for each component are discussed below.
@@ -164,7 +164,7 @@ Each team will be allowed 3 submissions per day with feedback; any submissions m
 
 # Appendix
 
-The result of joining `left_rel.txt` and `right_rel.txt` provided in the starter code should look **_similar_** to the output below.
+The result of joining `left_rel.txt` and `right_rel.txt` provided in the starter files should look **_similar_** to the output below.
 
 ```
 Size of GHJ result: 1 pages
