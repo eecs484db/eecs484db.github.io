@@ -1,7 +1,7 @@
 ---
 layout: spec
 title: p1-fakebook-db
-permalink: /p1-fakebook-db.html
+permalink: /fa22/p1-fakebook-db.html
 ---
 
 # Project 1: Fakebook Database
@@ -72,7 +72,7 @@ Creating ER Diagrams is not an exact science: for a given specification, there a
 
 Your second task of Project 1 is to write SQL DDL statements to create/drop data tables that reflect the Fakebook specifications. You will need to write 2 SQL scripts for this part: `createTables.sql` (to create the data tables) and `dropTables.sql` (to drop/destroy the data tables). **These scripts should also create and drop any constraints, sequences, and triggers** you find are necessary to enforce the rules of the Fakebook specification.
 
-Once you have written these two files, you should run them within SQL\*PLUS on your CAEN Linux machine. You should be able to run the commands below several times sequentially without error. If you cannot do this (i.e. if SQL\*PLUS reports errors), you are liable to fail tests on the Autograder. To access CAEN and your Oracle account, follow the setup instructions at [Tools](/tools).
+Once you have written these two files, you should run them within SQL\*PLUS on your CAEN Linux machine. You should be able to run the commands below several times sequentially without error. If you cannot do this (i.e. if SQL\*PLUS reports errors), you are liable to fail tests on the Autograder. To access CAEN and your Oracle account, follow the setup instructions at [Tools](/fa22/tools).
 
 ```
 SQL> @createTables
@@ -83,7 +83,7 @@ SQL> @dropTables
 
 We will test that your `createTables.sql` script properly creates the necessary data tables with all of the correct constraints. We will attempt to insert both valid and invalid data into your tables with the expectation that the valid inserts will be accepted and the invalid inserts will be rejected. To facilitate this, your tables **must conform exactly to the schema below**, even if it doesn't exactly match the schema you would have created from your ER Diagram. Column names, types, ordering, and constraints must be the same. Deviating from this schema will cause you to fail tests on the Autograder.
 
-You may find some of the commands listed in [Helpful SQL\*PLUS Commands](/tools#helpful-sqlplus-commands) useful when viewing your tables.
+You may find some of the commands listed in [Helpful SQL\*PLUS Commands](/fa22/tools#helpful-sqlplus-commands) useful when viewing your tables.
 
 #### Users
 
@@ -296,7 +296,7 @@ When loading data for Fakebook friends, you should only include one directional 
 
 The public dataset is divided into five tables, each of which has a series of data fields. Those data fields may or may not have additional business rules (constraints) that define the allowable values. When referring to any of these tables in your SQL scripts, you will need to use the fully-qualified table name by prepending `project1.` (including the ".") to the table name (as seen in [Part 4: Creating External Views](#part-4-creating-external-views-50-points)).
 
-Additionally, beware of common [SQL\*PLUS Potholes](/tools#sqlplus-potholes) when creating your queries.
+Additionally, beware of common [SQL\*PLUS Potholes](/fa22/tools#sqlplus-potholes) when creating your queries.
 
 Here is an overview of the public dataset. All table names and field names are case-insensitive:
 

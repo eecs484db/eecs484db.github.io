@@ -1,7 +1,7 @@
 ---
 layout: spec
 title: p2-fakebook-jdbc
-permalink: /p2-fakebook-jdbc.html
+permalink: /fa22/p2-fakebook-jdbc.html
 ---
 
 # Project 2: Fakebook JDBC
@@ -49,7 +49,7 @@ The tables are stored under the schema of `project2.` To access the tables in SQ
 Download and unpack the starter files on the command line with
 
 ```console
-$ wget https://eecs484db.github.io/p2-fakebook-jdbc/p2-starter_files.tar.gz
+$ wget https://eecs484db.github.io/fa22/p2-fakebook-jdbc/p2-starter_files.tar.gz
 $ tar -xzvf p2-starter_files.tar.gz && rm p2-starter_files.tar.gz
 ```
 
@@ -92,7 +92,7 @@ private static String password = "password"; // replace with your Oracle passwor
 
 This is the application driver. It can be invoked from the command line (preferably by the Makefile) and takes command line arguments that define which query/queries to execute and whether to print the output or measure the runtime.
 
-**You will NOT submit this file**, so you do not need to worry about staff members obtaining your password. However, if you wish to change your SQL\*PLUS password, refer to [Tools](/tools#resetting-password-and-sessions).
+**You will NOT submit this file**, so you do not need to worry about staff members obtaining your password. However, if you wish to change your SQL\*PLUS password, refer to [Tools](/fa22/tools#resetting-password-and-sessions).
 
 It is never recommended to store a password in plaintext, so we recommend you not use a password you use anywhere else for your SQL account and instead make something easy to remember that you will never use again.
 

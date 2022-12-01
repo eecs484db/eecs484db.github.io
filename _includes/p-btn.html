@@ -1,0 +1,7 @@
+{%- if include.released %}
+<a class="btn btn-large p-btn invert-colors-in-dark-mode" href="{{ include.url }}" role="button">
+    {{ include.text }}
+</a>
+{% else %}
+<button class="btn btn-large p-btn invert-colors-in-dark-mode" type="button" aria-disabled="true">{{ include.text }}</button>
+{% endif %}

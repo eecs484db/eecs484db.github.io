@@ -1,7 +1,7 @@
 ---
 layout: spec
 title: p4-ghj
-permalink: /p4-ghj.html
+permalink: /fa22/p4-ghj.html
 ---
 
 # Project 4: Grace Hash Join
@@ -12,9 +12,7 @@ If you do not turn in your project by that deadline, or if you are unhappy with 
 
 **Note:** We have given you 4 weeks to complete the project, which should be ample time and provide flexibility amid the final season. **The final is on December 13, which immediately follows the due date of this project, so please be aware of this when scheduling your time.** For this reason, no exceptions or extensions will be given.
 
-## Change Log
-
--   2022-11-11 Added `wget` option to download starter files on online spec.
+<!-- ## Change Log -->
 
 ## Introduction
 
@@ -35,7 +33,7 @@ There are two main phases in GHJ, partition and probe. **Your job is to implemen
 Download and unpack the starter files on the command line with
 
 ```console
-$ wget https://eecs484db.github.io/p4-ghj/p4-starter_files.tar.gz
+$ wget https://eecs484db.github.io/fa22/p4-ghj/p4-starter_files.tar.gz
 $ tar -xzvf p4-starter_files.tar.gz && rm p4-starter_files.tar.gz
 ```
 
@@ -139,7 +137,7 @@ $ make clean
 
 Refer to the following pseudocode for a complete algorithm of Grace Hash Join:
 
-<img src="/assets/p4-ghj-pseudocode.png" width="400" alt="Grace Hash Join Pseudocode" />
+<img src="/fa22/p4-ghj/p4-ghj-pseudocode.png" width="400" alt="Grace Hash Join Pseudocode" class="invert-colors-in-dark-mode" />
 
 _In the figure above, a "bucket" refers to a page of the in-memory hash table.
 For more information regarding simple hash join and in-memory hash table, visit

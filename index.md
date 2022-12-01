@@ -8,12 +8,12 @@ permalink: /
 
 This site holds the project specs for EECS 484: Database Management Systems at the University of Michigan.
 
-[Tools](/tools) (Initial release ready for WN2023)
+## Winter 2023
 
-[Project 1: Fakebook Database](/p1-fakebook-db) (Initial release ready for WN2023)
+{% include p-btn-group.html semester="wn23" tools-released = true p1-released=true p2-released=true
+p3-released=true p4-released=true %}
 
-[Project 2: Fakebook JDBC](/p2-fakebook-jdbc) (Initial release ready for WN2023)
+## Fall 2022
 
-[Project 3: MongoDB](/p3-mongodb) (Initial release ready for WN2023)
-
-[Project 4: Grace Hash Join](/p4-ghj) (Initially released for FA2022)
+{% include p-btn-group.html semester="fa22" tools-released = false p1-released=false p2-released=false
+p3-released=false p4-released=true %}

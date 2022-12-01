@@ -1,7 +1,7 @@
 ---
 layout: spec
 title: tools
-permalink: /tools.html
+permalink: /fa22/tools.html
 ---
 
 # Tools
