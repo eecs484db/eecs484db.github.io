@@ -1,7 +1,8 @@
 ---
 layout: spec
+semester: wn23
 title: p3-mongodb
-permalink: /fa22/p3-mongodb.html
+permalink: /wn23/p3-mongodb.html
 ---
 
 # Project 3: MangoDB
@@ -102,7 +103,7 @@ Below is an example of one element of this `JSONArray`. It is possible that a us
 Download and unpack the starter files on the command line with
 
 ```console
-$ wget https://eecs484db.github.io/fa22/p3-mongodb/p3-starter_files.tar.gz
+$ wget https://eecs484db.github.io/{{ page.semester}}/p3-mongodb/p3-starter_files.tar.gz
 $ tar -xzvf p3-starter_files.tar.gz && rm p3-starter_files.tar.gz
 ```
 
@@ -137,7 +138,7 @@ $ make compile
 $ make run
 ```
 
-If your username/password combination is incorrect in `Main.java`, you will get an error message `java.sql.SQLException: ORA-01017: invalid username/password; logon denied`. If you need to reset your password, refer to [Tools](/fa22/tools#resetting-password-and-sessions).
+If your username/password combination is incorrect in `Main.java`, you will get an error message `java.sql.SQLException: ORA-01017: invalid username/password; logon denied`. If you need to reset your password, refer to [Tools](/{{ page.semester }}/tools#resetting-password-and-sessions).
 
 #### sample.json
 
@@ -183,7 +184,7 @@ Note that the starter file `Makefile` does not work in a local environment unles
 
 ### CAEN MongoDB
 
-To use MongoDB on CAEN, we have set up a MongoDB server on the host `eecs484.eecs.umich.edu`. To connect to this server, [ssh into CAEN](/fa22/tools#caen). Double check that you have the `mongodb` module loaded (see [Class Modules](tools#class-modules)).
+To use MongoDB on CAEN, we have set up a MongoDB server on the host `eecs484.eecs.umich.edu`. To connect to this server, [ssh into CAEN](/{{ page.semester }}/tools#caen). Double check that you have the `mongodb` module loaded (see [Class Modules](tools#class-modules)).
 
 Then, fill in the `uniqname` and `password` fields in the `Makefile`. The default MongoDB password is your uniqname. If you have the wrong login credentials, you will get the error message `Error: Authentication failed`.
 

@@ -6,7 +6,7 @@ permalink: /README.html
 
 ## About
 
-This [site](https://eecs484db.github.io/) holds the project specs for EECS 484 at the University of Michigan. This was made possible by the EECS 485 team and the [Primer Spec](https://github.com/eecs485staff/primer-spec) Jekyll theme.
+This [site](https://eecs484db.github.io/) holds the project specs for EECS 484 at the University of Michigan. It holds the specs for the current semester as well as an archive for past semesters. This was made possible by the EECS 485 team and their [Primer Spec](https://github.com/eecs485staff/primer-spec) Jekyll theme. 
 
 **Disclaimer:** We are much better database engineers than frontend engineers (surprise!), so apologies if this site is not the prettiest.
 

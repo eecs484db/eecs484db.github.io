@@ -1,7 +1,11 @@
 {%- if include.released %}
 <a class="btn btn-large p-btn invert-colors-in-dark-mode" href="{{ include.url }}" role="button">
-    {{ include.text }}
+    {{ include.text }}<br />
+    <i>{{ include.caption }}</i>
 </a>
 {% else %}
-<button class="btn btn-large p-btn invert-colors-in-dark-mode" type="button" aria-disabled="true">{{ include.text }}</button>
+<button class="btn btn-large p-btn invert-colors-in-dark-mode" type="button" aria-disabled="true">
+    {{ include.text }}<br />
+    <i>{{ include.caption }}</i>
+</button>
 {% endif %}

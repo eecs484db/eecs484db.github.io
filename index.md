@@ -6,14 +6,13 @@ permalink: /
 
 # EECS 484 Projects
 
-This site holds the project specs for EECS 484: Database Management Systems at the University of Michigan.
+_University of Michigan EECS 484: Database Management Systems_
 
-## Winter 2023
+_**Winter 2023** - see [Archive](/archive) for past semesters_
 
-{% include p-btn-group.html semester="wn23" tools-released = true p1-released=true p2-released=true
-p3-released=true p4-released=true %}
-
-## Fall 2022
-
-{% include p-btn-group.html semester="fa22" tools-released = false p1-released=false p2-released=false
-p3-released=false p4-released=true %}
+{% include p-btn-group.html semester="wn23"
+tools-released=false tools-caption="For Project 1 Part 2 and Beyond" 
+p1-released=false p1-due="Due Date TBD" 
+p2-released=false p2-due="Due Date TBD"
+p3-released=false p3-due="Due Date TBD"
+p4-released=false p4-due="Due Date TBD" %}

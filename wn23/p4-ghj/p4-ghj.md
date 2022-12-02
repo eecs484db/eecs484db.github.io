@@ -1,8 +1,8 @@
 ---
 layout: spec
-semester: fa22
+semester: wn23
 title: p4-ghj
-permalink: /fa22/p4-ghj.html
+permalink: /wn23/p4-ghj.html
 ---
 
 # Project 4: Grace Hash Join

@@ -1,7 +1,7 @@
 ---
 layout: spec
 title: tools
-permalink: /fa22/tools.html
+permalink: /wn23/tools.html
 ---
 
 # Tools
@@ -12,8 +12,8 @@ This document houses the tools necessary to succeed in EECS 484. You will explor
 
 To connect to CAEN remotely and to use SQL\*Plus, you will need to
 
-- sync your files between your local machine (to submit to the Autograder) and a CAEN machine (for SQL\*PLUS testing), and
-- ssh into a CAEN Linux machine to run your files
+-   sync your files between your local machine (to submit to the Autograder) and a CAEN machine (for SQL\*PLUS testing), and
+-   ssh into a CAEN Linux machine to run your files
 
 Many of you have visited the tutorial at [EECS 280 Setup Tutorial][eecs-280-setup]. You are free to use any setup that has worked in the past for you, but **remember that running your scripts on CAEN will produce more helpful error descriptions than the ones provided by the Autograder.**
 
@@ -23,9 +23,9 @@ We’ve summarized the most common options below. **It is your responsibility to
 
 The first option is to do all your development on your local machine, but periodically copy your files to CAEN for testing through the terminal.
 
-- You can use Git's version control, which has the benefit of keeping track of your files over time.
+-   You can use Git's version control, which has the benefit of keeping track of your files over time.
 
-- For a faster approach, you can copy your local files to CAEN with the `rsync` command (omit angle brackets).
+-   For a faster approach, you can copy your local files to CAEN with the `rsync` command (omit angle brackets).
 
 ```console
 $ rsync -rtv <local_folder> <uniqname>@login.engin.umich.edu:<remote_folder>
@@ -69,7 +69,7 @@ On CAEN, in order to use the `mongo` shell (Project 3), you will need to load th
 
 **Pro Tip:** To automatically load all modules every time you login, run the following on CAEN. You only need to do this once at the beginning of the semester.
 
-```console 
+```console
 $ echo "module load eecs484" >> ~/.bash_profile
 $ echo "module load mongodb" >> ~/.bash_profile
 ```
@@ -104,119 +104,119 @@ If you still have issues accessing your SQL\*PLUS account after trying the solut
 
 Once in SQL\*PLUS, you can execute arbitrary SQL commands. You will notice that the formatting of output from SQL\*PLUS can be less than ideal. Here are some tricks to make output more readable and some SQL commands to access information that might be important. SQL\*PLUS is case-insensitive, and as always, omit angle brackets:
 
-- To view all of your tables, run:
-  ```
-  SELECT table_name FROM user_tables;
-  ```
-- To view all of your views, run:
-  ```
-  SELECT view_name FROM user_views;
-  ```
-- To view all of your sequences, run:
-  ```
-  SELECT sequence_name FROM user_sequences;
-  ```
-- To view all of your triggers, run:
-  ```
-  SELECT trigger_name FROM user_triggers;
-  ```
-- To view the full schema of any table, including the tables of the public dataset, run:
-  ```
-  DESC <table name>;
-  ```
-- To truncate the text in a particular column to only show a certain number of characters, run:
-  ```
-  COLUMN <column name> FORMAT a<num chars>;
-  ```
-- To remove the formatting from a particular column, run:
-  ```
-  cl <column name>;
-  ```
-  and to remove the formatting from all columns, run:
-  ```
-  CLEAR COLUMNS;
-  ```
-- To change the number of characters displayed on a single line from the default of 100, run:
-  ```
-  SET LINE <num chars>;
-  ```
-- Another command that helps with formatting is:
-  ```
-  set markup csv on;
-  ```
-- To select on the first several rows from a table you can use the ROWNUM pseudovariable, such as:
-  ```
-  SELECT * FROM <table name> WHERE ROWNUM < <num>;
-  ```
-- To load commands in SQL\*PLUS from a file, say `createTables.sql` , run the following. The name of the file is relative to the current directory from which `sqlplus` was launched:
-  ```
-  @createTables.sql
-  ```
-  or
-  ```
-  @createTables
-  ```
-- To quit SQL\*PLUS, press ctrl+D or run:
-  ```
-  QUIT
-  ```
+-   To view all of your tables, run:
+    ```
+    SELECT table_name FROM user_tables;
+    ```
+-   To view all of your views, run:
+    ```
+    SELECT view_name FROM user_views;
+    ```
+-   To view all of your sequences, run:
+    ```
+    SELECT sequence_name FROM user_sequences;
+    ```
+-   To view all of your triggers, run:
+    ```
+    SELECT trigger_name FROM user_triggers;
+    ```
+-   To view the full schema of any table, including the tables of the public dataset, run:
+    ```
+    DESC <table name>;
+    ```
+-   To truncate the text in a particular column to only show a certain number of characters, run:
+    ```
+    COLUMN <column name> FORMAT a<num chars>;
+    ```
+-   To remove the formatting from a particular column, run:
+    ```
+    cl <column name>;
+    ```
+    and to remove the formatting from all columns, run:
+    ```
+    CLEAR COLUMNS;
+    ```
+-   To change the number of characters displayed on a single line from the default of 100, run:
+    ```
+    SET LINE <num chars>;
+    ```
+-   Another command that helps with formatting is:
+    ```
+    set markup csv on;
+    ```
+-   To select on the first several rows from a table you can use the ROWNUM pseudovariable, such as:
+    ```
+    SELECT * FROM <table name> WHERE ROWNUM < <num>;
+    ```
+-   To load commands in SQL\*PLUS from a file, say `createTables.sql` , run the following. The name of the file is relative to the current directory from which `sqlplus` was launched:
+    ```
+    @createTables.sql
+    ```
+    or
+    ```
+    @createTables
+    ```
+-   To quit SQL\*PLUS, press ctrl+D or run:
+    ```
+    QUIT
+    ```
 
 # SQL\*PLUS Potholes
 
 SQL\*PLUS is a raw command line tool that can be picky about the formatting of your scripts. Some common errors include:
 
-- Blank lines inside of a command will cancel the command.
+-   Blank lines inside of a command will cancel the command.
 
-  Succeeds:
+    Succeeds:
 
-  ```sql
-  SELECT *
-  FROM table_name;
-  ```
+    ```sql
+    SELECT *
+    FROM table_name;
+    ```
 
-  Fails:
+    Fails:
 
-  ```sql
-  SELECT *
+    ```sql
+    SELECT *
 
-  FROM table_name;
-  ```
+    FROM table_name;
+    ```
 
-- Begin multiline comment symbol `/*` must have a space right afterwards.
+-   Begin multiline comment symbol `/*` must have a space right afterwards.
 
-  Succeeds:
+    Succeeds:
 
-  ```sql
-  SELECT * FROM table_name;
-  /* this is a good multiline
-  comment block*/
-  ```
+    ```sql
+    SELECT * FROM table_name;
+    /* this is a good multiline
+    comment block*/
+    ```
 
-  Fails:
+    Fails:
 
-  ```sql
-  SELECT * FROM table_name;
-  /*this is a bad multiline
-  comment block*/
-  ```
+    ```sql
+    SELECT * FROM table_name;
+    /*this is a bad multiline
+    comment block*/
+    ```
 
-- Comments should not come right after the semicolon.
+-   Comments should not come right after the semicolon.
 
-  Succeeds:
+    Succeeds:
 
-  ```sql
-  SELECT * FROM table_name;
-  -- this is a good single line comment
-  SELECT * FROM table_name;
-  /* this is a good single line comment*/
-  ```
+    ```sql
+    SELECT * FROM table_name;
+    -- this is a good single line comment
+    SELECT * FROM table_name;
+    /* this is a good single line comment*/
+    ```
 
-  Fails:
+    Fails:
 
-  ```sql
-  SELECT * FROM table_name; -- this is a bad single line comment
-  SELECT * FROM table_name; /* this is a bad single line comment*/
-  ```
+    ```sql
+    SELECT * FROM table_name; -- this is a bad single line comment
+    SELECT * FROM table_name; /* this is a bad single line comment*/
+    ```
 
 # Acknowledgements
 
