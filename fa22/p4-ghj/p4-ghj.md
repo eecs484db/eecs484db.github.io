@@ -204,5 +204,5 @@ This document is licensed under a [Creative Commons Attribution-NonCommercial 4.
 [course-policies]: https://docs.google.com/document/d/1do8CkFk7jLVdc2SfsLB1eJI_5uZp8CfMsMAVxJM51L4/edit?usp=sharing
 [autograder]: https://autograder.io/
 [rosetta]: https://rosettacode.org/wiki/Hash_join#C.2B.2B
-[primer-spec]: https://github.com/eecs485staff/primer-spec
+[primer-spec]: https://eecs485staff.github.io/primer-spec/
 [cc-license]: https://creativecommons.org/licenses/by-nc/4.0/

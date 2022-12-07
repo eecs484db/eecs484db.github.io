@@ -2,6 +2,7 @@
 layout: spec
 title: EECS 484 Projects
 permalink: /
+disableSidebar: true
 ---
 
 # EECS 484 Projects

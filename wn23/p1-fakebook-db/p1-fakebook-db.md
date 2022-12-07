@@ -77,7 +77,7 @@ Your second task of Project 1 is to write SQL DDL statements to create/drop data
 
 Once you have written these two files, you should run them within SQL\*PLUS on your CAEN Linux machine. You should be able to run the commands below several times sequentially without error. If you cannot do this (i.e. if SQL\*PLUS reports errors), you are liable to fail tests on the Autograder. To access CAEN and your Oracle account, follow the setup instructions at [Tools](/{{ page.semester }}/tools).
 
-```
+```console?lang=bash&prompt=SQL>
 SQL> @createTables
 SQL> @dropTables
 ```
@@ -401,7 +401,7 @@ Any use of the keyword `project1` in code or comment in your `createViews.sql` w
 
 Once you have written these two files, you should be able to run the commands below several times sequentially without error. If you cannot do this (i.e. if SQL\*PLUS reports errors), you are liable to fail tests on the Autograder.
 
-```
+```console?lang=bash&prompt=SQL>
 SQL> @createTables
 SQL> @loadData
 SQL> @createViews
@@ -409,41 +409,41 @@ SQL> @dropViews
 SQL> @dropTables
 ```
 
-For each of the views other than `VIEW_ARE_FRIENDS`, your views should exactly match the corresponding table in the public dataset. To test this, you can run the following queries in SQL\*PLUS, changing the name of the tables and views as necessary. The output of both queries should be `no rows selected` anything else indicates an error in your views.
+For each of the views other than `VIEW_ARE_FRIENDS`, your views should exactly match the corresponding table in the public dataset. To test this, you can run the following queries in SQL\*PLUS, changing the name of the tables and views as necessary. The output of both queries should be `no rows selected`; anything else indicates an error in your views.
 
 ```sql
-SQL> SELECT * FROM project1.Public_User_Information
-  2  MINUS SELECT * FROM View_User_Information;
+SELECT * FROM project1.Public_User_Information
+MINUS SELECT * FROM View_User_Information;
+```
 
-no rows selected
-
-SQL> SELECT * FROM View_User_Information
-  2  MINUS SELECT * FROM project1.Public_User_Information;
-
-no rows selected
+```sql
+SELECT * FROM View_User_Information
+MINUS SELECT * FROM project1.Public_User_Information;
 ```
 
 To test `View_Are_Friends`, use the following test scripts instead. The outputs should again be `no rows selected`.
 
 ```sql
-SQL> SELECT LEAST(user1_id, USER2_ID),  GREATEST(user1_id, user2_id)
-   2 FROM project1.Public_Are_Friends
-   3 MINUS SELECT LEAST(user1_id, user2_id),  GREATEST(user1_id, user2_id)
-   4 FROM View_Are_Friends;
+SELECT LEAST(user1_id, USER2_ID),  GREATEST(user1_id, user2_id)
+FROM project1.Public_Are_Friends
+MINUS SELECT LEAST(user1_id, user2_id),  GREATEST(user1_id, user2_id)
+FROM View_Are_Friends;
+```
 
-no rows selected
-
-SQL> SELECT LEAST(user1_id, user2_id),  GREATEST(user1_id, user2_id)
-   2 FROM View_Are_Friends
-   3 MINUS SELECT LEAST(user1_id, user2_id),  GREATEST(user1_id, user2_id)
-   4 FROM project1.Public_Are_Friends;
-
-no rows selected
+```sql
+SELECT LEAST(user1_id, user2_id),  GREATEST(user1_id, user2_id)
+FROM View_Are_Friends
+MINUS SELECT LEAST(user1_id, user2_id),  GREATEST(user1_id, user2_id)
+FROM project1.Public_Are_Friends;
 ```
 
 # Submitting
 
-There are two deliverables for Project 1: a PDF of your ER Diagram and your 5 SQL scripts (`createTables.sql`, `dropTables.sql`, `loadData.sql`, `createViews.sql`, and `dropViews.sql`). Part 1 (ER Diagram) is worth 62 points and Parts 2-4 (SQL scripts) are worth 50 points each, for a total of 212 points (62 on Gradescope, 150 on the Autograder).
+There are two deliverables for Project 1:
+-   a PDF of your ER Diagram, and 
+-   your 5 SQL scripts (`createTables.sql`, `dropTables.sql`, `loadData.sql`, `createViews.sql`, and `dropViews.sql`)
+
+Part 1 (ER Diagram) is worth 62 points and Parts 2-4 (SQL scripts) are worth 50 points each, for a total of 212 points (62 on Gradescope, 150 on the Autograder).
 
 ### Gradescope
 
@@ -548,5 +548,5 @@ This document is licensed under a [Creative Commons Attribution-NonCommercial 4.
 [course-policies]: https://docs.google.com/document/d/1do8CkFk7jLVdc2SfsLB1eJI_5uZp8CfMsMAVxJM51L4/edit?usp=sharing
 [autograder]: https://autograder.io/
 [gradescope]: https://www.gradescope.com/
-[primer-spec]: https://github.com/eecs485staff/primer-spec
+[primer-spec]: https://eecs485staff.github.io/primer-spec/
 [cc-license]: https://creativecommons.org/licenses/by-nc/4.0/

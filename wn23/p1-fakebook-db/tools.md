@@ -115,60 +115,56 @@ If you still have issues accessing your SQL\*PLUS account after trying the solut
 Once in SQL\*PLUS, you can execute arbitrary SQL commands. You will notice that the formatting of output from SQL\*PLUS can be less than ideal. Here are some tricks to make output more readable and some SQL commands to access information that might be important. SQL\*PLUS is case-insensitive, and as always, omit angle brackets:
 
 -   To view all of your tables, run:
-    ```
-    SELECT table_name FROM user_tables;
+    ```console?lang=bash&prompt=SQL>
+    SQL> SELECT table_name FROM user_tables;
     ```
 -   To view all of your views, run:
-    ```
-    SELECT view_name FROM user_views;
+    ```console?lang=bash&prompt=SQL>
+    SQL> SELECT view_name FROM user_views;
     ```
 -   To view all of your sequences, run:
-    ```
-    SELECT sequence_name FROM user_sequences;
+    ```console?lang=bash&prompt=SQL>
+    SQL> SELECT sequence_name FROM user_sequences;
     ```
 -   To view all of your triggers, run:
-    ```
-    SELECT trigger_name FROM user_triggers;
+    ```console?lang=bash&prompt=SQL>
+    SQL> SELECT trigger_name FROM user_triggers;
     ```
 -   To view the full schema of any table, including the tables of the public dataset, run:
-    ```
-    DESC <table name>;
+    ```console?lang=bash&prompt=SQL>
+    SQL> DESC <table name>;
     ```
 -   To truncate the text in a particular column to only show a certain number of characters, run:
-    ```
-    COLUMN <column name> FORMAT a<num chars>;
+    ```console?lang=bash&prompt=SQL>
+    SQL> COLUMN <column name> FORMAT a<num chars>;
     ```
 -   To remove the formatting from a particular column, run:
-    ```
-    cl <column name>;
+    ```console?lang=bash&prompt=SQL>
+    SQL> CL <column name>;
     ```
     and to remove the formatting from all columns, run:
-    ```
-    CLEAR COLUMNS;
+    ```console?lang=bash&prompt=SQL>
+    SQL> CLEAR COLUMNS;
     ```
 -   To change the number of characters displayed on a single line from the default of 100, run:
+    ```console?lang=bash&prompt=SQL>
+    SQL> SET LINE <num chars>;
     ```
-    SET LINE <num chars>;
-    ```
--   Another command that helps with formatting is:
-    ```
-    set markup csv on;
-    ```
--   To select on the first several rows from a table you can use the ROWNUM pseudovariable, such as:
-    ```
-    SELECT * FROM <table name> WHERE ROWNUM < <num>;
+-   To select on the first several rows from a table you can use the ROWNUM pseudocolumn, such as:
+    ```console?lang=bash&prompt=SQL>
+    SQL> SELECT * FROM <table name> WHERE ROWNUM < <num>;
     ```
 -   To load commands in SQL\*PLUS from a file, say `createTables.sql` , run the following. The name of the file is relative to the current directory from which `sqlplus` was launched:
-    ```
-    @createTables.sql
+    ```console?lang=bash&prompt=SQL>
+    SQL> @createTables.sql
     ```
     or
+    ```console?lang=bash&prompt=SQL>
+    SQL> @createTables
     ```
-    @createTables
-    ```
--   To quit SQL\*PLUS, press ctrl+D or run:
-    ```
-    QUIT
+-   To quit SQL\*PLUS, press <kbd>Ctrl+D</kbd> or run:
+    ```console?lang=bash&prompt=SQL>
+    SQL> QUIT
     ```
 
 # SQL\*PLUS Potholes
@@ -188,7 +184,7 @@ SQL\*PLUS is a raw command line tool that can be picky about the formatting of y
 
     ```sql
     SELECT *
-
+     
     FROM table_name;
     ```
 
@@ -237,5 +233,5 @@ This document is licensed under a [Creative Commons Attribution-NonCommercial 4.
 [eecs-280-setup]: https://eecs280staff.github.io/p1-stats/setup.html
 [eecs-280-windows]: https://eecs280staff.github.io/p1-stats/setup_wsl.html
 [autograder]: https://autograder.io/
-[primer-spec]: https://github.com/eecs485staff/primer-spec
+[primer-spec]: https://eecs485staff.github.io/primer-spec/
 [cc-license]: https://creativecommons.org/licenses/by-nc/4.0/

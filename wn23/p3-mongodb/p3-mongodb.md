@@ -205,7 +205,7 @@ $ make loginmongo
 
 The mongo shell will open up in your terminal. You can update your password with the following command, which will take effect when you log out.
 
-```javascript
+```console?lang=javascript&prompt=>
 > db.updateUser("uniqname", {pwd : "newpassword" })
 ```
 {: data-variant="no-line-numbers" data-title="mongo interactive shell" }
@@ -403,7 +403,7 @@ This document is licensed under a [Creative Commons Attribution-NonCommercial 4.
 
 [course-policies]: https://docs.google.com/document/d/1do8CkFk7jLVdc2SfsLB1eJI_5uZp8CfMsMAVxJM51L4/edit?usp=sharing
 [autograder]: https://autograder.io/
-[primer-spec]: https://github.com/eecs485staff/primer-spec
+[primer-spec]: https://eecs485staff.github.io/primer-spec/
 [cc-license]: https://creativecommons.org/licenses/by-nc/4.0/
 
 [starter-code]: https://eecs484db.github.io/{{ page.semester}}/p3-mongodb/p3-starter_files.tar.gz
