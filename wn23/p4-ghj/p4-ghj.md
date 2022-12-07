@@ -7,11 +7,17 @@ permalink: /wn23/p4-ghj.html
 
 # Project 4: Grace Hash Join
 
-Due on **Thursday, December 8 at 11:55 PM EST**.
+| Worth     | Released              | Due                                      |
+| --------- | --------------------- | ---------------------------------------- |
+| 70 points | Thursday, November 10 | **Thursday, December 8 at 11:55 PM EST** |
 
-If you do not turn in your project by that deadline, or if you are unhappy with your work, you may continue to submit up until **Monday, December 12 at 11:55 PM EST** (4 days after the regular deadline). Please refer to [EECS 484 F22 Course Policies][course-policies] for more information on _Assignments and Partners_ and _Late Days_.
+If you do not turn in your project by the deadline, or if you are unhappy with your work, you may continue to submit up until **Monday, December 12 at 11:55 PM EST** (4 days after the regular deadline). Please refer to [EECS 484 F22 Course Policies][course-policies] for more information on _Assignments and Partners_ and _Late Days_.
 
+<div class="primer-spec-callout warning" markdown="1">
 **Note:** We have given you 4 weeks to complete the project, which should be ample time and provide flexibility amid the final season. **The final is on December 13, which immediately follows the due date of this project, so please be aware of this when scheduling your time.** For this reason, no exceptions or extensions will be given.
+</div>
+
+
 
 <!-- ## Change Log -->
 
@@ -109,6 +115,7 @@ Other files you may find helpful to look over include:
     key3 data3
     ... ...
     ```
+    {: data-variant="no-line-numbers" }
 
 -   `.clang-format`: this file aids with C++ formatting. You may choose to format your files in any way you choose, but this file offers a good starting point.
 
@@ -122,12 +129,14 @@ To build the project and run the executable file, use the `Makefile`, where `lef
 $ make
 $ ./GHJ left_rel.txt right_rel.txt
 ```
+{: data-variant="no-line-numbers" }
 
 To remove all extraneous files, run
 
 ```console
 $ make clean
 ```
+{: data-variant="no-line-numbers" }
 
 # Grace Hash Join Pseudocode
 

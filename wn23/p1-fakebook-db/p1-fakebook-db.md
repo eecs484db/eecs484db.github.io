@@ -7,9 +7,11 @@ permalink: /wn23/p1-fakebook-db.html
 
 # Project 1: Fakebook Database
 
-Due on **Thursday, September 22 at 11:55 PM ET**.
+| Worth                                            | Released              | Due                                       |
+|--------------------------------------------------|-----------------------|-------------------------------------------|
+| 150 points (62 on Gradescope, 150 on Autograder) | Thursday, September 8 | **Thursday, September 22 at 11:55 PM ET** |
 
-If you do not turn in your project by that deadline, or if you are unhappy with your work, you may continue to submit up until **Monday, September 26 at 11:55 PM ET** (4 days after the regular deadline). Please refer to [EECS 484 F22 Course Policies][course-policies] for more information on _Assignments and Partners_ and _Late Days_.
+If you do not turn in your project by the deadline, or if you are unhappy with your work, you may continue to submit up until **Monday, September 26 at 11:55 PM ET** (4 days after the regular deadline). Please refer to [EECS 484 F22 Course Policies][course-policies] for more information on _Assignments and Partners_ and _Late Days_.
 
 <!-- ## Change Log -->
 
@@ -229,12 +231,14 @@ Don't forget to include primary keys (each table should have one), foreign keys,
 ```sql
 CONSTRAINT a_very_long_constraint_name CHECK (Column_A = 'A')
 ```
+{: data-variant="no-line-numbers" }
 
 you can write
 
 ```sql
 CHECK (Column_A = 'A')
 ```
+{: data-variant="no-line-numbers" }
 
 Additionally, since we will be loading data into your tables to test them, **you may find it helpful to read through Part 3**. You may also find it helpful to read the section on [Circular Dependencies](#circular-dependencies).
 

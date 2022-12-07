@@ -2,6 +2,7 @@
 layout: spec
 title: tools
 permalink: /wn23/tools.html
+defaultCodeblockVariant: no-line-numbers
 ---
 
 # Tools
@@ -15,16 +16,17 @@ To connect to CAEN remotely and to use SQL\*Plus, you will need to
 -   sync your files between your local machine (to submit to the Autograder) and a CAEN machine (for SQL\*PLUS testing), and
 -   ssh into a CAEN Linux machine to run your files
 
-Many of you have visited the tutorial at [EECS 280 Setup Tutorial][eecs-280-setup]. You are free to use any setup that has worked in the past for you, but **remember that running your scripts on CAEN will produce more helpful error descriptions than the ones provided by the Autograder.**
+Many of you have visited the tutorial at [EECS 280 Setup Tutorial][eecs-280-setup]. You are free to use any setup that has worked in the past for you, but **remember that running your scripts on CAEN will produce more helpful error descriptions than the ones provided by the Autograder.** We’ve summarized the most common options below. 
 
-We’ve summarized the most common options below. **It is your responsibility to ensure you have access well before any deadlines.** It may take staff several hours or days to help debug machine-specific workflows. For this reason, we recommend starting with the most familiar approach (command line `ssh` and `git`) before trying out `rsync`, Visual Studio Code, or other options.
+<div class="primer-spec-callout warning" markdown="1">
+**It is your responsibility to ensure you have access well before any deadlines.** It may take staff several hours or days to help debug machine-specific workflows. For this reason, we recommend starting with the most familiar approach (command line `ssh` and `git`) before trying out `rsync`, Visual Studio Code, or other options.
+</div>
 
 ## Option 1 (Terminal)
 
 The first option is to do all your development on your local machine, but periodically copy your files to CAEN for testing through the terminal.
 
 -   You can use Git's version control, which has the benefit of keeping track of your files over time.
-
 -   For a faster approach, you can copy your local files to CAEN with the `rsync` command (omit angle brackets).
 
 ```console
@@ -37,7 +39,9 @@ Now that your files are on CAEN, to ssh into it, run
 $ ssh <uniqname>@login.engin.umich.edu
 ```
 
-**Pro Tip:** If you wish to copy your files from CAEN to your local machine, you can switch the source and destination paths.
+<div class="primer-spec-callout info" markdown="1">
+  _**Pro tip:** If you wish to copy your files from CAEN to your local machine, you can switch the source and destination paths._
+</div>
 
 ## Option 2 (Visual Studio Code)
 
@@ -55,7 +59,9 @@ Host caen
 
 Next, in Visual Studio Code, download the _Remote - SSH_ extension. Under the extension settings, check the option to _Lockfiles in Tmp_. Open Command Palette and select the option _Connect Current Window to Host..._ and choose `caen`. After entering your CAEN password and Duo authorization, you should now be able to edit your files directly on CAEN with Visual Studio Code as a text editor.
 
-**Pro Tip:** If you were able to successfully connect to CAEN once, but it fails the next time you try to connect, try killing the connection first and wait for the log notification to confirm that it was killed. To do so, open Command Palette and select the option _Remote - SSH: Kill VS Code Server on Host_. Alternatively, ssh into CAEN and remove the `.vscode` directory with `rm -rf .vscode`.
+<div class="primer-spec-callout info" markdown="1">
+_**Pro tip:**_ If you were able to successfully connect to CAEN once, but it fails the next time you try to connect, try killing the connection first and wait for the log notification to confirm that it was killed. To do so, open Command Palette and select the option _Remote - SSH: Kill VS Code Server on Host_. Alternatively, ssh into CAEN and remove the `.vscode` directory with `rm -rf .vscode`.
+</div>
 
 ## Windows Users
 
@@ -67,12 +73,14 @@ On CAEN, in order to use SQL\*PLUS (Projects 1-3), you will need to load the cla
 
 On CAEN, in order to use the `mongo` shell (Project 3), you will need to load the mongoDB module by running `module load mongodb` every time you open a new terminal session.
 
-**Pro Tip:** To automatically load all modules every time you login, run the following on CAEN. You only need to do this once at the beginning of the semester.
+<div class="primer-spec-callout info" markdown="1">
+_**Pro tip:** To automatically load all modules every time you login, run the following on CAEN. You only need to do this once at the beginning of the semester._
 
 ```console
 $ echo "module load eecs484" >> ~/.bash_profile
 $ echo "module load mongodb" >> ~/.bash_profile
 ```
+</div>
 
 # SQL\*PLUS Login
 
@@ -86,7 +94,9 @@ $ rlwrap sqlplus
 
 Your username is your University of Michigan uniqname, and your password is `eecsclass` (case-sensitive). The first time you log in, the system will prompt you to change your password, which we recommend you do.
 
+<div class="primer-spec-callout danger" markdown="1">
 Only use alphabetic characters, numerals, the underscore, and the pound sign in your SQL\*PLUS password. **Never use quotation marks, the '@' symbol, or the '$' symbol in your SQL\*PLUS password**. If you do, it is likely that you will not be able to log into your account, and you will need to reset it (see [Resetting Password and Sessions](#resetting-password-and-sessions)).
+</div>
 
 If you encounter the error `ORA-01017: invalid username/password; logon denied`, then you may not have an account. Please privately post on Piazza with your uniqname to request access.
 

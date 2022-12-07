@@ -7,9 +7,11 @@ permalink: /wn23/p3-mongodb.html
 
 # Project 3: MangoDB
 
-Due on **Thursday, November 10 at 11:55 PM ET**.
+| Worth                                     | Released           | Due                                      |
+| ----------------------------------------- | ------------------ | ---------------------------------------- |
+| 100 points (20 for Part A, 80 for Part B) | Monday, October 24 | **Thursday, November 10 at 11:55 PM ET** |
 
-If you do not turn in your project by that deadline, or if you are unhappy with your work, you may continue to submit up until **Monday, November 14 at 11:55 PM ET** (4 days after the regular deadline). Please refer to [EECS 484 F22 Course Policies][course-policies] for more information on _Assignments and Partners_ and _Late Days_.
+If you do not turn in your project by the deadline, or if you are unhappy with your work, you may continue to submit up until **Monday, November 14 at 11:55 PM ET** (4 days after the regular deadline). Please refer to [EECS 484 F22 Course Policies][course-policies] for more information on _Assignments and Partners_ and _Late Days_.
 
 <!-- ## Change Log -->
 
@@ -34,12 +36,14 @@ JSON (JavaScript Object Notation) is a way to represent data in a key-value form
 ```javascript
 var​ ​student1 ​=​ {​"Name"​:​​ "John Doe",​ ​"Age"​:​​ 21,​ "Major"​: ["CS",​ "Math"]​​}
 ```
+{: data-variant="no-line-numbers" }
 
 In `student1`, Name, Age and Major are the keys. Their corresponding value types are string, integer and array of strings. Note that JSON objects themselves can be values for other JSON objects. Below is an example of retrieving the value for a key:
 
 ```javascript
 student1["Name"]; // returns "John Doe"
 ```
+{: data-variant="no-line-numbers" }
 
 With multiple JSON objects, we can create a JSON array in JavaScript:
 
@@ -51,6 +55,7 @@ var​ ​students ​=​ [
 
 students [0] ["Name"]; // returns "John Doe"
 ```
+{: data-variant="no-line-numbers" }
 
 ## Export to JSON
 
@@ -119,10 +124,10 @@ For Part A, you only need to be concerned about the following files
 This file provides the main driver function for running Part A. You should use it to run your program, but you don’t need to turn it in. When `Main.java` is run, an output file named `output.json` should be generated. Modify the `oracleUserName` and `password` static variables, replacing them with your own **Oracle** username and password.
 
 ```java
-// in file Main.java
 static String oracleUserName = "uniqname"; // replace with your uniqname
 static String password = "password"; // replace with your Oracle password (default: eecsclass)
 ```
+{: data-title="Main.java" }
 
 #### Makefile
 
@@ -132,6 +137,7 @@ Once you have implemented `GetData.java` and modified `Main.java`, you can compi
 $ make compile
 $ make run
 ```
+{: data-variant="no-line-numbers" }
 
 If your username/password combination is incorrect in `Main.java`, you will get an error message `java.sql.SQLException: ORA-01017: invalid username/password; logon denied`. If you need to reset your password, refer to [Tools](/{{ page.semester }}/tools#resetting-password-and-sessions).
 
@@ -174,6 +180,7 @@ To use MongoDB on your local machine, refer to [MongoDB’s installation instruc
 ```console
 $ mongo <database> # omit angle brackets
 ```
+{: data-variant="no-line-numbers" }
 
 Note that the starter file `Makefile` does not work in a local environment unless properly modified. No hostname, userid, or password is required, so edit your `Makefile` such that these fields are removed from all of your make rules. In our `Makefile`, `uniqname` is the name of the database that `mongo` will use for commands. We may be unable to provide support in case you run into issues with your local `mongo` environment. Because of this, we recommend using MongoDB on CAEN.
 
@@ -184,38 +191,42 @@ To use MongoDB on CAEN, we have set up a MongoDB server on the host `eecs484.eec
 Then, fill in the `uniqname` and `password` fields in the `Makefile`. The default MongoDB password is your uniqname. If you have the wrong login credentials, you will get the error message `Error: Authentication failed`.
 
 ```python
-# in file Makefile
 uniqname = uniqname # replace with your uniqname
 password = password # replace with your mongoDB password (default: your uniqname)
 ```
+{: data-title="Makefile" }
 
 Then, login into the mongo shell. You can use this interactive shell to test queries directly on your database, similar to the SQL\*PLUS CLI in Projects 1 and 2.
 
 ```console
-// in terminal
 $ make loginmongo
 ```
+{: data-variant="no-line-numbers" }
 
-The mongo shell will open up in your terminal. You can update your password with the following command. The new password takes effect when you log out. **Do not include the '$' symbol in your password.** You may be unable to login again, and you will have to ask the staff to reset your account.
+The mongo shell will open up in your terminal. You can update your password with the following command, which will take effect when you log out.
 
 ```javascript
-// in mongo interactive shell
 > db.updateUser("uniqname", {pwd : "newpassword" })
 ```
+{: data-variant="no-line-numbers" data-title="mongo interactive shell" }
+
+<div class="primer-spec-callout danger" markdown="1">
+**Do not include the '$' symbol in your password.** You may be unable to login again, and you will have to ask the staff to reset your account.
+</div>
 
 ## Import JSON to MongoDB
 
 Now that you have access to a MongoDB database, the next step is to load data into it. Open a terminal in the folder where you have `sample.json` (or `output.json`) and `Makefile`. **Update the `Makefile` with your new password** and run **_either_** of the following
 
 ```console
-// in terminal
 $ make setupsampledb  # load user collection using sample.json
 ```
+{: data-variant="no-line-numbers" }
 
 ```console
-// in terminal
 $ make setupmydb  # load user collection using output.json
 ```
+{: data-variant="no-line-numbers" }
 
 Refer to the `Makefile` for the details on the actual commands. Please do not modify the `–collection users` field. On success, you should have imported 800 user documents. As a reminder, `sample.json` is correct and given in the starter files. `output.json` is generated by your code from Part A.
 
@@ -224,16 +235,16 @@ Refer to the `Makefile` for the details on the actual commands. Please do not mo
 In the next section, you will implement 8 queries in the given JavaScript files. The file `test.js` contains one simple test on each of the queries. In `test.js`, you will need to set the `dbname` variable equal to your uniqname, as that will serve as the name of your database.
 
 ```javascript
-// in file test.js
 let dbname = "uniqname"; // replace with your uniqname
 ```
+{: data-variant="no-line-numbers" data-title="test.js" }
 
 To run `test.js`, use the following Makefile command
 
 ```console
-// in terminal
 $ make mongotest
 ```
+{: data-variant="no-line-numbers" }
 
 You may use `test.js` to check partial correctness of your implementations. Note that an output saying `"Local test passed! Partially correct."` does not assure your queries will get a full score on the Autograder. Each test also has a line you can uncomment to show the output for a specific test. For example, the test for query 1 looks like
 
@@ -250,6 +261,7 @@ if (ans1 == 42) {
 }
 cleanUp();
 ```
+{: data-highlight="3" }
 
 ## Queries
 
@@ -268,12 +280,14 @@ Create a collection called `flat_users`. Documents in the collection follow this
 ```javascript
 {​"user_id"​:​​ xxx,​ ​"friends"​:​​ xxx​​}
 ```
+{: data-variant="no-line-numbers" }
 
 For example, if we have the following user in the users collection:
 
 ```javascript
 {​"user_id"​:​​ 100, ​"first_name"​:​​ "John" , ...​ , ​"friends"​:​​ [ 120, 200, 300 ]​​}
 ```
+{: data-variant="no-line-numbers" }
 
 The query would produce 3 documents (JSON objects) and store them in the collection `flat_users`:
 
@@ -282,6 +296,7 @@ The query would produce 3 documents (JSON objects) and store them in the collect
 {​"user_id"​:​​ 100,​ ​"friends"​:​​ 200​​},
 {​"user_id"​:​​ 100,​ ​"friends"​:​​ 300​​}
 ```
+{: data-variant="no-line-numbers" }
 
 You do not need to return anything for this query.
 
@@ -294,6 +309,7 @@ Create a collection named `cities`. Each document in the collection should conta
 ```javascript
 {​"_id"​:​​ "Bucklebury",​ ​"users"​:​​ [ 10, 20, 30]​​}
 ```
+{: data-variant="no-line-numbers" }
 
 You do not need to return anything for this query.
 
@@ -325,6 +341,7 @@ Your query should return a JSON object: the keys should be `user_id`s and the va
  user_id2​:​​ user_idy,
  ...}
 ```
+{: data-variant="no-line-numbers" }
 
 You may find [$in](https://www.mongodb.com/docs/manual/reference/operator/query/in/) and [cursor.sort()](https://www.mongodb.com/docs/upcoming/reference/method/cursor.sort/) helpful. Again, you can also choose to do this query iteratively.
 
@@ -341,6 +358,7 @@ Find the number of users born in each month. Note that after running `test.js`, 
 ```javascript
 {​"_id"​:​​ 9,​ ​"value"​:​ 66}
 ```
+{: data-variant="no-line-numbers" }
 
 You may find these helpful: [Map-Reduce](https://www.mongodb.com/docs/v3.2/core/map-reduce/), [Map-Reduce Examples](https://www.mongodb.com/docs/v3.2/tutorial/map-reduce-examples/)
 
@@ -353,6 +371,7 @@ In this query, use MapReduce to find the average friend count per user where the
 ```javascript
 {​"_id"​:​​ "Breredon",​ ​"value"​:​ 27.2​​}
 ```
+{: data-variant="no-line-numbers" }
 
 ### Mapreduce Tips for Query 7 and 8
 
@@ -364,6 +383,7 @@ Since the output of a reducer can be fed into another reducer (reducers can take
 ```
 reduce(key, [ C, reduce(key, [ A, B ]) ] ) == reduce( key, [ C, A, B ] )
 ```
+{: data-variant="no-line-numbers" }
 
 For query 8, the average calculation must be performed in the finalizer because the reducer function must be associative.
 
@@ -380,7 +400,6 @@ Each team will be allowed 3 submissions per day with feedback; any submissions m
 This project was written and revised over the years by EECS 484 staff at the University of Michigan. The most recent version was updated and moved to [Primer Spec][primer-spec] by Owen Pang.
 
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License][cc-license]. You may share and adapt this document, but not for commercial purposes. You may not share source code included in this document.
-
 
 [course-policies]: https://docs.google.com/document/d/1do8CkFk7jLVdc2SfsLB1eJI_5uZp8CfMsMAVxJM51L4/edit?usp=sharing
 [autograder]: https://autograder.io/

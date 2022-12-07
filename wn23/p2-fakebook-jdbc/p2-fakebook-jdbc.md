@@ -7,7 +7,9 @@ permalink: /wn23/p2-fakebook-jdbc.html
 
 # Project 2: Fakebook JDBC
 
-Due on **Saturday, October 8 at 11:55 PM ET**.
+| Worth                              | Released               | Due                                    |
+| ---------------------------------- | ---------------------- | -------------------------------------- |
+| 118 points (59 public, 59 private) | Thursday, September 22 | **Saturday, October 8 at 11:55 PM ET** |
 
 If you do not turn in your project by that deadline, or if you are unhappy with your work, you may continue to submit up until **Monday, October 12 at 11:55 PM ET** (4 days after the regular deadline). Please refer to [EECS 484 F22 Course Policies][course-policies] for more information on _Assignments and Partners_ and _Late Days_.
 
@@ -269,6 +271,7 @@ while (rst.next ()) {
     long val = rst.getLong (1);
 }
 ```
+{: data-highlight="4" }
 
 The reason is that the reuse of `stmt` to generate the results stored in `rst2` causes `rst` to close. The attempt to access the data in `rst` will thus throw an exception. **If you want to use multiple `ResultSets` in this fashion, you must create a second `Statement` to use for the inner query.** Make sure to create this statement outside of the loop, however, so that it doesn't get garbage collected and reinitialized every time through.
 
@@ -312,7 +315,6 @@ Note that the `ROWNUM` pseudo-variable does not error out if there aren't "enoug
 This project was written and revised over the years by EECS 484 staff at the University of Michigan. The most recent version was updated and moved to [Primer Spec][primer-spec] by Owen Pang.
 
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License][cc-license]. You may share and adapt this document, but not for commercial purposes. You may not share source code included in this document.
-
 
 [course-policies]: https://docs.google.com/document/d/1do8CkFk7jLVdc2SfsLB1eJI_5uZp8CfMsMAVxJM51L4/edit?usp=sharing
 [autograder]: https://autograder.io/
