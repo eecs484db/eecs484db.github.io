@@ -100,12 +100,7 @@ Below is an example of one element of this `JSONArray`. It is possible that a us
 
 ## Starter Files
 
-Download and unpack the starter files on the command line with
-
-```console
-$ wget https://eecs484db.github.io/{{ page.semester}}/p3-mongodb/p3-starter_files.tar.gz
-$ tar -xzvf p3-starter_files.tar.gz && rm p3-starter_files.tar.gz
-```
+Download the starter files ([p3-starter_files.tar.gz][starter-code]).
 
 For Part A, you only need to be concerned about the following files
 
@@ -386,10 +381,13 @@ This project was written and revised over the years by EECS 484 staff at the Uni
 
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License][cc-license]. You may share and adapt this document, but not for commercial purposes. You may not share source code included in this document.
 
-[jd]: https://github.com/josephburnett/jd
-[deepdiff]: https://pypi.org/project/deepdiff/
+
 [course-policies]: https://docs.google.com/document/d/1do8CkFk7jLVdc2SfsLB1eJI_5uZp8CfMsMAVxJM51L4/edit?usp=sharing
-[mongodb-install]: https://www.mongodb.com/docs/manual/installation/
 [autograder]: https://autograder.io/
 [primer-spec]: https://github.com/eecs485staff/primer-spec
 [cc-license]: https://creativecommons.org/licenses/by-nc/4.0/
+
+[starter-code]: https://eecs484db.github.io/{{ page.semester}}/p3-mongodb/p3-starter_files.tar.gz
+[jd]: https://github.com/josephburnett/jd
+[deepdiff]: https://pypi.org/project/deepdiff/
+[mongodb-install]: https://www.mongodb.com/docs/manual/installation/

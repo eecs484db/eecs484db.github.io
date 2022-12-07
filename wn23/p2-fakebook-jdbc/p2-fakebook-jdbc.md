@@ -47,12 +47,7 @@ The tables are stored under the schema of `project2.` To access the tables in SQ
 
 # Starter Files
 
-Download and unpack the starter files on the command line with
-
-```console
-$ wget https://eecs484db.github.io/{{ page.semester}}/p2-fakebook-jdbc/p2-starter_files.tar.gz
-$ tar -xzvf p2-starter_files.tar.gz && rm p2-starter_files.tar.gz
-```
+Download the starter files ([p2-starter_files.tar.gz][starter-code]).
 
 **The compression (`p2-starter_files`) contains a directory named `project2` and you should not change its organization.**
 
@@ -318,7 +313,10 @@ This project was written and revised over the years by EECS 484 staff at the Uni
 
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License][cc-license]. You may share and adapt this document, but not for commercial purposes. You may not share source code included in this document.
 
+
 [course-policies]: https://docs.google.com/document/d/1do8CkFk7jLVdc2SfsLB1eJI_5uZp8CfMsMAVxJM51L4/edit?usp=sharing
 [autograder]: https://autograder.io/
 [primer-spec]: https://github.com/eecs485staff/primer-spec
 [cc-license]: https://creativecommons.org/licenses/by-nc/4.0/
+
+[starter-code]: https://eecs484db.github.io/{{ page.semester}}/p2-fakebook-jdbc/p2-starter_files.tar.gz

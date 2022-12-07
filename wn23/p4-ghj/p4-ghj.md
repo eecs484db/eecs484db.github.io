@@ -31,12 +31,7 @@ By submitting this project, you are agreeing to abide by the Honor Code: "I have
 
 There are two main phases in GHJ, partition and probe. **Your job is to implement the partition and probe functions in Join.cpp.** You are given other starter files, which along with your code, will simulate the data flow of records in disk and memory and perform a join operation between two relations.
 
-Download and unpack the starter files on the command line with
-
-```console
-$ wget https://eecs484db.github.io/{{ page.semester }}/p4-ghj/p4-starter_files.tar.gz
-$ tar -xzvf p4-starter_files.tar.gz && rm p4-starter_files.tar.gz
-```
+Download the starter files ([p4-starter_files.tar.gz][starter-code]).
 
 There are 6 main components: Record, Page, Disk, Mem, Bucket, and Join. The files `constants.hpp`, `main.cpp`, `Makefile`, `left_rel.txt` and `right_rel.txt`, and `.clang-format` will also be used for testing and formatting. Code overview and key points for each component are discussed below.
 
@@ -203,6 +198,8 @@ This document is licensed under a [Creative Commons Attribution-NonCommercial 4.
 
 [course-policies]: https://docs.google.com/document/d/1do8CkFk7jLVdc2SfsLB1eJI_5uZp8CfMsMAVxJM51L4/edit?usp=sharing
 [autograder]: https://autograder.io/
-[rosetta]: https://rosettacode.org/wiki/Hash_join#C.2B.2B
 [primer-spec]: https://github.com/eecs485staff/primer-spec
 [cc-license]: https://creativecommons.org/licenses/by-nc/4.0/
+
+[starter-code]: https://eecs484db.github.io/{{ page.semester }}/p4-ghj/p4-starter_files.tar.gz
+[rosetta]: https://rosettacode.org/wiki/Hash_join#C.2B.2B
