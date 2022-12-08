@@ -16,7 +16,7 @@ To connect to CAEN remotely and to use SQL\*Plus, you will need to
 -   sync your files between your local machine (to submit to the Autograder) and a CAEN machine (for SQL\*PLUS testing), and
 -   ssh into a CAEN Linux machine to run your files
 
-Many of you have visited the tutorial at [EECS 280 Setup Tutorial][eecs-280-setup]. You are free to use any setup that has worked in the past for you, but **remember that running your scripts on CAEN will produce more helpful error descriptions than the ones provided by the Autograder.** We’ve summarized the most common options below. 
+Many of you have visited the tutorial at [EECS 280 Setup Tutorial][eecs-280-setup]. You are free to use any setup that has worked in the past for you, but **remember that running your scripts on CAEN will produce more helpful error descriptions than the ones provided by the Autograder.** We’ve summarized the most common options below.
 
 <div class="primer-spec-callout warning" markdown="1">
 **It is your responsibility to ensure you have access well before any deadlines.** It may take staff several hours or days to help debug machine-specific workflows. For this reason, we recommend starting with the most familiar approach (command line `ssh` and `git`) before trying out `rsync`, Visual Studio Code, or other options.
@@ -173,42 +173,36 @@ SQL\*PLUS is a raw command line tool that can be picky about the formatting of y
 
 -   Blank lines inside of a command will cancel the command.
 
-    Succeeds:
-
     ```sql
     SELECT *
     FROM table_name;
     ```
-
-    Fails:
+    {: data-title="Succeeds:" }
 
     ```sql
     SELECT *
      
     FROM table_name;
     ```
+    {: data-title="Fails:" }
 
 -   Begin multiline comment symbol `/*` must have a space right afterwards.
-
-    Succeeds:
 
     ```sql
     SELECT * FROM table_name;
     /* this is a good multiline
     comment block*/
     ```
-
-    Fails:
+    {: data-title="Succeeds:" }
 
     ```sql
     SELECT * FROM table_name;
     /*this is a bad multiline
     comment block*/
     ```
+    {: data-title="Fails:" }
 
 -   Comments should not come right after the semicolon.
-
-    Succeeds:
 
     ```sql
     SELECT * FROM table_name;
@@ -216,13 +210,13 @@ SQL\*PLUS is a raw command line tool that can be picky about the formatting of y
     SELECT * FROM table_name;
     /* this is a good single line comment*/
     ```
-
-    Fails:
+    {: data-title="Succeeds:" }
 
     ```sql
     SELECT * FROM table_name; -- this is a bad single line comment
     SELECT * FROM table_name; /* this is a bad single line comment*/
     ```
+    {: data-title="Fails:" }
 
 # Acknowledgements
 

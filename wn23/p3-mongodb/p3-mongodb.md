@@ -401,7 +401,7 @@ This project was written and revised over the years by EECS 484 staff at the Uni
 
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License][cc-license]. You may share and adapt this document, but not for commercial purposes. You may not share source code included in this document.
 
-[course-policies]: https://docs.google.com/document/d/1do8CkFk7jLVdc2SfsLB1eJI_5uZp8CfMsMAVxJM51L4/edit?usp=sharing
+[course-policies]: #
 [autograder]: https://autograder.io/
 [primer-spec]: https://eecs485staff.github.io/primer-spec/
 [cc-license]: https://creativecommons.org/licenses/by-nc/4.0/
