@@ -121,7 +121,7 @@ Other files you may find helpful to look over include:
 
 # Building and Running
 
-This project was developed and tested in a Linux environment with GCC 8.5.0 and C++17. You can work on the project anywhere, but as usual, we recommend doing your final tests in the CAEN Linux environment.
+This project was developed and tested in a Linux environment with GCC 5.4.0 and C++14 (a few features are not supported in GCC 5.4.0). You can work on the project anywhere, but as usual, we recommend doing your final tests in the CAEN Linux environment.
 
 To build the project and run the executable file, use the `Makefile`, where `left_rel.txt` and `right_rel.txt` represent the two text file names that contain all the data records for joining two relations.
 
