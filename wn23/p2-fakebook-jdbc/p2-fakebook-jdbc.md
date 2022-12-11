@@ -7,11 +7,15 @@ permalink: /wn23/p2-fakebook-jdbc.html
 
 # Project 2: Fakebook JDBC
 
-| Worth                              | Released               | Due                                    |
-| ---------------------------------- | ---------------------- | -------------------------------------- |
-| 118 points (59 public, 59 private) | Thursday, September 22 | **Saturday, October 8 at 11:55 PM ET** |
+<div class="primer-spec-callout danger" markdown="1">
+This spec is from Fall 2022 and hasn't been updated yet for Winter 2023.
+</div>
 
-If you do not turn in your project by that deadline, or if you are unhappy with your work, you may continue to submit up until **Monday, October 12 at 11:55 PM ET** (4 days after the regular deadline). Please refer to [EECS 484 F22 Course Policies][course-policies] for more information on _Assignments and Partners_ and _Late Days_.
+| Worth                              | Released | Due                         |
+| ---------------------------------- |----------|-----------------------------|
+| 118 points (59 public, 59 private) | Date TBD | **Date TBD at 11:55 PM ET** |
+
+If you do not turn in your project by that deadline, or if you are unhappy with your work, you may continue to submit up until **Date TBD at 11:55 PM ET** (4 days after the regular deadline). Please refer to [EECS 484 F22 Course Policies][course-policies] for more information on _Assignments and Partners_ and _Late Days_.
 
 <!-- ## Change Log -->
 

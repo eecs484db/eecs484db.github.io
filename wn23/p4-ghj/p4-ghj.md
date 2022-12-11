@@ -7,17 +7,15 @@ permalink: /wn23/p4-ghj.html
 
 # Project 4: Grace Hash Join
 
-| Worth     | Released              | Due                                      |
-| --------- | --------------------- | ---------------------------------------- |
-| 70 points | Thursday, November 10 | **Thursday, December 8 at 11:55 PM EST** |
-
-If you do not turn in your project by the deadline, or if you are unhappy with your work, you may continue to submit up until **Monday, December 12 at 11:55 PM EST** (4 days after the regular deadline). Please refer to [EECS 484 F22 Course Policies][course-policies] for more information on _Assignments and Partners_ and _Late Days_.
-
-<div class="primer-spec-callout warning" markdown="1">
-**Note:** We have given you 4 weeks to complete the project, which should be ample time and provide flexibility amid the final season. **The final is on December 13, which immediately follows the due date of this project, so please be aware of this when scheduling your time.** For this reason, no exceptions or extensions will be given.
+<div class="primer-spec-callout danger" markdown="1">
+This spec is from Fall 2022 and hasn't been updated yet for Winter 2023.
 </div>
 
+| Worth     | Released | Due                         |
+| --------- |----------|-----------------------------|
+| 70 points | Date TBD | **Date TBD at 11:55 PM ET** |
 
+If you do not turn in your project by the deadline, or if you are unhappy with your work, you may continue to submit up until **Date TBD at 11:55 PM EST** (4 days after the regular deadline). Please refer to [EECS 484 F22 Course Policies][course-policies] for more information on _Assignments and Partners_ and _Late Days_.
 
 <!-- ## Change Log -->
 

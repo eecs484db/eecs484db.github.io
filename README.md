@@ -1,18 +1,12 @@
----
-permalink: /README.html
----
-
 # EECS 484 Projects
 
-## About
+[![powered by Jekyll](https://img.shields.io/badge/powered%20by-Jekyll-blue)](https://jekyllrb.com/)
+[![theme Primer Spec](https://img.shields.io/badge/theme-Primer%20Spec-blue)](https://github.com/eecs485staff/primer-spec)
+[![MIT license](https://img.shields.io/github/license/eecs484db/eecs484db.github.io?color=blue)](https://github.com/eecs484db/eecs484db.github.io/blob/main/LICENSE.md)
 
-This [site](https://eecs484db.github.io/) holds the project specs for EECS 484 at the University of Michigan. It holds the specs for the current semester as well as an archive for past semesters. This was made possible by the EECS 485 team and their [Primer Spec](https://github.com/eecs485staff/primer-spec) Jekyll theme. 
+This site [eecs484db.github.io](https://eecs484db.github.io/) holds the project specs for EECS 484 (Database Management Systems) at the University of Michigan. It holds the specs for the current semester as well as an archive for past semesters. This was made possible by EECS 485's [Primer Spec](https://github.com/eecs485staff/primer-spec) Jekyll theme. 
 
-**Disclaimer:** We are much better database engineers than frontend engineers (surprise!), so apologies if this site is not the prettiest.
-
-## MacOS Setup
-
-### Prerequisites
+## Prerequisites (MacOS)
 
 Update Homebrew
 
@@ -54,7 +48,7 @@ make -v
 
 For more detailed instructions, see https://jekyllrb.com/docs/installation/macos/.
 
-### Installation
+## Installation
 
 To install all required gems specified in `eecs484/Gemfile`, run
 
@@ -64,10 +58,16 @@ bundle install
 bundle update
 ```
 
-### Building
+## Building
 
 To build locally, run the following and visit http://localhost:4000/. Updates propagate every time you make a change.
 
 ```
 bundle exec jekyll serve
 ```
+
+## Resources
+
+-   [Jekyll Installation](https://jekyllrb.com/docs/installation/)
+-   [Primer Spec Documentation](https://eecs485staff.github.io/primer-spec/docs/USAGE_ADVANCED.html#jekyll-theme-primer-spec)
+-   [Markdown Table Generator](https://www.tablesgenerator.com/markdown_tables#)

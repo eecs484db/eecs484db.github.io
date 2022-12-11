@@ -7,11 +7,15 @@ permalink: /wn23/p3-mongodb.html
 
 # Project 3: MangoDB
 
-| Worth                                     | Released           | Due                                      |
-| ----------------------------------------- | ------------------ | ---------------------------------------- |
-| 100 points (20 for Part A, 80 for Part B) | Monday, October 24 | **Thursday, November 10 at 11:55 PM ET** |
+<div class="primer-spec-callout danger" markdown="1">
+This spec is from Fall 2022 and hasn't been updated yet for Winter 2023.
+</div>
 
-If you do not turn in your project by the deadline, or if you are unhappy with your work, you may continue to submit up until **Monday, November 14 at 11:55 PM ET** (4 days after the regular deadline). Please refer to [EECS 484 F22 Course Policies][course-policies] for more information on _Assignments and Partners_ and _Late Days_.
+| Worth                                     | Released | Due                         |
+| ----------------------------------------- |----------|-----------------------------|
+| 100 points (20 for Part A, 80 for Part B) | Date TBD | **Date TBD at 11:55 PM ET** |
+
+If you do not turn in your project by the deadline, or if you are unhappy with your work, you may continue to submit up until **Date TBD at 11:55 PM ET** (4 days after the regular deadline). Please refer to [EECS 484 F22 Course Policies][course-policies] for more information on _Assignments and Partners_ and _Late Days_.
 
 <!-- ## Change Log -->
 
