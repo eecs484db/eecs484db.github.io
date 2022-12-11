@@ -4,6 +4,8 @@
 [![theme Primer Spec](https://img.shields.io/badge/theme-Primer%20Spec-blue)](https://github.com/eecs485staff/primer-spec)
 [![MIT license](https://img.shields.io/github/license/eecs484db/eecs484db.github.io?color=blue)](https://github.com/eecs484db/eecs484db.github.io/blob/main/LICENSE.md)
 
+[![pages-build-deployment](https://github.com/eecs484db/eecs484db.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/eecs484db/eecs484db.github.io/actions/workflows/pages/pages-build-deployment)
+
 This site [eecs484db.github.io](https://eecs484db.github.io/) holds the project specs for EECS 484 (Database Management Systems) at the University of Michigan. It holds the specs for the current semester as well as an archive for past semesters. This was made possible by EECS 485's [Primer Spec](https://github.com/eecs485staff/primer-spec) Jekyll theme. 
 
 ## Prerequisites (MacOS)
