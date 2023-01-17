@@ -7,9 +7,9 @@ permalink: /wn23/p1-fakebook-db.html
 
 # Project 1: Fakebook Database
 
-<div class="primer-spec-callout danger" markdown="1">
+<!-- <div class="primer-spec-callout danger" markdown="1">
 This spec is from Fall 2022 and hasn't been updated yet for Winter 2023.
-</div>
+</div> -->
 
 | Worth                                            | Released | Due                         |
 |--------------------------------------------------|----------|-----------------------------|
