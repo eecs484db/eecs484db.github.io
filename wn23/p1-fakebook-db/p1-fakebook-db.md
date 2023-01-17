@@ -13,9 +13,11 @@ This spec is from Fall 2022 and hasn't been updated yet for Winter 2023.
 
 | Worth                                            | Released | Due                         |
 |--------------------------------------------------|----------|-----------------------------|
-| 150 points (62 on Gradescope, 150 on Autograder) | Date TBD | **Date TBD at 11:55 PM ET** |
+| 212 points (62 on Gradescope, 150 on Autograder) | Jan.10   | **Feb.2 at 11:45 PM EST**   |
 
-If you do not turn in your project by the deadline, or if you are unhappy with your work, you may continue to submit up until **Date TBD at 11:55 PM ET** (4 days after the regular deadline). Please refer to [EECS 484 F22 Course Policies][course-policies] for more information on _Assignments and Partners_ and _Late Days_.
+Project #1 is due on **Thursday, Feb 2nd at 11:45 PM EST**. Please refer to the [EECS 484 W23 course policies](https://docs.google.com/document/d/1T3NHQm2aRGEZCEnPWOIQ4lk-fE_QOx42RKT5vevsc1s/edit?usp=sharing) for more information on penalties for late submissions, late day tokens, and sick days.
+
+<!-- If you do not turn in your project by the deadline, or if you are unhappy with your work, you may continue to submit up until **Date TBD at 11:55 PM ET** (4 days after the regular deadline). Please refer to [EECS 484 F22 Course Policies][course-policies] for more information on _Assignments and Partners_ and _Late Days_. -->
 
 <!-- ## Change Log -->
 
@@ -27,7 +29,7 @@ In Project 1, you will be designing a relational database to store information f
 
 This project is to be done in teams of 2 students (recommended) or individually. Both members of each team will receive the same score - the highest score among all submissions; as such, it is not necessary for each team member to submit the assignment.
 
-**Before making your first submission**, follow these steps to create a team on the [Autograder][autograder]:
+**Before making your first submission**, follow these steps to create a team on the [Autograder](https://autograder.io/web/course/208):
 
 -   One team member clicks the "Send group invitation" button on the Project 1 page.
 -   The other team member confirms the invitation on their Autograder assignment page.
@@ -451,13 +453,13 @@ Part 1 (ER Diagram) is worth 62 points and Parts 2-4 (SQL scripts) are worth 50 
 
 ### Gradescope
 
-Your ER Diagram will be submitted to [Gradescope](gradescope) for hand-grading.
+Your ER Diagram will be submitted to [Gradescope](https://www.gradescope.com/courses/484645) for hand-grading.
 
 The PDF of your ER Diagram can be named whatever you would like. Your diagram can either be fully computer-generated or a scan of something hand-drawn. You may submit any number of times before the deadline. We will grade your latest submission. **One team member should submit on Gradescope, but make sure to submit as a team, specifying your partner on Gradescope at submission time. If you do not do this, we will not be able to assign points to your partner.**
 
 ### Autograder
 
-Your SQL scripts will be submitted to the [Autograder](autograder) for automated testing. Reach out via Piazza if you do not have access to the Autograder. It is your responsibility to ensure you have access well before the deadline.
+Your SQL scripts will be submitted to the [Autograder](https://autograder.io/web/course/208) for automated testing. Reach out via Piazza if you do not have access to the Autograder. It is your responsibility to ensure you have access well before the deadline.
 
 Each team will be allowed 3 submissions per day with feedback; any submissions made in excess of those 3 will be graded, but the results of those submissions will be hidden from the team. Your highest scoring submission will be used for grading, with ties favoring your latest submission.
 
