@@ -15,7 +15,7 @@ This spec is from Fall 2022 and hasn't been updated yet for Winter 2023.
 | ----------------------------------------- |----------|-----------------------------|
 | 100 points (20 for Part A, 80 for Part B) | Date TBD | **Date TBD at 11:55 PM ET** |
 
-If you do not turn in your project by the deadline, or if you are unhappy with your work, you may continue to submit up until **Date TBD at 11:55 PM ET** (4 days after the regular deadline). Please refer to [EECS 484 F22 Course Policies][course-policies] for more information on _Assignments and Partners_ and _Late Days_.
+Project 3 is due on **Date TBD**. Please refer to the [EECS 484 W23 course policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
 
 <!-- ## Change Log -->
 
@@ -393,7 +393,7 @@ For query 8, the average calculation must be performed in the finalizer because 
 
 # Submitting
 
-The deliverable for Part A is `GetData.java`. This is worth 20 points. The deliverables for Part B are `query[1-8].js`. Each query is worth 10 points, with a total of 80 points. The entire project is worth 100 points.
+The deliverable for Part A is `GetData.java`. This is worth 20 points. The deliverables for Part B are `query[1-8].js`. Each query is worth 10 points, with a total of 80 points. The entire project is worth 100 points. There are no private tests.
 
 All files should be submitted to the [Autograder][autograder]. All test cases are graded separately, so you can submit just the files you want to have graded.
 
@@ -405,8 +405,8 @@ This project was written and revised over the years by EECS 484 staff at the Uni
 
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License][cc-license]. You may share and adapt this document, but not for commercial purposes. You may not share source code included in this document.
 
-[course-policies]: #
-[autograder]: https://autograder.io/
+[course-policies]: https://docs.google.com/document/d/1T3NHQm2aRGEZCEnPWOIQ4lk-fE_QOx42RKT5vevsc1s/edit?usp=sharing
+[autograder]: https://autograder.io/web/course/208
 [primer-spec]: https://eecs485staff.github.io/primer-spec/
 [cc-license]: https://creativecommons.org/licenses/by-nc/4.0/
 

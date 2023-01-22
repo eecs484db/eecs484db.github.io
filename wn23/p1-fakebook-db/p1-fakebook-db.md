@@ -15,11 +15,11 @@ This spec is from Fall 2022 and hasn't been updated yet for Winter 2023.
 |--------------------------------------------------|----------|-----------------------------|
 | 212 points (62 on Gradescope, 150 on Autograder) | Jan.10   | **Feb.2 at 11:45 PM EST**   |
 
-Project #1 is due on **Thursday, Feb 2nd at 11:45 PM EST**. Please refer to the [EECS 484 W23 course policies](https://docs.google.com/document/d/1T3NHQm2aRGEZCEnPWOIQ4lk-fE_QOx42RKT5vevsc1s/edit?usp=sharing) for more information on penalties for late submissions, late day tokens, and sick days.
+Project 1 is due on **Thursday, Feb 2nd at 11:45 PM EST**. Please refer to the [EECS 484 W23 course policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
 
-<!-- If you do not turn in your project by the deadline, or if you are unhappy with your work, you may continue to submit up until **Date TBD at 11:55 PM ET** (4 days after the regular deadline). Please refer to [EECS 484 F22 Course Policies][course-policies] for more information on _Assignments and Partners_ and _Late Days_. -->
+## Change Log
 
-<!-- ## Change Log -->
+- (Jan 22) Elaborated on IDs in Sequences section 
 
 ## Introduction
 
@@ -29,7 +29,7 @@ In Project 1, you will be designing a relational database to store information f
 
 This project is to be done in teams of 2 students (recommended) or individually. Both members of each team will receive the same score - the highest score among all submissions; as such, it is not necessary for each team member to submit the assignment.
 
-**Before making your first submission**, follow these steps to create a team on the [Autograder](https://autograder.io/web/course/208):
+**Before making your first submission**, follow these steps to create a team on the [Autograder][autograder]:
 
 -   One team member clicks the "Send group invitation" button on the Project 1 page.
 -   The other team member confirms the invitation on their Autograder assignment page.
@@ -250,9 +250,9 @@ Additionally, since we will be loading data into your tables to test them, **you
 
 ## Sequences
 
-In Part 3, as you're loading data into your tables from the public dataset, you will find that you need ID numbers for entities where such ID numbers don't exist in the public data. The way to do this is to use sequences, which are SQL constructs for generating streams of numbers.
+In Part 3, as you're loading data, you will `SELECT` data from columns (e.g. an ID) in the public dataset and `INSERT` it into your tables. However, you will find that you need ID numbers for entities where such ID numbers don't exist in the public data. The way to do this is to use sequences, which are SQL constructs for generating streams of numbers.
 
-When you're loading data, you do not need to reference these sequences. However, since we are executing DDL statements, these sequences need to be created beforehand in your `createTables.sql` script (one for each ID).
+When you're loading data, you do not need to reference these sequences. However, since we are executing DDL statements, these sequences need to be created beforehand in your `createTables.sql` script (one for each ID that does not exist in the public dataset). However, note that there is no Messages data in the public dataset to load, so you do not need a sequence for `MESSAGE_ID`.
 
 To create a sequence and its corresponding trigger, use the following syntax, replacing the bracketed sections with the names/fields specific to your use case:
 
@@ -389,7 +389,7 @@ If one of `institution_name`, `program_year`, `program_concentration`, or `progr
 | event_start_time  | yes      | The time at which the event starts                                     |
 | event_end_time    | yes      | The time at which the event ends                                       |
 
-There is no data for event participants or messages in the public dataset, so you do not need to load anything into your table(s) corresponding to this information. However, you should assume that `MESSAGE_ID` would have been provided by the public dataset and does not need to be created using sequences and triggers.
+There is no data for event Participants or Messages in the public dataset, so you do not need to load anything into your table(s) corresponding to this information. You should assume that `MESSAGE_ID` would have been provided by the public dataset and does not need to be created using sequences and triggers.
 
 Again, when referring to any of these tables in your SQL scripts, you will need to use the fully-qualified table name by prepending `project1.` (including the ".") to the table name.
 
@@ -430,7 +430,7 @@ MINUS SELECT * FROM project1.Public_User_Information;
 To test `View_Are_Friends`, use the following test scripts instead. The outputs should again be `no rows selected`.
 
 ```sql
-SELECT LEAST(user1_id, USER2_ID),  GREATEST(user1_id, user2_id)
+SELECT LEAST(user1_id, user2_id),  GREATEST(user1_id, user2_id)
 FROM project1.Public_Are_Friends
 MINUS SELECT LEAST(user1_id, user2_id),  GREATEST(user1_id, user2_id)
 FROM View_Are_Friends;
@@ -449,11 +449,11 @@ There are two deliverables for Project 1:
 -   a PDF of your ER Diagram, and 
 -   your 5 SQL scripts (`createTables.sql`, `dropTables.sql`, `loadData.sql`, `createViews.sql`, and `dropViews.sql`)
 
-Part 1 (ER Diagram) is worth 62 points and Parts 2-4 (SQL scripts) are worth 50 points each, for a total of 212 points (62 on Gradescope, 150 on the Autograder).
+Part 1 (ER Diagram) is worth 62 points and Parts 2-4 (SQL scripts) are worth 50 points each, for a total of 212 points (62 on Gradescope, 150 on the Autograder). There are no private tests.
 
 ### Gradescope
 
-Your ER Diagram will be submitted to [Gradescope](https://www.gradescope.com/courses/484645) for hand-grading.
+Your ER Diagram will be submitted to [Gradescope][gradescope] for hand-grading.
 
 The PDF of your ER Diagram can be named whatever you would like. Your diagram can either be fully computer-generated or a scan of something hand-drawn. You may submit any number of times before the deadline. We will grade your latest submission. **One team member should submit on Gradescope, but make sure to submit as a team, specifying your partner on Gradescope at submission time. If you do not do this, we will not be able to assign points to your partner.**
 
@@ -551,8 +551,8 @@ This project was written and revised over the years by EECS 484 staff at the Uni
 
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License][cc-license]. You may share and adapt this document, but not for commercial purposes. You may not share source code included in this document.
 
-[course-policies]: #
-[autograder]: https://autograder.io/
-[gradescope]: https://www.gradescope.com/
+[course-policies]: https://docs.google.com/document/d/1T3NHQm2aRGEZCEnPWOIQ4lk-fE_QOx42RKT5vevsc1s/edit?usp=sharing
+[autograder]: https://autograder.io/web/course/208
+[gradescope]: https://www.gradescope.com/courses/484645
 [primer-spec]: https://eecs485staff.github.io/primer-spec/
 [cc-license]: https://creativecommons.org/licenses/by-nc/4.0/

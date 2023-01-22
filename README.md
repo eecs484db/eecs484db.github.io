@@ -21,7 +21,7 @@ Install `chruby` and `ruby-install` with Homebrew. Then, install `ruby`.
 
 ```
 brew install chruby ruby-install
-ruby-install ruby
+ruby-install ruby 3.1.3
 ```
 
 Configure your shell to automatically use `chruby`
@@ -56,7 +56,6 @@ For more detailed instructions, see https://jekyllrb.com/docs/installation/macos
 To install all required gems specified in `eecs484/Gemfile`, run
 
 ```
-bundle add webrick
 bundle install
 bundle update
 ```
