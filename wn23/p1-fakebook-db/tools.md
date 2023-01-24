@@ -136,13 +136,17 @@ Once in SQL\*Plus, you can execute arbitrary SQL commands. You will notice that 
     ```console?lang=bash&prompt=SQL>
     SQL> DESC <table name>;
     ```
--   To truncate the text in a particular column to only show a certain number of characters, run:
+-   To set width for a column with characters to num_chars:
     ```console?lang=bash&prompt=SQL>
-    SQL> COLUMN <column name> FORMAT a<num chars>;
+    SQL> COLUMN <column name> FORMAT A<num_chars>;
+    ```
+    To set width for a column with numbers to, say, 3:
+    ```console?lang=bash&prompt=SQL>
+    SQL> COLUMN <column name> FORMAT 999;
     ```
 -   To remove the formatting from a particular column, run:
     ```console?lang=bash&prompt=SQL>
-    SQL> CLEAR <column name>;
+    SQL> COLUMN column_name CLEAR;
     ```
     and to remove the formatting from all columns, run:
     ```console?lang=bash&prompt=SQL>
