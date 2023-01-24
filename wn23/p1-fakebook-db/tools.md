@@ -142,7 +142,7 @@ Once in SQL\*Plus, you can execute arbitrary SQL commands. You will notice that 
     ```
 -   To remove the formatting from a particular column, run:
     ```console?lang=bash&prompt=SQL>
-    SQL> CL <column name>;
+    SQL> CLEAR <column name>;
     ```
     and to remove the formatting from all columns, run:
     ```console?lang=bash&prompt=SQL>
