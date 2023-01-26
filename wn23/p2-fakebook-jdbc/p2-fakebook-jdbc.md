@@ -325,4 +325,4 @@ This document is licensed under a [Creative Commons Attribution-NonCommercial 4.
 [primer-spec]: https://eecs485staff.github.io/primer-spec/
 [cc-license]: https://creativecommons.org/licenses/by-nc/4.0/
 
-[starter-code]: https://eecs484db.github.io/{{ page.semester}}/p2-fakebook-jdbc/p2-starter_files.tar.gz
+[starter-code]: https://eecs484db.github.io/wn23/p2-fakebook-jdbc/p2-starter_files.tar.gz
