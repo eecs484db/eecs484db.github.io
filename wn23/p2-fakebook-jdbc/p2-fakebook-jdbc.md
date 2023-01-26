@@ -13,9 +13,9 @@ This spec is from Fall 2022 and hasn't been updated yet for Winter 2023.
 
 | Worth                              | Released | Due                         |
 | ---------------------------------- |----------|-----------------------------|
-| 118 points (59 public, 59 private) | Date TBD | **Date TBD at 11:55 PM ET** |
+| 118 points (59 public, 59 private) | Jan 31st |   Feb 16th at 11:55 PM ET   |
 
-Project 2 is due on **Date TBD**. Please refer to the [EECS 484 W23 course policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
+Project 2 is due on Feb 16th. Please refer to the [EECS 484 W23 course policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
 
 <!-- ## Change Log -->
 
