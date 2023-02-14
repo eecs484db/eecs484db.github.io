@@ -13,9 +13,9 @@ This spec is from Fall 2022 and hasn't been updated yet for Winter 2023.
 
 | Worth                                     | Released | Due                         |
 | ----------------------------------------- |----------|-----------------------------|
-| 100 points (20 for Part A, 80 for Part B) | Date TBD | **Date TBD at 11:55 PM ET** |
+| 100 points (20 for Part A, 80 for Part B) | Feb 14th | **Mar 16th at 11:55 PM ET** |
 
-Project 3 is due on **Date TBD**. Please refer to the [EECS 484 W23 course policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
+Project 3 is due on **Mar 16th**. Please refer to the [EECS 484 W23 course policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
 
 <!-- ## Change Log -->
 
@@ -410,7 +410,7 @@ This document is licensed under a [Creative Commons Attribution-NonCommercial 4.
 [primer-spec]: https://eecs485staff.github.io/primer-spec/
 [cc-license]: https://creativecommons.org/licenses/by-nc/4.0/
 
-[starter-code]: https://eecs484db.github.io/{{ page.semester}}/p3-mongodb/p3-starter_files.tar.gz
+[starter-code]: https://eecs484db.github.io/wn23/p3-mongodb/p3-starter_files.tar.gz
 [jd]: https://github.com/josephburnett/jd
 [deepdiff]: https://pypi.org/project/deepdiff/
 [mongodb-install]: https://www.mongodb.com/docs/manual/installation/
