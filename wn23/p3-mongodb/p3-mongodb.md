@@ -7,10 +7,6 @@ permalink: /wn23/p3-mongodb.html
 
 # Project 3: MangoDB
 
-<div class="primer-spec-callout danger" markdown="1">
-This spec is from Fall 2022 and hasn't been updated yet for Winter 2023.
-</div>
-
 | Worth                                     | Released | Due                         |
 | ----------------------------------------- |----------|-----------------------------|
 | 100 points (20 for Part A, 80 for Part B) | Feb 14th | **Mar 16th at 11:55 PM ET** |
