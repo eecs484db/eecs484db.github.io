@@ -68,7 +68,7 @@ Your job for Part A is to query the Project 3 Fakebook Oracle database (tables a
 -   YOB (`int`)
 -   MOB (`int`)
 -   DOB (`int`)
--   friends (`JSONArray`) that contains: all of the user ids of users who are friends with the current user, and has a **larger user id** than the current user
+-   friends (`JSONArray`) that contains: all of the user ids of users who are friends with the current user, and has a **larger user id** than the current user. Note that Friends relationship is assumed to be symmetric. If user 700 is friends with user 25, it will show up on the list for user 25 but will not show up on the list for user 700.
 -   current (`JSONObject`) that contains:
     -   city
     -   state
