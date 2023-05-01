@@ -13,9 +13,7 @@ permalink: /wn23/p1-fakebook-db.html
 
 Project 1 is due on **Thursday, Feb 2nd at 11:45 PM EST**. Please refer to the [EECS 484 W23 course policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
 
-## Change Log
-
-- (Jan 22) Elaborated on IDs in Sequences section
+<!-- ## Change Log -->
 
 ## Introduction
 

@@ -1,0 +1,3 @@
+1. [U-M Github]((https://its.umich.edu/communication/collaboration/github)) is now supported across the university. Switch to the Enterprise plan and make this repository private.
+
+2. Switch the Github Pages source from the `main` branch to a Github Action. Follow the steps at [Primer Spec](https://github.com/seshrs/build-primer-spec-action#setting-up-github-pages-deployment), which should allow for automatic updates, such as the PDF generation button.

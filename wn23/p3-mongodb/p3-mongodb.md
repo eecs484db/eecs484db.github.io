@@ -362,7 +362,7 @@ Your query should return a JSON object: the keys should be `user_id`s and the va
 
 {: data-variant="no-line-numbers" }
 
-You may find [$or](https://www.mongodb.com/docs/v3.6/reference/operator/aggregation/or/) [$in](https://www.mongodb.com/docs/v3.6/reference/operator/aggregation/in/#exp._S_in), and [cursor.sort()](https://www.mongodb.com/docs/v3.6/reference/method/cursor.sort/) helpful. Again, you can also choose to do this query iteratively.
+You may find [$or](https://www.mongodb.com/docs/v3.6/reference/operator/aggregation/or/), [$in](https://www.mongodb.com/docs/v3.6/reference/operator/aggregation/in/#exp._S_in), and [cursor.sort()](https://www.mongodb.com/docs/v3.6/reference/method/cursor.sort/) helpful. Again, you can also choose to do this query iteratively.
 
 #### Query 6: Average Friend Count
 

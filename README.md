@@ -6,8 +6,7 @@
 [![theme Primer Spec](https://img.shields.io/badge/theme-Primer%20Spec-blue)](https://github.com/eecs485staff/primer-spec)
 [![MIT license](https://img.shields.io/github/license/eecs484db/eecs484db.github.io?color=blue)](https://github.com/eecs484db/eecs484db.github.io/blob/main/LICENSE.md)
 
-
-This site [eecs484db.github.io](https://eecs484db.github.io/) holds the project specs for EECS 484 (Database Management Systems) at the University of Michigan. It holds the specs for the current semester as well as an archive for past semesters. This was made possible by EECS 485's [Primer Spec](https://github.com/eecs485staff/primer-spec) Jekyll theme. 
+This site [eecs484db.github.io](https://eecs484db.github.io/) holds the project specs for EECS 484 (Database Management Systems) at the University of Michigan. It holds the specs for the current semester as well as an archive for past semesters. This was made possible by EECS 485's [Primer Spec](https://github.com/eecs485staff/primer-spec) Jekyll theme.
 
 ## Prerequisites (MacOS)
 
@@ -17,27 +16,7 @@ Update Homebrew
 brew update && brew upgrade && brew cleanup
 ```
 
-Install `chruby` and `ruby-install` with Homebrew. Then, install `ruby`.
-
-```
-brew install chruby ruby-install
-ruby-install ruby 3.1.3
-```
-
-Configure your shell to automatically use `chruby`
-
-```
-echo "## Chruby ##" >> ~/.zshrc
-echo "source $(brew --prefix)/opt/chruby/share/chruby/chruby.sh" >> ~/.zshrc
-echo "source $(brew --prefix)/opt/chruby/share/chruby/auto.sh" >> ~/.zshrc
-echo "chruby ruby-3.1.2" >> ~/.zshrc
-```
-
-Install jekyll in `/usr/local/bin`
-
-```
-gem install -n /usr/local/bin jekyll bundler
-```
+See instructions at https://jekyllrb.com/docs/installation/ to install `ruby` and `jekyll`.
 
 Check that prerequisites are installed
 
@@ -49,15 +28,12 @@ g++ -v
 make -v
 ```
 
-For more detailed instructions, see https://jekyllrb.com/docs/installation/macos/.
-
 ## Installation
 
 To install all required gems specified in `eecs484/Gemfile`, run
 
 ```
 bundle install
-bundle update
 ```
 
 ## Building
@@ -70,6 +46,7 @@ bundle exec jekyll serve
 
 ## Resources
 
--   [Jekyll Installation](https://jekyllrb.com/docs/installation/)
--   [Primer Spec Documentation](https://eecs485staff.github.io/primer-spec/docs/USAGE_ADVANCED.html#jekyll-theme-primer-spec)
--   [Markdown Table Generator](https://www.tablesgenerator.com/markdown_tables#)
+- [Jekyll Installation](https://jekyllrb.com/docs/installation/)
+- [Github Docs](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll)
+- [Primer Spec Documentation](https://eecs485staff.github.io/primer-spec/docs/USAGE_ADVANCED.html#jekyll-theme-primer-spec)
+- [Markdown Table Generator](https://www.tablesgenerator.com/markdown_tables#)
