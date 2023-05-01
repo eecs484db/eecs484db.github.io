@@ -8,7 +8,7 @@ permalink: /wn23/p3-mongodb.html
 # Project 3: MangoDB
 
 | Worth                                     | Released | Due                         |
-| ----------------------------------------- |----------|-----------------------------|
+| ----------------------------------------- | -------- | --------------------------- |
 | 100 points (20 for Part A, 80 for Part B) | Feb 14th | **Mar 23rd at 11:55 PM ET** |
 
 Project 3 is due on **Mar 23rd**. Please refer to the [EECS 484 W23 course policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
@@ -36,6 +36,7 @@ JSON (JavaScript Object Notation) is a way to represent data in a key-value form
 ```javascript
 var​ ​student1 ​=​ {​"Name"​:​​ "John Doe",​ ​"Age"​:​​ 21,​ "Major"​: ["CS",​ "Math"]​​}
 ```
+
 {: data-variant="no-line-numbers" }
 
 In `student1`, Name, Age and Major are the keys. Their corresponding value types are string, integer and array of strings. Note that JSON objects themselves can be values for other JSON objects. Below is an example of retrieving the value for a key:
@@ -43,6 +44,7 @@ In `student1`, Name, Age and Major are the keys. Their corresponding value types
 ```javascript
 student1["Name"]; // returns "John Doe"
 ```
+
 {: data-variant="no-line-numbers" }
 
 With multiple JSON objects, we can create a JSON array in JavaScript:
@@ -55,51 +57,52 @@ var​ ​students ​=​ [
 
 students [0] ["Name"]; // returns "John Doe"
 ```
+
 {: data-variant="no-line-numbers" }
 
 ## Export to JSON
 
 Your job for Part A is to query the Project 3 Fakebook Oracle database (tables are prefixed with `project3.public_`) to export comprehensive information on each user. The results should be stored in a `JSONArray`, containing 800 `JSONObjects` for 800 users. It is suggested that you use multiple queries to retrieve all the information. This should feel very similar to Project 2. Each `JSONObject` should include:
 
--   user_id (`int`)
--   first_name (`String`)
--   last_name (`String`)
--   gender (`String`)
--   YOB (`int`)
--   MOB (`int`)
--   DOB (`int`)
--   friends (`JSONArray`) that contains: all of the user ids of users who are friends with the current user, and has a **larger user id** than the current user. Note that Friends relationship is assumed to be symmetric. If user 700 is friends with user 25, it will show up on the list for user 25 but will not show up on the list for user 700.
--   current (`JSONObject`) that contains:
-    -   city
-    -   state
-    -   country
--   hometown (`JSONObject`) that contains:
-    -   city
-    -   state
-    -   country
+- user_id (`int`)
+- first_name (`String`)
+- last_name (`String`)
+- gender (`String`)
+- YOB (`int`)
+- MOB (`int`)
+- DOB (`int`)
+- friends (`JSONArray`) that contains: all of the user ids of users who are friends with the current user, and has a **larger user id** than the current user. Note that Friends relationship is assumed to be symmetric. If user 700 is friends with user 25, it will show up on the list for user 25 but will not show up on the list for user 700.
+- current (`JSONObject`) that contains:
+  - city
+  - state
+  - country
+- hometown (`JSONObject`) that contains:
+  - city
+  - state
+  - country
 
 Below is an example of one element of this `JSONArray`. It is possible that a user might have no list of friends, current city, or hometown city. In this case, put **an empty `JSONArray([])`** as the value for the "friends" key of that user or **an empty `JSONObject({})`** as the value for the "current" or "hometown" key of that user. See [`sample.json`](#samplejson)​ ​for​ ​the correct​ ​output.
 
 ```json
 {
-    "MOB": 10,
-    "hometown": {
-        "country": "Middle Earth",
-        "city": "Linhir",
-        "state": "Gondor"
-    },
-    "current": {
-        "country": "Middle Earth",
-        "city": "Caras Galadhon",
-        "state": "Lothlorien"
-    },
-    "gender": "female",
-    "user_id": 744,
-    "DOB": 14,
-    "last_name": "MARTINEZ",
-    "first_name": "Lily",
-    "YOB": 516,
-    "friends": [754, 760, 772, 782]
+  "MOB": 10,
+  "hometown": {
+    "country": "Middle Earth",
+    "city": "Linhir",
+    "state": "Gondor"
+  },
+  "current": {
+    "country": "Middle Earth",
+    "city": "Caras Galadhon",
+    "state": "Lothlorien"
+  },
+  "gender": "female",
+  "user_id": 744,
+  "DOB": 14,
+  "last_name": "MARTINEZ",
+  "first_name": "Lily",
+  "YOB": 516,
+  "friends": [754, 760, 772, 782]
 }
 ```
 
@@ -109,15 +112,15 @@ Download the starter files ([p3-starter_files.tar.gz][starter-code]).
 
 For Part A, you only need to be concerned about the following files
 
--   [GetData.java](#getdatajava)
--   [Main.java](#mainjava)
--   [Makefile](#makefile)
--   [sample.json](#samplejson)
--   [json_simple-1.1.jar, json-20151123.jar, ojdbc6.jar](#json_simple-11jar-json-20151123jar-ojdbc6jar)
+- [GetData.java](#getdatajava)
+- [Main.java](#mainjava)
+- [Makefile](#makefile)
+- [sample.json](#samplejson)
+- [json_simple-1.1.jar, json-20151123.jar, ojdbc6.jar](#json_simple-11jar-json-20151123jar-ojdbc6jar)
 
 #### GetData.java
 
-**Submit this file.** Implement `toJSON()` by querying the users, friends, and cities tables to retrieve data from the Oracle Database. The `writeJSON()` function will take care of converting your output (a `JSONArray`) into a JSON string stored in `output.json`. Feel free to use the SQL\*PLUS CLI; the table names are listed in the beginning of this file.
+**Submit this file.** Implement `toJSON()` by querying the users, friends, and cities tables to retrieve data from the Oracle Database. The `writeJSON()` function will take care of converting your output (a `JSONArray`) into a JSON string stored in `output.json`. Feel free to use the SQL\*Plus CLI; the table names are listed in the beginning of this file.
 
 #### Main.java
 
@@ -127,6 +130,7 @@ This file provides the main driver function for running Part A. You should use i
 static String oracleUserName = "uniqname"; // replace with your uniqname
 static String password = "password"; // replace with your Oracle password (default: eecsclass)
 ```
+
 {: data-title="Main.java" }
 
 #### Makefile
@@ -137,13 +141,14 @@ Once you have implemented `GetData.java` and modified `Main.java`, you can compi
 $ make compile
 $ make run
 ```
+
 {: data-variant="no-line-numbers" }
 
 If your username/password combination is incorrect in `Main.java`, you will get an error message `java.sql.SQLException: ORA-01017: invalid username/password; logon denied`. If you need to reset your password, refer to [Tools](/{{ page.semester }}/tools#resetting-password-and-sessions).
 
 #### sample.json
 
-This file contains the JSON data from running the instructor implementation of `toJSON()` in `GetData.java`. Please **do not** validate your output using `diff output.json sample.json` because JSON arrays are likely to come out in different orderings between any two runs. However, `output.json` and `sample.json` should contain the same elements in the JSON array. There are command line json processors that allow you to diff the contents properly. [jd][jd] and [deepdiff][deepdiff] are both valid options.
+This file contains the JSON data from running the instructor implementation of `toJSON()` in `GetData.java`. Please **do not** validate your output using `diff output.json sample.json` because JSON arrays are likely to come out in different orderings between any two runs. However, `output.json` and `sample.json` should contain the same elements in the JSON array. There are command line json processors that allow you to diff the contents properly. jd ([github][jd-github] and [online][jd-online]) and [deepdiff][deepdiff] are both valid options.
 
 #### json_simple-1.1.jar, json-20151123.jar, ojdbc6.jar
 
@@ -180,6 +185,7 @@ To use MongoDB on your local machine, refer to [MongoDB’s installation instruc
 ```console
 $ mongo <database> # omit angle brackets
 ```
+
 {: data-variant="no-line-numbers" }
 
 Note that the starter file `Makefile` does not work in a local environment unless properly modified. No hostname, userid, or password is required, so edit your `Makefile` such that these fields are removed from all of your make rules. In our `Makefile`, `uniqname` is the name of the database that `mongo` will use for commands. We may be unable to provide support in case you run into issues with your local `mongo` environment. Because of this, we recommend using MongoDB on CAEN.
@@ -194,13 +200,15 @@ Then, fill in the `uniqname` and `password` fields in the `Makefile`. The defaul
 uniqname = uniqname # replace with your uniqname
 password = password # replace with your mongoDB password (default: your uniqname)
 ```
+
 {: data-title="Makefile" }
 
-Then, login into the mongo shell. You can use this interactive shell to test queries directly on your database, similar to the SQL\*PLUS CLI in Projects 1 and 2.
+Then, login into the mongo shell. You can use this interactive shell to test queries directly on your database, similar to the SQL\*Plus CLI in Projects 1 and 2.
 
 ```console
 $ make loginmongo
 ```
+
 {: data-variant="no-line-numbers" }
 
 The mongo shell will open up in your terminal. You can update your password with the following command, which will take effect when you log out.
@@ -208,6 +216,7 @@ The mongo shell will open up in your terminal. You can update your password with
 ```console?lang=javascript&prompt=>
 > db.updateUser("uniqname", {pwd : "newpassword" })
 ```
+
 {: data-variant="no-line-numbers" data-title="mongo interactive shell" }
 
 <div class="primer-spec-callout danger" markdown="1">
@@ -221,11 +230,13 @@ Now that you have access to a MongoDB database, the next step is to load data in
 ```console
 $ make setupsampledb  # load user collection using sample.json
 ```
+
 {: data-variant="no-line-numbers" }
 
 ```console
 $ make setupmydb  # load user collection using output.json
 ```
+
 {: data-variant="no-line-numbers" }
 
 Refer to the `Makefile` for the details on the actual commands. Please do not modify the `–collection users` field. On success, you should have imported 800 user documents. As a reminder, `sample.json` is correct and given in the starter files. `output.json` is generated by your code from Part A.
@@ -237,6 +248,7 @@ In the next section, you will implement 8 queries in the given JavaScript files.
 ```javascript
 let dbname = "uniqname"; // replace with your uniqname
 ```
+
 {: data-variant="no-line-numbers" data-title="test.js" }
 
 To run `test.js`, use the following Makefile command
@@ -244,6 +256,7 @@ To run `test.js`, use the following Makefile command
 ```console
 $ make mongotest
 ```
+
 {: data-variant="no-line-numbers" }
 
 You may use `test.js` to check partial correctness of your implementations. Note that an output saying `"Local test passed! Partially correct."` does not assure your queries will get a full score on the Autograder. Each test also has a line you can uncomment to show the output for a specific test. For example, the test for query 1 looks like
@@ -254,13 +267,14 @@ let test1 = find_user("Bucklebury", dbname);
 // print(test1); // uncomment this line to print the query1 output
 let ans1 = test1.length;
 if (ans1 == 42) {
-    print("Local test passed! Partially correct.");
+  print("Local test passed! Partially correct.");
 } else {
-    print("Local test failed!");
-    print("Expected 42 users from Bucklebury, you found", ans1, "users.");
+  print("Local test failed!");
+  print("Expected 42 users from Bucklebury, you found", ans1, "users.");
 }
 cleanUp();
 ```
+
 {: data-highlight="3" }
 
 ## Queries
@@ -269,7 +283,7 @@ cleanUp();
 
 In this query, we want to find all users whose hometown city is the specified `city`. The result is to be returned as a JavaScript array of user ids. The order of user ids does not matter.
 
-You may find [`db.collection.find()`](https://www.mongodb.com/docs/manual/reference/method/db.collection.find/) and [`cursor.forEach()`](https://www.mongodb.com/docs/v3.0/reference/method/cursor.forEach/) helpful.
+You may find [`db.collection.find()`](https://www.mongodb.com/docs/v3.6/reference/method/db.collection.find/) and [`cursor.forEach()`](https://www.mongodb.com/docs/v3.6/reference/method/cursor.forEach/) helpful.
 
 #### Query 2: Flatten Friends
 
@@ -280,6 +294,7 @@ Create a collection called `flat_users`. Documents in the collection follow this
 ```javascript
 {​"user_id"​:​​ xxx,​ ​"friends"​:​​ xxx​​}
 ```
+
 {: data-variant="no-line-numbers" }
 
 For example, if we have the following user in the users collection:
@@ -287,6 +302,7 @@ For example, if we have the following user in the users collection:
 ```javascript
 {​"user_id"​:​​ 100, ​"first_name"​:​​ "John" , ...​ , ​"friends"​:​​ [ 120, 200, 300 ]​​}
 ```
+
 {: data-variant="no-line-numbers" }
 
 The query would produce 3 documents (JSON objects) and store them in the collection `flat_users`:
@@ -296,37 +312,39 @@ The query would produce 3 documents (JSON objects) and store them in the collect
 {​"user_id"​:​​ 100,​ ​"friends"​:​​ 200​​},
 {​"user_id"​:​​ 100,​ ​"friends"​:​​ 300​​}
 ```
+
 {: data-variant="no-line-numbers" }
 
 You do not need to return anything for this query.
 
-You​ ​may ​find​ [`​$unwind`](https://www.mongodb.com/docs/manual/reference/operator/aggregation/unwind/)​ ​helpful. You may use `$project` and `$out` to create the collection, or you may insert tuples into `flat_users` iteratively.
+You​ ​may ​find​ [`​$unwind`](https://www.mongodb.com/docs/v3.6/reference/operator/aggregation/unwind/)​ ​helpful. You may use [`$project`](https://www.mongodb.com/docs/v3.6/reference/operator/aggregation/project/) and [`$out`](https://www.mongodb.com/docs/v3.6/reference/operator/aggregation/out/) to create the collection, or you may insert tuples into `flat_users` iteratively.
 
 #### Query 3: City Dwellers
 
-Create a collection named `cities`. Each document in the collection should contain two fields: a field called `_id` holding the city name, and a users field holding an array of `user_id`s who currently live in that city. For example, if users 10, 20 and 30 live in Bucklebury, the following document will be in the collection `cities`:
+Create a collection named `cities`. Each document in the collection should contain two fields: a field called `_id` holding the city name, and a users field holding an array of `user_id`s who currently live in that city. The `user_id`s do not need to be sorted but should be distinct. For example, if users 10, 20 and 30 live in Bucklebury, the following document will be in the collection `cities`:
 
 ```javascript
 {​"_id"​:​​ "Bucklebury",​ ​"users"​:​​ [ 10, 20, 30]​​}
 ```
+
 {: data-variant="no-line-numbers" }
 
 You do not need to return anything for this query.
 
-You​ ​may find [`​$group`](https://www.mongodb.com/docs/manual/reference/operator/aggregation/group/) ​helpful.
+You​ ​may find [`​$group`](https://www.mongodb.com/docs/v3.6/reference/operator/aggregation/group/) ​helpful.
 
 #### Query 4: Matchmaker
 
 Find all `user_id` pairs (A, B) that meet the following requirements:
 
--   user A is `"male"` and user B is `"female"`
--   the difference between their year of births (`YOB`) is less than the specified `year_diff`
--   user A and user B are not friends
--   user A and user B are from the same `hometown.city`
+- user A is `"male"` and user B is `"female"`
+- the difference between their year of births (`YOB`) is less than the specified `year_diff`
+- user A and user B are not friends
+- user A and user B are from the same `hometown.city`
 
 Your query should return a JSON array of pairs, where each pair is an array with two `user_id`s. In other words, you should return an array of arrays.
 
-You may find [`cursor.forEach()`](https://www.mongodb.com/docs/v3.0/reference/method/cursor.forEach/) useful. You may also use [`array.indexOf()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf) to check for the non-friend constraints.
+You may find [`cursor.forEach()`](https://www.mongodb.com/docs/v3.0/reference/method/cursor.forEach/) helpful. You may also use [`array.indexOf()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf) to check for the non-friend constraints.
 
 #### Query 5: Oldest Friends
 
@@ -341,9 +359,10 @@ Your query should return a JSON object: the keys should be `user_id`s and the va
  user_id2​:​​ user_idy,
  ...}
 ```
+
 {: data-variant="no-line-numbers" }
 
-You may find [$in](https://www.mongodb.com/docs/manual/reference/operator/query/in/) and [cursor.sort()](https://www.mongodb.com/docs/upcoming/reference/method/cursor.sort/) helpful. Again, you can also choose to do this query iteratively.
+You may find [$or](https://www.mongodb.com/docs/v3.6/reference/operator/aggregation/or/) [$in](https://www.mongodb.com/docs/v3.6/reference/operator/aggregation/in/#exp._S_in), and [cursor.sort()](https://www.mongodb.com/docs/v3.6/reference/method/cursor.sort/) helpful. Again, you can also choose to do this query iteratively.
 
 #### Query 6: Average Friend Count
 
@@ -358,9 +377,10 @@ Find the number of users born in each month. Note that after running `test.js`, 
 ```javascript
 {​"_id"​:​​ 9,​ ​"value"​:​ 66}
 ```
+
 {: data-variant="no-line-numbers" }
 
-You may find these helpful: [Map-Reduce](https://www.mongodb.com/docs/v3.2/core/map-reduce/), [Map-Reduce Examples](https://www.mongodb.com/docs/v3.2/tutorial/map-reduce-examples/)
+You may find these helpful: [Map-Reduce](https://www.mongodb.com/docs/v3.6/core/map-reduce/), [Map-Reduce Examples](https://www.mongodb.com/docs/v3.6/tutorial/map-reduce-examples/)
 
 #### Query 8: Birth Friendly Cities using MapReduce
 
@@ -371,18 +391,20 @@ In this query, use MapReduce to find the average friend count per user where the
 ```javascript
 {​"_id"​:​​ "Breredon",​ ​"value"​:​ 27.2​​}
 ```
+
 {: data-variant="no-line-numbers" }
 
 ### Mapreduce Tips for Query 7 and 8
 
-Since the output of a reducer can be fed into another reducer (reducers can take input from both mappers and reducers), the _value_ emitted from your mapper (where the mapper emits (_key_, _value_)) should have the **exact same form** as what is returned by your reducer. The reducer must satisfy the [following conditions](https://www.mongodb.com/docs/manual/reference/command/mapReduce/):
+Since the output of a reducer can be fed into another reducer (reducers can take input from both mappers and reducers), the _value_ emitted from your mapper (where the mapper emits (_key_, _value_)) should have the **exact same form** as what is returned by your reducer. The reducer must satisfy the [following conditions](https://www.mongodb.com/docs/v3.6/reference/command/mapReduce/):
 
--   the type of the return object must be identical to the type of the value emitted by the map function.
--   the reduce function must be associative. The following statement must be true:
+- the type of the return object must be identical to the type of the value emitted by the map function.
+- the reduce function must be associative. The following statement must be true:
 
 ```
 reduce(key, [ C, reduce(key, [ A, B ]) ] ) == reduce( key, [ C, A, B ] )
 ```
+
 {: data-variant="no-line-numbers" }
 
 For query 8, the average calculation must be performed in the finalizer because the reducer function must be associative.
@@ -393,6 +415,8 @@ The deliverable for Part A is `GetData.java`. This is worth 20 points. The deliv
 
 All files should be submitted to the [Autograder][autograder]. All test cases are graded separately, so you can submit just the files you want to have graded.
 
+**Remember to remove any print statements, as your submission will fail on the Autograder even if it compiles on CAEN.**
+
 Each team will be allowed 3 submissions per day with feedback; any submissions made in excess of those 3 will be graded, but the results of those submissions will be hidden from the team. Your highest scoring submission will be used for grading, with ties favoring your latest submission.
 
 # Acknowledgements
@@ -401,12 +425,12 @@ This project was written and revised over the years by EECS 484 staff at the Uni
 
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License][cc-license]. You may share and adapt this document, but not for commercial purposes. You may not share source code included in this document.
 
-[course-policies]: https://docs.google.com/document/d/1T3NHQm2aRGEZCEnPWOIQ4lk-fE_QOx42RKT5vevsc1s/edit?usp=sharing
+[course-policies]: #
 [autograder]: https://autograder.io/web/course/208
 [primer-spec]: https://eecs485staff.github.io/primer-spec/
 [cc-license]: https://creativecommons.org/licenses/by-nc/4.0/
-
-[starter-code]: https://eecs484db.github.io/wn23/p3-mongodb/p3-starter_files.tar.gz
-[jd]: https://github.com/josephburnett/jd
+[starter-code]: https://eecs484db.github.io/{{ page.semester }}/p3-mongodb/p3-starter_files.tar.gz
+[jd-github]: https://github.com/josephburnett/jd
+[jd-online]: http://play.jd-tool.io/
 [deepdiff]: https://pypi.org/project/deepdiff/
 [mongodb-install]: https://www.mongodb.com/docs/manual/installation/

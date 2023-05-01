@@ -7,19 +7,15 @@ permalink: /wn23/p1-fakebook-db.html
 
 # Project 1: Fakebook Database
 
-<!-- <div class="primer-spec-callout danger" markdown="1">
-This spec is from Fall 2022 and hasn't been updated yet for Winter 2023.
-</div> -->
-
-| Worth                                            | Released | Due                         |
-|--------------------------------------------------|----------|-----------------------------|
-| 212 points (62 on Gradescope, 150 on Autograder) | Jan.10   | **Feb.2 at 11:45 PM EST**   |
+| Worth                                            | Released | Due                       |
+| ------------------------------------------------ | -------- | ------------------------- |
+| 212 points (62 on Gradescope, 150 on Autograder) | Jan.10   | **Feb.2 at 11:45 PM EST** |
 
 Project 1 is due on **Thursday, Feb 2nd at 11:45 PM EST**. Please refer to the [EECS 484 W23 course policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
 
 ## Change Log
 
-- (Jan 22) Elaborated on IDs in Sequences section 
+- (Jan 22) Elaborated on IDs in Sequences section
 
 ## Introduction
 
@@ -31,8 +27,8 @@ This project is to be done in teams of 2 students (recommended) or individually.
 
 **Before making your first submission**, follow these steps to create a team on the [Autograder][autograder]:
 
--   One team member clicks the "Send group invitation" button on the Project 1 page.
--   The other team member confirms the invitation on their Autograder assignment page.
+- One team member clicks the "Send group invitation" button on the Project 1 page.
+- The other team member confirms the invitation on their Autograder assignment page.
 
 **Do not make any submissions before joining your team! Once you click on "I'm working alone", the Autograder will not let you change team members.** If you do need to make a correction, the teaching staff has the ability to modify teams.
 
@@ -81,7 +77,7 @@ Creating ER Diagrams is not an exact science: for a given specification, there a
 
 Your second task of Project 1 is to write SQL DDL statements to create/drop data tables that reflect the Fakebook specifications. You will need to write 2 SQL scripts for this part: `createTables.sql` (to create the data tables) and `dropTables.sql` (to drop/destroy the data tables). **These scripts should also create and drop any constraints, sequences, and triggers** you find are necessary to enforce the rules of the Fakebook specification.
 
-Once you have written these two files, you should run them within SQL\*PLUS on your CAEN Linux machine. You should be able to run the commands below several times sequentially without error. If you cannot do this (i.e. if SQL\*PLUS reports errors), you are liable to fail tests on the Autograder. To access CAEN and your Oracle account, follow the setup instructions at [Tools](/{{ page.semester }}/tools).
+Once you have written these two files, you should run them within SQL\*Plus on your CAEN Linux machine. You should be able to run the commands below several times sequentially without error. If you cannot do this (i.e. if SQL\*Plus reports errors), you are liable to fail tests on the Autograder. To access CAEN and your Oracle account, follow the setup instructions at [Tools](/{{ page.semester }}/tools).
 
 ```console?lang=bash&prompt=SQL>
 SQL> @createTables
@@ -92,7 +88,7 @@ SQL> @dropTables
 
 We will test that your `createTables.sql` script properly creates the necessary data tables with all of the correct constraints. We will attempt to insert both valid and invalid data into your tables with the expectation that the valid inserts will be accepted and the invalid inserts will be rejected. To facilitate this, your tables **must conform exactly to the schema below**, even if it doesn't exactly match the schema you would have created from your ER Diagram. Column names, types, ordering, and constraints must be the same. Deviating from this schema will cause you to fail tests on the Autograder.
 
-You may find some of the commands listed in [Helpful SQL\*PLUS Commands](/{{ page.semester }}/tools#helpful-sqlplus-commands) useful when viewing your tables.
+You may find some of the commands listed in [Helpful SQL\*Plus Commands](/{{ page.semester }}/tools#helpful-sqlplus-commands) useful when viewing your tables.
 
 #### Users
 
@@ -237,6 +233,7 @@ Don't forget to include primary keys (each table should have one), foreign keys,
 ```sql
 CONSTRAINT a_very_long_constraint_name CHECK (Column_A = 'A')
 ```
+
 {: data-variant="no-line-numbers" }
 
 you can write
@@ -244,6 +241,7 @@ you can write
 ```sql
 CHECK (Column_A = 'A')
 ```
+
 {: data-variant="no-line-numbers" }
 
 Additionally, since we will be loading data into your tables to test them, **you may find it helpful to read through Part 3**. You may also find it helpful to read the section on [Circular Dependencies](#circular-dependencies).
@@ -299,7 +297,7 @@ Don't forget the trailing backslash!
 
 The third part of Project 1 is to load data from the public dataset (a poorly designed database) into the tables you just created (a well designed database). To do this, you will have to write SQL DML statements that `SELECT` the appropriate data from the public dataset and `INSERT` that data into your tables. You may also need additional SQL statements like `DISTINCT`, `JOIN`, and `WHERE`, as well as set operators like `INTERSECT`, `UNION`, and `MINUS`.
 
-You should put all of your DML statements into a single file named `loadData.sql` that loads data from the public dataset (and not from a private copy of that dataset). You are free to copy the public dataset to your own SQL\*PLUS account for development and testing, but your scripts will not have access to this account when the Autograder runs them for testing.
+You should put all of your DML statements into a single file named `loadData.sql` that loads data from the public dataset (and not from a private copy of that dataset). You are free to copy the public dataset to your own SQL\*Plus account for development and testing, but your scripts will not have access to this account when the Autograder runs them for testing.
 
 When loading data for Fakebook friends, you should only include one directional pair of users even though Fakebook friendship is reciprocal. This means that if the public dataset includes both (2, 7) and (7, 2), only one of them (it doesn't matter which one) should be loaded into your table. The [Friends Trigger](#friends-trigger) will ensure that the direction of friendship matches what is expected, but you are still expected to properly select exactly one copy out of the public dataset.
 
@@ -307,7 +305,7 @@ When loading data for Fakebook friends, you should only include one directional 
 
 The public dataset is divided into five tables, each of which has a series of data fields. Those data fields may or may not have additional business rules (constraints) that define the allowable values. When referring to any of these tables in your SQL scripts, you will need to use the fully-qualified table name by prepending `project1.` (including the ".") to the table name (as seen in [Part 4: Creating External Views](#part-4-creating-external-views-50-points)).
 
-Additionally, beware of common [SQL\*PLUS Potholes](/{{ page.semester }}/tools#sqlplus-potholes) when creating your queries.
+Additionally, beware of common [SQL\*Plus Potholes](/{{ page.semester }}/tools#sqlplus-potholes) when creating your queries.
 
 Here is an overview of the public dataset. All table names and field names are case-insensitive:
 
@@ -397,15 +395,15 @@ Again, when referring to any of these tables in your SQL scripts, you will need 
 
 The final part of Project 1 is to create a set of external views for displaying the data you have loaded into your data tables. The views you create must have the exact same schema as the public dataset. This means that the column names and data types must match exactly. You will need to write 2 SQL scripts for this part: `createViews.sql` (to create the views and load data into them) and `dropViews.sql` (to drop/destroy the views). You should have a total of 5 views named as follows:
 
--   View_User_Information
--   View_Are_Friends
--   View_Photo_Information
--   View_Event_Information
--   View_Tag_Information
+- View_User_Information
+- View_Are_Friends
+- View_Photo_Information
+- View_Event_Information
+- View_Tag_Information
 
 Any use of the keyword `project1` in code or comment in your `createViews.sql` will cause your submission to automatically fail on the Autograder. This is to prevent any potential cheating. Please be cautious of this as you develop your solutions.
 
-Once you have written these two files, you should be able to run the commands below several times sequentially without error. If you cannot do this (i.e. if SQL\*PLUS reports errors), you are liable to fail tests on the Autograder.
+Once you have written these two files, you should be able to run the commands below several times sequentially without error. If you cannot do this (i.e. if SQL\*Plus reports errors), you are liable to fail tests on the Autograder.
 
 ```console?lang=bash&prompt=SQL>
 SQL> @createTables
@@ -415,7 +413,7 @@ SQL> @dropViews
 SQL> @dropTables
 ```
 
-For each of the views other than `VIEW_ARE_FRIENDS`, your views should exactly match the corresponding table in the public dataset. To test this, you can run the following queries in SQL\*PLUS, changing the name of the tables and views as necessary. The output of both queries should be `no rows selected`; anything else indicates an error in your views.
+For each of the views other than `VIEW_ARE_FRIENDS`, your views should exactly match the corresponding table in the public dataset. To test this, you can run the following queries in SQL\*Plus, changing the name of the tables and views as necessary. The output of both queries should be `no rows selected`; anything else indicates an error in your views.
 
 ```sql
 SELECT * FROM project1.Public_User_Information
@@ -446,8 +444,9 @@ FROM project1.Public_Are_Friends;
 # Submitting
 
 There are two deliverables for Project 1:
--   a PDF of your ER Diagram, and 
--   your 5 SQL scripts (`createTables.sql`, `dropTables.sql`, `loadData.sql`, `createViews.sql`, and `dropViews.sql`)
+
+- a PDF of your ER Diagram, and
+- your 5 SQL scripts (`createTables.sql`, `dropTables.sql`, `loadData.sql`, `createViews.sql`, and `dropViews.sql`)
 
 Part 1 (ER Diagram) is worth 62 points and Parts 2-4 (SQL scripts) are worth 50 points each, for a total of 212 points (62 on Gradescope, 150 on the Autograder). There are no private tests.
 
@@ -486,7 +485,7 @@ For simplicity and safety, you can write an `ALTER TABLE` statement using the ab
 
 Adding `INITIALLY DEFERRED DEFERRABLE` tells Oracle to defer the constraint check until later when you run your `loadData.sql` script to populate your tables. Why would we need to defer the check? Imagine your Table A and Table B have a circular dependency and are currently empty, but we are about to insert data into both tables. As soon as we insert data into Table A that is supposed to reference rows in Table B, Oracle will claim that Table A's foreign key constraint has been violated, since all references to Table B in Table A don't currently point to anything valid (remember, Table B is currently empty!).
 
-By _deferring_ the check on Table A's foreign key references to Table B, we can give Oracle the chance to insert data into both Table A and Table B before it performs the foreign key check. You can ensure that this happens by grouping the `INSERT` statements for Table A and Table B into a single transaction. A transaction is an atomic unit of work that the database performs. When you defer a constraint check, Oracle will wait until the end of a transaction to check for constraint violations. We will learn more about transactions at the end of the semester. By default, Oracle treats each individual SQL statement as its own transaction. This feature is called autocommiting, which is not desirable if you would like to insert into Table A and Table B in the same transaction.
+By _deferring_ the check on Table A's foreign key references to Table B, we can give Oracle the chance to insert data into both Table A and Table B before it performs the foreign key check. You can ensure that this happens by grouping the `INSERT` statements for Table A and Table B into a single transaction. A transaction is an atomic unit of work that the database performs. When you defer a constraint check, Oracle will wait until the end of a transaction to check for constraint violations. We will learn more about transactions at the end of the semester. By default, Oracle treats each individual SQL statement as its own transaction. This feature is called autocommitting, which is not desirable if you would like to insert into Table A and Table B in the same transaction.
 
 Instead, you should manually define a transaction by turning off autocommit with the statement `SET AUTOCOMMIT OFF;` in your script. After this statement, you can include your `INSERT` statements for Table A and Table B. After your `INSERT` statements, you should include the statement `COMMIT;`. You will want to turn autocommit back on once this is done by including the statement `SET AUTOCOMMIT ON;`.
 
@@ -539,7 +538,7 @@ this course, so you do not need to have this constraint enforced by your SQL scr
 <!-- The appearance of this error is dependent on how well the data was generated -->
 <!-- **Q: When I execute the command `SELECT * FROM project1.PUBLIC_PHOTO_INFORMATION;`, I get the error `ORA-01877: string is too long for internal buffer`. What does this mean?**
 
-**A:** In short, the reasoning is that SQL\*PLUS has a hard time converting ugly, randomly generated timestamps into human-readable strings. So, this is a display issue when you try to view the data through SQL\*PLUS, but it shouldn't cause issues on the Autograder or when you load data into your local tables. You can circumvent this by describing how you want to view timestamps with
+**A:** In short, the reasoning is that SQL\*Plus has a hard time converting ugly, randomly generated timestamps into human-readable strings. So, this is a display issue when you try to view the data through SQL\*Plus, but it shouldn't cause issues on the Autograder or when you load data into your local tables. You can circumvent this by describing how you want to view timestamps with
 
 ```
 SELECT TO_CHAR(PHOTO_CREATED_TIME, 'MM/DD/YYYY') AS time FROM project1.PUBLIC_PHOTO_INFORMATION;
@@ -551,7 +550,7 @@ This project was written and revised over the years by EECS 484 staff at the Uni
 
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License][cc-license]. You may share and adapt this document, but not for commercial purposes. You may not share source code included in this document.
 
-[course-policies]: https://docs.google.com/document/d/1T3NHQm2aRGEZCEnPWOIQ4lk-fE_QOx42RKT5vevsc1s/edit?usp=sharing
+[course-policies]: #
 [autograder]: https://autograder.io/web/course/208
 [gradescope]: https://www.gradescope.com/courses/484645
 [primer-spec]: https://eecs485staff.github.io/primer-spec/

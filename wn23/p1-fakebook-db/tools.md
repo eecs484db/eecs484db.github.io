@@ -47,7 +47,9 @@ $ ssh <uniqname>@login.engin.umich.edu
 
 The second option is to utilize Visual Studio Code’s ssh extension to do your development on a CAEN machine and periodically sync your files back to your local machine with Git/`rsync`. This might be a better option if you want to test your scripts frequently without having to sync often. It can, however, take longer to debug machine-specific issues.
 
-First, set up your ssh config file on your local machine. An example `~/.ssh/config` file might look like this (omit angle brackets):
+First, in Visual Studio Code, download the _Remote - SSH_ extension. Open Command Palette, select the option _Remote-SSH: Open SSH Configuration File..._, and select the first configuration file in the list. For MacOS users, this should open the `~/.ssh/config` file. 
+
+Add the following to the bottom of the file (omit angle brackets):
 
 ```
 # CAEN
@@ -57,10 +59,12 @@ Host caen
     ControlPersist 1h
 ```
 
-Next, in Visual Studio Code, download the _Remote - SSH_ extension. Under the extension settings, check the option to _Lockfiles in Tmp_. Open Command Palette and select the option _Connect Current Window to Host..._ and choose `caen`. After entering your CAEN password and Duo authorization, you should now be able to edit your files directly on CAEN with Visual Studio Code as a text editor.
+Next, under the extension settings for _Remote - SSH_, check the option to _Lockfiles in Tmp_. 
+
+Open Command Palette, select the option _Connect Current Window to Host..._ and choose `caen`. After entering your CAEN password and Duo authorization, you should now be able to edit your files directly on CAEN with Visual Studio Code as a text editor.
 
 <div class="primer-spec-callout info" markdown="1">
-_**Pro tip:**_ If you were able to successfully connect to CAEN once, but it fails the next time you try to connect, try killing the connection first and wait for the log notification to confirm that it was killed. To do so, open Command Palette and select the option _Remote - SSH: Kill VS Code Server on Host_. Alternatively, ssh into CAEN and remove the `.vscode` directory with `rm -rf .vscode`.
+_**Pro tip:**_ If you were able to successfully connect to CAEN once, but it fails the next time you try to connect, try killing the connection first and waiting for the log notification to confirm that it was killed. To do so, open Command Palette and select the option _Remote - SSH: Kill VS Code Server on Host_. Alternatively, ssh into CAEN and remove the `.vscode` directory with `rm -rf .vscode`.
 </div>
 
 ## Windows Users
@@ -136,15 +140,15 @@ Once in SQL\*Plus, you can execute arbitrary SQL commands. You will notice that 
     ```console?lang=bash&prompt=SQL>
     SQL> DESC <table name>;
     ```
--   To set width for a column with characters to num_chars:
+-   To set the width for a character column to `num chars`, run:
     ```console?lang=bash&prompt=SQL>
-    SQL> COLUMN <column name> FORMAT A<num_chars>;
+    SQL> COLUMN <column name> FORMAT A<num chars>;
     ```
-    To set width for a column with numbers to, say, 3:
+    To set the width for a number column to (for example) 3 digits, run:
     ```console?lang=bash&prompt=SQL>
     SQL> COLUMN <column name> FORMAT 999;
     ```
--   To remove the formatting from a particular column, run:
+-   To remove the formatting from a column, run:
     ```console?lang=bash&prompt=SQL>
     SQL> COLUMN column_name CLEAR;
     ```
@@ -160,7 +164,7 @@ Once in SQL\*Plus, you can execute arbitrary SQL commands. You will notice that 
     ```console?lang=bash&prompt=SQL>
     SQL> SELECT * FROM <table name> WHERE ROWNUM < <num>;
     ```
--   To load commands in SQL\*Plus from a file, say `createTables.sql` , run the following. The name of the file is relative to the current directory from which `sqlplus` was launched:
+-   To load commands in SQL\*Plus from a file, say `createTables.sql`, run the following. The name of the file is relative to the current directory from which `sqlplus` was launched:
     ```console?lang=bash&prompt=SQL>
     SQL> @createTables.sql
     ```

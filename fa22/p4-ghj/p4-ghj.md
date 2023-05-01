@@ -17,7 +17,7 @@ If you do not turn in your project by that deadline, or if you are unhappy with 
 
 ## Introduction
 
-In Project 4, we will implement a database algorithm – Grace Hash Join – using the C++ language. Instead of _utilizing_ databases like in Projects 1-3, we will be _implementing_ part of a database. This implies that this project does not require CAEN or SQL\*PLUS!
+In Project 4, we will implement a database algorithm – Grace Hash Join – using the C++ language. Instead of _utilizing_ databases like in Projects 1-3, we will be _implementing_ part of a database. This implies that this project does not require CAEN or SQL\*Plus!
 
 ## Submissions
 
@@ -44,21 +44,21 @@ There are 6 main components: Record, Page, Disk, Mem, Bucket, and Join. The file
 
 These files define the data structure for an emulated data record with two main fields: key and data. Several member functions from this class that you should use in your implementation include:
 
--   `partition_hash()`: returns a hash value (h1) for the key of the record. To build the in-memory hash table, you should do modulo ([`MEM_SIZE_IN_PAGE`](#constantshpp) - 1) on this hash value.
--   `probe_hash()`: returns a hash value (h2 different from h1) for the key of the record. To build the in-memory hash table, you should do modulo ([`MEM_SIZE_IN_PAGE`](#constantshpp) - 2) on this hash value.
--   Overloaded `operator==`: this equality operator checks whether the **keys** of two data records are the same or not. To make sure you use `probe_hash()` to speed up the probe phase, we will only allow equality comparison of two records with the same h2 hash value.
+- `partition_hash()`: returns a hash value (h1) for the key of the record. To build the in-memory hash table, you should do modulo ([`MEM_SIZE_IN_PAGE`](#constantshpp) - 1) on this hash value.
+- `probe_hash()`: returns a hash value (h2 different from h1) for the key of the record. To build the in-memory hash table, you should do modulo ([`MEM_SIZE_IN_PAGE`](#constantshpp) - 2) on this hash value.
+- Overloaded `operator==`: this equality operator checks whether the **keys** of two data records are the same or not. To make sure you use `probe_hash()` to speed up the probe phase, we will only allow equality comparison of two records with the same h2 hash value.
 
 ### Page.hpp and Page.cpp
 
 These files define the data structure for an emulated page. Several member functions from this class that you should use in your implementation include:
 
--   `size()`: returns the number of data records in the page.
--   `empty()`: returns true if the page is empty.
--   `full()`: returns true if the page is full.
--   `reset()`: clears all the data records in the page.
--   `get_record(unsigned int record_id)`: returns a data record, specified by the record id. `record_id` is in the range [0, `size()`).
--   `loadRecord(Record r)`: inserts a data record into the page.
--   `loadPair(Record left_r, Record right_r)`: inserts a pair of data records into the page. This function is used when you find a pair of matching records from two relations. You can always assume [`RECORDS_PER_PAGE`](#constantshpp) is an even number.
+- `size()`: returns the number of data records in the page.
+- `empty()`: returns true if the page is empty.
+- `full()`: returns true if the page is full.
+- `reset()`: clears all the data records in the page.
+- `get_record(unsigned int record_id)`: returns a data record, specified by the record id. `record_id` is in the range [0, `size()`).
+- `loadRecord(Record r)`: inserts a data record into the page.
+- `loadPair(Record left_r, Record right_r)`: inserts a pair of data records into the page. This function is used when you find a pair of matching records from two relations. You can always assume [`RECORDS_PER_PAGE`](#constantshpp) is an even number.
 
 ### Disk.hpp and Disk.cpp
 
@@ -70,52 +70,52 @@ The only member function you need to be concerned about is `read_data(const char
 
 These files define the data structure for emulated memory. Several member functions you should use in your implementation include:
 
--   `reset()`: clears all the data records in all pages in memory
--   `mem_page(unsigned int mem_page_id)`: returns a pointer to the memory page specified by `mem_page_id`.
--   `loadFromDisk(Disk* d, unsigned int disk_page_id, unsigned int mem_page_id)`: loads a disk page specified by `disk_page_id` into the memory page specified by `mem_page_id`.
--   `flushToDisk(Disk* d, unsigned int mem_page_id)`: writes the memory page specified by `mem_page_id` into disk and resets the memory page. This function returns an integer that refers to the disk page id for which it writes into.
+- `reset()`: clears all the data records in all pages in memory
+- `mem_page(unsigned int mem_page_id)`: returns a pointer to the memory page specified by `mem_page_id`.
+- `loadFromDisk(Disk* d, unsigned int disk_page_id, unsigned int mem_page_id)`: loads a disk page specified by `disk_page_id` into the memory page specified by `mem_page_id`.
+- `flushToDisk(Disk* d, unsigned int mem_page_id)`: writes the memory page specified by `mem_page_id` into disk and resets the memory page. This function returns an integer that refers to the disk page id for which it writes into.
 
 ### Bucket.hpp and Bucket.cpp
 
 These files define the data structure for a bucket, which is used to store the output result of the partition phase. Each bucket stores all the disk page ids and the number of records for left and right relations of one partition. Several member functions you should use in your implementation include:
 
--   `get_left_rel()`: returns a vector of disk page ids. These disk pages contain the records from the left relation that are mapped to this bucket.
--   `get_right_rel()`: returns a vector of disk page ids. These disk pages contain the records from the right relation that are mapped to this bucket.
--   `add_left_rel_page(unsigned int page_id)`: adds a disk page id of the left relation into the bucket
--   `add_right_rel_page(unsigned int page_id)`: adds a disk page id of the right relation into the bucket
--   Notice that the public member variables `num_left_rel_record` and `num_right_rel_record` indicate the number of left and right relation records in this bucket. These variables are automatically updated when `add_left_rel_page()` and `add_right_rel_page()` are called, respectively.
+- `get_left_rel()`: returns a vector of disk page ids. These disk pages contain the records from the left relation that are mapped to this bucket.
+- `get_right_rel()`: returns a vector of disk page ids. These disk pages contain the records from the right relation that are mapped to this bucket.
+- `add_left_rel_page(unsigned int page_id)`: adds a disk page id of the left relation into the bucket
+- `add_right_rel_page(unsigned int page_id)`: adds a disk page id of the right relation into the bucket
+- Notice that the public member variables `num_left_rel_record` and `num_right_rel_record` indicate the number of left and right relation records in this bucket. These variables are automatically updated when `add_left_rel_page()` and `add_right_rel_page()` are called, respectively.
 
 ### Join.hpp and Join.cpp
 
 These files define two functions: **partition** and **probe**, which make up the two main stages of GHJ. These two functions are the **ONLY** part you need to implement for this project.
 
--   `partition(Disk* disk, Mem* mem, pair<unsigned int, unsigned int> left_rel, pair<unsigned int, unsigned int> right_rel)`: Given the disk, memory, and disk page id ranges for the left and right relations (represented as pair <begin, end>, where [begin, end) is a range of disk page ids), perform the data record partition. The output is a vector of buckets of size ([`MEM_SIZE_IN_PAGE`](#constantshpp) - 1), in which each bucket stores all the disk page ids and number of records for the left and right relations of one specific partition.
--   `probe(Disk* disk, Mem* mem, vector<Bucket>& partitions)`: Given the disk, memory, and a vector of buckets, perform the probing. The output is a vector of integers, which stores all the disk page ids of the join result.
+- `partition(Disk* disk, Mem* mem, pair<unsigned int, unsigned int> left_rel, pair<unsigned int, unsigned int> right_rel)`: Given the disk, memory, and disk page id ranges for the left and right relations (represented as pair <begin, end>, where [begin, end) is a range of disk page ids), perform the data record partition. The output is a vector of buckets of size ([`MEM_SIZE_IN_PAGE`](#constantshpp) - 1), in which each bucket stores all the disk page ids and number of records for the left and right relations of one specific partition.
+- `probe(Disk* disk, Mem* mem, vector<Bucket>& partitions)`: Given the disk, memory, and a vector of buckets, perform the probing. The output is a vector of integers, which stores all the disk page ids of the join result.
 
 ### constants.hpp
 
 This file defines three constant integer values used throughout the project.
 
--   `RECORDS_PER_PAGE`: the maximum number of records in one page
--   `MEM_SIZE_IN_PAGE`: the size of memory in units of page
--   `DISK_SIZE_IN_PAGE`: the size of disk in the units of page
+- `RECORDS_PER_PAGE`: the maximum number of records in one page
+- `MEM_SIZE_IN_PAGE`: the size of memory in units of page
+- `DISK_SIZE_IN_PAGE`: the size of disk in the units of page
 
 ### Other files
 
 Other files you may find helpful to look over include:
 
--   `main.cpp`: this file loads the text files and emulates the whole process of GHJ. It also outputs the GHJ result.
--   `Makefile`: this file allows you to compile and run a test run of GHJ. See [Building and Running](#building-and-running).
--   `left_rel.txt`, `right_rel.txt`: these two sample text files store all the data records for a left and right relation, which you can use for testing. For simplicity, each line in the text file serves as one data record. The data records in the text files are formatted as:
+- `main.cpp`: this file loads the text files and emulates the whole process of GHJ. It also outputs the GHJ result.
+- `Makefile`: this file allows you to compile and run a test run of GHJ. See [Building and Running](#building-and-running).
+- `left_rel.txt`, `right_rel.txt`: these two sample text files store all the data records for a left and right relation, which you can use for testing. For simplicity, each line in the text file serves as one data record. The data records in the text files are formatted as:
 
-    ```
-    key1 data1
-    key2 data2
-    key3 data3
-    ... ...
-    ```
+  ```
+  key1 data1
+  key2 data2
+  key3 data3
+  ... ...
+  ```
 
--   `.clang-format`: this file aids with C++ formatting. You may choose to format your files in any way you choose, but this file offers a good starting point.
+- `.clang-format`: this file aids with C++ formatting. You may choose to format your files in any way you choose, but this file offers a good starting point.
 
 # Building and Running
 
@@ -146,14 +146,14 @@ For more information regarding simple hash join and in-memory hash table, visit
 
 # Key Reminders
 
--   Use the `Record` class's member functions `partition_hash()` and `probe_hash()` for calculating the hash value of the record's key in the partition and probe phases, respectively. **Do not make any other hash function on your own.**
--   When writing the memory page into disk, you do not need to consider which disk page you should write to. Instead, call the`Mem` class's member function `flushToDisk(Disk* d, unsigned int mem_page_id)`, which will return the disk page id it writes to.
--   **You can assume that any partition of the smaller relation will fit in the in-memory hash table.** In other words, after applying the h2 hash function, **no bucket/partition will exceed one page. There is no need to perform a recursive hash.**
--   In the partition phase, do not store a record from the left relation and a record of the right relation in the same disk page. Do not store records for different buckets in the same disk page.
--   In the probe phase, for each page in the join result, **fill in as many records as possible.**
--   Do not make any optimizations even if one partition only involves the data from one relation.
--   You do not need to consider any parallel processing methods, including multithreading and multiprocessing, although one big advantage of GHJ is parallelism.
--   Do not print any output (with a `print()` function or `cout`) in the `Join.cpp` that you turn in.
+- Use the `Record` class's member functions `partition_hash()` and `probe_hash()` for calculating the hash value of the record's key in the partition and probe phases, respectively. **Do not make any other hash function on your own.**
+- When writing the memory page into disk, you do not need to consider which disk page you should write to. Instead, call the`Mem` class's member function `flushToDisk(Disk* d, unsigned int mem_page_id)`, which will return the disk page id it writes to.
+- **You can assume that any partition of the smaller relation will fit in the in-memory hash table.** In other words, after applying the h2 hash function, **no bucket/partition will exceed one page. There is no need to perform a recursive hash.**
+- In the partition phase, do not store a record from the left relation and a record of the right relation in the same disk page. Do not store records for different buckets in the same disk page.
+- In the probe phase, for each page in the join result, **fill in as many records as possible.**
+- Do not make any optimizations even if one partition only involves the data from one relation.
+- You do not need to consider any parallel processing methods, including multithreading and multiprocessing, although one big advantage of GHJ is parallelism.
+- Do not print any output (with a `print()` function or `cout`) in the `Join.cpp` that you turn in.
 
 # Submitting
 

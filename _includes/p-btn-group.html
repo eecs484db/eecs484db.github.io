@@ -2,14 +2,13 @@
 <!-- Change template layout if pages are created/removed/renamed -->
 
 <div>
-    {% assign tools-url = "/" | append: include.semester | append: "/tools" %}
-    {% assign p1-url = "/" | append: include.semester | append: "/p1-fakebook-db" %}
-    {% assign p2-url = "/" | append: include.semester | append: "/p2-fakebook-jdbc" %}
-    {% assign p3-url = "/" | append: include.semester | append: "/p3-mongodb" %}
-    {% assign p4-url = "/" | append: include.semester | append: "/p4-ghj" %}
-    {% include p-btn.html released=include.tools-released url=tools-url text="Tools: CAEN, SQL*PLUS, and More" caption=include.tools-caption %}
-    {% include p-btn.html released=include.p1-released url=p1-url text="Project 1: Fakebook Database" caption=include.p1-due %} 
-    {% include p-btn.html released=include.p2-released url=p2-url text="Project 2: Fakebook JDBC" caption=include.p2-due %} 
-    {% include p-btn.html released=include.p3-released url=p3-url text="Project 3: MongoDB" caption=include.p3-due %}
-    {% include p-btn.html released=include.p4-released url=p4-url text="Project 4: Grace Hash Join" caption=include.p4-due %}
+  {% assign tools-url = "/" | append: include.semester | append: "/tools" %} {% assign p1-url = "/" | append:
+  include.semester | append: "/p1-fakebook-db" %} {% assign p2-url = "/" | append: include.semester | append:
+  "/p2-fakebook-jdbc" %} {% assign p3-url = "/" | append: include.semester | append: "/p3-mongodb" %} {% assign p4-url =
+  "/" | append: include.semester | append: "/p4-ghj" %} {% include p-btn.html released=include.tools-released
+  url=tools-url text="Tools: CAEN, SQL*Plus, and More" caption=include.tools-caption %} {% include p-btn.html
+  released=include.p1-released url=p1-url text="Project 1: Fakebook Database" caption=include.p1-due %} {% include
+  p-btn.html released=include.p2-released url=p2-url text="Project 2: Fakebook JDBC" caption=include.p2-due %} {%
+  include p-btn.html released=include.p3-released url=p3-url text="Project 3: MongoDB" caption=include.p3-due %} {%
+  include p-btn.html released=include.p4-released url=p4-url text="Project 4: Grace Hash Join" caption=include.p4-due %}
 </div>

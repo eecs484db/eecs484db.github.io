@@ -7,13 +7,9 @@ permalink: /wn23/p2-fakebook-jdbc.html
 
 # Project 2: Fakebook JDBC
 
-<!-- <div class="primer-spec-callout danger" markdown="1">
-This spec is from Fall 2022 and hasn't been updated yet for Winter 2023.
-</div> -->
-
-| Worth                              | Released | Due                         |
-| ---------------------------------- |----------|-----------------------------|
-| 118 points (59 public, 59 private) | Jan 31st |   Feb 16th at 11:55 PM ET   |
+| Worth                              | Released | Due                     |
+| ---------------------------------- | -------- | ----------------------- |
+| 118 points (59 public, 59 private) | Jan 31st | Feb 16th at 11:55 PM ET |
 
 Project 2 is due on Feb 16th. Please refer to the [EECS 484 W23 course policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
 
@@ -35,21 +31,21 @@ By submitting this project, you are agreeing to abide by the Honor Code: "I have
 
 The Fakebook data in Project 2 is structured similarly as the dataset you created for Project 1, except that there is neither a Messages nor Participants table. Use the `DESC` command to view the full schema of any of the public data tables. The tables have already been created and loaded with data. The full list of all the public tables can be found in [PublicFakebookOracleConstants.java](#publicfakebookoracleconstantsjava) but is also provided here for your reference:
 
--   Public_Users
--   Public_Friends
--   Public_Cities
--   Public_User_Current_Cities
--   Public_User_Hometown_Cities
--   Public_Programs
--   Public_Education
--   Public_User_Events
--   Public_Albums
--   Public_Photos
--   Public_Tags
+- Public_Users
+- Public_Friends
+- Public_Cities
+- Public_User_Current_Cities
+- Public_User_Hometown_Cities
+- Public_Programs
+- Public_Education
+- Public_User_Events
+- Public_Albums
+- Public_Photos
+- Public_Tags
 
 Every row of two users _(user1_id, user2_id)_ in _Public_Friends_ will meet the invariant _user1_id < user2_id_. This enforces the constraint that users cannot be friends with themselves, and the structure of the table prevents friendships being listed more than once.
 
-The tables are stored under the schema of `project2.` To access the tables in SQL\*PLUS, you should use `project2.<tableName>`. **You should use this access approach only when running your queries through SQL\*PLUS interactive mode, NOT in your Java implementation**. There is a separate access mechanism when implementing your queries in Java (see [StudentFakebookOracle.java](#studentfakebookoraclejava)).
+The tables are stored under the schema of `project2.` To access the tables in SQL\*Plus, you should use `project2.<tableName>`. **You should use this access approach only when running your queries through SQL\*Plus interactive mode, NOT in your Java implementation**. There is a separate access mechanism when implementing your queries in Java (see [StudentFakebookOracle.java](#studentfakebookoraclejava)).
 
 # Starter Files
 
@@ -94,7 +90,7 @@ private static String password = "password"; // replace with your Oracle passwor
 
 This is the application driver. It can be invoked from the command line (preferably by the Makefile) and takes command line arguments that define which query/queries to execute and whether to print the output or measure the runtime.
 
-**You will NOT submit this file**, so you do not need to worry about staff members obtaining your password. However, if you wish to change your SQL\*PLUS password, refer to [Tools](/{{ page.semester }}/tools#resetting-password-and-sessions).
+**You will NOT submit this file**, so you do not need to worry about staff members obtaining your password. However, if you wish to change your SQL\*Plus password, refer to [Tools](/{{ page.semester }}/tools#resetting-password-and-sessions).
 
 It is never recommended to store a password in plaintext, so we recommend you not use a password you use anywhere else for your SQL account and instead make something easy to remember that you will never use again.
 
@@ -106,10 +102,10 @@ This is a JAR file needed to compile your application. This driver has been test
 
 A Makefile allows you to easily compile, run, and clean your code. You are responsible for ensuring that your application compiles and runs using the unmodified Makefile, which will be utilized on the Autograder. There is no guarantee that staff members will be able to assist you in customizing or troubleshooting the Makefile if you choose to add or modify make targets.
 
--   To compile your Java application, navigate to your project root directory (where the Makefile is located) and run `make` or `make compile`. This will compile silently if there are no errors and will print any compilation problems to the command line. Fix any errors that you have so that your code perfectly compiles. We will not be able to grade your submission unless it compiles correctly.
--   To run your queries and view the output, you have two options. If you want to run all your queries to compare your output to the provided solution output file, run `make query-all`. To run a single query to view the output, run `make queryN` where N is the query number. You may redirect output for output diff.
--   To run your queries and measure their runtime, you again have two options. If you want to time all your queries, run make `time-all`. To measure the runtime of a single query, run `make timeN` where N is the query number. Make sure that your code runs without any error before attempting to measure its runtime.
--   To remove the files generated by compilation, run `make clean`.
+- To compile your Java application, navigate to your project root directory (where the Makefile is located) and run `make` or `make compile`. This will compile silently if there are no errors and will print any compilation problems to the command line. Fix any errors that you have so that your code perfectly compiles. We will not be able to grade your submission unless it compiles correctly.
+- To run your queries and view the output, you have two options. If you want to run all your queries to compare your output to the provided solution output file, run `make query-all`. To run a single query to view the output, run `make queryN` where N is the query number. You may redirect output for output diff.
+- To run your queries and measure their runtime, you again have two options. If you want to time all your queries, run make `time-all`. To measure the runtime of a single query, run `make timeN` where N is the query number. Make sure that your code runs without any error before attempting to measure its runtime.
+- To remove the files generated by compilation, run `make clean`.
 
 ### PublicSolution.txt
 
@@ -127,11 +123,11 @@ It is your responsibility to ensure that your queries are correct irrespective o
 
 ## Implementation Approach and Rules
 
--   **We highly recommend writing your SQL queries in plaintext and executing them interactively through SQL\*PLUS before transplanting them into the Java application function.** Remember that in SQL\*PLUS, you should access the public data set with `project2.<tableName>` as explained in [The Public Data Set](#the-public-data-set). In Java, you should access the public data set with the variables in [StudentFakebookOracle.java](#studentfakebookoraclejava). **The SQL\*PLUS CLI will provide more helpful error messages than the JRE** (Java Runtime Environment), making it easier to debug your solutions.
--   When you submit to the Autograder, don't submit partially-completed queries; this will drag down the time it takes to grade your solution. Make sure that your file compiles with just the necessary return statement in the incomplete query functions.
--   **You are not permitted to create additional tables in your implementations.** You can, however, create additional views. If you do so, use `stmt.executeUpdate()` to create views rather than `stmt.executeQuery()`. You can access views by plaintext; you do not need to access them through variables like the public data set tables. Be sure to drop views before closing the statement at the end of the query.
--   When testing your application, the creation and dropping of views can get complicated if you have syntax errors in queries in the same function. For example, if a `CREATE VIEW` is executed successfully, but your query throws an error before the corresponding `DROP VIEW` statement is executed, the view will still exist the next time you test your code. If you encounter a syntax error in a query where you have created a view, you should manually drop the view in the SQL\*PLUS CLI. You may use `SELECT view_name FROM user_views;` to list all the views in your schema.
--   If you wish to add print statements to your functions for debugging purposes, you should use the Java equivalent of C++'s `cout`, which is `System.out.println`. This function takes a string parameter and prints it to the standard output stream. Similarly, you can print to the standard error stream with `System.err.println`. **Be sure to remove any such print statements from your file before submitting, as they will cause you to fail Autograder tests.**
+- **We highly recommend writing your SQL queries in plaintext and executing them interactively through SQL\*Plus before transplanting them into the Java application function.** Remember that in SQL\*Plus, you should access the public data set with `project2.<tableName>` as explained in [The Public Data Set](#the-public-data-set). In Java, you should access the public data set with the variables in [StudentFakebookOracle.java](#studentfakebookoraclejava). **The SQL\*Plus CLI will provide more helpful error messages than the JRE** (Java Runtime Environment), making it easier to debug your solutions.
+- When you submit to the Autograder, don't submit partially-completed queries; this will drag down the time it takes to grade your solution. Make sure that your file compiles with just the necessary return statement in the incomplete query functions.
+- **You are not permitted to create additional tables in your implementations.** You can, however, create additional views. If you do so, use `stmt.executeUpdate()` to create views rather than `stmt.executeQuery()`. You can access views by plaintext; you do not need to access them through variables like the public data set tables. Be sure to drop views before closing the statement at the end of the query.
+- When testing your application, the creation and dropping of views can get complicated if you have syntax errors in queries in the same function. For example, if a `CREATE VIEW` is executed successfully, but your query throws an error before the corresponding `DROP VIEW` statement is executed, the view will still exist the next time you test your code. If you encounter a syntax error in a query where you have created a view, you should manually drop the view in the SQL\*Plus CLI. You may use `SELECT view_name FROM user_views;` to list all the views in your schema.
+- If you wish to add print statements to your functions for debugging purposes, you should use the Java equivalent of C++'s `cout`, which is `System.out.println`. This function takes a string parameter and prints it to the standard output stream. Similarly, you can print to the standard error stream with `System.err.println`. **Be sure to remove any such print statements from your file before submitting, as they will cause you to fail Autograder tests.**
 
 ## Runtime Efficiency
 
@@ -155,8 +151,8 @@ _Public: 6 points • Private: 6 points_
 
 Query 1 asks you to identify information about Fakebook users' first names.
 
--   We'd like to know the longest and shortest first names by length. If there are ties between multiple names, report all tied names in alphabetical order.
--   We'd also like to know what first name(s) are the most common and how many users have that first name. If there are ties, report all tied names in alphabetical order.
+- We'd like to know the longest and shortest first names by length. If there are ties between multiple names, report all tied names in alphabetical order.
+- We'd also like to know what first name(s) are the most common and how many users have that first name. If there are ties, report all tied names in alphabetical order.
 
 **Hint:** You may consider using the `LENGTH()` operation in SQL. Remember that you are allowed to execute multiple SQL statements in one query.
 
@@ -186,10 +182,10 @@ _Public: 8 points • Private: 8 points_
 
 Query 5 asks you to suggest possible unrealized Fakebook friendships. We will pass two integer arguments, `num` and `yearDiff` to the query function; you should return the top `num` pairs of two Fakebook users who meet each of the following conditions:
 
--   The two users are the same gender
--   The two users are tagged in at least one common photo
--   The two users are not friends
--   The difference in the two users' **birth years** is less than or equal to yearDiff
+- The two users are the same gender
+- The two users are tagged in at least one common photo
+- The two users are not friends
+- The difference in the two users' **birth years** is less than or equal to yearDiff
 
 The pairs of users should be reported in (and cut-off based on) descending order by the number of photos in which the two users were tagged together. For each pair, report the IDs, first names, and last names of the two users; list the user with the smaller ID first. If multiple pairs of users that meet the criteria are tagged in the same number of photos, order the results in ascending order by the smaller user ID and then in ascending order by the larger user ID. If there are fewer than num pairs of users that meet the criteria, you should return only those pairs that are viable.
 
@@ -225,10 +221,10 @@ _Public: 6 points • Private: 6 points_
 
 Query 9 asks you to identify pairs of Fakebook users that might be siblings. Two users might be siblings if they meet each of the following criteria:
 
--   The two users have the same last name
--   The two users have the same hometown
--   The two users are friends
--   The difference in the two users' **birth years** is strictly less than 10 years
+- The two users have the same last name
+- The two users have the same hometown
+- The two users are friends
+- The difference in the two users' **birth years** is strictly less than 10 years
 
 Each pair should be reported with the smaller user ID first and the larger user ID second. The smaller ID should be used to order pairs relative to one another (smaller smaller ID first); the larger ID should be used to break ties (smaller larger ID first).
 
@@ -250,12 +246,12 @@ After the project is due and your private test results are released, you may als
 
 This project has been designed in such a way that you do not need to know or understand significant aspects of the Java programming language to successfully complete it. Later sections of the appendix contain in-depth treatments of some Java-specific tools that will be of paramount importance in implementing your application. However, there are a handful of major syntactical differences between Java and C++ that you should be familiar with, as they may impact your programming.
 
--   Java has two types of objects: _primitives_ (which are analogous to C++ built-in data types) and _references_ (which are analogous to C++ pointers). There are no pointers in Java, but all references are dynamically-allocated with the `new` keyword. For example, to create a variable `obj` of type `Foo`, you would write `Foo obj = new Foo();`. You do not need to use `new` to create primitive variables.
--   Java has garbage collection, so you do not need to manually deallocate memory even if you allocate references with the `new` keyword.
--   Java has primitive and reference versions of all simple data types. The primitive version is first-letter lower-case (i.e. `long`) and the reference version is first-letter upper-case (i.e. `Long`). This has an important bearing on equality comparisons. We highly recommend you use the primitive version wherever necessary, as it is more idiomatic and more akin to C++.
--   Java has two ways to compare equality. To compare equality of primitives or to determine if two references are the exact same object (analogous to checking if two pointers are the same in C++), use the standard `==` comparator. To test if two references are logically equivalent (as defined by the class's particular implementation), you must use the `.equals()` member function.
--   Java strings are references and are declared with a capital letter `String`. To create a new string, you can write `String str = "ABC"` without the `new` keyword.
--   Java has automatic string conversion built into every primitive and every object, so the standard string concatenation `operator+` can be used to combine strings, numeric types, and objects; an example of this is `String str = "abc" + 2 + "def";` in which the numeric value 2 is converted to a string and properly concatenated.
+- Java has two types of objects: _primitives_ (which are analogous to C++ built-in data types) and _references_ (which are analogous to C++ pointers). There are no pointers in Java, but all references are dynamically-allocated with the `new` keyword. For example, to create a variable `obj` of type `Foo`, you would write `Foo obj = new Foo();`. You do not need to use `new` to create primitive variables.
+- Java has garbage collection, so you do not need to manually deallocate memory even if you allocate references with the `new` keyword.
+- Java has primitive and reference versions of all simple data types. The primitive version is first-letter lower-case (i.e. `long`) and the reference version is first-letter upper-case (i.e. `Long`). This has an important bearing on equality comparisons. We highly recommend you use the primitive version wherever necessary, as it is more idiomatic and more akin to C++.
+- Java has two ways to compare equality. To compare equality of primitives or to determine if two references are the exact same object (analogous to checking if two pointers are the same in C++), use the standard `==` comparator. To test if two references are logically equivalent (as defined by the class's particular implementation), you must use the `.equals()` member function.
+- Java strings are references and are declared with a capital letter `String`. To create a new string, you can write `String str = "ABC"` without the `new` keyword.
+- Java has automatic string conversion built into every primitive and every object, so the standard string concatenation `operator+` can be used to combine strings, numeric types, and objects; an example of this is `String str = "abc" + 2 + "def";` in which the numeric value 2 is converted to a string and properly concatenated.
 
 ## Statements and Result Sets
 
@@ -275,6 +271,7 @@ while (rst.next ()) {
     long val = rst.getLong (1);
 }
 ```
+
 {: data-highlight="4" }
 
 The reason is that the reuse of `stmt` to generate the results stored in `rst2` causes `rst` to close. The attempt to access the data in `rst` will thus throw an exception. **If you want to use multiple `ResultSets` in this fashion, you must create a second `Statement` to use for the inner query.** Make sure to create this statement outside of the loop, however, so that it doesn't get garbage collected and reinitialized every time through.
@@ -320,9 +317,8 @@ This project was written and revised over the years by EECS 484 staff at the Uni
 
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License][cc-license]. You may share and adapt this document, but not for commercial purposes. You may not share source code included in this document.
 
-[course-policies]: https://docs.google.com/document/d/1T3NHQm2aRGEZCEnPWOIQ4lk-fE_QOx42RKT5vevsc1s/edit?usp=sharing
+[course-policies]: #
 [autograder]: https://autograder.io/web/course/208
 [primer-spec]: https://eecs485staff.github.io/primer-spec/
 [cc-license]: https://creativecommons.org/licenses/by-nc/4.0/
-
-[starter-code]: https://eecs484db.github.io/wn23/p2-fakebook-jdbc/p2-starter_files.tar.gz
+[starter-code]: https://eecs484db.github.io/{{ page.semester }}/p2-fakebook-jdbc/p2-starter_files.tar.gz
