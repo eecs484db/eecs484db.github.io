@@ -11,7 +11,7 @@ permalink: /sp23/p1-fakebook-db.html
 | ------------------------------------------------ | ---------- | ---------------------------- |
 | 212 points (62 on Gradescope, 150 on Autograder) | Date TBD   | **Date TBD at 11:55 PM EST** |
 
-Project 1 is due on **Date TBD at 11:55 PM EST**. Please refer to the [EECS 484 SP23 Course Policies (link TBD)][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
+Project 1 is due on **May 11th at 11:55 PM EST**. Please refer to the [EECS 484 SP23 Course Policies (link TBD)][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
 
 <!-- ## Change Log -->
 
