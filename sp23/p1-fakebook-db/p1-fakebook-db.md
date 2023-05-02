@@ -7,11 +7,11 @@ permalink: /wn23/p1-fakebook-db.html
 
 # Project 1: Fakebook Database
 
-| Worth                                            | Released | Due                       |
-| ------------------------------------------------ | -------- | ------------------------- |
-| 212 points (62 on Gradescope, 150 on Autograder) | Jan.10   | **Feb.2 at 11:55 PM EST** |
+| Worth                                            | Released   | Due                          |
+| ------------------------------------------------ | ---------- | ---------------------------- |
+| 212 points (62 on Gradescope, 150 on Autograder) | Date TBD   | **Date TBD at 11:55 PM EST** |
 
-Project 1 is due on **Thursday, Feb 2nd at 11:55 PM EST**. Please refer to the [EECS 484 W23 course policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
+Project 1 is due on **Date TBD at 11:55 PM EST**. Please refer to the [EECS 484 SP23 Course Policies (link TBD)][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
 
 <!-- ## Change Log -->
 
@@ -551,5 +551,6 @@ This document is licensed under a [Creative Commons Attribution-NonCommercial 4.
 [course-policies]: #
 [autograder]: https://autograder.io/
 [gradescope]: https://www.gradescope.com/
+
 [primer-spec]: https://eecs485staff.github.io/primer-spec/
 [cc-license]: https://creativecommons.org/licenses/by-nc/4.0/

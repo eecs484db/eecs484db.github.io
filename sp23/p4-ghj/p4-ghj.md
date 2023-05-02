@@ -7,11 +7,11 @@ permalink: /wn23/p4-ghj.html
 
 # Project 4: Grace Hash Join
 
-| Worth     | Released | Due                       |
-| --------- | -------- | ------------------------- |
-| 70 points | March 23 | **Apr 13 at 11:55 PM ET** |
+| Worth     | Released | Due                         |
+| --------- | -------- | --------------------------- |
+| 70 points | Date TBD | **Date TBD at 11:55 PM ET** |
 
-Project 4 is due on **Apr 13**. Please refer to the [EECS 484 W23 course policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
+Project 4 is due on **Date TBD at 11:55 PM EST**. Please refer to the [EECS 484 SP23 Course Policies (link TBD)][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
 
 <!-- ## Change Log -->
 
@@ -206,7 +206,8 @@ This document is licensed under a [Creative Commons Attribution-NonCommercial 4.
 
 [course-policies]: #
 [autograder]: https://autograder.io/
+[starter-code]: https://eecs484db.github.io/{{ page.semester }}/p4-ghj/p4-starter_files.tar.gz
+
+[rosetta]: https://rosettacode.org/wiki/Hash_join#C.2B.2B
 [primer-spec]: https://eecs485staff.github.io/primer-spec/
 [cc-license]: https://creativecommons.org/licenses/by-nc/4.0/
-[starter-code]: https://eecs484db.github.io/{{ page.semester }}/p4-ghj/p4-starter_files.tar.gz
-[rosetta]: https://rosettacode.org/wiki/Hash_join#C.2B.2B

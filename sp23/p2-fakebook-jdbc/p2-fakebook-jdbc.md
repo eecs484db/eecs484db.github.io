@@ -7,11 +7,11 @@ permalink: /wn23/p2-fakebook-jdbc.html
 
 # Project 2: Fakebook JDBC
 
-| Worth                              | Released | Due                     |
-| ---------------------------------- | -------- | ----------------------- |
-| 118 points (59 public, 59 private) | Jan 31st | Feb 16th at 11:55 PM ET |
+| Worth                              | Released | Due                         |
+| ---------------------------------- | -------- | --------------------------- |
+| 118 points (59 public, 59 private) | Date TBD | **Date TBD at 11:55 PM ET** |
 
-Project 2 is due on Feb 16th. Please refer to the [EECS 484 W23 course policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
+Project 2 is due on **Date TBD at 11:55 PM EST**. Please refer to the [EECS 484 SP23 Course Policies (link TBD)][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
 
 <!-- ## Change Log -->
 
@@ -319,6 +319,7 @@ This document is licensed under a [Creative Commons Attribution-NonCommercial 4.
 
 [course-policies]: #
 [autograder]: https://autograder.io/
+[starter-code]: https://eecs484db.github.io/{{ page.semester }}/p2-fakebook-jdbc/p2-starter_files.tar.gz
+
 [primer-spec]: https://eecs485staff.github.io/primer-spec/
 [cc-license]: https://creativecommons.org/licenses/by-nc/4.0/
-[starter-code]: https://eecs484db.github.io/{{ page.semester }}/p2-fakebook-jdbc/p2-starter_files.tar.gz
