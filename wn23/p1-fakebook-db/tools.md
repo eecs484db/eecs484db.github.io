@@ -7,6 +7,10 @@ defaultCodeblockVariant: no-line-numbers
 
 # Tools
 
+<div class="primer-spec-callout warning" markdown="1">
+This spec is archived and not for the current semester.
+</div>
+
 This document houses the tools necessary to succeed in EECS 484. You will explore most of these in Project 1 (before starting [Part 2](p1-fakebook-db#part-2-creating-the-data-tables)), and you can refer back to this document as a refresher for Projects 2 and 3.
 
 # CAEN

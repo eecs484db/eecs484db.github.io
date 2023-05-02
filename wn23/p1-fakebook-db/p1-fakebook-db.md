@@ -7,6 +7,10 @@ permalink: /wn23/p1-fakebook-db.html
 
 # Project 1: Fakebook Database
 
+<div class="primer-spec-callout warning" markdown="1">
+This spec is archived and not for the current semester.
+</div>
+
 | Worth                                            | Released | Due                       |
 | ------------------------------------------------ | -------- | ------------------------- |
 | 212 points (62 on Gradescope, 150 on Autograder) | Jan.10   | **Feb.2 at 11:55 PM EST** |

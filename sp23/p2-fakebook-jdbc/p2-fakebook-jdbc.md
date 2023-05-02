@@ -1,8 +1,8 @@
 ---
 layout: spec
-semester: wn23
+semester: sp23
 title: p2-fakebook-jdbc
-permalink: /wn23/p2-fakebook-jdbc.html
+permalink: /sp23/p2-fakebook-jdbc.html
 ---
 
 # Project 2: Fakebook JDBC

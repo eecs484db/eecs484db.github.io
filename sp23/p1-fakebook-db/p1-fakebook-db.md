@@ -1,8 +1,8 @@
 ---
 layout: spec
-semester: wn23
+semester: sp23
 title: p1-fakebook-db
-permalink: /wn23/p1-fakebook-db.html
+permalink: /sp23/p1-fakebook-db.html
 ---
 
 # Project 1: Fakebook Database

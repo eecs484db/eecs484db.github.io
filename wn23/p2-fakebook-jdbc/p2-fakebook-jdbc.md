@@ -7,6 +7,10 @@ permalink: /wn23/p2-fakebook-jdbc.html
 
 # Project 2: Fakebook JDBC
 
+<div class="primer-spec-callout warning" markdown="1">
+This spec is archived and not for the current semester.
+</div>
+
 | Worth                              | Released | Due                     |
 | ---------------------------------- | -------- | ----------------------- |
 | 118 points (59 public, 59 private) | Jan 31st | Feb 16th at 11:55 PM ET |

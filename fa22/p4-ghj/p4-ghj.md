@@ -7,6 +7,10 @@ permalink: /fa22/p4-ghj.html
 
 # Project 4: Grace Hash Join
 
+<div class="primer-spec-callout warning" markdown="1">
+This spec is archived and not for the current semester.
+</div>
+
 Due on **Thursday, December 8 at 11:55 PM EST**.
 
 If you do not turn in your project by that deadline, or if you are unhappy with your work, you may continue to submit up until **Monday, December 12 at 11:55 PM EST** (4 days after the regular deadline). Please refer to [EECS 484 F22 Course Policies][course-policies] for more information on _Assignments and Partners_ and _Late Days_.

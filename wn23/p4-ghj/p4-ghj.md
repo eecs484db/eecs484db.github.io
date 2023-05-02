@@ -7,6 +7,10 @@ permalink: /wn23/p4-ghj.html
 
 # Project 4: Grace Hash Join
 
+<div class="primer-spec-callout warning" markdown="1">
+This spec is archived and not for the current semester.
+</div>
+
 | Worth     | Released | Due                       |
 | --------- | -------- | ------------------------- |
 | 70 points | March 23 | **Apr 13 at 11:55 PM ET** |

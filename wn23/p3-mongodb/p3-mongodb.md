@@ -7,6 +7,10 @@ permalink: /wn23/p3-mongodb.html
 
 # Project 3: MangoDB
 
+<div class="primer-spec-callout warning" markdown="1">
+This spec is archived and not for the current semester.
+</div>
+
 | Worth                                     | Released | Due                         |
 | ----------------------------------------- | -------- | --------------------------- |
 | 100 points (20 for Part A, 80 for Part B) | Feb 14th | **Mar 23rd at 11:55 PM ET** |

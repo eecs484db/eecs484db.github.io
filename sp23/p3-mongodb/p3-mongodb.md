@@ -1,8 +1,8 @@
 ---
 layout: spec
-semester: wn23
+semester: sp23
 title: p3-mongodb
-permalink: /wn23/p3-mongodb.html
+permalink: /sp23/p3-mongodb.html
 ---
 
 # Project 3: MangoDB
