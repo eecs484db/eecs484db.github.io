@@ -9,9 +9,9 @@ permalink: /sp23/p2-fakebook-jdbc.html
 
 | Worth                              | Released | Due                         |
 | ---------------------------------- | -------- | --------------------------- |
-| 118 points (59 public, 59 private) | Date TBD | **Date TBD at 11:55 PM ET** |
+| 118 points (59 public, 59 private) | May 11th | **May 23rd at 11:55 PM ET** |
 
-Project 2 is due on **Date TBD at 11:55 PM EST**. Please refer to the [EECS 484 SP23 Course Policies (link TBD)][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
+Project 2 is due on **May 23rd at 11:55 PM EST**. Please refer to the [EECS 484 SP23 Course Policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
 
 <!-- ## Change Log -->
 
