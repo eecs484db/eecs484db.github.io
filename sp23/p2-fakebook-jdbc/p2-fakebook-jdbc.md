@@ -317,7 +317,7 @@ This project was written and revised over the years by EECS 484 staff at the Uni
 
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License][cc-license]. You may share and adapt this document, but not for commercial purposes. You may not share source code included in this document.
 
-[course-policies]: #
+[course-policies]: https://docs.google.com/document/d/1idrZ-RNSUVzfDkI_GtrbqhCcoyIgWyTyNHGJm4hyT3k/edit
 [autograder]: https://autograder.io/
 [starter-code]: https://eecs484db.github.io/{{ page.semester }}/p2-fakebook-jdbc/p2-starter_files.tar.gz
 
