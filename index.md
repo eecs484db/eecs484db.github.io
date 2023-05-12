@@ -14,6 +14,6 @@ _**Spring 2023** - see [Archive](/archive) for past semesters_
 {% include p-btn-group.html semester="sp23"
 tools-released=true tools-caption="For Project 1 Part 2 and Beyond" 
 p1-released=true p1-due="May 11th at 11:55PM EST" 
-p2-released=false p2-due="Due Date TBD"
-p3-released=false p3-due="Due Date TBD"
-p4-released=false p4-due="Due Date TBD" %}
+p2-released=true p2-due="May 23rd at 11:55PM EST"
+p3-released=false p3-due="June 6th at 11:55PM EST"
+p4-released=false p4-due="June 15th at 11:55PM EST" %}
