@@ -9,9 +9,9 @@ permalink: /sp23/p4-ghj.html
 
 | Worth     | Released | Due                         |
 | --------- | -------- | --------------------------- |
-| 70 points | Date TBD | **Date TBD at 11:55 PM ET** |
+| 70 points | Date TBD | **June 15th at 11:55 PM ET** |
 
-Project 4 is due on **Date TBD at 11:55 PM EST**. Please refer to the [EECS 484 SP23 Course Policies (link TBD)][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
+Project 4 is due on **June 15th at 11:55 PM EST**. Please refer to the [EECS 484 SP23 Course Policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
 
 <!-- ## Change Log -->
 
@@ -204,7 +204,7 @@ This project was written and revised over the years by EECS 484 staff at the Uni
 
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License][cc-license]. You may share and adapt this document, but not for commercial purposes. You may not share source code included in this document.
 
-[course-policies]: #
+[course-policies]: https://docs.google.com/document/d/1idrZ-RNSUVzfDkI_GtrbqhCcoyIgWyTyNHGJm4hyT3k/edit
 [autograder]: https://autograder.io/
 [starter-code]: https://eecs484db.github.io/{{ page.semester }}/p4-ghj/p4-starter_files.tar.gz
 
