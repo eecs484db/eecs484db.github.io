@@ -9,9 +9,9 @@ permalink: /fa23/p3-mongodb.html
 
 | Worth                                     | Released | Due                         |
 | ----------------------------------------- | -------- | --------------------------- |
-| 100 points (20 for Part A, 80 for Part B) | May 23rd | **June 6th at 11:55 PM EST** |
+| 100 points (20 for Part A, 80 for Part B) | October 10th | **November 9th at 11:55 PM EST** |
 
-Project 3 is due on **June 6th at 11:55 PM EST**. Please refer to the [EECS 484 FA23 Course Policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
+Project 3 is due on **November 9th at 11:55 PM EST**. Please refer to the [EECS 484 FA23 Course Policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
 
 <!-- ## Change Log -->
 
