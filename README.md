@@ -1,6 +1,6 @@
 # EECS 484 Projects
 
-![current semester](https://img.shields.io/badge/current%20semester-sp23-blueviolet)
+![current semester](https://img.shields.io/badge/current%20semester-fa23-blueviolet)
 [![pages-build-deployment](https://github.com/eecs484db/eecs484db.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/eecs484db/eecs484db.github.io/actions/workflows/pages/pages-build-deployment)
 [![powered by Jekyll](https://img.shields.io/badge/powered%20by-Jekyll-blue)](https://jekyllrb.com/)
 [![theme Primer Spec](https://img.shields.io/badge/theme-Primer%20Spec-blue)](https://github.com/eecs485staff/primer-spec)
