@@ -9,9 +9,9 @@ permalink: /fa23/p4-ghj.html
 
 | Worth     | Released | Due                         |
 | --------- | -------- | --------------------------- |
-| 70 points | November 9th | **December 5th at 11:55 PM ET** |
+| 70 points | November 9th | **December 7th at 11:55 PM ET** |
 
-Project 4 is due on **December 5th at 11:55 PM EST**. Please refer to the [EECS 484 FA23 Course Policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
+Project 4 is due on **December 7th at 11:55 PM EST**. Please refer to the [EECS 484 FA23 Course Policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
 
 <!-- ## Change Log -->
 

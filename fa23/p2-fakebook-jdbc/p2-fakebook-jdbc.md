@@ -9,9 +9,9 @@ permalink: /fa23/p2-fakebook-jdbc.html
 
 | Worth                              | Released | Due                         |
 | ---------------------------------- | -------- | --------------------------- |
-| 118 points (59 public, 59 private) | September 21st | **October 10th at 11:55 PM ET** |
+| 118 points (59 public, 59 private) | September 21st | **October 5th at 11:55 PM ET** |
 
-Project 2 is due on **October 10th at 11:55 PM EST**. Please refer to the [EECS 484 FA23 Course Policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
+Project 2 is due on **October 5th at 11:55 PM EST**. Please refer to the [EECS 484 FA23 Course Policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
 
 <!-- ## Change Log -->
 
