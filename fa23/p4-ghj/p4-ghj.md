@@ -204,7 +204,7 @@ This project was written and revised over the years by EECS 484 staff at the Uni
 
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License][cc-license]. You may share and adapt this document, but not for commercial purposes. You may not share source code included in this document.
 
-[course-policies]: https://docs.google.com/document/d/1idrZ-RNSUVzfDkI_GtrbqhCcoyIgWyTyNHGJm4hyT3k/edit
+[course-policies]: https://docs.google.com/document/d/1Nil257AA7oXGZqJKf8t-LpGpckX_Z6OxrC2HjZeFW7o/edit
 [autograder]: https://autograder.io/
 [starter-code]: https://eecs484db.github.io/{{ page.semester }}/p4-ghj/p4-starter_files.tar.gz
 
