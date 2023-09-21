@@ -156,13 +156,13 @@ Query 1 asks you to identify information about Fakebook users' first names.
 
 **Hint:** You may consider using the `LENGTH()` operation in SQL. Remember that you are allowed to execute multiple SQL statements in one query.
 
-### Query 2: Lonely mUsers (12 points)
+### Query 2: Lonely Users (12 points)
 
 _Public: 6 points • Private: 6 points_
 
 Query 2 asks you to identify all of the Fakebook users with no Fakebook friends. For each user without any friends, report their ID, first name, and last name. The users should be reported in ascending order by ID. If every Fakebook user has at least one Fakebook friend, you should return an empty FakebookArrayList.
 
-### Query 3: Users who Live Away from Home (12 points)
+### Query 3: Users Who Live Away From Home (12 points)
 
 _Public: 6 points • Private: 6 points_
 
