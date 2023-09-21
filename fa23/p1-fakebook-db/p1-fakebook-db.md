@@ -21,7 +21,7 @@ In Project 1, you will be designing a relational database to store information f
 
 ## Submissions
 
-This project is to be done in teams of 2 students (recommended) or individually. Both members of each team will receive the same score - the highest score among all submissions; as such, it is not necessary for each team member to submit the assignment.
+This project is to be done in teams of 2 students. Both members of each team will receive the same score - the highest score among all submissions; as such, it is not necessary for each team member to submit the assignment.
 
 **Before making your first submission**, follow these steps to create a team on the [Autograder][autograder]:
 
