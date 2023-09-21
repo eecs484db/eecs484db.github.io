@@ -21,7 +21,7 @@ In Project 2, you will be building a Java application that executes SQL queries 
 
 ## Submissions
 
-This project is to be done in teams of 2 students (recommended) or individually. Be sure to create your team on the [Autograder][autograder].
+This project is to be done in teams of 2 students. Be sure to create your team on the [Autograder][autograder].
 
 ## Honor Code
 
