@@ -9,7 +9,7 @@ permalink: /fa23/p4-ghj.html
 
 | Worth     | Released | Due                         |
 | --------- | -------- | --------------------------- |
-| 70 points | November 9th | **December 7th at 11:55 PM ET** |
+| 70 points | November 2nd | **December 7th at 11:55 PM ET** |
 
 Project 4 is due on **December 7th at 11:55 PM EST**. Please refer to the [EECS 484 FA23 Course Policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
 
@@ -21,7 +21,7 @@ In Project 4, we will implement a database algorithm – Grace Hash Join – usi
 
 ## Submissions
 
-This project is to be done in teams of 2 students (recommended) or individually. Be sure to create your team on the [Autograder][autograder].
+This project is to be done in teams of 2 students. Be sure to create your team on the [Autograder][autograder].
 
 ## Honor Code
 
