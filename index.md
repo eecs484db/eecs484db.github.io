@@ -16,4 +16,4 @@ tools-released=true tools-caption="For Project 1 Part 2 and Beyond"
 p1-released=true p1-due="September 22nd at 11:55PM EST" 
 p2-released=true p2-due="October 5th at 11:55PM EST"
 p3-released=true p3-due="November 2nd at 11:55PM EST"
-p4-released=false p4-due="December 7th at 11:55PM EST" %}
+p4-released=true p4-due="December 7th at 11:55PM EST" %}
