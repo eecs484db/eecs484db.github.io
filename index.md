@@ -9,11 +9,11 @@ disableSidebar: true
 
 _University of Michigan EECS 484: Database Management Systems_
 
-_**Fall 2023** - see [Archive](/archive) for past semesters_
+_**Winter 2024** - see [Archive](/archive) for past semesters_
 
-{% include p-btn-group.html semester="fa23"
-tools-released=true tools-caption="For Project 1 Part 2 and Beyond" 
-p1-released=true p1-due="September 22nd at 11:55PM EST" 
-p2-released=true p2-due="October 5th at 11:55PM EST"
-p3-released=true p3-due="November 2nd at 11:55PM EST"
-p4-released=true p4-due="November 30th at 11:55PM EST" %}
+{% include p-btn-group.html semester="wn24"
+tools-released=false tools-caption="For Project 1 Part 2 and Beyond" 
+p1-released=false p1-due="TBD" 
+p2-released=false p2-due="TBD"
+p3-released=false p3-due="TBD"
+p4-released=false p4-due="TBD" %}
