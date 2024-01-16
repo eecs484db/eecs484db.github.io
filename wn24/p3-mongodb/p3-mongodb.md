@@ -9,9 +9,9 @@ permalink: /wn24/p3-mongodb.html
 
 | Worth                                     | Released | Due                         |
 | ----------------------------------------- | -------- | --------------------------- |
-| 100 points (20 for Part A, 80 for Part B) | October 12th | **November 2nd at 11:55 PM EST** |
+| 100 points (20 for Part A, 80 for Part B) | February 20th | **March 28th at 11:45 PM EST** |
 
-Project 3 is due on **November 2nd at 11:55 PM EST**. Please refer to the [EECS 484 WN24 Course Policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
+Project 3 is due on **March 28th at 11:45 PM EST**. Please refer to the [EECS 484 WN24 Course Policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
 
 <!-- ## Change Log -->
 
@@ -425,7 +425,7 @@ This project was written and revised over the years by EECS 484 staff at the Uni
 
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License][cc-license]. You may share and adapt this document, but not for commercial purposes. You may not share source code included in this document.
 
-[course-policies]: https://docs.google.com/document/d/1Nil257AA7oXGZqJKf8t-LpGpckX_Z6OxrC2HjZeFW7o/edit
+[course-policies]: https://docs.google.com/document/d/1JK6_nmwkouMnU3gtD9AF085hR_LhPKIL1bVPzRAS8MA/edit?usp=sharing
 [autograder]: https://autograder.io/
 [starter-code]: https://eecs484db.github.io/{{ page.semester }}/p3-mongodb/p3-starter_files.tar.gz
 

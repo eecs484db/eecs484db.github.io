@@ -9,9 +9,9 @@ permalink: /wn24/p4-ghj.html
 
 | Worth     | Released | Due                         |
 | --------- | -------- | --------------------------- |
-| 70 points | November 2nd | **November 30th at 11:55 PM ET** |
+| 70 points | March 28th | **April 11th at 11:45 PM ET** |
 
-Project 4 is due on **November 30th at 11:55 PM EST**. Please refer to the [EECS 484 FA23 Course Policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
+Project 4 is due on **April 11th at 11:45 PM EST**. Please refer to the [EECS 484 FA23 Course Policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
 
 <!-- ## Change Log -->
 
@@ -204,7 +204,7 @@ This project was written and revised over the years by EECS 484 staff at the Uni
 
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License][cc-license]. You may share and adapt this document, but not for commercial purposes. You may not share source code included in this document.
 
-[course-policies]: https://docs.google.com/document/d/1Nil257AA7oXGZqJKf8t-LpGpckX_Z6OxrC2HjZeFW7o/edit
+[course-policies]: https://docs.google.com/document/d/1JK6_nmwkouMnU3gtD9AF085hR_LhPKIL1bVPzRAS8MA/edit?usp=sharing
 [autograder]: https://autograder.io/
 [starter-code]: https://eecs484db.github.io/{{ page.semester }}/p4-ghj/p4-starter_files.tar.gz
 
