@@ -104,11 +104,13 @@ Only use alphabetic characters, numerals, the underscore, and the pound sign in 
 
 If you encounter the error `ORA-01017: invalid username/password; logon denied`, then you may not have an account. Please privately post on Piazza with your uniqname to request access.
 
-## Resetting Password and Sessions
+## Resetting Password, unlocking Oracle Account, and killing Sessions
 
-We have made an [Autograder][autograder] project named SQL\*Plus Reset that would allow you to reset your SQL\*Plus password or kill your SQL\*Plus sessions.
+We have made an [Autograder][autograder] project named SQL\*Plus Reset that would allow you to reset your SQL\*Plus password, unlock Oracle account, or kill your SQL\*Plus sessions.
 
 To reset your password to `eecsclass`, submit any text file named `password.txt` to this project.
+
+To unlock your Oracle account, submit any text file named `unlock.txt` to this project.
 
 To kill all your SQL\*Plus sessions and fix the `ORA-00054: resource busy and acquire with NOWAIT specified or timeout expired` error, submit any text file named `sessions.txt` to this project.
 
