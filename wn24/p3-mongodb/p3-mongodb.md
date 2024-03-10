@@ -9,7 +9,7 @@ permalink: /wn24/p3-mongodb.html
 
 | Worth                                     | Released | Due                         |
 | ----------------------------------------- | -------- | --------------------------- |
-| 100 points (20 for Part A, 80 for Part B) | February 20th | **March 28th at 11:45 PM EST** |
+| 100 points (30 for Part A, 70 for Part B) | March 10th | **March 28th at 11:45 PM EST** |
 
 Project 3 is due on **March 28th at 11:45 PM EST**. Please refer to the [EECS 484 WN24 Course Policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
 
@@ -17,7 +17,7 @@ Project 3 is due on **March 28th at 11:45 PM EST**. Please refer to the [EECS 48
 
 ## Introduction
 
-In Project 3, we will use a similar dataset as in Project 2 and explore the capabilities of MongoDB (a NoSQL DBMS). There are two parts to the project. Part A of the project does not use MongoDB. You will be extracting data from tables in the Fakebook database and exporting a JSON file output.json that contains information about users. In Part B of the project, you will be importing output.json (or a sample.json that we give you) into MongoDB to create a mongoDB collection of users. You will then need to write 8 queries on the users collection. You can start on Part A right away without knowing anything about MongoDB, whereas Part B will require you to use MongoDB.
+In Project 3, we will use a similar dataset as in Project 2 and explore the capabilities of MongoDB (a NoSQL DBMS). There are two parts to the project. Part A of the project does not use MongoDB. You will be extracting data from tables in the Fakebook database and exporting a JSON file output.json that contains information about users. In Part B of the project, you will be importing output.json (or a sample.json that we give you) into MongoDB to create a mongoDB collection of users. You will then need to write 7 queries on the users collection. You can start on Part A right away without knowing anything about MongoDB, whereas Part B will require you to use MongoDB.
 
 ## Submissions
 
@@ -368,46 +368,24 @@ You may find [$or](https://www.mongodb.com/docs/v3.6/reference/operator/aggregat
 
 Find the average number of friends a user has in the `users` collection and return a decimal number. The average friend count on `users` should also consider those who have 0 friends. In order to make this easier, we’re treating the number of friends that a user has as equal to the number of friends in their friend list. We are **not** counting users with lower ids, since they aren’t in the friend list. Do **not** round the result to an integer.
 
-#### Query 7: Birth Months using MapReduce
+#### Query 7: Birth Months using Aggregate
 
-MapReduce is a powerful parallel data processing paradigm. We have set up the MapReduce calling point in `test.js` and you need to implement the mapper, reducer and finalizer.
+Use the aggregate command to create a collection called Countbymonth that that has the following schema:
 
-Find the number of users born in each month. Note that after running `test.js`, running `db.born_each_month.find()` in the `mongo` shell allows you to bring up the collection showing the number of users born in each month. For example, if there are 66 users born in September, the document below would be in the collection:
+MOB: [Value between 1 and 12]
+borncount: number of users born in that month
 
-```javascript
-{​"_id"​:​​ 9,​ ​"value"​:​ 66}
-```
+You should end up with 12 records in the collection. To test your function, follow the instructions in test.js
+for query7. In particular, db.countbymonth.find() should work and return a list of 12 records that is sorted by BOM.
+The borncount values should add up to total number of users in the original collection in sample.json.
 
-{: data-variant="no-line-numbers" }
-
-You may find these helpful: [Map-Reduce](https://www.mongodb.com/docs/v3.6/core/map-reduce/), [Map-Reduce Examples](https://www.mongodb.com/docs/v3.6/tutorial/map-reduce-examples/)
-
-#### Query 8: Birth Friendly Cities using MapReduce
-
-In this query, use MapReduce to find the average friend count per user where the users have the same `hometown.city`. Instead of getting only one number for all users’ average friend count, we will have an average friend count for each hometown city.
-
-**The average calculation should be performed in the finalizer.** Note that after running `test.js`, running `db.friend_city_population.find()` in `mongo` allows you to bring up the collection with per city average friend count. For example, if users whose hometown is Breredon have an average friend count 27.2, the document below would be in the collection:
-
-```javascript
-{​"_id"​:​​ "Breredon",​ ​"value"​:​ 27.2​​}
-```
 
 {: data-variant="no-line-numbers" }
 
-### Mapreduce Tips for Query 7 and 8
 
-Since the output of a reducer can be fed into another reducer (reducers can take input from both mappers and reducers), the _value_ emitted from your mapper (where the mapper emits (_key_, _value_)) should have the **exact same form** as what is returned by your reducer. The reducer must satisfy the [following conditions](https://www.mongodb.com/docs/v3.6/reference/command/mapReduce/):
 
-- the type of the return object must be identical to the type of the value emitted by the map function.
-- the reduce function must be associative. The following statement must be true:
 
-```
-reduce(key, [ C, reduce(key, [ A, B ]) ] ) == reduce( key, [ C, A, B ] )
-```
 
-{: data-variant="no-line-numbers" }
-
-For query 8, the average calculation must be performed in the finalizer because the reducer function must be associative.
 
 # Submitting
 
