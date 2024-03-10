@@ -375,9 +375,10 @@ Use the aggregate command to create a collection called countbymonth that that h
 MOB: [Value between 1 and 12]  
 borncount: number of users born in that month
 
-You should end up with 12 records in the collection. To test your function, follow the instructions in test.js
-for query7. In particular, db.countbymonth.find() should work and return a list of 12 records that is sorted by BOM.
-The borncount values should add up to total number of users in the original collection. 
+You should end up with 12 records in the collection. To test your function, follow the instructions in test.js for query7. In particular, db.countbymonth.find() should work and return a list of 12 records that is sorted by BOM.
+The borncount values should add up to total number of users in the original collection.
+
+Note: The autograder is currently using version 3.6 of MongoDB (older version). The following accumulate command is not available: $count. Instead, $sum with an appropriate argument can be used to achieve the same result as counting.
 
 
 {: data-variant="no-line-numbers" }
