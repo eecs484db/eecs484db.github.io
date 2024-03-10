@@ -389,7 +389,7 @@ The borncount values should add up to total number of users in the original coll
 
 # Submitting
 
-The deliverable for Part A is `GetData.java`. This is worth 20 points. The deliverables for Part B are `query[1-7].js`. Each query is worth 10 points, with a total of 80 points. The entire project is worth 100 points. There are no private tests.
+The deliverable for Part A is `GetData.java`. The deliverables for Part B are `query[1-7].js`. Each query is worth 10 points. The entire project is worth 100 points. There are no private tests.
 
 All files should be submitted to the [Autograder][autograder]. All test cases are graded separately, so you can submit just the files you want to have graded.
 
