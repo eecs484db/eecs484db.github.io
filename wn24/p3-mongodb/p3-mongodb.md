@@ -370,14 +370,14 @@ Find the average number of friends a user has in the `users` collection and retu
 
 #### Query 7: Birth Months using Aggregate
 
-Use the aggregate command to create a collection called Countbymonth that that has the following schema:
+Use the aggregate command to create a collection called countbymonth that that has the following schema:
 
-MOB: [Value between 1 and 12]
+MOB: [Value between 1 and 12] <br>
 borncount: number of users born in that month
 
 You should end up with 12 records in the collection. To test your function, follow the instructions in test.js
 for query7. In particular, db.countbymonth.find() should work and return a list of 12 records that is sorted by BOM.
-The borncount values should add up to total number of users in the original collection in sample.json.
+The borncount values should add up to total number of users in the original collection. 
 
 
 {: data-variant="no-line-numbers" }
