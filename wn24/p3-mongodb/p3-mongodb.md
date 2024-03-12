@@ -188,7 +188,8 @@ $ mongo <database> # omit angle brackets
 
 {: data-variant="no-line-numbers" }
 
-Note that the starter file `Makefile` does not work in a local environment unless properly modified. No hostname, userid, or password is required, so edit your `Makefile` such that these fields are removed from all of your make rules. In our `Makefile`, `uniqname` is the name of the database that `mongo` will use for commands. We may be unable to provide support in case you run into issues with your local `mongo` environment. Because of this, we recommend using MongoDB on CAEN.
+The CAEN and MongoDB server currently use MongoDB v3.6, which is an older version.  Thus, the starter file `Makefile` does not work in a local environment unless properly modified. No hostname, userid, or password is required, so edit your `Makefile` such that these fields are removed from all of your make rules. In our `Makefile`, `uniqname` is the name of the database that `mongo` will use for commands.  Also, you will need to replace "mongo" in the file by "mongosh", since Mongo renamed the command in recent releases.  There are a few other differences in Mongo 3.6 and current versions, but they are minor. For example, version 3.6 uses db.collection.count() to count documents. Use that when needed even 
+if it is now deprecated in recent releases. 
 
 ### CAEN MongoDB
 
