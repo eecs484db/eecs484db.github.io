@@ -180,16 +180,20 @@ To run the MongoDB queries, you will need to login to a `mongo` shell. You may e
 
 ### Local MongoDB
 
-To use MongoDB on your local machine, refer to [MongoDB’s installation instructions][mongodb-install]. Once you have installed it, you should be able to execute `mongod` (without a ‘b’) to start a private `mongod` server. To connect to your private server, you will generally type `mongo` with the database name in a Terminal window:
+To use MongoDB on your local machine, refer to [MongoDB’s installation instructions][mongodb-install]. Once you have installed it and run the server, to connect to your private server, you will generally type `mongosh` with the database name in a Terminal window:
 
 ```console
-$ mongo <database> # omit angle brackets
+$ mongosh <database> # omit angle brackets
 ```
 
 {: data-variant="no-line-numbers" }
 
-The CAEN and MongoDB server currently use MongoDB v3.6, which is an older version.  Thus, the starter file `Makefile` does not work in a local environment unless properly modified. No hostname, userid, or password is required, so edit your `Makefile` such that these fields are removed from all of your make rules. In our `Makefile`, `uniqname` is the name of the database that `mongo` will use for commands.  Also, you will need to replace "mongo" in the file by "mongosh", since Mongo renamed the command in recent releases.  There are a few other differences in Mongo 3.6 and current versions, but they are minor. For example, version 3.6 uses db.collection.count() to count documents. Use that when needed even 
-if it is now deprecated in recent releases. 
+The CAEN and MongoDB server currently use MongoDB v3.6, which is an older version.  Thus, the starter file `Makefile` does not work in a local environment unless properly modified. The minimum change needed is to replace "mongo " by "mongosh " in various commands. In that case, you local mongosh will connect to our server. The reason is that v3.6 used "mongo" -- CAEN still uses that for the mongo shell. But, you likely will install a more recent version, where the shell is renamed to mongosh.
+
+To use the local instance entirely, no hostname, userid, or password is 
+required. So edit your `Makefile` such that these fields are removed from all of your make rules. In our `Makefile`, `uniqname` is the name of the database that `mongo` will use for commands.  Also, you will need to replace "mongo" in the file by "mongosh", since Mongo renamed the command in recent releases.  
+
+There are a few other differences in Mongo 3.6 and current versions, but they are minor. For example, version 3.6 uses db.collection.count() to count documents. Use that when needed even if it is now deprecated in recent releases. Your final solution should work with the autograder (and thus version 3.6 of Mongo).
 
 ### CAEN MongoDB
 
