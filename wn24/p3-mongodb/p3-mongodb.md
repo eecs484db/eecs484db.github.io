@@ -9,9 +9,9 @@ permalink: /wn24/p3-mongodb.html
 
 | Worth                                     | Released | Due                         |
 | ----------------------------------------- | -------- | --------------------------- |
-| 100 points (30 for Part A, 70 for Part B) | March 10th | **March 28th at 11:45 PM EST** |
+| 100 points (30 for Part A, 70 for Part B) | March 10th | **March 29th at 11:45 PM EST** |
 
-Project 3 is due on **March 28th at 11:45 PM EST**. Please refer to the [EECS 484 WN24 Course Policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
+Project 3 is due on **March 29th at 11:45 PM EST**. Please refer to the [EECS 484 WN24 Course Policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
 
 <!-- ## Change Log -->
 

@@ -9,9 +9,9 @@ permalink: /wn24/p4-ghj.html
 
 | Worth     | Released | Due                         |
 | --------- | -------- | --------------------------- |
-| 70 points | March 28th | **April 11th at 11:45 PM ET** |
+| 70 points | March 28th | **April 12th at 11:45 PM ET** |
 
-Project 4 is due on **April 11th at 11:45 PM EST**. Please refer to the [EECS 484 FA23 Course Policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
+Project 4 is due on **April 12th at 11:45 PM EST**. Please refer to the [EECS 484 FA23 Course Policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
 
 <!-- ## Change Log -->
 
