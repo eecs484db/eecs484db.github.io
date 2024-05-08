@@ -1,6 +1,6 @@
 ---
 layout: spec
-semester: wn24
+semester: sp24
 title: p1-fakebook-db
 permalink: /sp24/p1-fakebook-db.html
 ---
