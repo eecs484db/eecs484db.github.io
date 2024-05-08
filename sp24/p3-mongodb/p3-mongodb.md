@@ -1,17 +1,17 @@
 ---
 layout: spec
-semester: wn24
+semester: sp24
 title: p3-mongodb
-permalink: /wn24/p3-mongodb.html
+permalink: /sp24/p3-mongodb.html
 ---
 
 # Project 3: MangoDB
 
 | Worth                                     | Released | Due                         |
 | ----------------------------------------- | -------- | --------------------------- |
-| 100 points (30 for Part A, 70 for Part B) | March 10th | **March 29th at 11:45 PM EST** |
+| 100 points (30 for Part A, 70 for Part B) | May 29th | **June 10th at 11:45 PM EST** |
 
-Project 3 is due on **March 29th at 11:45 PM EST**. Please refer to the [EECS 484 WN24 Course Policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
+Project 3 is due on **June 10th at 11:45 PM EST**. Please refer to the [EECS 484 WN24 Course Policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
 
 <!-- ## Change Log -->
 
@@ -409,7 +409,7 @@ This project was written and revised over the years by EECS 484 staff at the Uni
 
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License][cc-license]. You may share and adapt this document, but not for commercial purposes. You may not share source code included in this document.
 
-[course-policies]: https://docs.google.com/document/d/1JK6_nmwkouMnU3gtD9AF085hR_LhPKIL1bVPzRAS8MA/edit?usp=sharing
+[course-policies]: https://docs.google.com/document/d/1e_q4uoQhSJ3SF_pMiiYxxvLY_NbVeQNl/edit
 [autograder]: https://autograder.io/
 [starter-code]: https://eecs484db.github.io/{{ page.semester }}/p3-mongodb/p3-starter_files.tar.gz
 
