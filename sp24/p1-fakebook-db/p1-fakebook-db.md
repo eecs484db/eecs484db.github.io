@@ -2,16 +2,16 @@
 layout: spec
 semester: wn24
 title: p1-fakebook-db
-permalink: /wn24/p1-fakebook-db.html
+permalink: /sp24/p1-fakebook-db.html
 ---
 
 # Project 1: Fakebook Database
 
 | Worth                                            | Released   | Due                          |
 | ------------------------------------------------ | ---------- | ---------------------------- |
-| 212 points (62 on Gradescope, 150 on Autograder) | January 16th    | **February 8th at 11:45PM EST**  |
+| 212 points (62 on Gradescope, 150 on Autograder) | May 8th    | **May 16th at 11:45PM EST**  |
 
-Project 1 is due on **February 8th at 11:45 PM EST**. Please refer to the [EECS 484 WN24 Course Policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
+Project 1 is due on **May 16th at 11:45 PM EST**. Please refer to the [EECS 484 SP24 Course Policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
 
 <!-- ## Change Log -->
 
@@ -548,7 +548,7 @@ This project was written and revised over the years by EECS 484 staff at the Uni
 
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License][cc-license]. You may share and adapt this document, but not for commercial purposes. You may not share source code included in this document.
 
-[course-policies]: https://docs.google.com/document/d/1JK6_nmwkouMnU3gtD9AF085hR_LhPKIL1bVPzRAS8MA/edit?usp=sharing
+[course-policies]: https://docs.google.com/document/d/1e_q4uoQhSJ3SF_pMiiYxxvLY_NbVeQNl/edit?rtpof=true
 [autograder]: https://autograder.io/
 [gradescope]: https://www.gradescope.com/
 
