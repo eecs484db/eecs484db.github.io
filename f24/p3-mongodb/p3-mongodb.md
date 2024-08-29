@@ -5,7 +5,7 @@ title: p3-mongodb
 permalink: /sp24/p3-mongodb.html
 ---
 
-# Project 3: MangoDB
+# Project 3: MongoDB
 
 | Worth                                     | Released | Due                         |
 | ----------------------------------------- | -------- | --------------------------- |
