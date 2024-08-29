@@ -1,17 +1,17 @@
 ---
 layout: spec
-semester: sp24
+semester: f24
 title: p1-fakebook-db
-permalink: /sp24/p1-fakebook-db.html
+permalink: /f24/p1-fakebook-db.html
 ---
 
 # Project 1: Fakebook Database
 
 | Worth                                            | Released   | Due                          |
 | ------------------------------------------------ | ---------- | ---------------------------- |
-| 212 points (62 on Gradescope, 150 on Autograder) | May 8th    | **May 16th at 11:45PM EST**  |
+| 212 points (62 on Gradescope, 150 on Autograder) | Aug 29th   | **Sep 24th at 11:45PM EST**  |
 
-Project 1 is due on **May 16th at 11:45 PM EST**. Please refer to the [EECS 484 SP24 Course Policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
+Project 1 is due on **Sep 24th at 11:45 PM EST**. Please refer to the [EECS 484 F24 Course Policies][course-policies] for more information on penalties for late submissions, and late day tokens.
 
 <!-- ## Change Log -->
 
@@ -548,9 +548,9 @@ This project was written and revised over the years by EECS 484 staff at the Uni
 
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License][cc-license]. You may share and adapt this document, but not for commercial purposes. You may not share source code included in this document.
 
-[course-policies]: https://docs.google.com/document/d/1e_q4uoQhSJ3SF_pMiiYxxvLY_NbVeQNl/edit?rtpof=true
-[autograder]: https://autograder.io/
-[gradescope]: https://www.gradescope.com/
+[course-policies]: https://docs.google.com/document/d/1N0hDwEX-dU8p83fZznHSWXEhZB2X16THmSrY_jMkaEE/edit?usp=sharing
+[autograder]: https://autograder.io/web/course/286
+[gradescope]: https://www.gradescope.com/courses/834432
 
 [primer-spec]: https://eecs485staff.github.io/primer-spec/
 [cc-license]: https://creativecommons.org/licenses/by-nc/4.0/
