@@ -495,8 +495,7 @@ Be mindful of the dependencies between tables when debugging your code. For exam
 
 **Q: The order of columns in my table and/or view schemas does not match the order of columns in the public dataset's schema. Is this a problem?**
 
-**A:** No, this is not a problem. As long as the table names, column names, and column data types
-match, your schema will be valid.
+**A:** Yes, the column order in your table and view schemas must match the order specified in this spec.
 
 **Q: Are the IDs in the public dataset all unique?**
 
