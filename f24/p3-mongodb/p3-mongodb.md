@@ -1,6 +1,6 @@
 ---
 layout: spec
-semester: sp24
+semester: f24
 title: p3-mongodb
 permalink: /f24/p3-mongodb.html
 ---
