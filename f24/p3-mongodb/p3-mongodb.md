@@ -108,7 +108,7 @@ Below is an example of one element of this `JSONArray`. It is possible that a us
 
 ## Starter Files
 
-Download the starter files ([starter_code.zip][starter-code]).
+Download the starter files ([p3-starter-code.tar.gz][starter-code]).
 
 For Part A, you only need to be concerned about the following files
 
@@ -411,7 +411,7 @@ This document is licensed under a [Creative Commons Attribution-NonCommercial 4.
 
 [course-policies]: https://docs.google.com/document/d/1N0hDwEX-dU8p83fZznHSWXEhZB2X16THmSrY_jMkaEE/edit
 [autograder]: https://autograder.io/
-[starter-code]: https://eecs484db.github.io/{{ page.semester }}/p3-mongodb/starter_code.zip
+[starter-code]: https://eecs484db.github.io/{{ page.semester }}/p3-mongodb/p3-starter-code.tar.gz
 
 [jd-github]: https://github.com/josephburnett/jd
 [jd-online]: http://play.jd-tool.io/
