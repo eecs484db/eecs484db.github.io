@@ -411,7 +411,7 @@ This document is licensed under a [Creative Commons Attribution-NonCommercial 4.
 
 [course-policies]: https://docs.google.com/document/d/1N0hDwEX-dU8p83fZznHSWXEhZB2X16THmSrY_jMkaEE/edit
 [autograder]: https://autograder.io/
-[starter-code]: https://eecs484db.github.io/{{ page.semester }}/p3-mongodb/p3-starter_files.tar.gz
+[starter-code]: https://eecs484db.github.io/{{ page.semester }}/p3-mongodb/starter_code.zip
 
 [jd-github]: https://github.com/josephburnett/jd
 [jd-online]: http://play.jd-tool.io/
