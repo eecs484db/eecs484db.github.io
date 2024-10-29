@@ -375,7 +375,7 @@ Find the average number of friends a user has in the `users` collection and retu
 
 #### Query 7: Birth Months using Aggregate
 
-Use the aggregate command to create a collection called countbymonth that that has the following schema:
+Use the aggregate command to create a collection called countbymonth that has the following schema:
 
 MOB: [Value between 1 and 12]  
 borncount: number of users born in that month
