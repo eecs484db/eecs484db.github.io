@@ -9,7 +9,7 @@ disableSidebar: true
 
 _University of Michigan EECS 484: Database Management Systems_
 
-_**Winter 2025** - see [Archive](/archive) for past semesters_
+_**Winter 2025**
 
 {% include p-btn-group.html semester="f24"
 tools-released=true tools-caption="For Project 1 Part 2 and Beyond" 
