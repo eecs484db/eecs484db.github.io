@@ -1,7 +1,7 @@
 ---
 layout: spec
 title: tools
-permalink: /f24/tools.html
+permalink: /w25/tools.html
 defaultCodeblockVariant: no-line-numbers
 ---
 
