@@ -102,7 +102,7 @@ Your username is your University of Michigan uniqname, and your password is `eec
 Only use alphabetic characters, numerals, the underscore, and the pound sign in your SQL\*Plus password. **Never use quotation marks, the '@' symbol, or the '$' symbol in your SQL\*Plus password**. If you do, it is likely that you will not be able to log into your account, and you will need to reset it (see [Resetting Password and Sessions](#resetting-password-and-sessions)).
 </div>
 
-If you encounter the error `ORA-01017: invalid username/password; logon denied`, then you may not have an account. Please privately post on Piazza with your uniqname to request access.
+If you encounter the error `ORA-01017: invalid username/password; logon denied`, then you may not have an account. Please post on the corresponding Piazza thread with your uniqname to request access.
 
 ## Resetting Password, unlocking Oracle Account, and killing Sessions
 
@@ -114,7 +114,7 @@ To unlock your Oracle account, submit any text file named `unlock.txt` to this p
 
 To kill all your SQL\*Plus sessions and fix the `ORA-00054: resource busy and acquire with NOWAIT specified or timeout expired` error, submit any text file named `sessions.txt` to this project.
 
-If you still have issues accessing your SQL\*Plus account after trying the solutions above, please privately post on Piazza with your uniqname and we can take a look. Keep in mind that this may take several hours, during which you will be unable to use SQL\*Plus to work on the project.
+If you still have issues accessing your SQL\*Plus account after trying the solutions above, please post on the corresponding Piazza thread with your uniqname and we can take a look. Keep in mind that this may take several hours, during which you will be unable to use SQL\*Plus to work on the project.
 
 # Helpful SQL\*Plus Commands
 
