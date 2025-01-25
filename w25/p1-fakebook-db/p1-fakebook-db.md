@@ -9,9 +9,9 @@ permalink: /w25/p1-fakebook-db.html
 
 | Worth                                            | Released   | Due                          |
 | ------------------------------------------------ | ---------- | ---------------------------- |
-| 212 points (62 on Gradescope, 150 on Autograder) | Jan 14th   | **Jan 31st at 11:45PM EST**  |
+| 212 points (62 on Gradescope, 150 on Autograder) | Jan 14th   | **Feb 3rd at 11:45PM EST**  |
 
-Project 1 is due on **Jan 31st at 11:45 PM EST**. Please refer to the [EECS 484 W25 Course Policies][course-policies] for more information on penalties for late submissions, and late day tokens.
+Project 1 is due on **Feb 3rd at 11:45 PM EST**. Please refer to the [EECS 484 W25 Course Policies][course-policies] for more information on penalties for late submissions, and late day tokens.
 
 <!-- ## Change Log -->
 
