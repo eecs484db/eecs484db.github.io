@@ -9,7 +9,7 @@ permalink: /w25/p2-fakebook-jdbc.html
 
 | Worth                              | Released | Due                         |
 | ---------------------------------- | -------- | --------------------------- |
-| 118 points (59 public, 59 private) | Feb 4th | **Feb 21st at 11:45 PM EST** |
+| 118 points (59 public, 59 private) | Feb 4th | **Feb 21st at 11:45 PM ET** |
 
 Project 2 is due on **Feb 21st at 11:45 PM EST**. Please refer to the [EECS 484 W25 Course Policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
 
