@@ -1,17 +1,17 @@
 ---
 layout: spec
-semester: f24
+semester: w25
 title: p3-mongodb
-permalink: /f24/p3-mongodb.html
+permalink: /w25/p3-mongodb.html
 ---
 
 # Project 3: MongoDB
 
 | Worth                                     | Released | Due                         |
 | ----------------------------------------- | -------- | --------------------------- |
-| 100 points (30 for Part A, 70 for Part B) | Oct 17th | **Nov 1st at 11:45 PM EST** |
+| 100 points (30 for Part A, 70 for Part B) | Feb 21st | **Mar 28th at 11:45 PM EST** |
 
-Project 3 is due on **Nov 1st at 11:45 PM EST**. Please refer to the [EECS 484 FA24 Course Policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
+Project 3 is due on **Mar 28th at 11:45 PM EST**. Please refer to the [EECS 484 W25 Course Policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
 
 <!-- ## Change Log -->
 
@@ -408,7 +408,7 @@ This project was written and revised over the years by EECS 484 staff at the Uni
 
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License][cc-license]. You may share and adapt this document, but not for commercial purposes. You may not share source code included in this document.
 
-[course-policies]: https://docs.google.com/document/d/1N0hDwEX-dU8p83fZznHSWXEhZB2X16THmSrY_jMkaEE/edit
+[course-policies]: [https://docs.google.com/document/d/1N0hDwEX-dU8p83fZznHSWXEhZB2X16THmSrY_jMkaEE/edit](https://docs.google.com/document/d/1dZaGicRUnmA7--zU2DIq5XLmJADskxjXqXQJTJyZuUA/edit?tab=t.0)
 [autograder]: https://autograder.io/
 [starter-code]: https://eecs484db.github.io/{{ page.semester }}/p3-mongodb/p3-starter-code.tar.gz
 
