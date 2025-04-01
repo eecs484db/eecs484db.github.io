@@ -1,17 +1,17 @@
 ---
 layout: spec
-semester: f24
+semester: w25
 title: p4-ghj
-permalink: /f24/p4-ghj.html
+permalink: /w25/p4-ghj.html
 ---
 
 # Project 4: Grace Hash Join
 
 | Worth     | Released | Due                         |
 | --------- | -------- | --------------------------- |
-| 70 points | Nov. 7th | **Nov. 22nd at 11:45 PM ET** |
+| 70 points | Mar. 28th | **Apr. 18th at 11:45 PM ET** |
 
-Project 4 is due on **November 22nd at 11:45 PM EST**. Please refer to the [EECS 484 FA24 Course Policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
+Project 4 is due on **April 18th at 11:45 PM EST**. Please refer to the [EECS 484 W25 Course Policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
 
 <!-- ## Change Log -->
 
@@ -139,7 +139,7 @@ $ make clean
 
 Refer to the following pseudocode for a complete algorithm of Grace Hash Join:
 
-<img src="/f24/p4-ghj/p4-ghj-pseudocode.png" width="400" alt="Grace Hash Join Pseudocode" class="invert-colors-in-dark-mode" />
+<img src="/w25/p4-ghj/p4-ghj-pseudocode.png" width="400" alt="Grace Hash Join Pseudocode" class="invert-colors-in-dark-mode" />
 
 _In the figure above, a "bucket" refers to a page of the in-memory hash table.
 For more information regarding simple hash join and in-memory hash table, visit
@@ -204,7 +204,7 @@ This project was written and revised over the years by EECS 484 staff at the Uni
 
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License][cc-license]. You may share and adapt this document, but not for commercial purposes. You may not share source code included in this document.
 
-[course-policies]: https://docs.google.com/document/u/2/d/1N0hDwEX-dU8p83fZznHSWXEhZB2X16THmSrY_jMkaEE/edit
+[course-policies]: https://docs.google.com/document/d/1dZaGicRUnmA7--zU2DIq5XLmJADskxjXqXQJTJyZuUA/edit?tab=t.0
 [autograder]: https://autograder.io/
 [starter-code]: https://eecs484db.github.io/{{ page.semester }}/p4-ghj/p4-starter_files.tar.gz
 
