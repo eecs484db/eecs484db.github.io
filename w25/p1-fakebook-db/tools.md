@@ -238,7 +238,7 @@ This document is licensed under a [Creative Commons Attribution-NonCommercial 4.
 
 [eecs-280-setup]: https://eecs280staff.github.io/tutorials/setup_caen.html
 [eecs-485-git]: https://eecs485staff.github.io/p1-insta485-static/setup_git.html
-[eecs-280-windows]: https://eecs280staff.github.io/p1-stats/setup_wsl.html
+[eecs-280-windows]: https://eecs280staff.github.io/tutorials/setup_wsl.html
 [autograder]: https://autograder.io/
 [primer-spec]: https://eecs485staff.github.io/primer-spec/
 [cc-license]: https://creativecommons.org/licenses/by-nc/4.0/
