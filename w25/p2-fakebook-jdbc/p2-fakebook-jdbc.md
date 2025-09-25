@@ -49,7 +49,7 @@ The tables are stored under the schema of `project2.` To access the tables in SQ
 
 # Starter Files
 
-Download the starter files ([p2-starter_files.tar.gz][starter-code]).
+Download the starter files ([p2_starter_files.tar.gz][starter-code]).
 
 **The compression (`p2-starter_files`) contains a directory named `project2` and you should not change its organization.**
 
