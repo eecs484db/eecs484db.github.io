@@ -287,7 +287,7 @@ This document is licensed under a [Creative Commons Attribution-NonCommercial 4.
 
 [course-policies]: https://docs.google.com/document/d/11rThvRZEVVT9uZMNRp05b_oRZtmT5Ean7oz2gWo_luE/edit?tab=t.0
 [autograder]: [https://autograder.io/](https://autograder.io/web/course/349)
-[starter-code]: https://eecs484db.github.io/{{ page.semester }}/p2-fakebook-jdbc/p2-starter_files.tar.gz
+[starter-code]: https://eecs484db.github.io/{{ page.semester }}/p2-fakebook-jdbc/p2_starter_files.tar.gz
 
 [primer-spec]: https://eecs485staff.github.io/primer-spec/
 [cc-license]: https://creativecommons.org/licenses/by-nc/4.0/
