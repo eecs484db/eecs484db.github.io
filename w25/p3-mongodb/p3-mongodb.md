@@ -9,9 +9,9 @@ permalink: /w25/p3-mongodb.html
 
 | Worth                                     | Released | Due                         |
 | ----------------------------------------- | -------- | --------------------------- |
-| 100 points (30 for Part A, 70 for Part B) | May 27th | **June 5th at 11:45 PM EST** |
+| 100 points (30 for Part A, 70 for Part B) | Oct 17th | **Oct 31st at 11:45 PM EST** |
 
-Project 3 is due on **June 5th at 11:45 PM EST**. Please refer to the [EECS 484 S25 Course Policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
+Project 3 is due on **Oct 31st at 11:45 PM EST**.
 
 <!-- ## Change Log -->
 
@@ -408,7 +408,7 @@ This project was written and revised over the years by EECS 484 staff at the Uni
 
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License][cc-license]. You may share and adapt this document, but not for commercial purposes. You may not share source code included in this document.
 
-[course-policies]: https://docs.google.com/document/d/11rThvRZEVVT9uZMNRp05b_oRZtmT5Ean7oz2gWo_luE/edit?tab=t.0
+[course-policies]: 
 [autograder]: https://autograder.io/
 [starter-code]: https://eecs484db.github.io/{{ page.semester }}/p3-mongodb/p3-starter-code.tar.gz
 
