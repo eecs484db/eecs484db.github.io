@@ -21,7 +21,7 @@ In Project 3, we will use a similar dataset as in Project 2 and explore the capa
 
 ## Submissions
 
-This project is to be done in teams of 2 students. Be sure to create your team on the Autograder.
+This project is to be done in teams of 2 students. Be sure to create your team on the [Autograder][autograder].
 
 ## Honor Code
 
@@ -408,7 +408,7 @@ This project was written and revised over the years by EECS 484 staff at the Uni
 
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License][cc-license]. You may share and adapt this document, but not for commercial purposes. You may not share source code included in this document.
 
-[course-policies]: 
+[course-policies]: https://autograder.io/
 [autograder]: https://autograder.io/
 [starter-code]: https://eecs484db.github.io/{{ page.semester }}/p3-mongodb/p3-starter-code.tar.gz
 
