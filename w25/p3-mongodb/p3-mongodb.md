@@ -208,6 +208,15 @@ password = password # replace with your mongoDB password (default: your uniqname
 
 {: data-title="Makefile" }
 
+Then, run the following command.  
+`make setup-mongosh` downloads and installs a local copy of the MongoDB shell (`mongosh`).  
+This step is required because the legacy `mongo` client on CAEN no longer works reliably with the current CAEN environment, even though the MongoDB server itself remains the same.
+
+```console
+$ make setup-mongosh
+```
+{: data-variant="no-line-numbers" }
+
 Then, login into the mongo shell. You can use this interactive shell to test queries directly on your database, similar to the SQL\*Plus CLI in Projects 1 and 2.
 
 ```console
