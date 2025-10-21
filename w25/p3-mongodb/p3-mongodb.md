@@ -108,7 +108,7 @@ Below is an example of one element of this `JSONArray`. It is possible that a us
 
 ## Starter Files
 
-Download the starter files here ([p3-starter-code.tar.gz][starter-code]).
+Download the starter files ([p3-starter-code.tar.gz][starter-code]).
 
 For Part A, you only need to be concerned about the following files
 
