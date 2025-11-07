@@ -9,9 +9,9 @@ permalink: /w25/p4-ghj.html
 
 | Worth     | Released | Due                         |
 | --------- | -------- | --------------------------- |
-| 70 points | Jun. 10th | **Jun. 18th at 11:45 PM ET** |
+| 70 points | Nov 7th | **Nov 21st at 11:45 PM ET** |
 
-Project 4 is due on **June 18th at 11:45 PM EST**. Please refer to the [EECS 484 S25 Course Policies][course-policies] for more information on penalties for late submissions, late day tokens, and sick days.
+Project 4 is due on **Nov 21st at 11:45 PM EST**.
 
 <!-- ## Change Log -->
 
