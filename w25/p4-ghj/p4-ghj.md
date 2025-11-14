@@ -9,9 +9,9 @@ permalink: /w25/p4-ghj.html
 
 | Worth     | Released | Due                         |
 | --------- | -------- | --------------------------- |
-| 70 points | Nov 7th | **Nov 21st at 11:45 PM ET** |
+| 70 points | Nov 7th | **Dec 2nd at 11:45 PM ET** |
 
-Project 4 is due on **Nov 21st at 11:45 PM EST**.
+Project 4 is due on **Dec 2nd at 11:45 PM EST**.
 
 <!-- ## Change Log -->
 
