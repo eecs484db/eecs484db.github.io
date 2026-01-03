@@ -9,9 +9,9 @@ permalink: /w25/p1-fakebook-db.html
 
 | Worth                                            | Released   | Due                          |
 | ------------------------------------------------ | ---------- | ---------------------------- |
-| 212 points (62 on Gradescope, 150 on Autograder) | Jan 13th    | **Jan 27th at 11:45PM EST**  |
+| 212 points (62 on Gradescope, 150 on Autograder) | Jan 13th    | **Feb 2nd at 11:45PM EST**  |
 
-Project 1 is due on **Jan 27th at 11:45 PM EST**. Please refer to the Course Policies on Canvas for more information on penalties for late submissions, and late day tokens.
+Project 1 is due on **Feb 2nd at 11:45 PM EST**. Please refer to the Course Policies on Canvas for more information on penalties for late submissions, and late day tokens.
 
 <!-- ## Change Log -->
 
