@@ -9,9 +9,9 @@ permalink: /w25/p2-fakebook-jdbc.html
 
 | Worth                              | Released | Due                         |
 | ---------------------------------- | -------- | --------------------------- |
-| 118 points (59 public, 59 private) | Sep 22nd | **Oct 3rd at 11:45 PM ET** |
+| 118 points (59 public, 59 private) | Feb 2nd | **Feb 20th at 11:45 PM ET** |
 
-Project 2 is due on **Oct 3rd at 11:45 PM EST**. Please refer to Canvas for more information on penalties for late submissions, late day tokens, and sick days.
+Project 2 is due on **Feb 20th at 11:45 PM EST**. Please refer to Canvas for more information on penalties for late submissions, late day tokens, and sick days.
 
 <!-- ## Change Log -->
 
@@ -285,7 +285,7 @@ This project was written and revised over the years by EECS 484 staff at the Uni
 
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License][cc-license]. You may share and adapt this document, but not for commercial purposes. You may not share source code included in this document.
 
-[course-policies]: https://docs.google.com/document/d/11rThvRZEVVT9uZMNRp05b_oRZtmT5Ean7oz2gWo_luE/edit?tab=t.0
+[course-policies]: https://docs.google.com/document/d/1iPg67S4sol_67iAt4PjcILSEP6ezmTRLltazdiTI1rk/edit?usp=sharing
 [autograder]: [https://autograder.io/](https://autograder.io/web/course/349)
 [starter-code]: https://eecs484db.github.io/{{ page.semester }}/p2-fakebook-jdbc/p2_starter_files.tar.gz
 
