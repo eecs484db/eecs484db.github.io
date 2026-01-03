@@ -9,9 +9,9 @@ permalink: /w25/p4-ghj.html
 
 | Worth     | Released | Due                         |
 | --------- | -------- | --------------------------- |
-| 70 points | Nov 7th | **Dec 2nd at 11:45 PM ET** |
+| 70 points | March 27th | **April 16th at 11:45 PM ET** |
 
-Project 4 is due on **Dec 2nd at 11:45 PM EST**.
+Project 4 is due on **April 16th at 11:45 PM EST**.
 
 <!-- ## Change Log -->
 
@@ -204,9 +204,9 @@ This project was written and revised over the years by EECS 484 staff at the Uni
 
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License][cc-license]. You may share and adapt this document, but not for commercial purposes. You may not share source code included in this document.
 
-[course-policies]: https://docs.google.com/document/d/11rThvRZEVVT9uZMNRp05b_oRZtmT5Ean7oz2gWo_luE/edit?tab=t.0
+[course-policies]: https://docs.google.com/document/d/1iPg67S4sol_67iAt4PjcILSEP6ezmTRLltazdiTI1rk/edit?usp=sharing
 [autograder]: https://autograder.io/
-[starter-code]: https://eecs484db.github.io/{{ page.semester }}/p4-ghj/p4-starter_files.tar.gz
+[starter-code]: https://eecs484db.github.io/w25/p4-ghj/p4-starter_files.tar.gz
 
 [rosetta]: https://rosettacode.org/wiki/Hash_join#C.2B.2B
 [primer-spec]: https://eecs485staff.github.io/primer-spec/
