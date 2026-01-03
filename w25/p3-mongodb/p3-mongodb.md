@@ -9,9 +9,9 @@ permalink: /w25/p3-mongodb.html
 
 | Worth                                     | Released | Due                         |
 | ----------------------------------------- | -------- | --------------------------- |
-| 100 points (30 for Part A, 70 for Part B) | Oct 17th | **Oct 31st at 11:45 PM EST** |
+| 100 points (30 for Part A, 70 for Part B) | Feb 20th | **March 27th at 11:45 PM EST** |
 
-Project 3 is due on **Oct 31st at 11:45 PM EST**.
+Project 3 is due on **March 27th at 11:45 PM EST**.
 
 <!-- ## Change Log -->
 
@@ -416,9 +416,9 @@ This project was written and revised over the years by EECS 484 staff at the Uni
 
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License][cc-license]. You may share and adapt this document, but not for commercial purposes. You may not share source code included in this document.
 
-[course-policies]: https://autograder.io/
+[course-policies]: https://docs.google.com/document/d/1iPg67S4sol_67iAt4PjcILSEP6ezmTRLltazdiTI1rk/edit?usp=sharing
 [autograder]: https://autograder.io/
-[starter-code]: https://eecs484db.github.io/{{ page.semester }}/p3-mongodb/p3-starter-code.tar.gz
+[starter-code]: https://eecs484db.github.io/w25/p3-mongodb/p3-starter-code.tar.gz
 
 [jd-github]: https://github.com/josephburnett/jd
 [jd-online]: http://play.jd-tool.io/
