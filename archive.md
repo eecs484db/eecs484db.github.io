@@ -4,6 +4,14 @@ title: Archive
 permalink: /archive.html
 ---
 
+## Fall 2024
+{% include p-btn-group.html semester="f24" tools-released=true p1-released=true p2-released=true
+p3-released=true p4-released=true %}
+
+## Winter 2024
+{% include p-btn-group.html semester="wn24" tools-released=true p1-released=true p2-released=true
+p3-released=true p4-released=true %}
+
 ## Fall 2023
 <!-- can include due dates, but not very important for archive -->
 {% include p-btn-group.html semester="fa23" tools-released=true p1-released=true p2-released=true
