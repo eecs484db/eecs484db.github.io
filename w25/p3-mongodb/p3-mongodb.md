@@ -9,7 +9,7 @@ permalink: /w25/p3-mongodb.html
 
 | Worth                                     | Released | Due                         |
 | ----------------------------------------- | -------- | --------------------------- |
-| 100 points (30 for Part A, 70 for Part B) | Feb 27th | **March 27th at 11:45 PM EST** |
+| 100 points (30 for Part A, 70 for Part B) | March 8th | **March 27th at 11:45 PM EST** |
 
 Project 3 is due on **March 27th at 11:45 PM EST**.
 
