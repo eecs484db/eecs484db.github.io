@@ -1,6 +1,6 @@
 ---
 layout: spec
-semester: w25
+semester: w26
 title: p3-mongodb
 permalink: /w25/p3-mongodb.html
 ---
@@ -9,7 +9,7 @@ permalink: /w25/p3-mongodb.html
 
 | Worth                                     | Released | Due                         |
 | ----------------------------------------- | -------- | --------------------------- |
-| 100 points (30 for Part A, 70 for Part B) | Feb 20th | **March 27th at 11:45 PM EST** |
+| 100 points (30 for Part A, 70 for Part B) | Feb 27th | **March 27th at 11:45 PM EST** |
 
 Project 3 is due on **March 27th at 11:45 PM EST**.
 
