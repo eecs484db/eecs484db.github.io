@@ -1,0 +1,73 @@
+% This tex file is used to generate the Grace Hash 
+% Join pseudocode in the Project 4 spec.
+
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[ruled, vlined]{algorithm2e}
+
+% Add spacing/boldness around caption
+\newcommand{\boldspacing}[1]{\vspace{1mm} \textbf{#1} \vspace{1mm}}
+
+% Remove "Algorithm #:"
+% \NoCaptionOfAlgo % this dumb command doesn't work
+\renewcommand{\algorithmcfname}{} 
+\renewcommand{\thealgocf}{}
+\SetAlgoCaptionSeparator{} 
+
+% Set style of caption
+\SetAlCapNameSty{textbf}
+\SetAlgoCaptionLayout{boldspacing}
+
+\DontPrintSemicolon
+
+\SetKwComment{Comment}{// }{}
+\SetKwInput{KwInput}{Input}
+\SetKwInput{KwOutput}{Output}
+
+\begin{document}
+
+\begin{algorithm}
+    \caption{Grace Hash Join}
+    \vspace{2mm}
+    
+    \KwInput{relations $R$ and $S$, $B$ buffer pages}
+    \KwOutput{relation joining columns $R.\rho$ and $S.\sigma$}
+    
+    \BlankLine
+    \Comment{Hash relation $R$}
+    \ForEach{\upshape tuple $r \in R$}{
+        put $r$ in bucket (output buffer) $h_1(r.\rho)$
+    }
+    
+    \BlankLine
+    flush $B-1$ output buffers to disk
+    
+    \BlankLine
+    \BlankLine
+    \Comment{Hash relation $S$}
+    \ForEach{\upshape tuple $s \in S$}{
+        put $s$ in bucket (output buffer) $h_1(s.\sigma)$
+    }
+    
+    \BlankLine
+    flush $B-1$ output buffers to disk
+    
+    \BlankLine
+    \BlankLine
+    \Comment{Simple hash join for $R_k \bowtie S_k$}
+    \For{\upshape $k = 1$ to $B-1$}{
+        \ForEach{\upshape tuple $r \in R_k$}{
+            put $r$ in bucket $h_2(r.\rho)$
+        }
+        \ForEach{\upshape tuple $s \in S_k$}{
+            \ForEach{\upshape tuple $r$ in bucket $h_2(s.\sigma)$}{
+                \If{$r.\rho = s.\sigma$}{
+                    put $(r, s)$ in the output relation
+                }
+            }
+        }
+    }
+\end{algorithm}
+
+\end{document}
