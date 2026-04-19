@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="An introduction to database management systems, with emphasis on relational databases, query processing, database design, transactions, concurrency control, and large-scale data management.">
+  <meta name="keywords" content="EECS484, EECS 484, Database Management Systems, University of Michigan Computer Science">
+  <meta property="og:title" content="EECS 484">
+  <meta property="og:description" content="An introduction to database management systems, with emphasis on relational databases, query processing, database design, transactions, concurrency control, and large-scale data management.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/assets/images/eecs484logo.png">
+  <title>EECS 484</title>
+  <link rel="shortcut icon" type="image/x-icon" href="assets/images/eecs484favicon.ico">
+
+  <!-- Fomantic UI CSS library
+       https://fomantic-ui.com/introduction/getting-started.html#using-a-cdn-provider -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.2/dist/semantic.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.2/dist/semantic.min.js"></script>
+
+  <!-- FullCalendar JS library
+       https://fullcalendar.io/docs
+       https://fullcalendar.io/docs/google-calendar  -->
+  <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css' rel='stylesheet' />
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js'></script>
+
+  <!-- Custom icons -->
+  <link href='assets/css/customfontpack.css' rel='stylesheet'/>
+
+  <style>
+    /**
+     * We want the sidebar toggle to remain visible as people scroll around the
+     * page. Hence, we need to "fix" its position relative to the viewer's
+     * screen.
+     */
+     #left-sidebar-toggle {
+      position: fixed;
+      right: 2em;
+      /* The labels on cards have z-index of 100. The button should appear above them! */
+      z-index: 101;
+    }
+
+    /* Specific rules for the current week's row in the schedule. */
+    #highlighted-week {
+      background-color: #FFFAE3;
+    }
+
+  </style>
+</head>
+
+<body>
+  <!-- Nav bar on left side -->
+  <div class="ui left vertical inverted sidebar menu labeled icon">
+
+    <!-- Logo and Course Title -->
+    <div class="item">
+      <a class="ui logo icon image mini" href="#">
+        <img src="assets/images/eecs484logo.png" alt="logo">
+      </a>
+      <br>
+      <br>
+      <a href="#"><b>EECS 484</b></a>
+    </div>
+
+    <!-- Internal fragment links -->
+    <div class="item">
+      <div class="menu">
+        <a class="item" href="#schedule">
+          Schedule
+        </a>
+        <a class="item" href="#people">
+          People
+        </a>
+      </div>
+    </div><!-- Internal links -->
+
+    <!-- Internal second-level page links -->
+    <div class="item">
+      <div class="menu">
+        <a class="item" href="syllabus.html">
+          Syllabus
+        </a>
+        <a class="item" href="syllabus.html#projects">
+          Projects
+        </a>
+        <a class="item" href="exams/">
+          Exams
+        </a>
+      </div>
+    </div><!-- Internal links -->
+
+    <!-- External links -->
+    <div class="menu">
+      <a class="item" href="https://edstem.org/us/join/6pACqp" target="_blank">
+        <i class="icon-ed big"></i><br>
+        Q&A Forum
+      </a>
+      <a class="item" href="https://eecsoh.eecs.umich.edu/queues/2begI3zcQLShN5h04keMe5sDyF8" target="_blank">
+        <i class="help circle icon big"></i><br>
+        Remote<br>Office Hours
+      </a>
+      <a class="item" href="https://drive.google.com/drive/u/0/folders/1gwP2bnbLvTzhJcCi-YsXxfWipWKcxEnl?usp=sharing" target="_blank">
+        <i class="folder icon big"></i><br>
+        Files
+      </a>
+      <a class="item" href="https://gradescope.com/courses/1207081" target="_blank">
+        <i class="icon-gradescope big"></i> <br>
+        Gradescope
+      </a>
+    </div><!-- External links -->
+
+  </div><!-- Nav bar -->
+
+
+  <!-- Main page  -->
+  <div class="pusher">
+    <div class="ui text container">
+      <button class="ui icon button" id="left-sidebar-toggle">
+        <i class="bars icon"></i>
+      </button>
+
+      <h1>EECS 484: Database Management Systems</h1>
+      <div class="inline">
+        <em>The University of Michigan</em>
+        <div class="ui brown label">Spring 2026</div>
+
+        <!-- Example navigation links DO NOT REMOVE
+        <div class="ui blue label">Winter 2021</div>
+        <div class="ui brown label">Fall 2021</div>
+        <div class="ui olive label">Spring 2021</div>
+        <a class="ui basic blue left pointing label" href="w21">Looking for Winter 2021?</a>
+        <a class="ui basic green left pointing label" href="sp21">Looking for Spring 2021?</a>
+        <a class="ui basic brown left pointing label" href="f21">Looking for Fall 2021?</a>
+        -->
+
+      </div>
+      <br/>
+      <p>
+        An introduction to database management systems, with emphasis on relational databases, query processing, database design, transactions, concurrency control, and large-scale data management.
+        <a href="syllabus.html">
+          <i class="arrow alternate circle right outline icon"></i>
+          Syllabus
+        </a>
+      </p>
+
+      <!-- Announcements -->
+
+      <!-- Template announcement DO NOT REMOVE
+      <div class="ui info message">
+        <div class="header">
+          FIXME title
+        </div>
+        <p>
+          FIXME content
+        </p>
+      </div>
+      -->
+      
+      <!-- Template welcome announcement DO NOT REMOVE -->
+      <div class="ui info message">
+        <div class="header">
+          Welcome to EECS 484, Spring 2026!
+        </div>
+        <p>
+          We're so glad you're here!  A few announcements for first week of class:
+        </p>
+        <ul>
+          <li><b>You may attend any lecture or lab section.</b> If you are registered for the ARR lecture section, you may attend the in-person lectures if space allows or watch the recorded videos. Attendance is not graded. You may attend any lab section.</li>
+          <li><b>We don't have lab</b> during first week of classes</li>
+          <li>Read the <a href="syllabus.html" target="_blank">syllabus</a></li>
+          <li>Add the exams to your calendar: <span style="color: red"><b>May 28, 5pm; June 25, 8am</b></span></li>
+        </ul>
+      </div>
+
+      <!-- Template finishing announcement DO NOT REMOVE
+      <div class="ui info message">
+        <div class="header">
+          Congrats on finishing the course!
+        </div>
+        <p>
+          We plan to submit final letter grades Wed Dec 17.  Have a great break!
+        </p>
+      </div>
+    -->
+
+      <!-- Divider between announcements and This Week -->
+      <div class="ui hidden divider"></div>
+
+      <!-- This Week section -->
+      <h2 id="thisweek">This Week</h2>
+      <div class="ui two stackable cards">
+
+        <div class="ui card">
+          <div class="content" style="flex-grow: 0;">
+            <div class="header">Lecture</div>
+          </div>
+          <div class="content">
+            <div class="ui feed">
+              <div class="event">
+                <div class="content">
+                  <div class="summary">
+                    In-person
+                    <a class="ui icon label" data-tooltip="Live lecture recordings" href="https://leccap.engin.umich.edu/leccap/site/nv6htyzh30qoi3l32wx" target="_blank">
+                      <i class="play icon"></i>
+                    </a>
+                    <a class="ui icon label" data-tooltip="Lecture slides (Umich login!)" href="https://drive.google.com/drive/folders/1mieRxOCnJ2wrBVjQ_ULR2C7BhGAUE-MA" target="_blank">
+                      <i class="file pdf icon"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ui card">
+            <div class="content" style="flex-grow: 0;">
+              <div class="header">Lab</div>
+            </div>
+            <div class="content">
+              <div class="ui feed">
+                <div class="event">
+                  <div class="content">
+                    <div class="summary">
+                      Slides and Demos
+                      <a class="ui icon label" data-tooltip="Umich login!" href="https://drive.google.com/drive/folders/1mieRxOCnJ2wrBVjQ_ULR2C7BhGAUE-MA" target="_blank">
+                        <i class="folder icon"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="event">
+                  <div class="content">
+                    <div class="summary">
+                      Recordings
+                      <a class="ui icon label" data-tooltip="Lab Recordings" href="https://leccap.engin.umich.edu/leccap/site/nv6htyzh30qoi3l32wx" target="_blank">
+                        <i class="play icon"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+      </div>
+
+      <div class="ui section hidden divider"></div>
+
+
+      <!-- Calendar
+
+           The FullCalendar JS library inserts a Google Calendar here.  See
+           the JavaScript source code at the end of this file.  Remember to
+           update the 'googleCalendarId' found in the JavaScript code.
+      -->
+      <div id="calendar"></div>
+      <div class="ui hidden divider"></div>
+
+      <!--
+           The highlight-schedule script customizes the FullCalendar library
+           to  highlight the current week in the schedule of topics table.
+      -->
+      <script src="assets/js/highlight-schedule.js" defer></script>
+
+      <!-- Schedule -->
+      <h2 id="schedule">Schedule</h2>
+      <table class="ui celled striped table">
+        <thead>
+          <tr>
+            <th class="two wide">Day</th>
+            <th class="three wide">Lecture</th>
+            <th class="two wide">Lab</th>
+            <th class="one wide">Deadline</th>
+          </tr>
+        </thead>
+        <tbody id="schedule-table">
+          <tr>
+            <td>
+              Week 1<br>
+              May 4 - 5
+            </td>
+            <td>
+              <p>L01 Introduction</p>
+            </td>
+            <td>No discussions</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              Week 2<br>
+              May 6 - 7
+            </td>
+            <td>
+              <p>L02 ER Model</p>
+              <p>L03 ER Model (cntd.)</p>
+            </td>
+            <td>Project 1 Intro & ER Diagrams</td>
+            <td>
+              <div class="ui red horizontal basic label">
+                May 6: Project1 out; HW1 out
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Week 3<br>
+              May 11 - 12
+            </td>
+            <td>
+              <p>L04 Relational Model</p>
+              <p>L05 ER to Relational</p>
+            </td>
+            <td>SQL</td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Week 4<br>
+              May 13 - 14
+            </td>
+            <td>
+              <p>L06 Relational Algebra </p>
+              <p>L07 SQL</p>
+            </td>
+            <td>Relational Algebra, Java</td>
+            <td>
+              <div class="ui red horizontal basic label">
+                May 13 Wed: HW1 due; HW2 out
+              </div>
+              <div class="ui red horizontal basic label">
+                May 14 Thu: Project1 due; Project2 out
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Week 5<br>
+              May 18 - 19
+            </td>
+            <td>
+              <p>L08 SQL (cntd.)</p>
+              <p>L09 DB App Programming</p>
+            </td>
+            <td>More SQL, JDBC; Project 2 Intro</td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Week 6<br>
+              May 20 - 21
+            </td>
+            <td>
+              <p>L10 Normalization</p>
+              <p>L11 Normalization (cntd.)</p>
+            </td>
+            <td>Normalization</td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Week 7<br>
+              May 25 - 26
+            </td>
+            <td>
+              <p>Memorial Day (holiday)<br />
+              <p>L12 No SQL databases</p>
+            </td>
+            <td>
+              <!-- <p>React Best Practices and Debugging</p> -->
+              <p>Midterm review</p>
+            </td>
+            <td>
+              <div class="ui red horizontal basic label">
+                May 26 Tue: Project2 due; HW2 due
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Week 8<br>
+              May 27 - 28
+            </td>
+            <td>
+              <p><em>No lecture</em></p>
+            </td>
+            <td><em>No lab</em></td>
+            <td>
+              <div class="ui red horizontal label">
+                Midterm
+                Thu May 28, 5pm
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Week 9<br>
+              Jun 1 - 2
+            </td>
+            <td>
+              <p>L13 Storage/Indexing</p>
+              <p>L14 Tree-structured index</p>
+            </td>
+            <td>Indexing</td>
+            <td>
+                <div class="ui red horizontal basic label">
+                Jun 1: Project3 out; HW3 out
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Week 10<br>
+              Jun 3 - 4
+            <td>
+              <p>L15 Hash-based indexing</p>
+              <p>L16 External Sort</p>
+            </td>
+            <td>NoSQL, MapReduce; Hash Indexes, Project 3 Intro</td>
+            <td>
+              <div class="ui red horizontal basic label">
+                Jun 3 Wend: HW3 due; HW4 out
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Week 11<br>
+              Jun 8 - 9
+            </td>
+            <td>
+              <p>L17 Query Evaluation: Selection</p>
+              <p>L18 Query Evaluation: Joins</p>
+            </td>
+            <td>Sorting</td>
+            <td>
+              <div class="ui red horizontal basic label">
+                Jun 7 Mnd: Project3 due; Projec4 out
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Week 12<br>
+              Jun 10 - 11
+            </td>
+            <td>
+              <p>L19 Query Evaluation: Other Ops</p>
+              <p>L20 Query Optimization</p>
+            </td>
+            <td>Joins, Grace Hash Join, Project 4 intro</td>
+            <td>
+              <div class="ui red horizontal basic label">
+                Wend Jun 10: HW4 due; HW5 out
+              </div></td>
+          </tr>
+          <tr>
+            <td>
+              Week 13<br>
+              Jun 15 - 16
+            </td>
+            <td>
+              <p>L21 Transaction Management Overview</p>
+              <p>L22 Concurrency Control</p>
+            </td>
+              <td>Transactions</td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Week 14<br>
+              Jun 17 - 18
+            </td>
+            <td>
+              <p>L23 Concurrency Control (cntd.)</p>              
+              <p>L24 Logging and Recovery</p>
+            </td>
+            <td>Logging and Recovery</td>
+            <td>
+              <div class="ui red horizontal basic label">
+                Tue Jun 18: Project4 due
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Week 15<br>
+              Jun 22 - 23
+            </td>
+            <td>
+              <p><em>Final Exam Review</em></p>     
+            </td>
+            <td><em>Final Exam - Review</em></td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td>Exam Week</td>
+            <td></td>
+            <td></td>
+            <td>
+              <div class="ui red horizontal label">
+                Final Thu<br>June 25, 8am<br>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="ui hidden divider"></div>
+
+      <!-- People section -->
+      <h2 id="people">People</h2>
+      <p>Reach us at <a href="mailto:eecs484staff@umich.edu">eecs484staff@umich.edu</a></p>
+      <div class="ui three stackable cards">
+        <div class="ui fluid card">
+          <div class="image">
+            <img
+              src="assets/headshots/almomani.jpg"
+              alt="Raed Almomani head shot"
+            />
+          </div>
+          <div class="content">
+            <div class="header">Raed Almomani</div>
+            <div class="description">
+              <p><i class="icon envelope"></i>almomani@umich.edu</p>
+            </div>
+          </div>
+          <div class="extra content">
+            <span data-tooltip="Windows 10"><i class="icon windows"></i></span>
+            <span data-variation="wide" data-position="top center" data-content="I enjoy traveling."><em data-emoji="airplane"></em></span>
+            <span data-variation="wide" data-position="top center" data-content="I enjoy playing ping pong!"><em data-emoji="ping_pong"></em></span>
+          </div>
+        </div>
+        <!-- /fluid card -->
+
+        <!-- BEGIN TAs -->
+        <div class="ui fluid card">
+          <div class="image">
+            <img src="assets/headshots/ishanid.jpeg" alt="Ishani Das head shot" />
+          </div>
+          <div class="content">
+            <div class="header">Ishani Das</div>
+            <div class="description">
+              <p><i class="icon envelope"></i>ishanid@umich.edu</p>
+            </div>
+          </div>
+          <div class="extra content">
+            <span data-tooltip="MacOS"><i class="icon apple"></i></span>
+            <span data-tooltip="VS Code"><i class="icon-vscode"></i></span>
+            <span data-variation="wide" data-position="top center" data-content="I love exprimenting with new recipes!"><em data-emoji="cook"></em></span>
+            <span data-variation="wide" data-position="top center" data-content="Video editing is one of my favorite activities"><em data-emoji="computer"></em></span>
+            <span data-variation="wide" data-position="top center" data-content="I also enjoy sketching and arts/crafts in general!"><em data-emoji="art"></em></span>
+          </div>
+        </div>
+
+        <div class="ui fluid card">
+          <div class="image">
+            <img src="assets/headshots/dlliu.jpg" alt="Daniel Liu head shot" />
+          </div>
+          <div class="content">
+            <div class="header">Daniel Liu</div>
+            <div class="description">
+              <p><i class="icon envelope"></i>dlliu@umich.edu</p>
+            </div>
+          </div>
+          <div class="extra content">
+            <span data-tooltip="Windows"><i class="icon windows"></i></span>
+            <span data-tooltip="Linux"><i class="icon linux"></i></span>
+            <span data-tooltip="VS Code"><i class="icon-vscode"></i></span>
+            <span data-variation="wide" data-position="top center" data-content="I like boating and fishing!"><em data-emoji="ship"></em></span>
+            <span data-variation="wide" data-position="top center" data-content="I enjoy cooking and trying new recipes!"><em data-emoji="fire"></em></span>
+            <span data-variation="wide" data-position="top center" data-content="I most recently visited Acadia National Park!"><em data-emoji="mountain"></em></span>
+          </div>
+        </div>
+      </div><!-- ui stackable cards -->
+      <div class="ui hidden section divider"></div>
+    </div><!-- ui text container -->
+  </div>
+
+  <footer>
+    <div class="ui inverted menu">
+    </div>
+  </footer>
+
+
+  <!-- Practical Jokes -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+  <script src="assets/js/halloween.js" async></script>
+  <script src="assets/js/aprilfools.js" async></script>
+  <script src="assets/js/webby.js"></script>
+
+  <script>
+    // Initialize popups
+    // https://fomantic-ui.com/modules/popup.html#initializing-a-popup
+    $("[data-content]").popup();
+  </script>
+
+  <script>
+   // Sidebar show and hide logic.
+   //
+   // On large screens, show the sidebar by default.  On small screens, hide it.
+   function isSmallScreen() {
+     return screen.width < 900;
+   };
+
+   function renderSidebar() {
+     $sidebar = $('.ui.sidebar');
+     $sidebar.sidebar({
+       dimPage: false,
+       transition: 'overlay',
+       mobileTransition: 'overlay',
+       exclusive: false,
+       closable: false
+     });
+     $sidebar.sidebar('attach events', '#left-sidebar-toggle');
+     if (!isSmallScreen()) {
+       $sidebar.sidebar('toggle');
+     }
+   };
+
+   renderSidebar();
+  </script>
+
+  <script>
+   // Insert Google Calendar in <div id="calendar">
+   //
+   // REMINDER: update googleCalendarId each semester
+   //
+   // Uses the FullCalendar library and connects to Google Calendar
+   // https://fullcalendar.io/docs
+   // https://fullcalendar.io/docs/google-calendar
+   document.addEventListener('DOMContentLoaded', () => {
+     const calendarEl = document.getElementById('calendar');
+     const calendar = new FullCalendar.Calendar(calendarEl, {
+       // Google Calendar API, DO NOT CHANGE
+       // https://fullcalendar.io/docs/google-calendar
+       googleCalendarApiKey: 'AIzaSyAiEWXOLNCeznI7k6r0-taknkWGh0rcRwU',
+
+       // Google Calendar ID CHANGE THIS EACH SEMESTER
+       events: {
+         googleCalendarId: 'c_676c3093b5d66a2ef9c7b6ad61c5ea4798bbb40486c5f2067d8bdcab4a8804f7@group.calendar.google.com',
+       },
+
+       // Semester start and end date CHANGE THIS EACH SEMESTER
+       //
+       // Before semester begins, show the first week.  After the semester
+       // ends, show the last week.  Otherwise, show the current week.
+       initialDate: function() {
+         const startDate = '2026-05-04';
+         const endDate = '2026-06-25';
+         const today = new Date();
+         if (today < new Date(startDate)) {
+           return startDate;
+         }
+         if (today > new Date(endDate)) {
+           return endDate;
+         }
+       }(),
+
+       // Custom buttons to switch between office hours and lab calendars.
+       // We need these to define custom click callbacks to force event hiding.
+       // https://fullcalendar.io/docs/customButtons
+       customButtons: {
+         toggleOH: {
+           text: 'OH',
+           click: () => {
+             calendar.changeView('_');
+             calendar.changeView(isSmallScreen() ? 'timeGridOHDay' : 'timeGridOHWeek');
+           }
+         },
+         toggleLecture: {
+           text: 'Lecture',
+           click: () => {
+             calendar.changeView('_');
+             calendar.changeView(isSmallScreen() ? 'timeGridLectureDay' : 'timeGridLectureWeek');
+           }
+         },
+         toggleLabs: {
+           text: 'Labs',
+           click: () => {
+             calendar.changeView('_');
+             calendar.changeView(isSmallScreen() ? 'timeGridLabsDay' : 'timeGridLabsWeek');
+           }
+         },
+         toggleAll: {
+           text: 'All',
+           click: () => {
+             calendar.changeView('_');
+             calendar.changeView(isSmallScreen() ? 'timeGridDay' : 'timeGridWeek');
+           }
+         }
+       },
+
+       // Tool bar options.  Hide "today" button on mobile to save space.
+       // https://fullcalendar.io/docs/headerToolbar
+       headerToolbar: {
+         start: 'toggleAll,toggleOH,toggleLecture,toggleLabs',
+         end: isSmallScreen() ? 'prev,next' : 'today prev,next',
+       },
+
+       // Custom views to switch between office hours and lab calendars.
+       // There are six, since we want different sizing for small screens.
+       // https://fullcalendar.io/docs/custom-view-with-settings
+       views: {
+          timeGridOHWeek: {
+           type: 'timeGridWeek',
+         },
+
+         timeGridOHDay: {
+           type: 'timeGridDay',
+         },
+
+         timeGridLectureWeek: {
+           type: 'timeGridWeek',
+         },
+
+         timeGridLectureDay: {
+            type: 'timeGridDay',
+         },
+         
+         timeGridLabsWeek: {
+           type: 'timeGridWeek',
+         },
+         
+         timeGridLabsDay: {
+           type: 'timeGridDay',
+         },
+
+         // Dummy view to force remounting on view change
+         // Workaround for: https://github.com/fullcalendar/fullcalendar/issues/5543
+         _: {
+           type: 'list'
+         }
+       },
+
+       // View options
+       // https://fullcalendar.io/docs/timegrid-view
+       initialView: isSmallScreen() ? 'timeGridDay' : 'timeGridWeek',
+       allDaySlot: true,
+       allDayText: '',
+       nowIndicator: true,
+       weekends: false,
+
+       // Don't scroll, just show everything
+       slotMinTime: '08:00:00',
+       slotMaxTime: '21:00:00',
+       height: 'auto',
+
+       // Selectively recolor and hide calendar events
+       // https://fullcalendar.io/docs/event-render-hooks
+       eventContent: setupEvent,
+       
+       // Add click-for-popup to calendar events
+       // https://fullcalendar.io/docs/event-render-hooks
+       eventDidMount: addPopup,
+
+       // Prepare calendar events for a view change
+       // This function runs every time the view switches
+       // https://fullcalendar.io/docs/view-render-hooks
+       viewDidMount: changeEventView,
+
+       aspectRatio: isSmallScreen() ? .75 : 1.35,
+     });
+     calendar.render();
+
+     // Add label before buttons (But not on small screens because there isn't enough room)
+     if (!isSmallScreen()) {
+       $('.fc-toggleOH-button').parent().before('<div style="display: inline; vertical-align: middle;">Show:</div>'); 
+     }
+   });
+
+   function setupEvent(arg) {
+     // Remove events that are not in the current view and recolor if needed
+     if (filterEvent(arg)) {
+       recolorCalendarEvent(arg);
+     }
+   };
+
+   function changeEventView(arg) {
+     // Reset all events to 'display:auto' when the view changes.
+     // Change the opacity of the buttons to indicate selection.
+     const events = arg.view.calendar.getEvents();
+     events.forEach((e) => {
+       e.setProp('display', 'auto');
+     });
+
+     const view = arg.view.type;
+     if (view.toLowerCase().includes('oh')) {
+       $('.fc-toggleOH-button').css('opacity', '1');
+       $('.fc-toggleLecture-button').css('opacity', '0.65');
+       $('.fc-toggleLabs-button').css('opacity', '0.65');
+       $('.fc-toggleAll-button').css('opacity', '0.65');
+     }
+     else if (view.toLowerCase().includes('lecture')) {
+       $('.fc-toggleOH-button').css('opacity', '0.65');
+       $('.fc-toggleLecture-button').css('opacity', '1');
+       $('.fc-toggleLabs-button').css('opacity', '0.65');
+       $('.fc-toggleAll-button').css('opacity', '0.65');
+     }
+     else if (view.toLowerCase().includes('labs')) {
+       $('.fc-toggleOH-button').css('opacity', '0.65');
+       $('.fc-toggleLecture-button').css('opacity', '0.65');
+       $('.fc-toggleLabs-button').css('opacity', '1');
+       $('.fc-toggleAll-button').css('opacity', '0.65');
+     }
+     else {
+       $('.fc-toggleOH-button').css('opacity', '0.65');
+       $('.fc-toggleLecture-button').css('opacity', '0.65');
+       $('.fc-toggleLabs-button').css('opacity', '0.65');
+       $('.fc-toggleAll-button').css('opacity', '1');
+     }
+   };
+
+   function filterEvent(arg) {
+     // Filter events by type, return true/false to avoid recoloring invisible events
+     //
+     // arg.event has property 'display' that allows hiding specific events
+     const view = arg.view.type;
+     const title = arg.event.title;
+     if (view.toLowerCase().includes('oh')) {
+       if (title.toLowerCase().includes('lab') || title.toLowerCase().includes('lecture')) {
+         arg.event.setProp('display', 'none');
+         return false;
+       }
+     }
+     else if (view.toLowerCase().includes('labs')) {
+       if (title.toLowerCase().includes('office hours') || title.toLowerCase().includes('lecture')) {
+         arg.event.setProp('display', 'none');
+         return false;
+       }
+       // Extra case for calendar events that use "OH"/"PH" instead of "office hours"/"proffice hours"
+       // (Ex. Labeling in-person vs. remote OH days with all-day events)
+       else if (title.includes('OH') || title.includes('PH')) {
+         arg.event.setProp('display', 'none');
+         return false;
+       }
+     }
+     else if (view.toLowerCase().includes('lecture')) {
+       if (title.toLowerCase().includes('lab') || title.toLowerCase().includes('office hours')) {
+         arg.event.setProp('display', 'none');
+         return false;
+       }
+       else if (title.includes('OH') || title.includes('PH')) {
+         arg.event.setProp('display', 'none');
+         return false;
+       }
+     }
+     return true;
+   };
+
+   function recolorCalendarEvent(arg) {
+     // Change calendar event colors based on string prefix
+     if (
+       arg.event.title.toLowerCase().includes('due') ||
+       arg.event.title.toLowerCase().includes('deadline') ||
+       arg.event.title.toLowerCase().includes('exam')
+     ) {
+       arg.backgroundColor = '#D39E00';
+       arg.borderColor = '#D39E00';
+     }
+     else if (arg.event.title.toLowerCase().includes('lecture')) {
+       arg.backgroundColor = '#3D5B9A';
+       arg.borderColor = '#3D5B9A';
+     }
+     else if (arg.event.title.toLowerCase().includes('lab')) {
+       arg.backgroundColor = '#3A87AD';
+       arg.borderColor = '#3A87AD';
+     }
+     else if (
+       arg.event.title.toLowerCase().includes('proffice hours') ||
+       arg.event.title.includes('PH') // case-sensitive
+     ) {
+       arg.backgroundColor = '#428BCA';
+       arg.borderColor = '#428BCA';
+     }
+     else if (
+       arg.event.title.toLowerCase().includes('office hours') ||
+       arg.event.title.includes('OH') // case-sensitive
+     ) {
+       arg.backgroundColor = '#BBDEFB';
+       arg.borderColor = '#BBDEFB';
+       arg.textColor = '#424242';
+     }
+   };
+
+   function addPopup(arg) {
+     // Add a popup to a calendar event
+     //
+     // arg.event.extendedProps contains extra information from the Google
+     // Calendar event, e.g., description and location.
+     const element = arg.el;
+     const location = arg.event.extendedProps.location || '';
+     const description = arg.event.extendedProps.description || '';
+
+     // Remove link to Google Calendar automatically added by FullCalendar
+     $(element).removeAttr('href');
+
+     // Add Popup to DOM, links in the location field are clickable
+     // https://semantic-ui.com/modules/popup.html#/usage
+     //
+     // NOTE: overflow:scroll avoids text spilling out of the popup on iOS.
+     let location_html = null;
+     if (location.toLowerCase().startsWith('http')) {
+       location_html = `<a href="${location}" target="_blank">${location}</a>`;
+     } else {
+       location_html = `${location}<br>${description}`;
+     }
+
+     $(element).popup({
+       on: 'click',
+
+       // Prevent popups from getting destroyed when view changes
+       // https://fomantic-ui.com/modules/popup.html#/settings
+       observeChanges: false,
+       
+       html: `
+         <div class="header">${arg.event.title}</div>
+         <div class="content" style="overflow:auto">${location_html}</div>
+       `,
+     });
+   };
+  </script>
+
+  <!-- 
+    We use an external third-party library to listen for "swipe" actions on
+    touchscreen devices (to show/hide the sidebar).
+    https://github.com/john-doherty/swiped-events
+  -->
+  <script src="assets/js/swiped-events.min.js" async></script>
+  <script>
+    // detect swipe events to show/hide sidebar.
+    document.addEventListener('swiped-left', () => $sidebar.sidebar('hide'));
+    document.addEventListener('swiped-right', () => $sidebar.sidebar('show'));
+  </script>
+
+</body>
+</html>

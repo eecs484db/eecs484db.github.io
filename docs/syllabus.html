@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="EECS 484">
+  <meta name="keywords" content="EECS484, EECS 484, Database Management Systems, Syllabus">
+  <title>EECS 484 Syllabus</title>
+  <link
+    rel="shortcut icon"
+    type="image/x-icon"
+    href="assets/images/eecs484favicon.ico"
+  />
+
+  <!--
+      This page is formatted using Primer Spec v1.8.
+      Would you like to contribute to the theme?
+      Check out: https://github.com/eecs485staff/primer-spec
+  -->
+  <link rel="preload" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" as="style" crossorigin="anonymous" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" />
+  <link rel="stylesheet" href="https://eecs485staff.github.io/primer-spec/assets/v1.8/css/primer-spec-base.css">
+  <script>
+    window.PrimerSpecConfig = {
+        sitemapEnabled: true,
+        sitemapUrls: [
+            {
+                url: 'https://eecs484.org/',
+                path: 'index.html',
+                title: 'EECS 484 Home',
+                external: true,
+            },
+            {
+                url: 'https://eecs484.org/syllabus.html',
+                path: 'syllabus.html',
+                title: 'EECS 484 Syllabus',
+                current: true,
+            },
+        ],
+        sitemapLabel: null,
+        sitemapSiteTitle: 'EECS 484',
+        disableJokes: true,
+    };
+  </script>
+  <script src="https://eecs485staff.github.io/primer-spec/assets/v1.8/js/primer_spec_plugin.min.js" crossorigin="anonymous" defer></script>
+</head>
+
+<body>
+  <div id="primer-spec-top"></div>
+  <div id="primer-spec-app-container" onclick="return true;"></div>
+
+  <!-- MAIN CONTENT -->
+  <div id="primer-spec-plugin-main-content">
+
+    <h1 class="primer-spec-toc-ignore">EECS 484: Database Management Systems Syllabus</h1>
+    <p><i>The University of Michigan, Spring 2026</i></p>
+    <p id="instructors">
+      Instructor:
+      Prof. Raed Almomani &lt;<a href="mailto:almomani@umich.edu">almomani@umich.edu</a>&gt;.
+    </p>
+    <p>
+      IAs:
+      Zhaoyuan Eric Jiang (zhajia@) &amp; Zirui (Jerry) Zhao (zhaojer@)
+    </p>
+    <p>
+      Course Staff Email:
+      <a href="mailto:eecs484staff@umich.edu">eecs484staff@umich.edu</a>
+    </p>
+
+    <h2>Course Description</h2>
+    <p>Databases are extremely prevalent — they are behind technology that all of us use daily, such as mobile apps, banking systems, video games, telecommunication systems, course registration, supermarket transactions, movie and music services, and many more. This course gives a basic introduction to database management systems (DBMSs), i.e. software that is designed to assist in maintaining and utilizing large collections of data. The focus will be on relational DBMSs, which are by far the dominant type of DBMS.</p>
+    <p>The course is designed to provide you with both an external and an internal view of relational DBMSs. By the end of this course, you will know:</p>
+    <ul>
+      <li>How to design a DBMS, store data for real-world scenarios, and develop applications that communicate with the DBMS.</li>
+      <li>How to analyze data by asking appropriate queries.</li>
+      <li>The internal design of DBMSs, which makes them robust to system failures and supports concurrent data accesses.</li>
+      <li>How DBMSs are able to store massive datasets and support efficient query handling.</li>
+    </ul>
+
+    <h2>Prerequisites</h2>
+    <p><b>Prerequisites:</b> EECS 281 or EECS 403 or CSE graduate standing. You are required to have a solid background from a data structures course (e.g., lists, hash tables, arrays, search trees) and strong programming experience. The EECS 281/403 background is particularly important in the second half of the course. Take a look at Chapters 8-11 and 13-15 to get an idea of the concepts we will be dealing with later in the course — most of it is heavily reliant on a very good understanding of the EECS 281 material.</p>
+    <p><b>Programming skills:</b> The projects are in Java, JavaScript and C++. Knowledge of C++ is assumed. You will be given a brief overview of Java and expected to be able to pick up the language on your own, if you have not used it before. One assignment may use JavaScript that you will be expected to pick up on your own from examples.</p>
+
+    <h2>Office Hours</h2>
+    <p>Faculty office hours are by appointment. IA/GSI office hours will be on the course calendar. Use the faculty office hours to discuss lecture material, concepts, and any broader issues you would like to talk about including career, grad school, etc. Email <a href="mailto:almomani@umich.edu">almomani@umich.edu</a> with the subject <code>EECS 484 Office Hours</code> to schedule time with a short note on whether you prefer in-person or remote, what you would like to discuss, along with some availability for the next few days.</p>
+    <p>The office hours of the teaching staff (IAs and GSIs) will be available on the course calendar along with the room number or indicate that they are virtual. They include help on homeworks and labs. Before heading to office hours, always make sure to check the latest schedule on the calendar or Piazza posts for exceptions.</p>
+
+    <h2>Course Materials</h2>
+    <p><b>Canvas:</b> We will use Canvas for announcements, lecture recordings, slides, etc.</p>
+    <p><b>Piazza:</b> We will use Piazza for Q&amp;A and announcements. Please monitor the course Piazza regularly.</p>
+    <p><b>Autograder.io:</b> Your projects will be graded via the EECS autograder.io service.</p>
+    <p><b>Gradescope:</b> You will submit written homework assignments via Gradescope.</p>
+    <p><b>Office hours queue:</b> You can join the office hours queue through the course links.</p>
+
+    <h2>Textbook &amp; Other Resources</h2>
+    <p>We will follow the “Cow” book, i.e., <i>Database Management Systems</i> (3rd edition), by Raghu Ramakrishnan and Johannes Gehrke, McGraw Hill, 2003, ISBN: 0-07-115110-9. The book has a supporting website where you can find answers to odd-numbered exercises. The book is really useful, especially for exams. We follow the book pretty closely.</p>
+    <p>In addition, we recommend the following informal reference: <i>Self-paced courses on introduction to Databases</i> by Jennifer Widom, Stanford University.</p>
+    <p><a href="https://www.edx.org/course/databases-5-sql" target="_blank">https://www.edx.org/course/databases-5-sql</a></p>
+    <p>There are several mini-courses at the above link and they are currently free. They are all very useful from a practical perspective and nicely complement the material that we cover in EECS 484.</p>
+
+    <h2>Course Announcements</h2>
+    <p>We will use Piazza for course announcements. You are responsible for ensuring that you receive notifications from Piazza and that you pay attention to any announcements. The default settings will send you email notifications every 2 hours — we recommend configuring Piazza to deliver at least daily digests so that you do not miss useful information.</p>
+    <p>You should be enrolled in Piazza. If you do not have access, please email the instructional staff to be added.</p>
+
+    <h2>Projects</h2>
+    <p>This course contains 5 programming projects.  The first three focus on web apps, while the last two focus on web distributed systems and web semantics.</p>
+    <p><a href="https://eecs485staff.github.io/p1-insta485-static/" target="_blank">Project 1: Templated Static Site Generator</a>.  An Instagram clone implemented with a templated static site generator.</p>
+    <p><a href="https://eecs485staff.github.io/p2-insta485-serverside/" target="_blank">Project 2: Server-side Dynamic Pages</a>.  An Instagram clone implemented with server-side dynamic pages.</p>
+    <p><a href="https://eecs485staff.github.io/p3-insta485-clientside/" target="_blank">Project 3: Client-side Dynamic Pages</a>.  An Instagram clone implemented with client-side dynamic pages.</p>
+    <p><a href="https://eecs485staff.github.io/p4-mapreduce/" target="_blank">Project 4: MapReduce</a>.  A single machine, multi-process, multi-threaded server that executes user-submitted MapReduce jobs.</p>
+    <p><a href="https://eecs485staff.github.io/p5-search-engine/" target="_blank">Project 5: Search Engine</a>.  A scalable search engine similar to Google or Bing.</p>
+    <p>We improve the projects each semester, so they may change any time before the project release date.</p>
+
+    <h2>Communication Mechanisms</h2>
+    <p><b>Piazza:</b> You can use Piazza to discuss concepts, exchange interpretation of specs, and seek conceptual help (without sharing solutions) with other students. Piazza can be used for discussing homeworks, lectures, discussions, and project specifications. Teaching staff will monitor Piazza, but only once or twice per day, so there may be a latency in getting a response. Other students may also be able to answer your questions.</p>
+    <p>Piazza is set for public questions at this time so that other students can help. It is best used for clarifying specifications or getting some guidance when you are stuck or discussing general approaches. If you have a private question that requires sharing your code or a homework solution, please use office hours, or find a way to frame the question publicly without sharing your solution.</p>
+    <p>We will also post announcements on Piazza. Occasionally, we may also reach out to you directly via email.</p>
+    <p><b>Canvas:</b> Homeworks and projects will be posted on Canvas and should result in a notification to you.</p>
+    <p><b>Office Hours:</b> Please use office hours to seek help from the teaching staff.</p>
+    <p><b>Email to <a href="mailto:eecs484staff-sp24@umich.edu">eecs484staff-sp24@umich.edu</a>:</b> You can also reach us via email to alert us of urgent issues (e.g., ambiguity in homework or project), but we will usually not be providing individual help on the projects or homeworks via email. Office hours are the best way to seek individual help.</p>
+    <p><b>Personal requests and special accommodations:</b> Please email <a href="mailto:eecs484staff-sp24@umich.edu">eecs484staff-sp24@umich.edu</a>. This will reach all the teaching staff.</p>
+    <p><b>Email to an individual teaching staff member:</b> If your question is relevant to a specific TA or instructor, feel free to email the individual email address, but make sure to prefix the subject of the email with <code>[EECS 484]</code>, so that we are less likely to miss it.</p>
+    <p>Given the large number of students in the class, the staff appreciates that you follow the communication guideline, which helps us better serve your learning needs throughout the semester. Thank you.</p>
+
+    <h2>Oracle and Postgres Accounts</h2>
+    <p>The programming assignments will require you to use Oracle accounts. We will provide instructions on obtaining the accounts in the discussions — these accounts are university-managed. Some assignments may use Postgres or MongoDB. Those are managed by the class staff and we will provide you information on those as needed.</p>
+
+    <h2>Course Requirements and Grading</h2>
+    <p>The course grade is based on the following components:</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Assignment</th>
+          <th>Percentage of Grade</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Midterm Exam</td>
+          <td>27%</td>
+        </tr>
+        <tr>
+          <td>Final Exam</td>
+          <td>27%</td>
+        </tr>
+        <tr>
+          <td>Projects</td>
+          <td>4 programming assignments @ 10% each = 40%</td>
+        </tr>
+        <tr>
+          <td>Homeworks</td>
+          <td>5 written assignments at 2% each, with the two lowest scores dropped = 6%</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Instructors may award bonus points for significant contributions to improving the quality of the course at their discretion.</p>
+    <p>The examinations are <i>not</i> cumulative. Each exam covers about one-half of the course. The grading is not on a curve and you are thus not competing against other students. We plan to award the grades according to the following chart:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Minimum percentage achieved</th>
+          <th>Grade</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>97%</td><td>A+</td></tr>
+        <tr><td>93%</td><td>A</td></tr>
+        <tr><td>90%</td><td>A-</td></tr>
+        <tr><td>87%</td><td>B+</td></tr>
+        <tr><td>83%</td><td>B</td></tr>
+        <tr><td>80%</td><td>B-</td></tr>
+        <tr><td>75%</td><td>C+</td></tr>
+        <tr><td>70%</td><td>C</td></tr>
+        <tr><td>65%</td><td>C-</td></tr>
+        <tr><td>55%</td><td>D+</td></tr>
+        <tr><td>45%</td><td>D</td></tr>
+        <tr><td>Below 45%</td><td>E</td></tr>
+      </tbody>
+    </table>
+
+    <p>To get a C or higher, you also need to earn a minimum competency on exams and projects. You must achieve a minimum of 50% on the exams (averaged) and 55% averaged on the projects.</p>
+    <p>Grades shown in the table above are superseded by the minimum competency rule. If you achieve both thresholds for minimum competency, then we guarantee you at least a C, overruling the scale shown in the table. However, if you fail to meet at least one of the thresholds, then we reserve the right to lower your grade from that in the table — you can receive a C- and fail the course.</p>
+    <p>Homeworks are crucial to develop problem solving skills, absorb the lecture material, and do better on the exams. They can also have a major impact on your grade. They are however not considered as part of the minimum competency requirement.</p>
+    <p>The exam scores are not curved. But, we aim to award at least 25% A- or higher and 75% B- or higher (cumulative) at the end of the course. Thus, C+ or below is expected to be no more than 25% of the class. The thresholds in the table may be adjusted down at the end of the semester if needed to meet that goal, but they will never be raised. The amount of adjustment for each threshold is up to the judgment of the instructors, as long as the goal is met. Note that you still need to achieve minimum competencies, however.</p>
+    <p>Graduate students are graded according to the same scale as undergraduates. Thus, as a graduate student, if you are aiming to get a B or better, then you would need to get an 83% and meet minimum competency to guarantee getting a B in the course. We highly recommend taking EECS 403 first if you have not taken a significant data structures course as an undergraduate and done a significant amount of programming with data structures.</p>
+    <p>The midterm exam is scheduled for Thursday, May 30th at 5PM-7PM Eastern time. The final exam is scheduled for Monday, June 27 at 8AM-10AM Eastern time. Information for students with disabilities can be found at the end of this document. There will be no make-up exams, but we will try to offer one alternate time for those with exam conflicts with other courses. If that does not work, you may need to seek an alternate time with your other instructors. Please contact staff for unusual situations. For either exam, you must let us know by May 15th if you have SSD forms and require extended exam times.</p>
+
+    <h2>Class Participation and Helping Others</h2>
+    <p>We encourage high class participation, preferably in-person, and being a good citizen in the class, including providing conceptual help to others in the class in understanding the course material. We also appreciate a visible effort to pass the course by being engaged in office hours. Introduce yourself to your IAs/GSIs and professors, so that they can remember you.</p>
+    <p>Please feel free to email us to let us know if certain students in the classroom, or even IAs and GSIs, have been particularly helpful to you or you feel you have been very helpful to others. We always appreciate such inputs.</p>
+    <p>One potential concern is that you can be too helpful to the point where it is detrimental to learning or violates the honor code. In general, do not share solutions. Also, do not share your code. The best help is offering conceptual help and accepting conceptual help, e.g., understanding the spec, discussing problem solving strategies, and troubleshooting strategies in case of a bug.</p>
+
+    <h2>Post-Course</h2>
+    <p>As long as you pass the course, we invite you to apply for an IA, GSI, or grader position in a future term. Let us know of your interest as well and we can share your name with the next instructor. CSE will usually send out an email inviting applications from potential students. You may be interviewed or asked to present a 5-10 minute presentation on a topic of your choice. We are not necessarily looking for the highest course grades when hiring for these positions. We are looking for enthusiasm for teaching and a helpful attitude towards students.</p>
+
+    <h2>Assignments and Partners</h2>
+    <p>The projects and homeworks are required to be completed in groups of two. Exceptions to this can be approved in rare cases, for example if you really want to work alone. If you do not know anyone in the class, please use the discussions and Piazza to find a partner.</p>
+    <p>It is possible that you have a poor match with your partner and prefer to split. Contact us if you run into that situation and we can help you split. But, we may not always be able to help you find a new partner in that situation, so it is in your best interest to try to make the partnership work by working closely with each other.</p>
+    <p>Partnerships on the project and homework are likely to work better if you can put aside plenty of common time to work together as a pair each week, rather than by splitting the coding or homework problems and working largely separately. Check compatibility before you form the team.</p>
+    <p>We expect both partners to contribute roughly equally. If there is a strong imbalance in contributions that is bothering you, please let us know. That may lead to a conversation with the group and a possible adjustment of your scores on the project.</p>
+
+    <h3>File types for submission</h3>
+    <p>Normally, most submissions will require you to either submit one or more source code or SQL files, for projects, to the autograder or a single PDF, for homeworks, to Gradescope. The autograder will tell you what file or files you are supposed to upload for each project.</p>
+
+    <h2>Project Submissions</h2>
+    <p>This course will use the EECS autograder.io service. For each project, you will register as a group. Each group gets 3 submissions per day. We will accept the submission that receives the highest grade. It is against the honor code to register individually on the autograder while working in a group.</p>
+    <p>Aside from high-level discussion, collaborating with others outside of your group, especially sharing source code, is not permitted. We use automated plagiarism and similarity detection software on all submissions.</p>
+    <p>Your submissions should indicate the contributions made by each individual in your submission. We may make adjustments to your individual grade after project submissions based on individual contributions.</p>
+
+    <h2>Homework Submissions</h2>
+    <p>We will use Gradescope for homework submissions. You should have been added to the Gradescope roster. You will be uploading your submission and should do so prior to the deadline. Leave enough time for that.</p>
+
+    <h2>Late Days</h2>
+    <p><b>Deadlines:</b> For the homework and project submissions, check out the schedule. Typically, they will be due at 11:45 PM. We have run into situations where a student missed the regular deadline by 2-3 minutes for a project and incurred a severe grade penalty. We strongly recommend submitting before 11:45 PM for that reason — servers can be really busy close to the deadline and there may also be a clock skew.</p>
+    <p>The backend system will not apply a late penalty as long as it records a timestamp of 11:59:59 PM or earlier according to its clock. After that, a late penalty applies, even if you miss the recorded timestamp by 1 second and even if the penalty is due to clock skew, slow servers, etc.</p>
+    <p>Homework receives a zero after the submission deadline. We recommend submitting a version a few hours early and verifying that it was indeed successfully submitted. It is your responsibility to verify submissions.</p>
+    <p>Note that we do drop the lowest homework score. So, if you miss submitting one homework for any reason, for example oversight, sickness, etc., then that would become a candidate for being dropped. We do not drop project scores. We also recommend saving a private backup to a University-supported file system, for example Google Drive or Dropbox, so that you have a verified timestamp of the work being completed. You can drop your lowest 2 scores, in case you miss a deadline inadvertently or because of being sick, or personal reasons. No other exceptions will be considered. Try to do the homeworks early when you can if you anticipate conflicts near the homework deadline.</p>
+
+    <h3>Project Sick Days</h3>
+    <p>We understand that you can fall sick, for example Covid or Flu, or have unanticipated family emergencies while working on a project. You have 6 sick days per person across all projects over the semester to account for such unexpected situations. Each of you and your partner can exercise this option at most twice during the semester, with 6 free sick days available total over the semester per person.</p>
+    <p>It is very important for either you or your partner to let us know as soon as you are able to when you start and end the use of your sick days, along with a brief reason, so that we can track the use of your sick days. Dropping a short note via email to the teaching staff and to your partner should suffice. Keep documentation, e.g., get a doctor’s note. We may not always ask for it, but we do have the right to ask for it. That may happen for your earlier use of sick days if you request us to consider exceptions beyond this policy.</p>
+    <p>Your group must not do any project submissions on your sick days. If the autograder permits us to, we may disable submissions for your group and then reopen regular submissions when you report that you are resuming work. Regardless of whether submissions are disabled or not, your group is not supposed to do any submissions while utilizing sick days. The partner who reports sick is charged the sick days, though the entire group gets the resulting deadline extension.</p>
+    <p>Do realize that using these sick days does not extend deadlines for subsequent projects, only for the next due project. Sick days are counted from midnight to midnight according to the server clock. Any submission on a day means that particular day is not counted towards the sick day and is considered a working day. It is important to have a good understanding with your partner on the submission policy and their willingness to adhere to it.</p>
+
+    <h3>Project Late Days</h3>
+    <p>In addition, you will be given 4 late day tokens on autograder.io that are across the entire semester. Submitting past the deadline will automatically use your token. The autograder.io specs are not entirely clear as to whether the late day tokens are individual or group. We will clarify that later. It may be best for only one partner to submit in the meantime on late days on behalf of the group, in case the late day tokens are per student.</p>
+
+    <h3>Major Situations</h3>
+    <p>If there is a serious situation that requires you to be absent for a longer term from the course or miss a scheduled exam, we will discuss options with you on a case-by-case basis.</p>
+
+    <h2>Follow-up Questions to Lectures</h2>
+    <p>Our lectures are on Mondays, Tuesdays, Wednesdays and Thursdays. You can email Prof. Almomani questions that you would like the instructor to address by Monday or Wednesday on any material covered in the previous lectures. The instructor will pick a subset of questions, if any are received, and use a few minutes of class to address those questions in that week. If your question is not picked, feel free to raise your hand and ask or schedule office hours with us.</p>
+
+    <h2>Honor Code</h2>
+    <p>All students, including LS&amp;A, Engineering, and Rackham, are required to observe the Engineering Honor Code in all assignments and exams. Information about the Engineering Honor Code, including the code itself, can be found through the Engineering Center for Academic Success. Please be sure that you clearly understand what constitutes a violation of the Engineering Honor Code. If you are not sure in a specific instance, ask the teaching staff. The College of Engineering takes honor code violations seriously, and penalties are severe.</p>
+    <ul>
+      <li>You are not allowed to share your code with anyone other than your partner.</li>
+      <li>You are not allowed to make use of project or homework solutions by others, including solutions from previous semesters.</li>
+      <li>You must not cheat on exams or attempt to get an unfair advantage. Exams are to be done individually.</li>
+      <li>Make sure that you do not share your code with others or upload your code on public repositories, e.g., GitHub, as this also constitutes a violation of the honor code.</li>
+      <li>Any suspected violations of the honor code will be reported.</li>
+      <li>If you wish to share your solutions from the course with a recruiter, do private sharing, for example a code link provided on request.</li>
+      <li>On your homework or project submissions, you are required to acknowledge any significant help by anyone other than your partner.</li>
+      <li>You are not allowed to use automatic code generators such as Copilot.</li>
+      <li>You are also not allowed to use any previous solutions that may be available.</li>
+      <li>We do check submissions at times against a bank of previous solutions and other submissions.</li>
+      <li>If you are struggling with coding, talk to the instructors or the teaching staff for guidance.</li>
+      <li>On exams, you must stop writing when asked.</li>
+    </ul>
+
+    <h2>Remote Participation</h2>
+    <p>If you are sick, please stay at home and participate remotely. Lecture recordings and the recording of at least one of the discussions will be provided.</p>
+
+    <h2>Accommodations</h2>
+    <p>To request disability-related academic accommodations, visit Services for Students with Disabilities sometime during the first three weeks of classes.</p>
+    <p>Contact course staff if you encounter scheduling conflicts that you cannot solve by yourself.</p>
+    <p>We aim to provide an inclusive learning environment for all. If we can help with addressing any barriers to your learning, let us know. We welcome feedback at any time during the course.</p>
+
+  </div><!-- MAIN CONTENT -->
+</body>
+</html>

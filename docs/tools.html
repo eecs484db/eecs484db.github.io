@@ -1,0 +1,320 @@
+
+<!-- The MIT License (MIT)
+
+Copyright (c) 2022 EECS 484 Staff
+Copyright (c) 2018 EECS 485 Staff
+Copyright (c) 2016-2017 GitHub, Inc.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE. -->
+
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>tools | EECS 484 Projects</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="tools" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://eecs484db.github.io/w25/tools.html" />
+<meta property="og:url" content="https://eecs484db.github.io/w25/tools.html" />
+<meta property="og:site_name" content="EECS 484 Projects" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="tools" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"tools","url":"https://eecs484db.github.io/w25/tools.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/assets/css/styles.css"><link rel="preload" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" as="style" crossorigin="anonymous" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr">
+        <link rel="stylesheet" href="https://eecs485staff.github.io/primer-spec/assets/v1.8/css/primer-spec-base.css">
+
+        <!--
+            This page is formatted using Primer Spec.
+            Would you like to contribute to the theme?
+            Check out: https://github.com/eecs485staff/primer-spec
+        -->
+        <script>
+            window.PrimerSpecConfig = {
+                hideSidebarOnLoad: false,
+                disableSidebar: false,
+                defaultSubthemeName: 'default',
+                defaultSubthemeMode: 'system',
+                sitemapEnabled: false,
+                sitemapUrls: [],
+                sitemapLabel: undefined,
+                sitemapSiteTitle: 'EECS 484 Projects',
+                useLegacyCodeBlocks: false,
+                defaultCodeblockVariant: "no-line-numbers",
+                disableJokes: false
+            };
+        </script>
+        <script src="https://eecs485staff.github.io/primer-spec/assets/v1.8/js/primer_spec_plugin.min.js" crossorigin="anonymous" defer></script>
+    </head>
+    <body>
+        <div id="primer-spec-top"></div>
+        <div id="primer-spec-app-container" onclick="return true;"></div>
+
+        <div id="primer-spec-plugin-main-content">
+            
+            <h1 class="primer-spec-toc-ignore"><a href="/">EECS 484 Projects</a>
+            
+            | tools
+            
+            </h1>
+            
+
+            <h1 id="tools">Tools</h1>
+
+<p>This document houses the tools necessary to succeed in EECS 484. You will explore most of these in Project 1 (before starting <a href="p1-fakebook-db#part-2-creating-the-data-tables">Part 2</a>), and you can refer back to this document as a refresher for Projects 2 and 3.</p>
+
+<h1 id="caen">CAEN</h1>
+
+<p>To connect to CAEN remotely and to use SQL*Plus, you will need to</p>
+
+<ul>
+  <li>sync your files between your local machine (to submit to the Autograder) and a CAEN machine (for SQL*Plus testing), and</li>
+  <li>ssh into a CAEN Linux machine to run your files</li>
+</ul>
+
+<p>Many of you have visited the tutorial at <a href="https://eecs280staff.github.io/tutorials/setup_caen.html">EECS 280 Setup Tutorial</a>. You are free to use any setup that has worked in the past for you, but <strong>remember that running your scripts on CAEN will produce more helpful error descriptions than the ones provided by the Autograder.</strong> We’ve summarized the most common options below.</p>
+
+<div class="primer-spec-callout warning">
+  <p><strong>It is your responsibility to ensure you have access well before any deadlines.</strong> It may take staff several hours or days to help debug machine-specific workflows. For this reason, we recommend starting with the most familiar approach (command line <code class="language-plaintext highlighter-rouge">ssh</code> and <code class="language-plaintext highlighter-rouge">git</code>) before trying out <code class="language-plaintext highlighter-rouge">rsync</code>, Visual Studio Code, or other options.</p>
+</div>
+
+<h2 id="option-1-terminal">Option 1 (Terminal)</h2>
+
+<p>The first option is to do all your development on your local machine, but periodically copy your files to CAEN for testing through the terminal.</p>
+
+<ul>
+  <li>You can use <code class="language-plaintext highlighter-rouge">git</code> version control (see <a href="https://eecs485staff.github.io/p1-insta485-static/setup_git.html">EECS 485 Git Tutorial</a>), which has the benefit of keeping track of your files over time.</li>
+  <li>For a faster approach, you can copy your local files to CAEN with the <code class="language-plaintext highlighter-rouge">rsync</code> command (omit angle brackets).</li>
+</ul>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>rsync <span class="nt">-rtv</span> &lt;local_folder&gt; &lt;uniqname&gt;@login.engin.umich.edu:&lt;remote_folder&gt;
+</code></pre></div></div>
+
+<p>Now that your files are on CAEN, to ssh into it, run</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>ssh &lt;uniqname&gt;@login.engin.umich.edu
+</code></pre></div></div>
+
+<div class="primer-spec-callout info">
+  <p><em><strong>Pro tip:</strong></em> If you wish to copy your files from CAEN to your local machine, you can switch the source and destination paths.</p>
+</div>
+
+<h2 id="option-2-visual-studio-code">Option 2 (Visual Studio Code)</h2>
+
+<p>The second option is to utilize Visual Studio Code’s ssh extension to do your development on a CAEN machine and periodically sync your files back to your local machine with Git/<code class="language-plaintext highlighter-rouge">rsync</code>. This might be a better option if you want to test your scripts frequently without having to sync often. It can, however, take longer to debug machine-specific issues.</p>
+
+<p>First, in Visual Studio Code, download the <em>Remote - SSH</em> extension. Open Command Palette, select the option <em>Remote-SSH: Open SSH Configuration File…</em>, and select the first configuration file in the list. For MacOS users, this should open the <code class="language-plaintext highlighter-rouge">~/.ssh/config</code> file.</p>
+
+<p>Add the following to the bottom of the file (omit angle brackets):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># CAEN
+Host caen
+    Hostname login.engin.umich.edu
+    User &lt;uniqname&gt;
+    ControlPersist 1h
+</code></pre></div></div>
+
+<p>Next, under the extension settings for <em>Remote - SSH</em>, check the option to <em>Lockfiles in Tmp</em>.</p>
+
+<p>Open Command Palette, select the option <em>Connect Current Window to Host…</em> and choose <code class="language-plaintext highlighter-rouge">caen</code>. After entering your CAEN password and Duo authorization, you should now be able to edit your files directly on CAEN with Visual Studio Code as a text editor.</p>
+
+<div class="primer-spec-callout info">
+  <p><em><strong>Pro tip:</strong></em> If you were able to successfully connect to CAEN once, but it fails the next time you try to connect, try killing the connection first and waiting for the log notification to confirm that it was killed. To do so, open Command Palette and select the option <em>Remote - SSH: Kill VS Code Server on Host</em>. Alternatively, ssh into CAEN and remove the <code class="language-plaintext highlighter-rouge">.vscode</code> directory with <code class="language-plaintext highlighter-rouge">rm -rf .vscode</code>.</p>
+</div>
+
+<h2 id="windows-users">Windows Users</h2>
+
+<p>For Windows users, we recommend using WSL as shown on the <a href="https://eecs280staff.github.io/tutorials/setup_wsl.html">EECS 280 website</a> and following the same steps as Linux/MacOS users. You can, however, use tools like PuTTY, WinSCP, or Cyberduck to ssh into CAEN and sync your files.</p>
+
+<h1 id="class-modules">Class Modules</h1>
+
+<p>On CAEN, in order to use SQL*Plus (Projects 1-3), you will need to load the class module by running <code class="language-plaintext highlighter-rouge">module load eecs484</code> every time you open a new terminal session. If you forget to load the module, you will encounter the error <code class="language-plaintext highlighter-rouge">ORA-12162: TNS:net service name is incorrectly specified</code> when you login to SQL*Plus.</p>
+
+<p>On CAEN, in order to use the <code class="language-plaintext highlighter-rouge">mongo</code> shell (Project 3), you will need to load the mongoDB module by running <code class="language-plaintext highlighter-rouge">module load mongodb</code> every time you open a new terminal session.</p>
+
+<div class="primer-spec-callout info">
+  <p><em><strong>Pro tip:</strong> To automatically load all modules every time you login, run the following on CAEN. You only need to do this once at the beginning of the semester.</em></p>
+
+  <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">echo</span> <span class="s2">"module load eecs484"</span> <span class="o">&gt;&gt;</span> ~/.bash_profile
+<span class="gp">$</span><span class="w"> </span><span class="nb">echo</span> <span class="s2">"module load mongodb"</span> <span class="o">&gt;&gt;</span> ~/.bash_profile
+</code></pre></div>  </div>
+</div>
+
+<h1 id="sqlplus-login">SQL*Plus Login</h1>
+
+<p>For Project 1 (accessing the public data set and testing scripts) and Project 2-3 (viewing database tables), you will be using a command line interface (CLI) from Oracle called SQL*Plus.</p>
+
+<p>A SQL*Plus account has already been set up for you by the staff. To access your SQL*Plus account, you must be on a CAEN Linux machine (see <a href="#caen">CAEN</a>). To start SQL*Plus, run</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>rlwrap sqlplus
+</code></pre></div></div>
+
+<p>Your username is your University of Michigan uniqname, and your password is <code class="language-plaintext highlighter-rouge">eecsclass</code> (case-sensitive). The first time you log in, the system will prompt you to change your password, which we recommend you do.</p>
+
+<div class="primer-spec-callout danger">
+  <p>Only use alphabetic characters, numerals, the underscore, and the pound sign in your SQL*Plus password. <strong>Never use quotation marks, the ‘@’ symbol, or the ‘$’ symbol in your SQL*Plus password</strong>. If you do, it is likely that you will not be able to log into your account, and you will need to reset it (see <a href="#resetting-password-and-sessions">Resetting Password and Sessions</a>).</p>
+</div>
+
+<p>If you encounter the error <code class="language-plaintext highlighter-rouge">ORA-01017: invalid username/password; logon denied</code>, then you may not have an account. Please post on the corresponding Piazza thread with your uniqname to request access.</p>
+
+<h2 id="resetting-password-unlocking-oracle-account-and-killing-sessions">Resetting Password, unlocking Oracle Account, and killing Sessions</h2>
+
+<p>We have made an <a href="https://autograder.io/">Autograder</a> project named SQL*Plus Reset that would allow you to reset your SQL*Plus password, unlock Oracle account, or kill your SQL*Plus sessions.</p>
+
+<p>To reset your password to <code class="language-plaintext highlighter-rouge">eecsclass</code>, submit any text file named <code class="language-plaintext highlighter-rouge">password.txt</code> to this project.</p>
+
+<p>To unlock your Oracle account, submit any text file named <code class="language-plaintext highlighter-rouge">unlock.txt</code> to this project.</p>
+
+<p>To kill all your SQL*Plus sessions and fix the <code class="language-plaintext highlighter-rouge">ORA-00054: resource busy and acquire with NOWAIT specified or timeout expired</code> error, submit any text file named <code class="language-plaintext highlighter-rouge">sessions.txt</code> to this project.</p>
+
+<p>If you still have issues accessing your SQL*Plus account after trying the solutions above, please post on the corresponding Piazza thread with your uniqname and we can take a look. Keep in mind that this may take several hours, during which you will be unable to use SQL*Plus to work on the project.</p>
+
+<h1 id="helpful-sqlplus-commands">Helpful SQL*Plus Commands</h1>
+
+<p>Once in SQL*Plus, you can execute arbitrary SQL commands. You will notice that the formatting of output from SQL*Plus can be less than ideal. Here are some commands to access metadata and make the output more readable.</p>
+
+<p><strong>Remember that SQL commands are case-insensitive but must end in a semicolon.</strong> SQL*Plus (not SQL) commands like <code class="language-plaintext highlighter-rouge">DESC</code> and <code class="language-plaintext highlighter-rouge">@createTables</code> do not need to end in a semicolon. SQL*Plus can also execute multi-line commands if you click the <kbd>Enter</kbd> key between lines (you will see line numbers show up). As always, omit angle brackets:</p>
+
+<ul>
+  <li>To view all of your tables, run:
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">SQL&gt;</span><span class="w"> </span>SELECT table_name FROM user_tables<span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>To view all of your views, run:
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">SQL&gt;</span><span class="w"> </span>SELECT view_name FROM user_views<span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>To view all of your sequences, run:
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">SQL&gt;</span><span class="w"> </span>SELECT sequence_name FROM user_sequences<span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>To view all of your triggers, run:
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">SQL&gt;</span><span class="w"> </span>SELECT trigger_name FROM user_triggers<span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>To view the full schema of any table, including the tables of the public dataset, run:
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">SQL&gt;</span><span class="w"> </span>DESC &lt;table name&gt;<span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>To set the width for a character column to <code class="language-plaintext highlighter-rouge">num chars</code>, run:
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">SQL&gt;</span><span class="w"> </span>COLUMN &lt;column name&gt; FORMAT A&lt;num chars&gt;<span class="p">;</span>
+</code></pre></div>    </div>
+    <p>To set the width for a number column to (for example) 3 digits, run:</p>
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">SQL&gt;</span><span class="w"> </span>COLUMN &lt;column name&gt; FORMAT 999<span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>To remove the formatting from a column, run:
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">SQL&gt;</span><span class="w"> </span>COLUMN column_name CLEAR<span class="p">;</span>
+</code></pre></div>    </div>
+    <p>and to remove the formatting from all columns, run:</p>
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">SQL&gt;</span><span class="w"> </span>CLEAR COLUMNS<span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>To change the number of characters displayed on a single line from the default of 100, run:
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">SQL&gt;</span><span class="w"> </span>SET LINE &lt;num chars&gt;<span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>To select on the first several rows from a table you can use the ROWNUM pseudocolumn, such as:
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">SQL&gt;</span><span class="w"> </span>SELECT <span class="k">*</span> FROM &lt;table name&gt; WHERE ROWNUM &lt; &lt;num&gt;<span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>To load commands in SQL*Plus from a file, say <code class="language-plaintext highlighter-rouge">createTables.sql</code>, run the following. The name of the file is relative to the current directory from which <code class="language-plaintext highlighter-rouge">sqlplus</code> was launched:
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">SQL&gt;</span><span class="w"> </span>@createTables.sql
+</code></pre></div>    </div>
+    <p>or</p>
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">SQL&gt;</span><span class="w"> </span>@createTables
+</code></pre></div>    </div>
+  </li>
+  <li>To quit SQL*Plus, press <kbd>Ctrl+D</kbd> or run:
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">SQL&gt;</span><span class="w"> </span>QUIT
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h1 id="sqlplus-potholes">SQL*Plus Potholes</h1>
+
+<p>SQL*Plus is a raw command line tool that can be picky about the formatting of your scripts. Some common errors include:</p>
+
+<ul>
+  <li>
+    <p>Blank lines inside of a command will cancel the command.</p>
+
+    <div data-title="Succeeds:" class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="k">table_name</span><span class="p">;</span>
+</code></pre></div>    </div>
+
+    <div data-title="Fails:" class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span>
+     
+<span class="k">FROM</span> <span class="k">table_name</span><span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Begin multiline comment symbol <code class="language-plaintext highlighter-rouge">/*</code> must have a space right afterwards.</p>
+
+    <div data-title="Succeeds:" class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="k">table_name</span><span class="p">;</span>
+<span class="cm">/* this is a good multiline
+comment block*/</span>
+</code></pre></div>    </div>
+
+    <div data-title="Fails:" class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="k">table_name</span><span class="p">;</span>
+<span class="cm">/*this is a bad multiline
+comment block*/</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Comments should not come right after the semicolon.</p>
+
+    <div data-title="Succeeds:" class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="k">table_name</span><span class="p">;</span>
+<span class="c1">-- this is a good single line comment</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="k">table_name</span><span class="p">;</span>
+<span class="cm">/* this is a good single line comment*/</span>
+</code></pre></div>    </div>
+
+    <div data-title="Fails:" class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="k">table_name</span><span class="p">;</span> <span class="c1">-- this is a bad single line comment</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="k">table_name</span><span class="p">;</span> <span class="cm">/* this is a bad single line comment*/</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h1 id="acknowledgements">Acknowledgements</h1>
+
+<p>This document was written and revised over the years by EECS 484 staff at the University of Michigan. The most recent version was updated and moved to <a href="https://eecs485staff.github.io/primer-spec/">Primer Spec</a> by Owen Pang.</p>
+
+<p>This document is licensed under a <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>. You may share and adapt this document, but not for commercial purposes. You may not share source code included in this document.</p>
+
+
+
+            <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
+                <div>
+                    See an issue? <a href="https://github.com/eecs484db/eecs484db.github.io/issues">Improve this page.</a>
+                </div>
+            </div>
+        </div> <!-- .container-lg -->
+
+        
+    </body>
+</html>
