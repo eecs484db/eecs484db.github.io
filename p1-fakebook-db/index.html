@@ -1,0 +1,1261 @@
+
+<!-- The MIT License (MIT)
+
+Copyright (c) 2022 EECS 484 Staff
+Copyright (c) 2018 EECS 485 Staff
+Copyright (c) 2016-2017 GitHub, Inc.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE. -->
+
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>p1-fakebook-db | EECS 484 Projects</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="p1-fakebook-db" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://eecs484db.github.io/w25/p1-fakebook-db.html" />
+<meta property="og:url" content="https://eecs484db.github.io/w25/p1-fakebook-db.html" />
+<meta property="og:site_name" content="EECS 484 Projects" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="p1-fakebook-db" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"p1-fakebook-db","url":"https://eecs484db.github.io/w25/p1-fakebook-db.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/assets/css/styles.css"><link rel="preload" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" as="style" crossorigin="anonymous" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr">
+        <link rel="stylesheet" href="https://eecs485staff.github.io/primer-spec/assets/v1.8/css/primer-spec-base.css">
+
+        <!--
+            This page is formatted using Primer Spec.
+            Would you like to contribute to the theme?
+            Check out: https://github.com/eecs485staff/primer-spec
+        -->
+        <script>
+            window.PrimerSpecConfig = {
+                hideSidebarOnLoad: false,
+                disableSidebar: false,
+                defaultSubthemeName: 'default',
+                defaultSubthemeMode: 'system',
+                sitemapEnabled: false,
+                sitemapUrls: [],
+                sitemapLabel: undefined,
+                sitemapSiteTitle: 'EECS 484 Projects',
+                useLegacyCodeBlocks: false,
+                defaultCodeblockVariant: "enhanced",
+                disableJokes: false
+            };
+        </script>
+        <script src="https://eecs485staff.github.io/primer-spec/assets/v1.8/js/primer_spec_plugin.min.js" crossorigin="anonymous" defer></script>
+    </head>
+    <body>
+        <div id="primer-spec-top"></div>
+        <div id="primer-spec-app-container" onclick="return true;"></div>
+
+        <div id="primer-spec-plugin-main-content">
+            
+            <h1 class="primer-spec-toc-ignore"><a href="/">EECS 484 Projects</a>
+            
+            | p1-fakebook-db
+            
+            </h1>
+            
+
+            <h1 id="project-1-fakebook-database">Project 1: Fakebook Database</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Worth</th>
+      <th>Released</th>
+      <th>Due</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>212 points (62 on Gradescope, 150 on Autograder)</td>
+      <td>Jan 13th</td>
+      <td><strong>Feb 2nd at 11:45PM EST</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Project 1 is due on <strong>Feb 2nd at 11:45 PM EST</strong>. Please refer to the Course Policies on Canvas for more information on penalties for late submissions, and late day tokens.</p>
+
+<!-- ## Change Log -->
+
+<h2 id="introduction">Introduction</h2>
+
+<p>In Project 1, you will be designing a relational database to store information for the fictional social media platform Fakebook. We will provide you with a description of the data we will need to store, complete with fields and requirements. Armed with the design specification, you will create an ER Diagram as well as a series of SQL scripts to create, load, and drop objects.</p>
+
+<h2 id="submissions">Submissions</h2>
+
+<p><strong>This project is to be done in teams of 2 students.</strong> Both members of each team will receive the same score - the highest score among all submissions; as such, it is not necessary for each team member to submit the assignment.</p>
+
+<p><strong>Before making your first submission</strong>, follow these steps to create a team on the <a href="https://autograder.io/web/course/349">Autograder</a>:</p>
+
+<ul>
+  <li>One team member clicks the “Send group invitation” button on the Project 1 page.</li>
+  <li>The other team member confirms the invitation on their Autograder assignment page.</li>
+</ul>
+
+<p><strong>Do not make any submissions before joining your team! Once you click on “I’m working alone”, the Autograder will not let you change team members.</strong> If you do need to make a correction, the teaching staff has the ability to modify teams.</p>
+
+<h2 id="honor-code">Honor Code</h2>
+
+<p>By submitting this project, you are agreeing to abide by the Honor Code: “I have neither given nor received unauthorized aid on this assignment, nor have I concealed any violations of the Honor Code.” You may not share answers with other students actively enrolled in the course outside of your teammate, nor may you consult with students who took the course in previous semesters. You are, however, allowed to discuss general approaches and class concepts with other students, and you are also permitted (and encouraged!) to post questions on Piazza.</p>
+
+<p>If you are retaking the class, you must work alone for the projects (and homeworks) you worked on in previous semesters. You may reuse your code. For projects that you have not worked on in previous semesters, you are free to find a teammate and work together.</p>
+
+<h1 id="part-1-creating-an-er-diagram">Part 1: Creating an ER Diagram</h1>
+
+<p>Your first task is to design an ER Diagram that reflects the business rules of the Fakebook platform as described by the company’s CEO Clark Huckelburg. Fakebook has four major features: <a href="#users">Users</a>, <a href="#messages">Messages</a>, <a href="#photos-and-albums">Photos and Albums</a>, and <a href="#events">Events</a>. Descriptions of these features are listed below, though specifics such as data types and nullability are explicitly omitted. You may find later sections of this spec and/or the public dataset helpful in determining these specifics – practicing such design decisions is valuable for your growth as an engineer. Do not make any additional assumptions, even if they would be reasonable in the “real world.”</p>
+
+<h2 id="users">Users</h2>
+
+<p>Fakebook’s Users feature is its most robust feature currently available to the public. When a Fakebook user signs up for the platform, they are assigned a unique user ID. Their profile also consists of a first name, last name, day, month, year of birth, and a non-binary gender. Additionally, users may (but are not required to) list a hometown city and/or a current city on their profile, and these cities can be changed at any time, though they can only have 1 hometown and 1 current city at any given time. Each city has a unique city ID, a city name, a state name, and a country name. The combination of city name, state name and country name is unique (you may not need to reflect this property in your ER Diagram).</p>
+
+<p>In addition to its users’ personal information, Fakebook maintains educational history on each user, which consists of programs and graduation year. Besides a unique program ID, each program also has a trio of fields: the institution (e.g. “University of Michigan”), the concentration (e.g. “Computer Science”) and the degree (e.g. “B.S.”); this trio must be unique for every such program. Users may list any number of programs (including 0) in their educational history; and a program may or may not be listed in the educational history of any number of users. Fakebook allows different users to register for the same program with the same or different graduation years; however, a user cannot list the same program multiple times with different graduation years.</p>
+
+<p>The last piece of the Users feature is friends. Two different Fakebook users can become friends
+through the platform, but a user cannot befriend him/herself (you may not need to reflect this property in your ER Diagram). Fakebook tracks the members of a friendship as “Requester” and “Requestee” (recall the concept of different roles in the same entity from lecture). There is no limit to the number of friends a Fakebook user can have. Also, a Fakebook user can have zero friends :/</p>
+
+<h2 id="messages">Messages</h2>
+
+<p>Fakebook allows messages to be sent between two users (including themselves). Each message is given a unique message ID. Fakebook records the message content and the message sent time. It also tracks the user who sends the message as “Sender” and the user who receives the message as “Receiver”. A Fakebook user can send or receive 0 or more messages, but a message can only be sent exactly once (i.e. it has exactly one sender and exactly one receiver). Group messages are currently not supported by Fakebook.</p>
+
+<h2 id="photos-and-albums">Photos and Albums</h2>
+
+<p>Like any good social media platform, Fakebook allows its users to post photos. Once uploaded, photos are placed into albums and each photo must belong to exactly one album. Each photo is given a unique photo ID, and the metadata for photos consists of the photo uploaded time, last modified time of the photo, the photo’s link, and a caption. Fakebook does not directly track the owner/poster of a photo, but this information can be retrieved via the album in which the photo is contained.</p>
+
+<p>Each Fakebook album has a unique album ID and is owned by exactly one Fakebook user. There is no limit to the number of albums a single user can own, and there is no limit to the number of photos that an album can contain. However, each album must contain at least one photo. Fakebook tracks metadata for albums: the album name, the time the album was created, the last modified time of the album, the album’s link, and a visibility level (e.g. ‘Myself’, ‘Everyone’). In addition, each album must have exactly one cover photo; however, that photo does not have to be one of the photos in the album. A single photo can be the cover photo of 0 or more albums.</p>
+
+<p>In addition to creating albums and uploading photos to those albums, Fakebook users can be tagged in the photos. Fakebook tracks the tagged user (but not the user doing the tagging), the tagged time, and the x-coordinate and y-coordinate within the photo. A user can be tagged in any number of photos, but cannot be tagged in the same photo more than once. A single photo can contain tags of 0 or more users. The tagged time and x, y coordinates may be the same or different (e.g., two tags on one photo could share the same x, y coordinates).</p>
+
+<h2 id="events">Events</h2>
+
+<p>The final feature of Fakebook is Events. An event itself is uniquely identified by an event ID and also contains a name, a tagline, and a description. Each event is created by a single Fakebook user (the “creator”); a Fakebook user can create 0 or more events. Other metadata for an event includes the host (not a Fakebook user but a simple string), the street address, the event’s type and subtype, the start and end time. Each event must be located in exactly one city; each city may have 0 or more events being held in.</p>
+
+<p>The creator of an event does not have to participate in the event, which means that Fakebook events can have an unlimited number (including 0) of users participating. Each participant in an event has a confirmation status (e.g. ‘Attending’, ‘Declines’). Users can participate in any number of events, but no user can participate in the same event more than once, even with a different confirmation status.</p>
+
+<h2 id="note-on-er-diagram-design">Note on ER Diagram Design</h2>
+
+<p>Creating ER Diagrams is not an exact science: for a given specification, there are often several valid ways to represent all the necessary information in an ER Diagram. When grading your ER Diagrams, we will look to make sure that all of the entities, attributes, relations, keys, key constraints, and participation constraints are accurately depicted even if your diagram does not exactly match our intended solution. Also, note that <strong>there may be some constraints described above that are not possible to depict on an ER Diagram.</strong> As such, it is perfectly acceptable to ignore these constraints for Part 1; you’ll implement them later in Part 2 instead.</p>
+
+<h1 id="part-2-creating-the-data-tables">Part 2: Creating the Data Tables</h1>
+
+<p>Your second task of Project 1 is to write SQL DDL statements to create/drop data tables that reflect the Fakebook specifications. You will need to write 2 SQL scripts for this part: <code class="language-plaintext highlighter-rouge">createTables.sql</code> (to create the data tables) and <code class="language-plaintext highlighter-rouge">dropTables.sql</code> (to drop/destroy the data tables). <strong>These scripts should also create and drop any constraints, sequences, and triggers</strong> you find are necessary to enforce the rules of the Fakebook specification.</p>
+
+<p>Once you have written these two files, you should run them within SQL*Plus on your CAEN Linux machine. You should be able to run the commands below several times sequentially without error. If you cannot do this (i.e. if SQL*Plus reports errors), you are liable to fail tests on the Autograder. To access CAEN and your Oracle account, follow the setup instructions at <a href="/w25/tools">Tools</a>.</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">SQL&gt;</span><span class="w"> </span>@createTables
+<span class="gp">SQL&gt;</span><span class="w"> </span>@dropTables
+</code></pre></div></div>
+
+<h2 id="desired-schema">Desired Schema</h2>
+
+<p>We will test that your <code class="language-plaintext highlighter-rouge">createTables.sql</code> script properly creates the necessary data tables with all of the correct constraints. We will attempt to insert both valid and invalid data into your tables with the expectation that the valid inserts will be accepted and the invalid inserts will be rejected. To facilitate this, your tables <strong>must conform exactly to the schema below</strong>, even if it doesn’t exactly match the schema you would have created from your ER Diagram. Column names, types, ordering, and constraints must be the same. Deviating from this schema will cause you to fail tests on the Autograder.</p>
+
+<p>You may find some of the commands listed in <a href="/w25/tools#helpful-sqlplus-commands">Helpful SQL*Plus Commands</a> useful when viewing your tables.</p>
+
+<h4 id="users-1">Users</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Column</th>
+      <th>Type</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>user_id</td>
+      <td>INTEGER</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>first_name</td>
+      <td>VARCHAR2(100)</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>last_name</td>
+      <td>VARCHAR2(100)</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>year_of_birth</td>
+      <td>INTEGER</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>month_of_birth</td>
+      <td>INTEGER</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>day_of_birth</td>
+      <td>INTEGER</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>gender</td>
+      <td>VARCHAR2(100)</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="friends">Friends</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Column</th>
+      <th>Type</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>user1_id</td>
+      <td>INTEGER</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>user2_id</td>
+      <td>INTEGER</td>
+      <td>yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Important Note:</strong> This table should not allow duplicate friendships, regardless of the order in which the two IDs are listed. This means that (1, 9) and (9, 1) should be considered the same entry in this table. Attempting to insert one while the other is already in the table should result in the insertion being rejected. To implement this, see <a href="#friends-trigger">Friends Trigger</a>.</p>
+
+<h4 id="cities">Cities</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Column</th>
+      <th>Type</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>city_id</td>
+      <td>INTEGER</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>city_name</td>
+      <td>VARCHAR2(100)</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>state_name</td>
+      <td>VARCHAR2(100)</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>country_name</td>
+      <td>VARCHAR2(100)</td>
+      <td>yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="user_current_cities">User_Current_Cities</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Column</th>
+      <th>Type</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>user_id</td>
+      <td>INTEGER</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>current_city_id</td>
+      <td>INTEGER</td>
+      <td>yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="user_hometown_cities">User_Hometown_Cities</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Column</th>
+      <th>Type</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>user_id</td>
+      <td>INTEGER</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>hometown_city_id</td>
+      <td>INTEGER</td>
+      <td>yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="messages-1">Messages</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Column</th>
+      <th>Type</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>message_id</td>
+      <td>INTEGER</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>sender_id</td>
+      <td>INTEGER</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>receiver_id</td>
+      <td>INTEGER</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>message_content</td>
+      <td>VARCHAR2(2000)</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>sent_time</td>
+      <td>TIMESTAMP</td>
+      <td>yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="programs">Programs</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Column</th>
+      <th>Type</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>program_id</td>
+      <td>INTEGER</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>institution</td>
+      <td>VARCHAR2(100)</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>concentration</td>
+      <td>VARCHAR2(100)</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>degree</td>
+      <td>VARCHAR2(100)</td>
+      <td>yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="education">Education</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Column</th>
+      <th>Type</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>user_id</td>
+      <td>INTEGER</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>program_id</td>
+      <td>INTEGER</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>program_year</td>
+      <td>INTEGER</td>
+      <td>yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="user_events">User_Events</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Column</th>
+      <th>Type</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>event_id</td>
+      <td>INTEGER</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>event_creator_id</td>
+      <td>INTEGER</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>event_name</td>
+      <td>VARCHAR2(100)</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>event_tagline</td>
+      <td>VARCHAR2(100)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>event_description</td>
+      <td>VARCHAR2(100)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>event_host</td>
+      <td>VARCHAR2(100)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>event_type</td>
+      <td>VARCHAR2(100)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>event_subtype</td>
+      <td>VARCHAR2(100)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>event_address</td>
+      <td>VARCHAR2(2000)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>event_city_id</td>
+      <td>INTEGER</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>event_start_time</td>
+      <td>TIMESTAMP</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>event_end_time</td>
+      <td>TIMESTAMP</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="participants">Participants</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Column</th>
+      <th>Type</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>event_id</td>
+      <td>INTEGER</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>user_id</td>
+      <td>INTEGER</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>confirmation</td>
+      <td>VARCHAR2(100)</td>
+      <td>yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The value of <code class="language-plaintext highlighter-rouge">confirmation</code> must be one of these options (case-sensitive): <code class="language-plaintext highlighter-rouge">Attending</code>, <code class="language-plaintext highlighter-rouge">Unsure</code>, <code class="language-plaintext highlighter-rouge">Declines</code>, or <code class="language-plaintext highlighter-rouge">Not_Replied</code>.</p>
+
+<h4 id="albums">Albums</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Column</th>
+      <th>Type</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>album_id</td>
+      <td>INTEGER</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>album_owner_id</td>
+      <td>INTEGER</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>album_name</td>
+      <td>VARCHAR2(100)</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>album_created_time</td>
+      <td>TIMESTAMP</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>album_modified_time</td>
+      <td>TIMESTAMP</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>album_link</td>
+      <td>VARCHAR2(2000)</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>album_visibility</td>
+      <td>VARCHAR2(100)</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>cover_photo_id</td>
+      <td>INTEGER</td>
+      <td>yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The value of <code class="language-plaintext highlighter-rouge">album_visibility</code> must be one of these options (case-sensitive): <code class="language-plaintext highlighter-rouge">Everyone</code>, <code class="language-plaintext highlighter-rouge">Friends</code>, <code class="language-plaintext highlighter-rouge">Friends_Of_Friends</code>, or <code class="language-plaintext highlighter-rouge">Myself</code>.</p>
+
+<h4 id="photos">Photos</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Column</th>
+      <th>Type</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>photo_id</td>
+      <td>INTEGER</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>album_id</td>
+      <td>INTEGER</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>photo_caption</td>
+      <td>VARCHAR2(2000)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>photo_created_time</td>
+      <td>TIMESTAMP</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>photo_modified_time</td>
+      <td>TIMESTAMP</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>photo_link</td>
+      <td>VARCHAR2(2000)</td>
+      <td>yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="tags">Tags</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Column</th>
+      <th>Type</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>tag_photo_id</td>
+      <td>INTEGER</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>tag_subject_id</td>
+      <td>INTEGER</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>tag_created_time</td>
+      <td>TIMESTAMP</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>tag_x</td>
+      <td>NUMBER</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>tag_y</td>
+      <td>NUMBER</td>
+      <td>yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Feel free to use this schema to better inform the design of your ER Diagram, but do not feel like your diagram must represent this specific schema as long as all of the necessary constraints and other information are shown.</p>
+
+<p>Don’t forget to include primary keys (each table should have one), foreign keys, <code class="language-plaintext highlighter-rouge">NOT NULL</code> requirements, and other constraints in your DDLs even though they are not reflected in the schema list above. We recommend using your ER Diagram to assist in this.</p>
+
+<p><strong>Important Note:</strong> Using very long constraint names can cause some of your Autograder test cases to fail. Keep your constraint names short or don’t use the <code class="language-plaintext highlighter-rouge">CONSTRAINT</code> keyword at all unless necessary. For example, inside of your <code class="language-plaintext highlighter-rouge">CREATE TABLE</code> statements, instead of writing</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CONSTRAINT</span> <span class="n">a_very_long_constraint_name</span> <span class="k">CHECK</span> <span class="p">(</span><span class="n">Column_A</span> <span class="o">=</span> <span class="s1">'A'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p data-variant="no-line-numbers">you can write</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CHECK</span> <span class="p">(</span><span class="n">Column_A</span> <span class="o">=</span> <span class="s1">'A'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p data-variant="no-line-numbers">Additionally, since we will be loading data into your tables to test them, <strong>you may find it helpful to read through Part 3</strong>. You may also find it helpful to read the section on <a href="#circular-dependencies">Circular Dependencies</a>.</p>
+
+<h2 id="sequences">Sequences</h2>
+
+<p>In Part 3, as you’re loading data, you will <code class="language-plaintext highlighter-rouge">SELECT</code> data from columns (e.g. an ID) in the public dataset and <code class="language-plaintext highlighter-rouge">INSERT</code> it into your tables. However, you will find that you need ID numbers for entities where such ID numbers don’t exist in the public data. The way to do this is to use sequences, which are SQL constructs for generating streams of numbers.</p>
+
+<p>When you’re loading data, you do not need to reference these sequences. However, since we are executing DDL statements, these sequences need to be created beforehand in your <code class="language-plaintext highlighter-rouge">createTables.sql</code> script (one for each ID that does not exist in the public dataset). However, note that there is no Messages data in the public dataset to load, so you do not need a sequence for <code class="language-plaintext highlighter-rouge">MESSAGE_ID</code>.</p>
+
+<p>To create a sequence and its corresponding trigger, use the following syntax, replacing the bracketed sections with the names/fields specific to your use case:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="n">SEQUENCE</span> <span class="o">&lt;</span><span class="n">sequence_name</span><span class="o">&gt;</span>
+    <span class="k">START</span> <span class="k">WITH</span> <span class="mi">1</span>
+    <span class="k">INCREMENT</span> <span class="k">BY</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="k">CREATE</span> <span class="k">TRIGGER</span> <span class="o">&lt;</span><span class="k">trigger_name</span><span class="o">&gt;</span>
+    <span class="k">BEFORE</span> <span class="k">INSERT</span> <span class="k">ON</span> <span class="o">&lt;</span><span class="k">table_name</span><span class="o">&gt;</span>
+    <span class="k">FOR</span> <span class="k">EACH</span> <span class="k">ROW</span>
+        <span class="k">BEGIN</span>
+            <span class="k">SELECT</span> <span class="o">&lt;</span><span class="n">sequence_name</span><span class="o">&gt;</span><span class="p">.</span><span class="n">NEXTVAL</span> <span class="k">INTO</span> <span class="p">:</span><span class="k">NEW</span><span class="p">.</span><span class="o">&lt;</span><span class="n">id_field</span><span class="o">&gt;</span> <span class="k">FROM</span> <span class="n">DUAL</span><span class="p">;</span>
+        <span class="k">END</span><span class="p">;</span>
+<span class="o">/</span>
+</code></pre></div></div>
+
+<p>Don’t forget the trailing backslash!</p>
+
+<h2 id="friends-trigger">Friends Trigger</h2>
+
+<p>Triggers are an SQL construct that can be used to execute arbitrary code when certain events happen, such as inserts into a table or updates of the contents of a table. You have already seen one trigger above, which we used to populate the ID field of a table when data is inserted.</p>
+
+<p>In this project, you will also have to use a trigger to help enforce the more complicated constraint of the <code class="language-plaintext highlighter-rouge">FRIENDS</code> table. This trigger makes sure that any incoming pair of friend IDs is sorted, which preserves uniqueness. Like the above sequences, the DDL statement to create this trigger should be in your <code class="language-plaintext highlighter-rouge">createTables.sql</code> script. Because triggers are beyond the scope of this course, we have provided you with the entirety of the trigger syntax here:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TRIGGER</span> <span class="n">Order_Friend_Pairs</span>
+    <span class="k">BEFORE</span> <span class="k">INSERT</span> <span class="k">ON</span> <span class="n">Friends</span>
+    <span class="k">FOR</span> <span class="k">EACH</span> <span class="k">ROW</span>
+        <span class="k">DECLARE</span> <span class="k">temp</span> <span class="nb">INTEGER</span><span class="p">;</span>
+        <span class="k">BEGIN</span>
+            <span class="n">IF</span> <span class="p">:</span><span class="k">NEW</span><span class="p">.</span><span class="n">user1_id</span> <span class="o">&gt;</span> <span class="p">:</span><span class="k">NEW</span><span class="p">.</span><span class="n">user2_id</span> <span class="k">THEN</span>
+                <span class="k">temp</span> <span class="p">:</span><span class="o">=</span> <span class="p">:</span><span class="k">NEW</span><span class="p">.</span><span class="n">user2_id</span><span class="p">;</span>
+                <span class="p">:</span><span class="k">NEW</span><span class="p">.</span><span class="n">user2_id</span> <span class="p">:</span><span class="o">=</span> <span class="p">:</span><span class="k">NEW</span><span class="p">.</span><span class="n">user1_id</span><span class="p">;</span>
+                <span class="p">:</span><span class="k">NEW</span><span class="p">.</span><span class="n">user1_id</span> <span class="p">:</span><span class="o">=</span> <span class="k">temp</span><span class="p">;</span>
+            <span class="k">END</span> <span class="n">IF</span><span class="p">;</span>
+        <span class="k">END</span><span class="p">;</span>
+<span class="o">/</span>
+</code></pre></div></div>
+
+<p>Don’t forget the trailing backslash!</p>
+
+<h1 id="part-3-populating-your-database">Part 3: Populating Your Database</h1>
+
+<p>The third part of Project 1 is to load data from the public dataset (a poorly designed database) into the tables you just created (a well designed database). To do this, you will have to write SQL DML statements that <code class="language-plaintext highlighter-rouge">SELECT</code> the appropriate data from the public dataset and <code class="language-plaintext highlighter-rouge">INSERT</code> that data into your tables. You may also need additional SQL statements like <code class="language-plaintext highlighter-rouge">DISTINCT</code>, <code class="language-plaintext highlighter-rouge">JOIN</code>, and <code class="language-plaintext highlighter-rouge">WHERE</code>, as well as set operators like <code class="language-plaintext highlighter-rouge">INTERSECT</code>, <code class="language-plaintext highlighter-rouge">UNION</code>, and <code class="language-plaintext highlighter-rouge">MINUS</code>.</p>
+
+<p>You should put all of your DML statements into a single file named <code class="language-plaintext highlighter-rouge">loadData.sql</code> that loads data from the public dataset (and not from a private copy of that dataset). You are free to copy the public dataset to your own SQL*Plus account for development and testing, but your scripts will not have access to this account when the Autograder runs them for testing.</p>
+
+<p>When loading data for Fakebook friends, you should only include one directional pair of users even though Fakebook friendship is reciprocal. This means that if the public dataset includes both (2, 7) and (7, 2), only one of them (it doesn’t matter which one) should be loaded into your table. The <a href="#friends-trigger">Friends Trigger</a> will ensure that the direction of friendship matches what is expected, but you are still expected to properly select exactly one copy out of the public dataset.</p>
+
+<h2 id="the-public-dataset">The Public Dataset</h2>
+
+<p>The public dataset is divided into five tables, each of which has a series of data fields. Those data fields may or may not have additional business rules (constraints) that define the allowable values. When referring to any of these tables in your SQL scripts, you will need to use the fully-qualified table name by prepending <code class="language-plaintext highlighter-rouge">project1.</code> (including the “.”) to the table name (as seen in <a href="#part-4-creating-external-views-50-points">Part 4: Creating External Views</a>).</p>
+
+<p>Additionally, beware of common <a href="/w25/tools#sqlplus-potholes">SQL*Plus Potholes</a> when creating your queries.</p>
+
+<p>Here is an overview of the public dataset. All table names and field names are case-insensitive:</p>
+
+<h4 id="public_user_information">Public_User_Information</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Column</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>user_id</td>
+      <td>yes</td>
+      <td>The unique Fakebook ID of a user</td>
+    </tr>
+    <tr>
+      <td>first_name</td>
+      <td>yes</td>
+      <td>The user’s first name</td>
+    </tr>
+    <tr>
+      <td>last_name</td>
+      <td>yes</td>
+      <td>The user’s last name</td>
+    </tr>
+    <tr>
+      <td>year_of_birth</td>
+      <td>yes</td>
+      <td>The year in which the user was born</td>
+    </tr>
+    <tr>
+      <td>month_of_birth</td>
+      <td>yes</td>
+      <td>The month (as an integer) in which the user was born</td>
+    </tr>
+    <tr>
+      <td>day_of_birth</td>
+      <td>yes</td>
+      <td>The day on which the user was born</td>
+    </tr>
+    <tr>
+      <td>gender</td>
+      <td>yes</td>
+      <td>The user’s gender</td>
+    </tr>
+    <tr>
+      <td>current_city</td>
+      <td>yes</td>
+      <td>The user’s current city</td>
+    </tr>
+    <tr>
+      <td>current_state</td>
+      <td>yes</td>
+      <td>The user’s current state</td>
+    </tr>
+    <tr>
+      <td>current_country</td>
+      <td>yes</td>
+      <td>The user’s current country</td>
+    </tr>
+    <tr>
+      <td>hometown_city</td>
+      <td>yes</td>
+      <td>The user’s hometown city</td>
+    </tr>
+    <tr>
+      <td>hometown_state</td>
+      <td>yes</td>
+      <td>The user’s hometown state</td>
+    </tr>
+    <tr>
+      <td>hometown_country</td>
+      <td>yes</td>
+      <td>The user’s hometown country</td>
+    </tr>
+    <tr>
+      <td>institution_name</td>
+      <td> </td>
+      <td>The name of a college, university, or school that the user attended</td>
+    </tr>
+    <tr>
+      <td>program_year</td>
+      <td> </td>
+      <td>The year in which the user graduated from some college, university, or school</td>
+    </tr>
+    <tr>
+      <td>program_concentration</td>
+      <td> </td>
+      <td>The field in which the user studied at some college, university, or school</td>
+    </tr>
+    <tr>
+      <td>program_degree</td>
+      <td> </td>
+      <td>The degree the user earned from some college, university, or school</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>If one of <code class="language-plaintext highlighter-rouge">institution_name</code>, <code class="language-plaintext highlighter-rouge">program_year</code>, <code class="language-plaintext highlighter-rouge">program_concentration</code>, or <code class="language-plaintext highlighter-rouge">program_degree</code> are provided, then all four columns will be provided. If none are provided, then all four columns will be empty.</p>
+
+<h4 id="public_are_friends">Public_Are_Friends</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Column</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>user1_id</td>
+      <td>yes</td>
+      <td>The ID of the first of two Fakebook users in a friendship</td>
+    </tr>
+    <tr>
+      <td>user2_id</td>
+      <td>yes</td>
+      <td>The ID of the second of two Fakebook users in a friendship</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="public_photo_information">Public_Photo_Information</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Column</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>album_id</td>
+      <td>yes</td>
+      <td>The unique Fakebook ID of an album</td>
+    </tr>
+    <tr>
+      <td>owner_id</td>
+      <td>yes</td>
+      <td>The Fakebook ID of the user who owns the album</td>
+    </tr>
+    <tr>
+      <td>cover_photo_id</td>
+      <td>yes</td>
+      <td>The Fakebook ID of the album’s cover photo</td>
+    </tr>
+    <tr>
+      <td>album_name</td>
+      <td>yes</td>
+      <td>The name of the album</td>
+    </tr>
+    <tr>
+      <td>album_created_time</td>
+      <td>yes</td>
+      <td>The time at which the album was created</td>
+    </tr>
+    <tr>
+      <td>album_modified_time</td>
+      <td>yes</td>
+      <td>The time at which the album was last modified</td>
+    </tr>
+    <tr>
+      <td>album_link</td>
+      <td>yes</td>
+      <td>The Fakebook URL of the album</td>
+    </tr>
+    <tr>
+      <td>album_visibility</td>
+      <td>yes</td>
+      <td>The visibility/privacy level for the album</td>
+    </tr>
+    <tr>
+      <td>photo_id</td>
+      <td>yes</td>
+      <td>The unique Fakebook ID of a photo in the album</td>
+    </tr>
+    <tr>
+      <td>photo_caption</td>
+      <td> </td>
+      <td>The caption associated with the photo</td>
+    </tr>
+    <tr>
+      <td>photo_created_time</td>
+      <td>yes</td>
+      <td>The time at which the photo was created</td>
+    </tr>
+    <tr>
+      <td>photo_modified_time</td>
+      <td>yes</td>
+      <td>The time at which the photo was last modified</td>
+    </tr>
+    <tr>
+      <td>photo_link</td>
+      <td>yes</td>
+      <td>The Fakebook URL of the photo</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="public_tag_information">Public_Tag_Information</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Column</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>photo_id</td>
+      <td>yes</td>
+      <td>The ID of a Fakebook photo</td>
+    </tr>
+    <tr>
+      <td>tag_subject_id</td>
+      <td>yes</td>
+      <td>The ID of the Fakebook user being tagged in the photo</td>
+    </tr>
+    <tr>
+      <td>tag_created_time</td>
+      <td>yes</td>
+      <td>The time at which the tag was created</td>
+    </tr>
+    <tr>
+      <td>tag_x_coordinate</td>
+      <td>yes</td>
+      <td>The x-coordinate of the location at which the subject was tagged</td>
+    </tr>
+    <tr>
+      <td>tag_y_coordinate</td>
+      <td>yes</td>
+      <td>The y-coordinate of the location at which the subject was tagged</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="public_event_information">Public_Event_Information</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Column</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>event_id</td>
+      <td>yes</td>
+      <td>The unique Fakebook ID of an event</td>
+    </tr>
+    <tr>
+      <td>event_creator_id</td>
+      <td>yes</td>
+      <td>The Fakebook ID of the user who created the event</td>
+    </tr>
+    <tr>
+      <td>event_name</td>
+      <td>yes</td>
+      <td>The name of the event</td>
+    </tr>
+    <tr>
+      <td>event_tagline</td>
+      <td> </td>
+      <td>The tagline of the event</td>
+    </tr>
+    <tr>
+      <td>event_description</td>
+      <td> </td>
+      <td>A description of the event</td>
+    </tr>
+    <tr>
+      <td>event_host</td>
+      <td>yes</td>
+      <td>The host of the event, which does not need to identify a Fakebook user</td>
+    </tr>
+    <tr>
+      <td>event_type</td>
+      <td>yes</td>
+      <td>One of a predefined set of event types</td>
+    </tr>
+    <tr>
+      <td>event_subtype</td>
+      <td>yes</td>
+      <td>One of a predefined set of event subtypes based on the event’s type</td>
+    </tr>
+    <tr>
+      <td>event_address</td>
+      <td>yes</td>
+      <td>The street address at which the event is to be held</td>
+    </tr>
+    <tr>
+      <td>event_city</td>
+      <td>yes</td>
+      <td>The city in which the event is to be held</td>
+    </tr>
+    <tr>
+      <td>event_state</td>
+      <td>yes</td>
+      <td>The state in which the event is to be held</td>
+    </tr>
+    <tr>
+      <td>event_country</td>
+      <td>yes</td>
+      <td>The country in which the event is to be held</td>
+    </tr>
+    <tr>
+      <td>event_start_time</td>
+      <td>yes</td>
+      <td>The time at which the event starts</td>
+    </tr>
+    <tr>
+      <td>event_end_time</td>
+      <td>yes</td>
+      <td>The time at which the event ends</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>There is no data for event Participants or Messages in the public dataset, so you do not need to load anything into your table(s) corresponding to this information. You should assume that <code class="language-plaintext highlighter-rouge">MESSAGE_ID</code> would have been provided by the public dataset and does not need to be created using sequences and triggers.</p>
+
+<p>Again, when referring to any of these tables in your SQL scripts, you will need to use the fully-qualified table name by prepending <code class="language-plaintext highlighter-rouge">project1.</code> (including the “.”) to the table name.</p>
+
+<h1 id="part-4-creating-external-views">Part 4: Creating External Views</h1>
+
+<p>The final part of Project 1 is to create a set of external views for displaying the data you have loaded into your data tables. The views you create must have the exact same schema as the public dataset. This means that the column names and data types must match exactly. You will need to write 2 SQL scripts for this part: <code class="language-plaintext highlighter-rouge">createViews.sql</code> (to create the views and load data into them) and <code class="language-plaintext highlighter-rouge">dropViews.sql</code> (to drop/destroy the views). You should have a total of 5 views named as follows:</p>
+
+<ul>
+  <li>View_User_Information</li>
+  <li>View_Are_Friends</li>
+  <li>View_Photo_Information</li>
+  <li>View_Event_Information</li>
+  <li>View_Tag_Information</li>
+</ul>
+
+<p>Any use of the keyword <code class="language-plaintext highlighter-rouge">project1</code> in code or comment in your <code class="language-plaintext highlighter-rouge">createViews.sql</code> will cause your submission to automatically fail on the Autograder. This is to prevent any potential cheating. Please be cautious of this as you develop your solutions.</p>
+
+<p>Once you have written these two files, you should be able to run the commands below several times sequentially without error. If you cannot do this (i.e. if SQL*Plus reports errors), you are liable to fail tests on the Autograder.</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">SQL&gt;</span><span class="w"> </span>@createTables
+<span class="gp">SQL&gt;</span><span class="w"> </span>@loadData
+<span class="gp">SQL&gt;</span><span class="w"> </span>@createViews
+<span class="gp">SQL&gt;</span><span class="w"> </span>@dropViews
+<span class="gp">SQL&gt;</span><span class="w"> </span>@dropTables
+</code></pre></div></div>
+
+<p>For each of the views other than <code class="language-plaintext highlighter-rouge">VIEW_ARE_FRIENDS</code>, your views should exactly match the corresponding table in the public dataset. To test this, you can run the following queries in SQL*Plus, changing the name of the tables and views as necessary. The output of both queries should be <code class="language-plaintext highlighter-rouge">no rows selected</code>; anything else indicates an error in your views.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">project1</span><span class="p">.</span><span class="n">Public_User_Information</span>
+<span class="n">MINUS</span> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">View_User_Information</span><span class="p">;</span>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">View_User_Information</span>
+<span class="n">MINUS</span> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">project1</span><span class="p">.</span><span class="n">Public_User_Information</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>To test <code class="language-plaintext highlighter-rouge">View_Are_Friends</code>, use the following test scripts instead. The outputs should again be <code class="language-plaintext highlighter-rouge">no rows selected</code>.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">LEAST</span><span class="p">(</span><span class="n">user1_id</span><span class="p">,</span> <span class="n">user2_id</span><span class="p">),</span>  <span class="n">GREATEST</span><span class="p">(</span><span class="n">user1_id</span><span class="p">,</span> <span class="n">user2_id</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">project1</span><span class="p">.</span><span class="n">Public_Are_Friends</span>
+<span class="n">MINUS</span> <span class="k">SELECT</span> <span class="n">LEAST</span><span class="p">(</span><span class="n">user1_id</span><span class="p">,</span> <span class="n">user2_id</span><span class="p">),</span>  <span class="n">GREATEST</span><span class="p">(</span><span class="n">user1_id</span><span class="p">,</span> <span class="n">user2_id</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">View_Are_Friends</span><span class="p">;</span>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">LEAST</span><span class="p">(</span><span class="n">user1_id</span><span class="p">,</span> <span class="n">user2_id</span><span class="p">),</span>  <span class="n">GREATEST</span><span class="p">(</span><span class="n">user1_id</span><span class="p">,</span> <span class="n">user2_id</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">View_Are_Friends</span>
+<span class="n">MINUS</span> <span class="k">SELECT</span> <span class="n">LEAST</span><span class="p">(</span><span class="n">user1_id</span><span class="p">,</span> <span class="n">user2_id</span><span class="p">),</span>  <span class="n">GREATEST</span><span class="p">(</span><span class="n">user1_id</span><span class="p">,</span> <span class="n">user2_id</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">project1</span><span class="p">.</span><span class="n">Public_Are_Friends</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h1 id="submitting">Submitting</h1>
+
+<p>There are two deliverables for Project 1:</p>
+
+<ul>
+  <li>a PDF of your ER Diagram, and</li>
+  <li>your 5 SQL scripts (<code class="language-plaintext highlighter-rouge">createTables.sql</code>, <code class="language-plaintext highlighter-rouge">dropTables.sql</code>, <code class="language-plaintext highlighter-rouge">loadData.sql</code>, <code class="language-plaintext highlighter-rouge">createViews.sql</code>, and <code class="language-plaintext highlighter-rouge">dropViews.sql</code>)</li>
+</ul>
+
+<p>Part 1 (ER Diagram) is worth 62 points and Parts 2-4 (SQL scripts) are worth 50 points each, for a total of 212 points (62 on Gradescope, 150 on the Autograder). There are no private tests.</p>
+
+<h3 id="gradescope">Gradescope</h3>
+
+<p>Your ER Diagram will be submitted to <a href="https://www.gradescope.com/courses/1208578">Gradescope</a> for hand-grading.</p>
+
+<p>The PDF of your ER Diagram can be named whatever you would like. Your diagram can either be fully computer-generated or a scan of something hand-drawn. You may submit any number of times before the deadline. We will grade your latest submission. <strong>One team member should submit on Gradescope, but make sure to submit as a team, specifying your partner on Gradescope at submission time. If you do not do this, we will not be able to assign points to your partner.</strong></p>
+
+<h3 id="autograder">Autograder</h3>
+
+<p>Your SQL scripts will be submitted to the <a href="https://autograder.io/">Autograder</a> for automated testing. Reach out via Piazza if you do not have access to the Autograder. It is your responsibility to ensure you have access well before the deadline.</p>
+
+<p>Each team will be allowed 3 submissions per day with feedback; any submissions made in excess of those 3 will be graded, but the results of those submissions will be hidden from the team. Your highest scoring submission will be used for grading, with ties favoring your latest submission.</p>
+
+<h1 id="appendix">Appendix</h1>
+
+<h2 id="circular-dependencies">Circular Dependencies</h2>
+
+<p>Consider the following situation: you have two data tables, <strong>TableA</strong> and <strong>TableB</strong>. TableA needs to have a foreign key constraint on a column of TableB, and TableB needs to have a foreign key constraint on a column of TableA. How would you implement this in SQL?</p>
+
+<p>One tempting solution is to directly include the foreign key constraints in your <code class="language-plaintext highlighter-rouge">CREATE TABLE</code> statements, but this unfortunately does not work. To create a foreign key, the table being referenced must already exist – no matter which order we attempt to write out <code class="language-plaintext highlighter-rouge">CREATE TABLE</code> statements, the first one is going to fail because the other table will not yet exist.</p>
+
+<p>Instead, we can add foreign key constraints to a table after it and the table it references have been created using an <code class="language-plaintext highlighter-rouge">ALTER TABLE</code> statement. The syntax for adding a foreign-key constraint to a previously created table is:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="o">&lt;</span><span class="k">table_name</span><span class="o">&gt;</span>
+<span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="o">&lt;</span><span class="n">constaint_name</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">constraint_syntax</span><span class="o">&gt;</span>
+<span class="k">INITIALLY</span> <span class="k">DEFERRED</span> <span class="k">DEFERRABLE</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>where <code class="language-plaintext highlighter-rouge">constraint_syntax</code> should be the foreign key syntax that you would have put in a <code class="language-plaintext highlighter-rouge">CREATE TABLE</code> statement. (Note: the above <code class="language-plaintext highlighter-rouge">ALTER TABLE</code> syntax works for other kinds of SQL constraints as well.)</p>
+
+<p>For simplicity and safety, you can write an <code class="language-plaintext highlighter-rouge">ALTER TABLE</code> statement using the above syntax for both tables in a circular dependency. You don’t have to implement constraints this way to get full credit; other syntax can work and can be more concise. <strong>Remember that like sequences and triggers, <code class="language-plaintext highlighter-rouge">ALTER TABLE</code> statements help define your database schema, and thus, are SQL DDL commands.</strong> Think about which file they should be included in.</p>
+
+<p>Adding <code class="language-plaintext highlighter-rouge">INITIALLY DEFERRED DEFERRABLE</code> tells Oracle to defer the constraint check until later when you run your <code class="language-plaintext highlighter-rouge">loadData.sql</code> script to populate your tables. Why would we need to defer the check? Imagine your Table A and Table B have a circular dependency and are currently empty, but we are about to insert data into both tables. As soon as we insert data into Table A that is supposed to reference rows in Table B, Oracle will claim that Table A’s foreign key constraint has been violated, since all references to Table B in Table A don’t currently point to anything valid (remember, Table B is currently empty!).</p>
+
+<p>By <em>deferring</em> the check on Table A’s foreign key references to Table B, we can give Oracle the chance to insert data into both Table A and Table B before it performs the foreign key check. You can ensure that this happens by grouping the <code class="language-plaintext highlighter-rouge">INSERT</code> statements for Table A and Table B into a single transaction. A transaction is an atomic unit of work that the database performs. When you defer a constraint check, Oracle will wait until the end of a transaction to check for constraint violations. We will learn more about transactions at the end of the semester. By default, Oracle treats each individual SQL statement as its own transaction. This feature is called autocommitting, which is not desirable if you would like to insert into Table A and Table B in the same transaction.</p>
+
+<p>Instead, you should manually define a transaction by turning off autocommit with the statement <code class="language-plaintext highlighter-rouge">SET AUTOCOMMIT OFF;</code> in your script. After this statement, you can include your <code class="language-plaintext highlighter-rouge">INSERT</code> statements for Table A and Table B. After your <code class="language-plaintext highlighter-rouge">INSERT</code> statements, you should include the statement <code class="language-plaintext highlighter-rouge">COMMIT;</code>. You will want to turn autocommit back on once this is done by including the statement <code class="language-plaintext highlighter-rouge">SET AUTOCOMMIT ON;</code>.</p>
+
+<h2 id="debugging-and-dependencies-between-tables">Debugging and Dependencies Between Tables</h2>
+
+<p>Be mindful of the dependencies between tables when debugging your code. For example, in Part 2, if your Users table fails to be created, other subsequent tables that depend on the Users table will also fail to be created. As another example, if you are failing Test_User_Current_Cities in Part 3 on the Autograder, check that you have first gotten Test_Cities correct.</p>
+
+<h2 id="faq-from-past-semesters">FAQ From Past Semesters</h2>
+
+<p><strong>Q: The order of columns in my table and/or view schemas does not match the order of columns in the public dataset’s schema. Is this a problem?</strong></p>
+
+<p><strong>A:</strong> Yes, the column order in your table and view schemas must match the order specified in this spec.</p>
+
+<p><strong>Q: Are the IDs in the public dataset all unique?</strong></p>
+
+<p><strong>A:</strong> Kind of. Each user/event/etc. in the public dataset has a unique ID, but there may be multiple
+rows in a given table representing data for a single user/event/etc. In those cases, the IDs
+will be repeated.</p>
+
+<p><strong>Q: Do I need to include checking for the Type and Subtype fields in the Events table?</strong></p>
+
+<p><strong>A:</strong> Nope.</p>
+
+<p><strong>Q: Can we trust all of the data in the public dataset?</strong></p>
+
+<p><strong>A:</strong> All of the data in the public dataset conforms to all of the constraints laid out in this document. The only exception is the <code class="language-plaintext highlighter-rouge">PUBLIC_ARE_FRIENDS</code> table, which may contain impermissible duplicates.</p>
+
+<p><strong>Q: I looked up the schema for one of the tables, and I saw NUMBER where the spec says the datatype should be INTEGER. Which should I use?</strong></p>
+
+<p><strong>A:</strong> Our database uses <code class="language-plaintext highlighter-rouge">INTEGER</code> as an alias for a specifically-sized <code class="language-plaintext highlighter-rouge">NUMBER</code> type, which is why you may see <code class="language-plaintext highlighter-rouge">NUMBER</code> or <code class="language-plaintext highlighter-rouge">NUMBER(38)</code> in the <code class="language-plaintext highlighter-rouge">DESC</code> output. Stick to using <code class="language-plaintext highlighter-rouge">INTEGER</code> in your DDLs, with the exception of <code class="language-plaintext highlighter-rouge">TAG_X</code> and <code class="language-plaintext highlighter-rouge">TAG_Y</code>, which should be <code class="language-plaintext highlighter-rouge">NUMBER</code>.</p>
+
+<p><strong>Q: Is there an automatically-incrementing numeric type that I can use?</strong></p>
+
+<p><strong>A:</strong> No, there is not. For those of you familiar with MySQL, Oracle has no equivalent to the auto increment specifier. You will have to use Sequences to achieve an equivalent effect.</p>
+
+<p><strong>Q: How do I make sure that every Album contains at least one Photo in my SQL scripts?</strong></p>
+
+<p><strong>A:</strong> You can do this with a couple of more complicated triggers, but that is beyond the scope of
+this course, so you do not need to have this constraint enforced by your SQL scripts. You do, however, have to show this constraint on your ER diagram.</p>
+
+<p><strong>Q: There are many ways to declare a foreign key, how should I do it/is there an advised way?</strong></p>
+
+<p><strong>A:</strong> For this project, it is advised that you use <code class="language-plaintext highlighter-rouge">FOREIGN KEY (Column_ID) REFERENCES Table_name (Other_ID)</code>. Students have encountered Autograder errors when attempting other declarations. If you have encountered errors while using a different declaration, it may be helpful to try this!</p>
+
+<p><strong>Q: Why do we sometimes use the AS keyword for aliases, but sometimes we don’t?</strong></p>
+
+<p><strong>A:</strong> In Oracle, column aliases can be defined as <code class="language-plaintext highlighter-rouge">column_name AS column_alias</code> or <code class="language-plaintext highlighter-rouge">column_name column_alias</code>. Table aliases can only be defined as <code class="language-plaintext highlighter-rouge">table_name table_alias</code>.</p>
+
+<!-- The appearance of this error is dependent on how well the data was generated -->
+<!-- **Q: When I execute the command `SELECT * FROM project1.PUBLIC_PHOTO_INFORMATION;`, I get the error `ORA-01877: string is too long for internal buffer`. What does this mean?**
+
+**A:** In short, the reasoning is that SQL\*Plus has a hard time converting ugly, randomly generated timestamps into human-readable strings. So, this is a display issue when you try to view the data through SQL\*Plus, but it shouldn't cause issues on the Autograder or when you load data into your local tables. You can circumvent this by describing how you want to view timestamps with
+
+```
+SELECT TO_CHAR(PHOTO_CREATED_TIME, 'MM/DD/YYYY') AS time FROM project1.PUBLIC_PHOTO_INFORMATION;
+``` -->
+
+<h1 id="acknowledgements">Acknowledgements</h1>
+
+<p>This project was written and revised over the years by EECS 484 staff at the University of Michigan. The most recent version was updated and moved to <a href="https://eecs485staff.github.io/primer-spec/">Primer Spec</a> by Owen Pang.</p>
+
+<p>This document is licensed under a <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>. You may share and adapt this document, but not for commercial purposes. You may not share source code included in this document.</p>
+
+
+
+            <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
+                <div>
+                    See an issue? <a href="https://github.com/eecs484db/eecs484db.github.io/issues">Improve this page.</a>
+                </div>
+            </div>
+        </div> <!-- .container-lg -->
+
+        
+    </body>
+</html>
