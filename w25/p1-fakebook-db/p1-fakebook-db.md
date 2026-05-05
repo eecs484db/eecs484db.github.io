@@ -9,9 +9,9 @@ permalink: /w25/p1-fakebook-db.html
 
 | Worth                                            | Released   | Due                          |
 | ------------------------------------------------ | ---------- | ---------------------------- |
-| 212 points (62 on Gradescope, 150 on Autograder) | Jan 13th    | **Feb 2nd at 11:45PM EST**  |
+| 212 points (62 on Gradescope, 150 on Autograder) | May 6th    | **May 14th at 11:45PM EST**  |
 
-Project 1 is due on **Feb 2nd at 11:45 PM EST**. Please refer to the Course Policies on Canvas for more information on penalties for late submissions, and late day tokens.
+Project 1 is due on **May 14th at 11:45 PM EST**. Please refer to the syllabus on the homepage for more information on penalties for late submissions, and late day tokens.
 
 <!-- ## Change Log -->
 
@@ -548,8 +548,8 @@ This project was written and revised over the years by EECS 484 staff at the Uni
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License][cc-license]. You may share and adapt this document, but not for commercial purposes. You may not share source code included in this document.
 
 [course-policies]: https://docs.google.com/document/d/1iPg67S4sol_67iAt4PjcILSEP6ezmTRLltazdiTI1rk/edit?tab=t.0
-[autograder]: https://autograder.io/web/course/349
-[gradescope]: https://www.gradescope.com/courses/1208578
+[autograder]: https://autograder.io/web/course/389
+[gradescope]: https://www.gradescope.com/courses/1299320
 
 [primer-spec]: https://eecs485staff.github.io/primer-spec/
 [cc-license]: https://creativecommons.org/licenses/by-nc/4.0/
