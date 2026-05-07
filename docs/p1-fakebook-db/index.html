@@ -164,7 +164,7 @@ through the platform, but a user cannot befriend him/herself (you may not need t
 
 <p>Your second task of Project 1 is to write SQL DDL statements to create/drop data tables that reflect the Fakebook specifications. You will need to write 2 SQL scripts for this part: <code class="language-plaintext highlighter-rouge">createTables.sql</code> (to create the data tables) and <code class="language-plaintext highlighter-rouge">dropTables.sql</code> (to drop/destroy the data tables). <strong>These scripts should also create and drop any constraints, sequences, and triggers</strong> you find are necessary to enforce the rules of the Fakebook specification.</p>
 
-<p>Once you have written these two files, you should run them within SQL*Plus on your CAEN Linux machine. You should be able to run the commands below several times sequentially without error. If you cannot do this (i.e. if SQL*Plus reports errors), you are liable to fail tests on the Autograder. To access CAEN and your Oracle account, follow the setup instructions at <a href="/w25/tools">Tools</a>.</p>
+<p>Once you have written these two files, you should run them within SQL*Plus on your CAEN Linux machine. You should be able to run the commands below several times sequentially without error. If you cannot do this (i.e. if SQL*Plus reports errors), you are liable to fail tests on the Autograder. To access CAEN and your Oracle account, follow the setup instructions at <a href="../tools.html">Tools</a>.</p>
 
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">SQL&gt;</span><span class="w"> </span>@createTables
 <span class="gp">SQL&gt;</span><span class="w"> </span>@dropTables
@@ -174,7 +174,7 @@ through the platform, but a user cannot befriend him/herself (you may not need t
 
 <p>We will test that your <code class="language-plaintext highlighter-rouge">createTables.sql</code> script properly creates the necessary data tables with all of the correct constraints. We will attempt to insert both valid and invalid data into your tables with the expectation that the valid inserts will be accepted and the invalid inserts will be rejected. To facilitate this, your tables <strong>must conform exactly to the schema below</strong>, even if it doesn’t exactly match the schema you would have created from your ER Diagram. Column names, types, ordering, and constraints must be the same. Deviating from this schema will cause you to fail tests on the Autograder.</p>
 
-<p>You may find some of the commands listed in <a href="/w25/tools#helpful-sqlplus-commands">Helpful SQL*Plus Commands</a> useful when viewing your tables.</p>
+<p>You may find some of the commands listed in <a href="../tools.html#helpful-sqlplus-commands">Helpful SQL*Plus Commands</a> useful when viewing your tables.</p>
 
 <h4 id="users-1">Users</h4>
 
