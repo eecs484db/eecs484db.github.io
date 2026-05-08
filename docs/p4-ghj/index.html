@@ -34,14 +34,14 @@ THE SOFTWARE. -->
 <meta name="generator" content="Jekyll v3.10.0" />
 <meta property="og:title" content="p4-ghj" />
 <meta property="og:locale" content="en_US" />
-<link rel="canonical" href="https://eecs484db.github.io/w25/p4-ghj.html" />
-<meta property="og:url" content="https://eecs484db.github.io/w25/p4-ghj.html" />
+<link rel="canonical" href="https://eecs484db.github.io/p4-ghj.html" />
+<meta property="og:url" content="https://eecs484db.github.io/p4-ghj.html" />
 <meta property="og:site_name" content="EECS 484 Projects" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="p4-ghj" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","headline":"p4-ghj","url":"https://eecs484db.github.io/w25/p4-ghj.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","headline":"p4-ghj","url":"https://eecs484db.github.io/p4-ghj.html"}</script>
 <!-- End Jekyll SEO tag -->
 
         <!-- Custom CSS -->
@@ -118,7 +118,7 @@ THE SOFTWARE. -->
 
 <p>There are two main phases in GHJ, partition and probe. <strong>Your job is to implement the partition and probe functions in Join.cpp.</strong> You are given other starter files, which along with your code, will simulate the data flow of records in disk and memory and perform a join operation between two relations.</p>
 
-<p>Download the starter files (<a href="https://eecs484db.github.io/w25/p4-ghj/p4-starter_files.tar.gz">p4-starter_files.tar.gz</a>).</p>
+<p>Download the starter files (<a href="p4-starter_files.tar.gz">p4-starter_files.tar.gz</a>).</p>
 
 <p>There are 6 main components: Record, Page, Disk, Mem, Bucket, and Join. The files <code class="language-plaintext highlighter-rouge">constants.hpp</code>, <code class="language-plaintext highlighter-rouge">main.cpp</code>, <code class="language-plaintext highlighter-rouge">Makefile</code>, <code class="language-plaintext highlighter-rouge">left_rel.txt</code> and <code class="language-plaintext highlighter-rouge">right_rel.txt</code>, and <code class="language-plaintext highlighter-rouge">.clang-format</code> will also be used for testing and formatting. Code overview and key points for each component are discussed below.</p>
 
@@ -232,7 +232,7 @@ key3 data3
 
 <p>Refer to the following pseudocode for a complete algorithm of Grace Hash Join:</p>
 
-<p><img src="/w25/p4-ghj/p4-ghj-pseudocode.png" width="400" alt="Grace Hash Join Pseudocode" class="invert-colors-in-dark-mode" /></p>
+<p><img src="p4-ghj-pseudocode.png" width="400" alt="Grace Hash Join Pseudocode" class="invert-colors-in-dark-mode" /></p>
 
 <p><em>In the figure above, a “bucket” refers to a page of the in-memory hash table.
 For more information regarding simple hash join and in-memory hash table, visit
