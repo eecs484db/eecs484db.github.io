@@ -6,7 +6,7 @@
 
 function webby() {
     const e = document.createElement("img");
-    e.src = "assets/images/webby.png";
+    e.src = "assets/images/eecs484logo.png";
     e.style = "height: 40px; filter: drop-shadow(white 0px 0px 8px);";
 
     const backstory = `
