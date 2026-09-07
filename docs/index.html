@@ -28,6 +28,10 @@
   <link href='assets/css/customfontpack.css' rel='stylesheet'/>
 
   <style>
+    /* Smaller text for the course staff card row */
+    .staff-cards .card .header { font-size: 1em !important; }
+    .staff-cards .card .description { font-size: 0.85em; }
+    .staff-cards .card .description p { margin: 0; word-break: break-all; }
     /**
      * We want the sidebar toggle to remain visible as people scroll around the
      * page. Hence, we need to "fix" its position relative to the viewer's
@@ -585,6 +589,65 @@
           </div>
         </div> --> 
       </div> <!-- ui stackable cards -->
+
+      <!-- Course staff (GSIs / IAs) -->
+      <div class="ui five stackable cards staff-cards">
+        <div class="ui fluid card">
+          <div class="image">
+            <img src="assets/headshots/samika.jpg" alt="Samika Gupta head shot" />
+          </div>
+          <div class="content">
+            <div class="header">Samika Gupta</div>
+            <div class="description">
+              <p><i class="icon envelope"></i>samika@umich.edu</p>
+            </div>
+          </div>
+        </div>
+        <div class="ui fluid card">
+          <div class="image">
+            <img src="assets/headshots/zhongwei.jpg" alt="Zhongwei Xu head shot" />
+          </div>
+          <div class="content">
+            <div class="header">Zhongwei Xu</div>
+            <div class="description">
+              <p><i class="icon envelope"></i>xzw@umich.edu</p>
+            </div>
+          </div>
+        </div>
+        <div class="ui fluid card">
+          <div class="image">
+            <img src="assets/headshots/jacob.jpg" alt="Jacob Diry head shot" />
+          </div>
+          <div class="content">
+            <div class="header">Jacob Diry</div>
+            <div class="description">
+              <p><i class="icon envelope"></i>jdiry@umich.edu</p>
+            </div>
+          </div>
+        </div>
+        <div class="ui fluid card">
+          <div class="image">
+            <img src="assets/headshots/leanne.jpg" alt="Leanne Cheng head shot" />
+          </div>
+          <div class="content">
+            <div class="header">Leanne Cheng</div>
+            <div class="description">
+              <p><i class="icon envelope"></i>leannech@umich.edu</p>
+            </div>
+          </div>
+        </div>
+        <div class="ui fluid card">
+          <div class="image">
+            <img src="assets/headshots/teddy.jpg" alt="Teddy Shi head shot" />
+          </div>
+          <div class="content">
+            <div class="header">Teddy Shi</div>
+            <div class="description">
+              <p><i class="icon envelope"></i>teddyshi@umich.edu</p>
+            </div>
+          </div>
+        </div>
+      </div> <!-- ui five stackable cards -->
       <div class="ui hidden section divider"></div>
     </div><!-- ui text container -->
   </div>
