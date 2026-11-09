@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>postgres-local-setup | EECS 484 Projects</title>
+  <meta property="og:title" content="postgres-local-setup">
+  <meta property="og:site_name" content="EECS 484 Projects">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="https://eecs485staff.github.io/primer-spec/assets/v1.8/css/primer-spec-base.css">
+  <script>
+    window.PrimerSpecConfig = {
+      hideSidebarOnLoad: false,
+      disableSidebar: false,
+      defaultSubthemeName: 'default',
+      defaultSubthemeMode: 'system',
+      sitemapEnabled: false,
+      useLegacyCodeBlocks: false,
+      defaultCodeblockVariant: 'enhanced',
+      sitemapSiteTitle: 'EECS 484 Projects'
+    };
+  </script>
+  <script src="https://eecs485staff.github.io/primer-spec/assets/v1.8/js/primer_spec_plugin.min.js" crossorigin="anonymous" defer></script>
+</head>
+<body>
+  <div id="primer-spec-top"></div>
+  <div id="primer-spec-app-container" onclick="return true;"></div>
+  <div id="primer-spec-plugin-main-content">
+    <h1 class="primer-spec-toc-ignore"><a href="/">EECS 484 Projects</a> | postgres-local-setup</h1>
+
+    <h1 id="local-postgresql-setup">Local PostgreSQL Setup Guide</h1>
+    <p>This guide covers installing, starting, and using PostgreSQL on your own computer.</p>
+
+    <h2 id="choose-an-installation">1. Install PostgreSQL</h2>
+    <p>Download a current supported release from the <a href="https://www.postgresql.org/download/">official PostgreSQL downloads page</a>. On Windows, use the official page's EDB installer. The Windows installer includes the PostgreSQL server, command-line tools, pgAdmin, and StackBuilder.</p>
+    <p>During installation:</p>
+    <ul>
+      <li>Install the PostgreSQL Server and Command Line Tools.</li>
+      <li>Set a password for the initial administrative role and store it securely.</li>
+      <li>Keep the default port <code>5432</code> unless another local service already uses it.</li>
+      <li>Remember the installation directory if the installer does not add <code>psql</code> and <code>createdb</code> to your <code>PATH</code>.</li>
+    </ul>
+    <p>On macOS or Linux, use the package manager or installer documented for your operating system.</p>
+
+    <h2 id="verify-installation">2. Verify the client and server</h2>
+    <p>Open a new terminal after installation and check that the client is available:</p>
+    <pre><code>psql --version
+createdb --version</code></pre>
+    <p>Then connect to the default administrative database. Replace <code>postgres</code> with the role name you created if necessary:</p>
+    <pre><code>psql -U postgres -h localhost -p 5432 -d postgres</code></pre>
+    <p>Inside <code>psql</code>, run:</p>
+    <pre><code>SELECT version();
+\conninfo
+\q</code></pre>
+    <p>If the client cannot connect, the PostgreSQL service is probably stopped, the port is different, or the role/password is incorrect.</p>
+
+    <h2 id="create-course-database">3. Create a dedicated project database</h2>
+    <p>Use a separate database for each project. Do not use a production database or a database containing unrelated personal data.</p>
+    <pre><code>createdb -U postgres -h localhost -p 5432 eecs484_p4</code></pre>
+    <p>Connect to it:</p>
+    <pre><code>psql -U postgres -h localhost -p 5432 -d eecs484_p4</code></pre>
+    <p>If your local role is your operating-system username, you can omit <code>-U postgres</code>. PostgreSQL's <code>createdb</code> utility creates a database owned by the role used for the connection.</p>
+
+    <h2 id="load-dvd-store">4. Load the Dell DVD Store dataset</h2>
+    <p>Download the <a href="../p4-bplus-tree/dvd_store_data.zip">Dell DVD Store data ZIP</a> from the project page and extract it on your computer. The archive contains a <code>dvd_store_data</code> directory with the data files and PostgreSQL scripts.</p>
+    <p>Open a terminal in the extracted <code>dvd_store_data</code> directory. This working directory matters because the scripts use relative paths such as <code>./data/...</code>.</p>
+    <p>On Windows PowerShell, for example:</p>
+    <pre><code>Expand-Archive .\dvd_store_data.zip -DestinationPath .
+Set-Location .\dvd_store_data</code></pre>
+    <p>On macOS or Linux:</p>
+    <pre><code>unzip dvd_store_data.zip
+cd dvd_store_data</code></pre>
+    <p>Load the tables and data into the local project database:</p>
+    <pre><code>psql -v ON_ERROR_STOP=1 -U postgres -h localhost -p 5432 -d eecs484_p4 -f setup_db.sql</code></pre>
+    <p>The setup script recreates the DVD Store tables, loads the CSV files, and disables bitmap scans for the exercises. After loading, refresh the planner statistics:</p>
+    <pre><code>psql -v ON_ERROR_STOP=1 -U postgres -h localhost -p 5432 -d eecs484_p4 -c "ANALYZE;"</code></pre>
+    <p>To inspect the loaded tables and indexes, connect to the database and run:</p>
+    <pre><code>psql -U postgres -h localhost -p 5432 -d eecs484_p4
+\dt
+\d+ customers
+\d+ orders
+\q</code></pre>
+    <p>Run your baseline queries before adding indexes. To add the standard indexes included in the archive, run <code>pgsqlds2_create_ind.sql</code> from the same <code>dvd_store_data</code> directory:</p>
+    <pre><code>psql -v ON_ERROR_STOP=1 -U postgres -h localhost -p 5432 -d eecs484_p4 -f pgsqlds2_create_ind.sql</code></pre>
+
+    <h2 id="run-sql-files">5. Run SQL files</h2>
+    <p>From the directory containing a project SQL file, run it with <code>-f</code>:</p>
+    <pre><code>psql -v ON_ERROR_STOP=1 -U postgres -h localhost -p 5432 -d eecs484_p4 -f setup.sql</code></pre>
+    <p>Use <code>-v ON_ERROR_STOP=1</code> so that a script stops at its first error. To run a query file and save the output for your analysis:</p>
+    <pre><code>psql -v ON_ERROR_STOP=1 -U postgres -h localhost -p 5432 -d eecs484_p4 -f queries.sql -o query-output.txt</code></pre>
+    <p>Inside <code>psql</code>, useful commands include:</p>
+    <pre><code>\dt
+\d+ table_name
+\di+
+\timing on
+\x auto</code></pre>
+
+    <h2 id="query-plans">6. Capture query plans</h2>
+    <p>To inspect a read-only query plan, run:</p>
+    <pre><code>EXPLAIN (ANALYZE, BUFFERS, VERBOSE)
+SELECT ...;</code></pre>
+    <p><code>EXPLAIN ANALYZE</code> executes the statement. Use it only for read-only queries unless the statement is deliberately wrapped in a transaction that you roll back. For writes, first inspect the plan with plain <code>EXPLAIN</code>, or use a transaction:</p>
+    <pre><code>BEGIN;
+EXPLAIN (ANALYZE, BUFFERS) UPDATE ...;
+ROLLBACK;</code></pre>
+    <p>For repeatable comparisons, record the query, index definitions, PostgreSQL version, table sizes, and whether the database was freshly loaded. Planner choices can change with statistics, cache state, data size, and hardware.</p>
+
+    <h2 id="statistics">7. Refresh statistics</h2>
+    <p>After loading or substantially changing data, refresh planner statistics:</p>
+    <pre><code>ANALYZE;</code></pre>
+    <p>During routine setup, avoid <code>VACUUM FULL</code> and global server-setting changes. These operations can change storage layout and affect other databases on the same computer.</p>
+
+    <h2 id="common-problems">Common problems</h2>
+    <h3 id="psql-not-found"><code>psql</code> or <code>createdb</code> is not recognized</h3>
+    <p>Open a new terminal first. If the command is still unavailable, add the PostgreSQL <code>bin</code> directory to your user <code>PATH</code>, or invoke the executable by its full path. On Windows, the directory is commonly under <code>C:\Program Files\PostgreSQL\&lt;major&gt;\bin</code>.</p>
+
+    <h3 id="connection-refused">Connection refused</h3>
+    <p>Confirm that the PostgreSQL service is running, that the port is correct, and that you are using <code>-h localhost</code>. On Windows, check the PostgreSQL service in Services. On macOS or Linux, use the service controls provided by your installation method.</p>
+
+    <h3 id="password-failed">Password authentication failed</h3>
+    <p>Check the role name and password. Keep the password out of shell commands and SQL files; let <code>psql</code> prompt for it.</p>
+
+    <h3 id="port-in-use">Port 5432 is already in use</h3>
+    <p>Either stop the unrelated local service or choose another port during installation and use that port consistently with <code>-p</code>. Do not disable a service you do not recognize.</p>
+
+    <h2 id="cleanup">8. Remove the project database</h2>
+    <p>When you no longer need the database, remove only the project database:</p>
+    <pre><code>dropdb -U postgres -h localhost -p 5432 eecs484_p4</code></pre>
+    <p>Never run <code>dropdb</code> against a database unless you have verified its exact name and no longer need its contents.</p>
+
+    <h2 id="official-references">Official references</h2>
+    <ul>
+      <li><a href="https://www.postgresql.org/download/">PostgreSQL downloads</a></li>
+      <li><a href="https://www.postgresql.org/download/windows/">PostgreSQL Windows installers</a></li>
+      <li><a href="https://www.postgresql.org/docs/current/app-psql.html"><code>psql</code> reference</a></li>
+      <li><a href="https://www.postgresql.org/docs/current/tutorial-createdb.html">Creating a database</a></li>
+      <li><a href="https://www.postgresql.org/docs/current/using-explain.html">Using <code>EXPLAIN</code></a></li>
+    </ul>
+
+    <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
+      <div>See an issue? <a href="https://github.com/eecs484db/eecs484db.github.io/issues">Improve this page.</a></div>
+    </div>
+  </div>
+</body>
+</html>

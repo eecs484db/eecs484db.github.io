@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>B+ Tree and Query Optimizer | EECS 484 Projects</title>
+  <meta property="og:title" content="B+ Tree and Query Optimizer">
+  <meta property="og:site_name" content="EECS 484 Projects">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="https://eecs485staff.github.io/primer-spec/assets/v1.8/css/primer-spec-base.css">
+  <script>
+    window.PrimerSpecConfig = {
+      hideSidebarOnLoad: false,
+      disableSidebar: false,
+      defaultSubthemeName: 'default',
+      defaultSubthemeMode: 'system',
+      sitemapEnabled: false,
+      useLegacyCodeBlocks: false,
+      defaultCodeblockVariant: 'enhanced',
+      sitemapSiteTitle: 'EECS 484 Projects'
+    };
+  </script>
+  <script src="https://eecs485staff.github.io/primer-spec/assets/v1.8/js/primer_spec_plugin.min.js" crossorigin="anonymous" defer></script>
+</head>
+<body>
+  <div id="primer-spec-top"></div>
+  <div id="primer-spec-app-container" onclick="return true;"></div>
+  <div id="primer-spec-plugin-main-content">
+    <h1 class="primer-spec-toc-ignore"><a href="/">EECS 484 Projects</a> | B+ Tree and Query Optimizer</h1>
+
+    <h1 id="project-4-b-plus-tree">Project 4: B+ Tree and Query Optimizer</h1>
+
+    <table>
+      <thead><tr><th>Worth</th><th>Released</th><th>Due</th></tr></thead>
+      <tbody><tr><td>100 points</td><td>Spring 2026</td><td>See the course schedule</td></tr></tbody>
+    </table>
+
+    <h2 id="introduction">Introduction</h2>
+    <p>There are two parts to this project. The first part will require you to implement certain B+ tree functions. The second part will give you hands-on experience in creating indexes and understanding query optimizers in PostgreSQL. The project zip archive will provide the starter files and the exact files, prototypes, and build commands for Part 1.</p>
+    <p>This page is the project specification. PostgreSQL installation and local-server troubleshooting are documented separately in the <a href="../postgres-local-setup/index.html">Local PostgreSQL Setup Guide</a>.</p>
+
+    <h2 id="submissions">Submissions</h2>
+    <p><strong>This project is to be done in teams of 2 students.</strong> Both members of a team receive the same score. Be sure to create your team on the <a href="https://autograder.io/">Autograder</a>.</p>
+    <p>The starter archive will be posted with the project materials. The archive is the source of truth for exact filenames, prototypes, and build commands.</p>
+
+    <h2 id="honor-code">Honor Code</h2>
+    <p>By submitting this project, you are agreeing to abide by the Honor Code: “I have neither given nor received unauthorized aid on this assignment, nor have I concealed any violations of the Honor Code.” You may not share answers with other students actively enrolled in the course outside of your teammate, nor may you consult with students who took the course in previous semesters. You are, however, allowed to discuss general approaches and class concepts with other students, and you are also permitted and encouraged to post questions on Piazza.</p>
+    <p>If you are retaking the class, you must work alone for the projects you worked on in previous semesters. For projects that you have not worked on in previous semesters, you are free to find a teammate.</p>
+    <p>Late days: A flat 15% penalty will be deducted if you submit within 4 days after the deadline.</p>
+
+    <h1 id="part-1-b-plus-tree">Part 1: B+ Tree Implementation (70 points)</h1>
+    <p>For this part of the project, you are expected to implement basic functionality to a B+ tree using the algorithms discussed in class. The required operations are:</p>
+    <ul>
+      <li><code>Btree::insert()</code></li>
+      <li><code>Btree::remove()</code></li>
+      <li><code>Btree::search_range()</code>, returning every item in the inclusive range</li>
+    </ul>
+    <p>Duplicates should not be stored in this B+ tree. We have provided skeleton code as well as implementations of some basic functions so that you do not have to start from scratch. It is advised that you familiarize yourself with B+ tree operations thoroughly before starting.</p>
+
+    <p>We have provided you with an implementation of <code>Btree::search()</code> as a simple example of how you can interface with the skeleton code. We have also provided basic operations for the B+ tree node classes. The starter archive identifies which functions are given and which functions you must implement.</p>
+
+    <h2 id="what-you-need-to-do">What you need to do</h2>
+    <ol>
+      <li>Implement <code>Btree::insert()</code> as described in lecture. Prefer splitting nodes over redistribution.</li>
+      <li>Implement <code>Btree::remove()</code> as described in lecture. Prefer redistribution over merging.</li>
+      <li>Implement <code>Btree::search_range()</code>. Include all <code>Data*</code> values between the given range, inclusive.</li>
+    </ol>
+
+    <h2 id="tree-rules">Specific rules for splitting, redistribution, and merging</h2>
+    <p>Follow these general rules when implementing the above functions:</p>
+    <ol>
+      <li><strong>When splitting:</strong>
+        <ul>
+          <li>Push the smallest value of the newly split right node up to the parent.</li>
+          <li>For leaf nodes, first split existing nodes evenly between the left and right node. Then insert the new value into the appropriate, valid node based on the existing values and the insert value. There are cases where both nodes are valid. In these cases, add the value to the left node.</li>
+        </ul>
+      </li>
+      <li><strong>When redistributing:</strong>
+        <ul>
+          <li>For leaf nodes, update the appropriate parent node with the smallest value in the right node. Redistribute with any valid left or right nodes.</li>
+          <li>For inner nodes, only redistribute with sibling nodes.</li>
+          <li>Prefer redistribution with the right node over the left node.</li>
+          <li>The right-hand side will always have more values than the left-hand side, if not equal. The right-hand side and left-hand side should have the same number of values. When this is impossible due to an odd number of values, the right-hand side should have one more value than the left-hand side.</li>
+        </ul>
+      </li>
+      <li><strong>When merging:</strong>
+        <ul>
+          <li>For leaf nodes, merge with any valid left or right nodes.</li>
+          <li>For inner nodes, only merge with a sibling node.</li>
+          <li>Prefer merging with the right node over the left node.</li>
+          <li>Always merge the right node values into the left node.</li>
+        </ul>
+      </li>
+    </ol>
+
+    <p>Remember to maintain the private variable <code>size</code> while implementing the above functions. The capacity of each inner node must always be between <code>(BTREE_FANOUT - 1) / 2</code> and <code>BTREE_FANOUT - 1</code>, except when it is the root node. The capacity of leaf nodes must be between <code>BTREE_LEAF_SIZE / 2</code> and <code>BTREE_LEAF_SIZE</code>, except when the leaf is the root node.</p>
+    <p><code>BTREE_FANOUT</code> is guaranteed to be odd and <code>BTREE_LEAF_SIZE</code> is guaranteed to be even. Always use the constants defined in <code>constants.h</code>, such as <code>BTREE_LEAF_SIZE</code> and <code>BTREE_FANOUT</code>. The B+ tree should initially start empty, with its root node being a <code>Bnode_leaf*</code>. When this leaf node has to split, change the root node to a <code>Bnode_inner</code>. The root should turn back into a <code>Bnode_leaf</code> when its size is less than <code>BTREE_LEAF_SIZE</code>.</p>
+
+    <h2 id="testing">Test cases</h2>
+    <p>We have provided you with a printing function that prints your B+ tree to an output stream. The grader will compare the required output to the solution's output. The required comparison lines begin with <code>@@@</code>; these are the only lines that will be compared during grading.</p>
+    <p>We have provided a main test driver and an equivalent expected output as a starting point for determining whether your B+ tree is correct. It is highly recommended that you create your own test cases and parse the output yourself to see if you have implemented the algorithms correctly.</p>
+    <p>An <code>Btree::isValid()</code> function is provided to test whether your B+ tree has maintained ordering correctly. This does not check whether your B+ tree is implemented correctly; it serves merely as a sanity check and catches obvious errors.</p>
+
+    <h2 id="part-1-submission">Part 1 submission and grading</h2>
+    <p>Download the <a href="p4_starter.zip">P4 starter files</a> before beginning Part 1.</p>
+    <p>Please make a group submission if you have a partner. Submit to the Autograder the files required by the starter archive, including the implementation source files, headers, and Makefile. Once unzipped, the project must build using the documented command. The grader will supply its own test driver when required.</p>
+    <p>You will receive points based on how many of the Autograder test cases you pass. The Autograder submission policy is described on the assignment page.</p>
+    <p>Up to 7 points may be deducted for style problems such as obfuscated or uncommented code, unnecessary repetition, avoidable extra I/O, or debug output that violates the required output contract.</p>
+
+    <h1 id="part-2-postgresql">Part 2: PostgreSQL Query Optimizer (30 points)</h1>
+    <p>The starter PDF file can be found here: <span>[LINK TO GOOGLE DRIVE]</span></p>
+    <p>The second part of the project will give you some hands-on experience in creating indexes and understanding query optimizers in PostgreSQL. This part uses PostgreSQL; it is not a SQL*Plus, Oracle, or SQLite assignment. The questions for this part will be provided in the <code>p3answers.pdf</code> handout.</p>
+
+    <h2 id="part-2-environment">Environment</h2>
+    <p>Use a supported local PostgreSQL installation, preferably the current stable release available from the official PostgreSQL download page. The <a href="../postgres-local-setup/index.html">Local PostgreSQL Setup Guide</a> covers Windows, macOS, and Linux.</p>
+
+    <h2 id="part-2-work">Dataset and exercises</h2>
+    <p>In this assignment, we will work with a small subset of the Dell DVD Store e-commerce dataset. This dataset has information about customers, products, and orders. Although the dataset contains eight tables, the exercises focus on the following two tables:</p>
+    <ul>
+      <li><strong>Customers</strong> (<code>customerid</code>, <code>firstname</code>, <code>lastname</code>, <code>city</code>, <code>state</code>, <code>country</code>, and other attributes)</li>
+      <li><strong>Orders</strong> (<code>orderid</code>, <code>orderdate</code>, <code>customerid</code>, <code>netamount</code>, <code>tax</code>, <code>totalamount</code>)</li>
+    </ul>
+    <p>Download the <a href="dvd_store_data.zip">Dell DVD Store data</a> and load it into your local PostgreSQL database using the project materials and the <a href="../postgres-local-setup/index.html">Local PostgreSQL Setup Guide</a>. You can inspect a table's schema and indexes with <code>\\d+ tablename</code>.</p>
+    <p>The exercises will ask you to create and remove indexes, run SQL queries, and inspect the query optimizer's choices using PostgreSQL <code>EXPLAIN</code> commands. A bitmap index is disabled in the driver file <code>setup_db.sql</code> because bitmap indexes are not covered in this class.</p>
+    <p>Answers and query-plan output may differ slightly across different runs because of database statistics, cache state, data size, and other local execution conditions.</p>
+
+    <h2 id="part-2-submission">Part 2 submission and grading</h2>
+    <p>Submit three documents. Include your name, your partner's name if applicable, and both uniqnames at the top of every file. In the SQL file, include this information in a comment.</p>
+    <ol>
+      <li><strong><code>P3answers.pdf</code>:</strong> answers to the eight exercises and the SQL commands used to answer each exercise. Keep the commands as neat as possible.</li>
+      <li><strong><code>P3output.pdf</code>:</strong> the outputs of the <code>EXPLAIN</code> commands for all exercises, numbered by exercise number.</li>
+      <li><strong><code>P3queries.sql</code>:</strong> all SQL queries in the proper sequence, including database reloading and <code>ENABLE</code> and <code>DROP</code> commands. The script should run all exercises in sequence and include comments indicating the question to which each query applies.</li>
+    </ol>
+    <p>If you are working with a partner, make one group submission. The current course submission policy applies to this part of the project.</p>
+
+    <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
+      <div>See an issue? <a href="https://github.com/eecs484db/eecs484db.github.io/issues">Improve this page.</a></div>
+    </div>
+  </div>
+</body>
+</html>
