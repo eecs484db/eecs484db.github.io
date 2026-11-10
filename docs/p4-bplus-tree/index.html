@@ -33,7 +33,7 @@
 
     <table>
       <thead><tr><th>Worth</th><th>Released</th><th>Due</th></tr></thead>
-      <tbody><tr><td>100 points</td><td>Spring 2026</td><td>See the course schedule</td></tr></tbody>
+      <tbody><tr><td>177 points</td><td>Fall 2026</td><td>December 01, 2026</td></tr></tbody>
     </table>
 
     <h2 id="introduction">Introduction</h2>
@@ -48,7 +48,7 @@
     <p>By submitting this project, you are agreeing to abide by the Honor Code: “I have neither given nor received unauthorized aid on this assignment, nor have I concealed any violations of the Honor Code.” You may not share answers with other students actively enrolled in the course outside of your teammate, nor may you consult with students who took the course in previous semesters. You are, however, allowed to discuss general approaches and class concepts with other students, and you are also permitted and encouraged to post questions on Piazza.</p>
     <p>If you are retaking the class, you must work alone for the projects you worked on in previous semesters. For projects that you have not worked on in previous semesters, you are free to find a teammate.</p>
 
-    <h1 id="part-1-b-plus-tree">Part 1: B+ Tree Implementation (70 points)</h1>
+    <h1 id="part-1-b-plus-tree">Part 1: B+ Tree Implementation (77 points)</h1>
     <p>For this part of the project, you are expected to implement basic functionality to a B+ tree using the algorithms discussed in class. The required operations are:</p>
     <ul>
       <li><code>Btree::insert()</code></li>
@@ -191,7 +191,7 @@ ANALYZE orders;
     <p>The exact switch points and buffer counts depend on your PostgreSQL version and settings, so they may not match your classmates' numbers. You will be graded on whether your measurements are consistent with each other and on the reasoning in your explanations, not on matching specific numbers.</p>
 
     <h2 id="part-2-submission">Part 2 submission and grading</h2>
-    <p>Submit three documents. Include your name, your partner's name if applicable, and both uniqnames at the top of every file. In the SQL file, include this information in a comment.</p>
+    <p>Submit one document to Gradescope Project 4 Query Optimization. Only one partner needs to submit, and be sure to add partner to the submission</p>
     <ol>
       <li><strong><code>P3answers.pdf</code>:</strong> answers to all nine exercises (Exercises 1&ndash;7 from the handout and Exercises 8&ndash;9 on this page) and the SQL commands used to answer each exercise. Keep the commands as neat as possible.</li>
       <li><strong><code>P3output.pdf</code>:</strong> the outputs of the <code>EXPLAIN</code> commands for all exercises, numbered by exercise number.</li>
@@ -199,6 +199,42 @@ ANALYZE orders;
     </ol>
     <p>If you are working with a partner, make one group submission. The current course submission policy applies to this part of the project.</p>
 
+    <h2>Helpful Links</h2>
+    <p>
+      The following are links to Postgres documentation relevant to this assignment.
+      Be prepared to look up the documentation as you work on the exercises.
+    </p>
+    
+    <ul>
+      <li>
+        Full PostgreSQL 18 documentation:<br>
+        <a href="https://www.postgresql.org/docs/18/index.html">https://www.postgresql.org/docs/18/index.html</a>
+      </li>
+      <li>
+        Statistics used by the query planner:<br>
+        <a href="https://www.postgresql.org/docs/18/planner-stats.html">https://www.postgresql.org/docs/18/planner-stats.html</a>
+      </li>
+      <li>
+        How to manipulate the query planner (such as disabling the use of a join algorithm):<br>
+        <a href="https://www.postgresql.org/docs/18/runtime-config-query.html">https://www.postgresql.org/docs/18/runtime-config-query.html</a>
+      </li>
+      <li>
+        Syntax of the <code>EXPLAIN</code> command:<br>
+        <a href="https://www.postgresql.org/docs/18/sql-explain.html">https://www.postgresql.org/docs/18/sql-explain.html</a>
+      </li>
+      <li>
+        How to use the <code>EXPLAIN</code> command and interpret its output:<br>
+        <a href="https://www.postgresql.org/docs/18/using-explain.html">https://www.postgresql.org/docs/18/using-explain.html</a>
+      </li>
+      <li>
+        Creating an index:<br>
+        <a href="https://www.postgresql.org/docs/18/sql-createindex.html">https://www.postgresql.org/docs/18/sql-createindex.html</a>
+      </li>
+      <li>
+        Creating a clustered index:<br>
+        <a href="https://www.postgresql.org/docs/18/sql-cluster.html">https://www.postgresql.org/docs/18/sql-cluster.html</a>
+      </li>
+    </ul>
     <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
       <div>See an issue? <a href="https://github.com/eecs484db/eecs484db.github.io/issues">Improve this page.</a></div>
     </div>
