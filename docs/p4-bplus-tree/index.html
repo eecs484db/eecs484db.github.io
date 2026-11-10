@@ -33,7 +33,7 @@
 
     <table>
       <thead><tr><th>Worth</th><th>Released</th><th>Due</th></tr></thead>
-      <tbody><tr><td>100 points</td><td>Spring 2026</td><td>See the course schedule</td></tr></tbody>
+      <tbody><tr><td>100 points</td><td>Fall 2026</td><td>December 01, 2026</td></tr></tbody>
     </table>
 
     <h2 id="introduction">Introduction</h2>
@@ -109,7 +109,7 @@
     <p>Up to 7 points may be deducted for style problems such as obfuscated or uncommented code, unnecessary repetition, avoidable extra I/O, or debug output that violates the required output contract.</p>
 
     <h1 id="part-2-postgresql">Part 2: PostgreSQL Query Optimizer (30 points)</h1>
-    <p>The starter PDF file can be found here: <span>[LINK TO GOOGLE DRIVE]</span></p>
+    <p>The starter PDF file can be found here: <href>https://drive.google.com/drive/folders/17ZMJVrt6Dnwd6wMP3SsbuOWO2EDqFAAV?usp=drive_link</href></p>
     <p>The second part of the project will give you some hands-on experience in creating indexes and understanding query optimizers in PostgreSQL. This part uses PostgreSQL; it is not a SQL*Plus, Oracle, or SQLite assignment. The questions for this part will be provided in the <code>p3answers.pdf</code> handout.</p>
 
     <h2 id="part-2-environment">Environment</h2>
@@ -126,14 +126,48 @@
     <p>Answers and query-plan output may differ slightly across different runs because of database statistics, cache state, data size, and other local execution conditions.</p>
 
     <h2 id="part-2-submission">Part 2 submission and grading</h2>
-    <p>Submit three documents. Include your name, your partner's name if applicable, and both uniqnames at the top of every file. In the SQL file, include this information in a comment.</p>
+    <p>Submit one document to Gradescope Project 4 Query Optimization. Only one partner needs to submit, and be sure to add partner to the submission</p>
     <ol>
-      <li><strong><code>P3answers.pdf</code>:</strong> answers to the eight exercises and the SQL commands used to answer each exercise. Keep the commands as neat as possible.</li>
-      <li><strong><code>P3output.pdf</code>:</strong> the outputs of the <code>EXPLAIN</code> commands for all exercises, numbered by exercise number.</li>
-      <li><strong><code>P3queries.sql</code>:</strong> all SQL queries in the proper sequence, including database reloading and <code>ENABLE</code> and <code>DROP</code> commands. The script should run all exercises in sequence and include comments indicating the question to which each query applies.</li>
+      <li><strong><code>P4answers.pdf</code>:</strong> answers to the eight exercises, the Postgres commands used to answer each exercise, and all queries with output. Keep the commands as neat as possible.</li>
     </ol>
     <p>If you are working with a partner, make one group submission. The current course submission policy applies to this part of the project.</p>
 
+    <h2>Helpful Links</h2>
+    <p>
+      The following are links to Postgres documentation relevant to this assignment.
+      Be prepared to look up the documentation as you work on the exercises.
+    </p>
+    
+    <ul>
+      <li>
+        Full PostgreSQL 18 documentation:<br>
+        <a href="https://www.postgresql.org/docs/18/index.html">https://www.postgresql.org/docs/18/index.html</a>
+      </li>
+      <li>
+        Statistics used by the query planner:<br>
+        <a href="https://www.postgresql.org/docs/18/planner-stats.html">https://www.postgresql.org/docs/18/planner-stats.html</a>
+      </li>
+      <li>
+        How to manipulate the query planner (such as disabling the use of a join algorithm):<br>
+        <a href="https://www.postgresql.org/docs/18/runtime-config-query.html">https://www.postgresql.org/docs/18/runtime-config-query.html</a>
+      </li>
+      <li>
+        Syntax of the <code>EXPLAIN</code> command:<br>
+        <a href="https://www.postgresql.org/docs/18/sql-explain.html">https://www.postgresql.org/docs/18/sql-explain.html</a>
+      </li>
+      <li>
+        How to use the <code>EXPLAIN</code> command and interpret its output:<br>
+        <a href="https://www.postgresql.org/docs/18/using-explain.html">https://www.postgresql.org/docs/18/using-explain.html</a>
+      </li>
+      <li>
+        Creating an index:<br>
+        <a href="https://www.postgresql.org/docs/18/sql-createindex.html">https://www.postgresql.org/docs/18/sql-createindex.html</a>
+      </li>
+      <li>
+        Creating a clustered index:<br>
+        <a href="https://www.postgresql.org/docs/18/sql-cluster.html">https://www.postgresql.org/docs/18/sql-cluster.html</a>
+      </li>
+    </ul>
     <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
       <div>See an issue? <a href="https://github.com/eecs484db/eecs484db.github.io/issues">Improve this page.</a></div>
     </div>
