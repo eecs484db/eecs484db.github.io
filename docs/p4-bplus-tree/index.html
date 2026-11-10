@@ -108,9 +108,9 @@
     <p>You will receive points based on how many of the Autograder test cases you pass. The Autograder submission policy is described on the assignment page.</p>
     <p>Up to 7 points may be deducted for style problems such as obfuscated or uncommented code, unnecessary repetition, avoidable extra I/O, or debug output that violates the required output contract.</p>
 
-    <h1 id="part-2-postgresql">Part 2: PostgreSQL Query Optimizer (100 points)</h1>
-    <p>The starter PDF file can be found here: <a https://drive.google.com/drive/folders/17ZMJVrt6Dnwd6wMP3SsbuOWO2EDqFAAV?usp=drive_link/>Project 4</a></p>
-    <p>The second part of the project will give you some hands-on experience in creating indexes and understanding query optimizers in PostgreSQL. This part uses PostgreSQL; it is not a SQL*Plus, Oracle, or SQLite assignment. The questions for this part will be provided in the <code>F26_P4answers.pdf</code> handout.</p>
+    <h1 id="part-2-postgresql">Part 2: PostgreSQL Query Optimizer (30 points)</h1>
+    <p>The starter PDF file can be found here: <span>[LINK TO GOOGLE DRIVE]</span></p>
+    <p>The second part of the project will give you some hands-on experience in creating indexes and understanding query optimizers in PostgreSQL. This part uses PostgreSQL; it is not a SQL*Plus, Oracle, or SQLite assignment. Exercises 1&ndash;7 for this part will be provided in the <code>p3answers.pdf</code> handout. Exercises 8 and 9 are described on this page, in <a href="#part-2-exercise-8">Exercise 8</a> and <a href="#part-2-exercise-9">Exercise 9</a>; they connect the indexes you build in PostgreSQL to the B+ tree you implement in Part 1.</p>
 
     <h2 id="part-2-environment">Environment</h2>
     <p>Use a supported local PostgreSQL installation, preferably the current stable release available from the official PostgreSQL download page. The <a href="../postgres-local-setup/index.html">Local PostgreSQL Setup Guide</a> covers Windows, macOS, and Linux.</p>
@@ -122,13 +122,80 @@
       <li><strong>Orders</strong> (<code>orderid</code>, <code>orderdate</code>, <code>customerid</code>, <code>netamount</code>, <code>tax</code>, <code>totalamount</code>)</li>
     </ul>
     <p>Download the <a href="dvd_store_data.zip">Dell DVD Store data</a> and load it into your local PostgreSQL database using the project materials and the <a href="../postgres-local-setup/index.html">Local PostgreSQL Setup Guide</a>. You can inspect a table's schema and indexes with <code>\\d+ tablename</code>.</p>
-    <p>The exercises will ask you to create and remove indexes, run SQL queries, and inspect the query optimizer's choices using PostgreSQL <code>EXPLAIN</code> commands. A bitmap index is disabled in the driver file <code>setup_db.sql</code> because bitmap indexes are not covered in this class.</p>
+    <p>The exercises will ask you to create and remove indexes, run SQL queries, and inspect the query optimizer's choices using PostgreSQL <code>EXPLAIN</code> commands. Bitmap scans are not covered in this class, so the driver file <code>setup_db.sql</code> ends with <code>SET enable_bitmapscan = off;</code>. A <code>SET</code> only lasts for the current session, so run <code>SET enable_bitmapscan = off;</code> again every time you open a new <code>psql</code> session, and include it at the top of <code>P3queries.sql</code>.</p>
     <p>Answers and query-plan output may differ slightly across different runs because of database statistics, cache state, data size, and other local execution conditions.</p>
+
+    <h2 id="part-2-exercise-8">Exercise 8: Inside a PostgreSQL B+ tree</h2>
+    <p>A PostgreSQL index created with <code>CREATE INDEX</code> is a B+ tree, just like the one you implement in Part 1. Each node is one 8&nbsp;KB disk page. Inner pages hold separator keys and child pointers; leaf pages hold <em>(key, record id)</em> entries and are linked to their neighbors. This is Alternative 2, the same layout as the <code>Data</code> entries in <code>constants.h</code>. The <code>pageinspect</code> extension lets you look at these pages directly. It ships with standard PostgreSQL installations and requires a superuser, which you are by default on a local installation.</p>
+    <p>Start from a freshly loaded database and run:</p>
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SET enable_bitmapscan = off;
+CREATE EXTENSION IF NOT EXISTS pageinspect;
+-- deduplicate_items = off stores one (key, record id) entry per row, like
+-- Part 1. By default, PostgreSQL 13+ merges duplicate keys into one entry.
+CREATE INDEX ix_orders_custid ON orders (customerid) WITH (deduplicate_items = off);
+ANALYZE orders;
+
+-- Root page number and height of the tree. PostgreSQL numbers levels from
+-- the leaves upward: leaves are level 0, so level = number of inner levels.
+SELECT root, level FROM bt_metap('ix_orders_custid');
+
+-- Total number of pages in the index (page 0 is a metadata page, not a node).
+SELECT pg_relation_size('ix_orders_custid') / 8192 AS index_pages;
+
+-- Statistics for one node. Replace ROOT with the root page number from above.
+-- type: r = root, i = inner, l = leaf. btpo_prev / btpo_next are sibling links.
+SELECT type, live_items, btpo_prev, btpo_next, btpo_level
+FROM bt_page_stats('ix_orders_custid', ROOT);
+</code></pre></div></div>
+    <p>Answer the following:</p>
+    <ol type="a">
+      <li>Report the height of <code>ix_orders_custid</code>, the number of children of the root, the total number of leaf pages, and the number of entries in the leftmost leaf. To find the leftmost leaf, use the page that the root's first entry points to; you can list the root's entries with <code>bt_page_items('ix_orders_custid', ROOT)</code>, where the first number of the <code>ctid</code> column is the child page (ignore the second number in inner pages).</li>
+      <li>Starting from the leftmost leaf, follow <code>btpo_next</code> through three leaves and report each page number and its <code>live_items</code>. Which operation in Part 1 depends on leaves being linked like this, and why?</li>
+      <li>The <code>orders</code> table has 12,000 rows. Using the Part 1 constants in the starter <code>constants.h</code> (<code>BTREE_FANOUT = 5</code>, <code>BTREE_LEAF_SIZE = 4</code>), compute the smallest and largest possible height of a Part 1 B+ tree holding 12,000 keys, using the node capacity rules in <a href="#tree-rules">Part 1</a>. Compare with the height you measured in (a). In one or two sentences, explain what makes PostgreSQL's fanout so much larger.</li>
+      <li>Now build an index on a much wider key:
+        <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CREATE INDEX ix_customers_wide ON customers (address1, email, lastname, firstname, city);</code></pre></div></div>
+        Report the height and number of pages of <code>ix_customers_wide</code> and of the primary key index <code>customers_pkey</code> (both index the same 20,000 rows). Explain the difference in terms of fanout. Drop <code>ix_customers_wide</code> when you are done.</li>
+    </ol>
+
+    <h2 id="part-2-exercise-9">Exercise 9: Predicting when the plan changes</h2>
+    <p>An index range scan follows the same steps as <code>Btree::search_range()</code>: descend from the root to the first matching leaf, walk the leaf chain until the range ends, and then, because the index uses Alternative 2, fetch each matching record from the table (the <em>heap</em>). Whether those heap fetches are cheap depends on whether the table is stored in roughly the same order as the index, i.e. whether the index is <em>clustered</em>. In this exercise you will use that cost model to explain when the optimizer switches between an index scan and a sequential scan.</p>
+    <p>Keep <code>ix_orders_custid</code> from Exercise 8 and add a second index:</p>
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SET enable_bitmapscan = off;
+CREATE INDEX ix_orders_date ON orders (orderdate);
+ANALYZE orders;
+
+-- correlation close to 1 or -1: table order matches index order (clustered)
+-- correlation close to 0: table order is unrelated to index order (unclustered)
+SELECT attname, correlation FROM pg_stats
+WHERE tablename = 'orders' AND attname IN ('customerid', 'orderdate');
+</code></pre></div></div>
+    <ol type="a">
+      <li>Report the correlation of <code>customerid</code> and <code>orderdate</code>. Which of the two indexes behaves like a clustered index?</li>
+      <li>Run <code>EXPLAIN SELECT * FROM orders WHERE customerid &lt;= k;</code> for <code>k</code> = 50, 100, 200, 500, and 2000, and <code>EXPLAIN SELECT * FROM orders WHERE orderdate &lt;= d;</code> for <code>d</code> = <code>'2009-01-15'</code>, <code>'2009-04-01'</code>, <code>'2009-07-01'</code>, <code>'2009-10-01'</code>, and <code>'2009-12-15'</code>. For each query, record the scan type and the estimated number of rows. For each column, report the approximate fraction of the table (estimated rows &divide; 12,000) at which the optimizer switches from an index scan to a sequential scan.</li>
+      <li>Force index scans with <code>SET enable_seqscan = off;</code> and run:
+        <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>EXPLAIN (ANALYZE, BUFFERS) SELECT * FROM orders WHERE customerid BETWEEN 1 AND 100;
+EXPLAIN (ANALYZE, BUFFERS) SELECT * FROM orders WHERE orderdate BETWEEN '2009-01-01' AND '2009-01-03';
+
+-- number of distinct table pages that hold the matching rows
+SELECT count(*) AS matching_rows,
+       count(DISTINCT (ctid::text::point)[0]) AS heap_pages
+FROM orders WHERE customerid BETWEEN 1 AND 100;
+</code></pre></div></div>
+        Report the actual rows and the <code>Buffers: shared hit/read</code> total for each query, and run the <code>heap_pages</code> query for both ranges. Using your tree height from Exercise 8, break each buffer count into (1) pages read while descending the tree, (2) leaf pages scanned, and (3) heap page accesses. A heap page is counted again each time the scan leaves it and later comes back to it, so heap accesses can exceed <code>heap_pages</code>. Use this breakdown to explain your switch points from (b). Run <code>RESET enable_seqscan;</code> afterward.</li>
+      <li>Physically reorder the table by customer and repeat the correlation query and the queries from (b):
+        <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CLUSTER orders USING ix_orders_custid;
+ANALYZE orders;
+</code></pre></div></div>
+        Extend the ranges from (b) as needed to find the new switch points: also try <code>k</code> = 4000, 8000, and 12000, and <code>d</code> = <code>'2009-01-03'</code>. How did the correlations and the switch points change for each column? Explain why using your answer to (c). Is "clustered" a property of the index, or of how the table is stored? <code>CLUSTER</code> changes the table permanently, so reload the database before rerunning any other exercise.</li>
+    </ol>
+    <p>The exact switch points and buffer counts depend on your PostgreSQL version and settings, so they may not match your classmates' numbers. You will be graded on whether your measurements are consistent with each other and on the reasoning in your explanations, not on matching specific numbers.</p>
 
     <h2 id="part-2-submission">Part 2 submission and grading</h2>
     <p>Submit one document to Gradescope Project 4 Query Optimization. Only one partner needs to submit, and be sure to add partner to the submission</p>
     <ol>
-      <li><strong><code>P4answers.pdf</code>:</strong> answers to the eight exercises, the Postgres commands used to answer each exercise, and all queries with output. Keep the commands as neat as possible.</li>
+      <li><strong><code>P3answers.pdf</code>:</strong> answers to all nine exercises (Exercises 1&ndash;7 from the handout and Exercises 8&ndash;9 on this page) and the SQL commands used to answer each exercise. Keep the commands as neat as possible.</li>
+      <li><strong><code>P3output.pdf</code>:</strong> the outputs of the <code>EXPLAIN</code> commands for all exercises, numbered by exercise number.</li>
+      <li><strong><code>P3queries.sql</code>:</strong> all SQL queries in the proper sequence, including database reloading and <code>ENABLE</code> and <code>DROP</code> commands. The script should run all exercises in sequence and include comments indicating the question to which each query applies.</li>
     </ol>
     <p>If you are working with a partner, make one group submission. The current course submission policy applies to this part of the project.</p>
 
