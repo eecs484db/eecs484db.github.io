@@ -81,8 +81,7 @@ cd dvd_store_data</code></pre>
 \d+ customers
 \d+ orders
 \q</code></pre>
-    <p>Run your baseline queries before adding indexes. To add the standard indexes included in the archive, run <code>pgsqlds2_create_ind.sql</code> from the same <code>dvd_store_data</code> directory:</p>
-    <pre><code>psql -v ON_ERROR_STOP=1 -U postgres -h localhost -p 5432 -d eecs484_p4 -f pgsqlds2_create_ind.sql</code></pre>
+    <p>Use the database created by <code>setup_db.sql</code> as your baseline. Create additional indexes only when an exercise instructs you to do so.</p>
 
     <h2 id="run-sql-files">5. Run SQL files</h2>
     <p>From the directory containing a project SQL file, run it with <code>-f</code>:</p>
